@@ -152,7 +152,10 @@
                 <span class="logo-icon">🪝</span>
                 <span>the claw drop</span>
             </div>
-            <div class="badge">Weekly Newsletter</div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <a href="#archive" style="font-size: 0.85rem; color: var(--text-muted); text-decoration: none; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='var(--accent-bright)'" onmouseout="this.style.color='var(--text-muted)'">Archive</a>
+                <a href="/submit" style="font-size: 0.85rem; color: var(--text-muted); text-decoration: none; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='var(--accent-bright)'" onmouseout="this.style.color='var(--text-muted)'">Submit</a>
+            </div>
         </nav>
 
         <section class="hero">
@@ -193,10 +196,6 @@
             ></iframe>
             </div>
             <script src="https://link.msgsndr.com/js/form_embed.js"></script>
-        </div>
-
-        <div style="text-align: center; margin-bottom: 48px;">
-            <a href="/showcase" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; border-radius: 10px; border: 1px solid var(--border); color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent-bright)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-muted)'">📖 Let me read it first</a>
         </div>
 
         <div class="pills">
@@ -242,6 +241,28 @@
                 </div>
             </div>
         </div>
+
+        <section id="archive" style="margin-bottom: 60px;">
+            <div style="text-align: center; margin-bottom: 32px;">
+                <p style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px;">Recent Issues</p>
+                <h2 style="font-size: 1.5rem; font-weight: 800; letter-spacing: -0.03em;">Past Drops</h2>
+            </div>
+
+            <a href="/showcase/issues/001.html" style="display: block; text-decoration: none; color: inherit; padding: 20px; border-radius: 12px; border: 1px solid var(--border); background: var(--bg-card); margin-bottom: 12px; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--border-glow)';this.style.background='var(--bg-card-hover)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.background='var(--bg-card)';this.style.transform='none'">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--accent-bright);">#001</span>
+                        <h3 style="font-size: 1rem; font-weight: 700; margin-top: 4px;">Agents That Spend Money</h3>
+                        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">Car negotiation, grocery shopping, crypto launches, bot commerce, prediction markets</p>
+                    </div>
+                    <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-dim);">Feb 17</span>
+                </div>
+            </a>
+
+            <div style="text-align: center; margin-top: 32px;">
+                <a href="/showcase" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; border-radius: 10px; border: 1px solid var(--border); color: var(--text-muted); text-decoration: none; font-size: 0.85rem; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent-bright)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-muted)'">View full archive →</a>
+            </div>
+        </section>
 
         <footer>
             <p>
