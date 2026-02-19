@@ -177,11 +177,12 @@
                 </div>
             </div>
 
-            <div style="text-align: center; padding: 32px 24px; margin-bottom: 24px; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-card);">
+            <div style="text-align: center; padding: 32px 24px; margin-bottom: 24px; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-card); transition: border-color 0.3s ease;" onmouseover="this.style.borderColor='var(--border-glow)'" onmouseout="this.style.borderColor='var(--border)'">
                 <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 16px;">Enjoying this? Get 5 new builds every Tuesday.</p>
+                <div style="height: 170px; overflow: hidden; border-radius: 8px;">
                 <iframe
                     src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa"
-                    style="width: 100%; min-height: 300px; border: none; border-radius: 8px;"
+                    style="width: 100%; height: 500px !important; border: none; border-radius: 8px;"
                     id="inline-signup-001"
                     data-layout="{'id':'INLINE'}"
                     data-trigger-type="alwaysShow"
@@ -192,6 +193,7 @@
                     data-form-id="OsR6NKbHoc4IUYG5phIa"
                     title="Newsletter Signup"
                 ></iframe>
+                </div>
                 <script src="https://link.msgsndr.com/js/form_embed.js"></script>
             </div>
 
