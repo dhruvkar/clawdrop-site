@@ -129,7 +129,16 @@
         }
 
         iframe { color-scheme: dark; }
-        iframe.form-embed { max-height: 350px !important; height: 350px !important; }
+        .form-iframe-wrap {
+            height: 330px;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+        .form-iframe-wrap iframe {
+            height: 500px !important;
+            width: 100% !important;
+            border: none;
+        }
     </style>
 </head>
 <body>
@@ -164,6 +173,7 @@
                 <h2>Get the drop. Every Tuesday.</h2>
                 <p>Join builders who want to see what's possible.</p>
             </div>
+            <div class="form-iframe-wrap">
             <iframe
                 src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa"
                 class="form-embed"
@@ -181,6 +191,7 @@
                 data-form-id="OsR6NKbHoc4IUYG5phIa"
                 title="Newsletter Signup"
             ></iframe>
+            </div>
             <script src="https://link.msgsndr.com/js/form_embed.js"></script>
         </div>
 
