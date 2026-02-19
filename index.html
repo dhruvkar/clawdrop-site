@@ -76,7 +76,7 @@
         .logo span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
         .badge { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; font-weight: 500; padding: 4px 10px; border-radius: 100px; border: 1px solid var(--border); color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; }
 
-        .hero { padding: 80px 0 40px; text-align: center; }
+        .hero { padding: 60px 0 24px; text-align: center; }
         .hero-pre { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--accent-bright); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; gap: 10px; }
         .hero-pre .dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
         @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
@@ -87,7 +87,7 @@
         .hero-sub { font-size: 1.15rem; color: var(--text-muted); line-height: 1.7; max-width: 520px; margin: 0 auto 16px; }
         .hero-sub strong { color: var(--text); font-weight: 600; }
 
-        .pills { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 32px 0 48px; }
+        .pills { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 32px 0 40px; }
         .pill { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; padding: 6px 14px; border-radius: 100px; border: 1px solid var(--border); color: var(--text-muted); background: var(--bg-card); transition: all 0.3s ease; cursor: default; }
         .pill:hover { border-color: var(--accent); color: var(--accent-bright); background: var(--accent-glow); }
 
@@ -96,7 +96,7 @@
         .form-header { text-align: center; margin-bottom: 24px; }
         .form-header h2 { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px; }
         .form-header p { font-size: 0.9rem; color: var(--text-muted); }
-        .form-embed { width: 100%; min-height: 380px; border: none; border-radius: 8px; }
+        .form-embed { width: 100%; min-height: 380px; border: none; border-radius: 8px; background: transparent; }
 
         .features { display: grid; grid-template-columns: 1fr; gap: 16px; margin-bottom: 60px; }
         .feature { display: flex; gap: 16px; padding: 20px; border-radius: 12px; border: 1px solid var(--border); background: var(--bg-card); transition: all 0.3s ease; }
@@ -158,19 +158,6 @@
             </p>
         </section>
 
-        <div class="pills">
-            <span class="pill">home automation</span>
-            <span class="pill">lead gen pipelines</span>
-            <span class="pill">email triage</span>
-            <span class="pill">calendar copilots</span>
-            <span class="pill">data scrapers</span>
-            <span class="pill">CRM workflows</span>
-            <span class="pill">morning briefings</span>
-            <span class="pill">social monitoring</span>
-            <span class="pill">family bots</span>
-            <span class="pill">dev ops</span>
-        </div>
-
         <div class="form-section">
             <div class="form-header">
                 <h2>Get the drop. Every Tuesday.</h2>
@@ -194,6 +181,23 @@
                 title="Newsletter Signup"
             ></iframe>
             <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+        </div>
+
+        <div style="text-align: center; margin-bottom: 48px;">
+            <a href="/showcase" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; border-radius: 10px; border: 1px solid var(--border); color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent-bright)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-muted)'">📖 Read first — browse past builds</a>
+        </div>
+
+        <div class="pills">
+            <span class="pill">home automation</span>
+            <span class="pill">lead gen pipelines</span>
+            <span class="pill">email triage</span>
+            <span class="pill">calendar copilots</span>
+            <span class="pill">data scrapers</span>
+            <span class="pill">CRM workflows</span>
+            <span class="pill">morning briefings</span>
+            <span class="pill">social monitoring</span>
+            <span class="pill">family bots</span>
+            <span class="pill">dev ops</span>
         </div>
 
         <div class="features">
