@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thanks! — The Claw Drop</title>
-    <meta name="description" content="Thanks for submitting your OpenClaw build.">
+    <title>Builds — The Claw Drop</title>
+    <meta name="description" content="Every build we've featured in The Claw Drop. Real OpenClaw automations, workflows, and experiments.">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,12 +13,15 @@
         :root {
             --bg: #0a0a0f;
             --bg-card: #12121a;
+            --bg-card-hover: #1a1a28;
             --border: #1e1e2e;
+            --border-glow: #6c5ce7;
             --text: #e8e6f0;
             --text-muted: #8888a0;
             --text-dim: #555568;
             --accent: #6c5ce7;
             --accent-bright: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.15);
             --green: #00cec9;
             --pink: #fd79a8;
             --gradient: linear-gradient(135deg, #6c5ce7, #a29bfe, #fd79a8);
@@ -58,35 +61,53 @@
         @keyframes float1 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(80px, 60px); } }
         @keyframes float2 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-60px, -80px); } }
 
-        .container { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; padding: 0 24px; display: flex; flex-direction: column; min-height: 100vh; }
+        .container { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; padding: 0 24px; }
 
         nav { padding: 24px 0; display: flex; align-items: center; justify-content: space-between; }
         .logo { font-size: 1.1rem; font-weight: 700; letter-spacing: -0.02em; display: flex; align-items: center; gap: 8px; text-decoration: none; }
         .logo-icon { font-size: 1.4rem; }
         .logo span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .nav-cta { font-size: 0.8rem; font-weight: 600; padding: 8px 18px; border-radius: 8px; background: var(--accent); color: white; text-decoration: none; transition: all 0.3s ease; }
+        .nav-cta:hover { background: var(--accent-bright); transform: translateY(-1px); }
 
-        .content { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 60px 0; }
-
-        .hero-emoji { font-size: 4rem; margin-bottom: 32px; display: inline-block; animation: pop 0.6s ease-out; }
-        @keyframes pop { 0% { transform: scale(0) rotate(-20deg); opacity: 0; } 60% { transform: scale(1.15) rotate(5deg); } 100% { transform: scale(1) rotate(0); opacity: 1; } }
-
-        h1 { font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 900; line-height: 1.1; letter-spacing: -0.04em; margin-bottom: 20px; }
+        .header { padding: 80px 0 48px; text-align: center; }
+        .header-pre { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--accent-bright); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px; }
+        h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 900; line-height: 1.1; letter-spacing: -0.04em; margin-bottom: 16px; }
         h1 .highlight { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .header-sub { font-size: 1.05rem; color: var(--text-muted); line-height: 1.6; max-width: 480px; margin: 0 auto; }
 
-        .message { font-size: 1.05rem; color: var(--text-muted); line-height: 1.7; max-width: 480px; margin: 0 auto 40px; }
-        .message strong { color: var(--text); font-weight: 600; }
+        .builds-list { padding-bottom: 60px; }
 
-        .cta-row { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
-        .cta-btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 10px; font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: all 0.3s ease; }
-        .cta-primary { background: var(--accent); color: white; }
-        .cta-primary:hover { background: var(--accent-bright); transform: translateY(-2px); }
-        .cta-secondary { border: 1px solid var(--border); color: var(--text-muted); background: var(--bg-card); }
-        .cta-secondary:hover { border-color: var(--accent); color: var(--accent-bright); transform: translateY(-2px); }
+        .empty-state {
+            text-align: center;
+            padding: 80px 20px;
+            border: 1px dashed var(--border);
+            border-radius: 16px;
+            background: var(--bg-card);
+        }
+        .empty-icon { font-size: 3rem; margin-bottom: 20px; opacity: 0.6; }
+        .empty-state h2 { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; }
+        .empty-state p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; max-width: 360px; margin: 0 auto 24px; }
+        .empty-cta { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 10px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--accent); color: white; transition: all 0.3s ease; }
+        .empty-cta:hover { background: var(--accent-bright); transform: translateY(-2px); }
+
+        /* Future: build cards will go here -->
+        .build-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 28px; margin-bottom: 16px; transition: all 0.3s ease; }
+        .build-card:hover { border-color: var(--border-glow); background: var(--bg-card-hover); transform: translateY(-2px); }
+        .build-issue { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--accent-bright); margin-bottom: 12px; }
+        .build-title { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+        .build-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+        .build-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: var(--green); background: rgba(0, 206, 201, 0.1); padding: 2px 8px; border-radius: 4px; display: inline-block; margin-top: 10px; }
+        */
 
         footer { text-align: center; padding: 40px 0 60px; border-top: 1px solid var(--border); }
         footer p { font-size: 0.78rem; color: var(--text-dim); }
         footer a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
         footer a:hover { color: var(--accent-bright); }
+
+        @media (max-width: 600px) {
+            .header { padding: 50px 0 36px; }
+        }
     </style>
 </head>
 <body>
@@ -99,18 +120,21 @@
                 <span class="logo-icon">🪝</span>
                 <span>the claw drop</span>
             </a>
+            <a href="/" class="nav-cta">Subscribe</a>
         </nav>
 
-        <section class="content">
-            <div class="hero-emoji">🪝</div>
-            <h1>You're <span class="highlight">awesome</span></h1>
-            <p class="message">
-                We got your build. <strong>If it makes us go "oh that's clever,"</strong>
-                there's a good chance it'll show up in a future issue.
-                Keep an eye on your inbox — we'll let you know.
-            </p>
-            <div class="cta-row">
-                <a href="/showcase" class="cta-btn cta-primary">🪝 Browse Past Builds</a>
+        <section class="header">
+            <div class="header-pre">The Archive</div>
+            <h1>Every <span class="highlight">build</span> we've featured</h1>
+            <p class="header-sub">Real automations, workflows, and experiments from the OpenClaw community. Updated weekly.</p>
+        </section>
+
+        <section class="builds-list">
+            <div class="empty-state">
+                <div class="empty-icon">🪝</div>
+                <h2>First issue drops soon</h2>
+                <p>We're collecting the best builds right now. Subscribe so you don't miss issue #001.</p>
+                <a href="/" class="empty-cta">🔔 Get on the list</a>
             </div>
         </section>
 
