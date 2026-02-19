@@ -67,8 +67,8 @@
         .logo { font-size: 1.1rem; font-weight: 700; letter-spacing: -0.02em; display: flex; align-items: center; gap: 8px; text-decoration: none; }
         .logo-icon { font-size: 1.4rem; }
         .logo span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .nav-cta { font-size: 0.8rem; font-weight: 600; padding: 8px 18px; border-radius: 8px; background: var(--accent); color: white; text-decoration: none; transition: all 0.3s ease; }
-        .nav-cta:hover { background: var(--accent-bright); transform: translateY(-1px); }
+        .nav-link { font-size: 0.85rem; color: var(--text-muted); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+        .nav-link:hover { color: var(--accent-bright); }
 
         .header { padding: 80px 0 48px; text-align: center; }
         .header-pre { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--accent-bright); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px; }
@@ -146,7 +146,10 @@
                 <span class="logo-icon">🪝</span>
                 <span>the claw drop</span>
             </a>
-            <a href="/" class="nav-cta">Subscribe</a>
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <a href="/showcase" class="nav-link">Archive</a>
+                <a href="/submit" class="nav-link">Submit</a>
+            </div>
         </nav>
 
         <section class="header">

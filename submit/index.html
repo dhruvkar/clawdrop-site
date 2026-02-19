@@ -68,7 +68,8 @@
         .logo { font-size: 1.1rem; font-weight: 700; letter-spacing: -0.02em; display: flex; align-items: center; gap: 8px; text-decoration: none; }
         .logo-icon { font-size: 1.4rem; }
         .logo span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .badge { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; font-weight: 500; padding: 4px 10px; border-radius: 100px; border: 1px solid var(--border); color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; }
+        .nav-link { font-size: 0.85rem; color: var(--text-muted); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+        .nav-link:hover { color: var(--accent-bright); }
 
         .content { padding: 80px 0 40px; text-align: center; }
 
@@ -126,7 +127,10 @@
                 <span class="logo-icon">🪝</span>
                 <span>the claw drop</span>
             </a>
-            <a href="/showcase" style="font-size: 0.85rem; color: var(--text-muted); text-decoration: none; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='var(--accent-bright)'" onmouseout="this.style.color='var(--text-muted)'">Archive</a>
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <a href="/showcase" class="nav-link">Archive</a>
+                <a href="/submit" class="nav-link">Submit</a>
+            </div>
         </nav>
 
         <section class="content">

@@ -71,10 +71,11 @@
         .container { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; padding: 0 24px; }
 
         nav { padding: 24px 0; display: flex; align-items: center; justify-content: space-between; }
-        .logo { font-size: 1.1rem; font-weight: 700; letter-spacing: -0.02em; display: flex; align-items: center; gap: 8px; }
+        .logo { font-size: 1.1rem; font-weight: 700; letter-spacing: -0.02em; display: flex; align-items: center; gap: 8px; text-decoration: none; }
         .logo-icon { font-size: 1.4rem; }
         .logo span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .badge { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; font-weight: 500; padding: 4px 10px; border-radius: 100px; border: 1px solid var(--border); color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; }
+        .nav-link { font-size: 0.85rem; color: var(--text-muted); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+        .nav-link:hover { color: var(--accent-bright); }
 
         .hero { padding: 60px 0 24px; text-align: center; }
         .hero-pre { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--accent-bright); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; gap: 10px; }
@@ -149,13 +150,13 @@
 
     <div class="container">
         <nav>
-            <div class="logo">
+            <a href="/" class="logo">
                 <span class="logo-icon">🪝</span>
                 <span>the claw drop</span>
-            </div>
+            </a>
             <div style="display: flex; align-items: center; gap: 20px;">
-                <a href="/showcase" style="font-size: 0.85rem; color: var(--text-muted); text-decoration: none; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='var(--accent-bright)'" onmouseout="this.style.color='var(--text-muted)'">Archive</a>
-                <a href="/submit" style="font-size: 0.85rem; color: var(--text-muted); text-decoration: none; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='var(--accent-bright)'" onmouseout="this.style.color='var(--text-muted)'">Submit</a>
+                <a href="/showcase" class="nav-link">Archive</a>
+                <a href="/submit" class="nav-link">Submit</a>
             </div>
         </nav>
 
