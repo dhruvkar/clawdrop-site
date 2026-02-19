@@ -91,7 +91,33 @@
         .empty-cta { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 10px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--accent); color: white; transition: all 0.3s ease; }
         .empty-cta:hover { background: var(--accent-bright); transform: translateY(-2px); }
 
-        /* Future: build cards will go here -->
+        .issue-card {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            padding: 28px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            margin-bottom: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+        .issue-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--gradient); opacity: 0.3; }
+        .issue-card:hover { border-color: var(--border-glow); background: var(--bg-card-hover); transform: translateY(-2px); }
+        .issue-num { font-family: 'JetBrains Mono', monospace; font-size: 1.4rem; font-weight: 700; color: var(--accent-bright); flex-shrink: 0; width: 64px; text-align: center; }
+        .issue-content { flex: 1; }
+        .issue-content h2 { font-size: 1.1rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 6px; }
+        .issue-content p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 10px; }
+        .issue-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+        .issue-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; padding: 2px 8px; border-radius: 4px; border: 1px solid var(--border); color: var(--text-dim); }
+        .issue-arrow { font-size: 1.2rem; color: var(--text-dim); flex-shrink: 0; transition: all 0.3s ease; }
+        .issue-card:hover .issue-arrow { color: var(--accent-bright); transform: translateX(4px); }
+
+        /* Future: individual build cards -->
         .build-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 28px; margin-bottom: 16px; transition: all 0.3s ease; }
         .build-card:hover { border-color: var(--border-glow); background: var(--bg-card-hover); transform: translateY(-2px); }
         .build-issue { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--accent-bright); margin-bottom: 12px; }
@@ -130,12 +156,21 @@
         </section>
 
         <section class="builds-list">
-            <div class="empty-state">
-                <div class="empty-icon">🪝</div>
-                <h2>First issue drops soon</h2>
-                <p>We're collecting the best builds right now. Subscribe so you don't miss issue #001.</p>
-                <a href="/" class="empty-cta">🔔 Get on the list</a>
-            </div>
+            <a href="/showcase/issues/001.html" class="issue-card">
+                <div class="issue-num">#001</div>
+                <div class="issue-content">
+                    <h2>Agents That Spend Money</h2>
+                    <p>Car negotiations, grocery runs, crypto launches, bot-to-bot commerce, and a $115K/week prediction market bot.</p>
+                    <div class="issue-tags">
+                        <span class="issue-tag">browser</span>
+                        <span class="issue-tag">payments</span>
+                        <span class="issue-tag">crypto</span>
+                        <span class="issue-tag">trading</span>
+                        <span class="issue-tag">autonomous</span>
+                    </div>
+                </div>
+                <div class="issue-arrow">→</div>
+            </a>
         </section>
 
         <footer>
