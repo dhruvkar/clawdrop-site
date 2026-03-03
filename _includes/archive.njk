@@ -1,0 +1,46 @@
+{% extends "base.njk" %}
+
+{% block styles %}
+  .post { max-width: 680px; margin: 0 auto; padding: 60px 24px 80px; position: relative; z-index: 2; }
+  .post-back { color: var(--accent-bright); text-decoration: none; font-size: 0.85rem; font-weight: 500; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { text-decoration: underline; }
+  .post-date { color: var(--text-muted); font-size: 0.82rem; margin-top: 12px; }
+  .issue-num { font-family: 'JetBrains Mono', monospace; color: var(--accent-bright); font-size: 0.8rem; }
+  .post h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.12; margin: 24px 0 12px; }
+  .post-subject { font-size: 1.05rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
+  .post-content h2 { font-size: 1.3rem; font-weight: 700; margin-top: 40px; margin-bottom: 14px; letter-spacing: -0.02em; }
+  .post-content h3 { font-size: 1.1rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; }
+  .post-content p { color: #ccc; font-size: 0.95rem; line-height: 1.85; margin-bottom: 18px; }
+  .post-content a { color: var(--accent-bright); text-decoration: none; }
+  .post-content a:hover { text-decoration: underline; }
+  .post-content ul, .post-content ol { color: #ccc; font-size: 0.95rem; line-height: 1.85; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent-bright); padding: 14px 20px; margin: 20px 0; background: var(--bg-card); border-radius: 0 8px 8px 0; color: #bbb; font-size: 0.95rem; line-height: 1.8; }
+  .post-content code { background: var(--bg-card); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--accent-bright); }
+  .post-content pre { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 18px; overflow-x: auto; margin: 20px 0; }
+  .post-content pre code { background: none; padding: 0; font-size: 0.85rem; color: #ccc; }
+  .post-content strong { color: var(--text); }
+  .post-footer { margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--border); text-align: center; }
+  .post-footer p { color: var(--text-muted); font-size: 0.92rem; margin-bottom: 16px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 12px 28px; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 0.95rem; transition: all 0.2s; box-shadow: 0 0 40px var(--accent-glow); }
+  .btn-cta:hover { background: var(--accent-bright); transform: translateY(-1px); }
+{% endblock %}
+
+{% block body %}
+  <article class="post">
+    <a href="/archives/" class="post-back">← All Archives</a>
+    <div class="post-date">
+      {{ date | readableDate }}
+      {% if issueNumber %} · <span class="issue-num">Issue #{{ issueNumber }}</span>{% endif %}
+    </div>
+    <h1>{{ title }}</h1>
+    {% if subject %}<p class="post-subject">{{ subject }}</p>{% endif %}
+    <div class="post-content">
+      {{ content | safe }}
+    </div>
+    <div class="post-footer">
+      <p>Never miss an issue. Subscribe to The Claw Drop.</p>
+      <a href="/" class="btn-cta">Subscribe →</a>
+    </div>
+  </article>
+{% endblock %}

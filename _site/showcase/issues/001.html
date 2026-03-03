@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Claw Drop #001 — Agents That Spend Money</title>
+    <meta name="description" content="Car negotiations, grocery runs, crypto launches, bot-to-bot commerce, and a $115K/week prediction market bot.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0f;
+            --bg-card: #12121a;
+            --bg-card-hover: #1a1a28;
+            --border: #1e1e2e;
+            --border-glow: #6c5ce7;
+            --text: #e8e6f0;
+            --text-muted: #8888a0;
+            --text-dim: #555568;
+            --accent: #6c5ce7;
+            --accent-bright: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.15);
+            --green: #00cec9;
+            --pink: #fd79a8;
+            --gradient: linear-gradient(135deg, #6c5ce7, #a29bfe, #fd79a8);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .orb-1 { width: 600px; height: 600px; background: var(--accent); top: -200px; left: -100px; animation: float1 20s ease-in-out infinite; }
+        .orb-2 { width: 500px; height: 500px; background: var(--pink); bottom: -150px; right: -100px; animation: float2 25s ease-in-out infinite; }
+
+        @keyframes float1 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(80px, 60px); } }
+        @keyframes float2 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-60px, -80px); } }
+
+        .container { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+        nav { padding: 24px 0; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.1rem; font-weight: 700; letter-spacing: -0.02em; display: flex; align-items: center; gap: 8px; text-decoration: none; }
+        .logo-icon { font-size: 1.4rem; }
+        .logo span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .nav-link { font-size: 0.85rem; color: var(--text-muted); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+        .nav-link:hover { color: var(--accent-bright); }
+
+        .header { padding: 80px 0 20px; text-align: center; }
+        .issue-badge { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--accent-bright); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px; }
+        h1 { font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 900; line-height: 1.1; letter-spacing: -0.04em; margin-bottom: 16px; }
+        h1 .highlight { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .header-sub { font-size: 1rem; color: var(--text-muted); line-height: 1.6; max-width: 520px; margin: 0 auto; }
+
+        .builds { padding: 48px 0 60px; }
+
+        .build { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 36px 32px; margin-bottom: 24px; position: relative; overflow: hidden; transition: all 0.3s ease; }
+        .build:hover { border-color: var(--border-glow); transform: translateY(-2px); }
+        .build::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--gradient); opacity: 0.3; }
+
+        .build-num { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-dim); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
+        .build h2 { font-size: 1.3rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 16px; line-height: 1.3; }
+        .build-body { font-size: 0.92rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 20px; }
+        .build-body strong { color: var(--text); font-weight: 600; }
+        .build-body em { color: var(--accent-bright); font-style: normal; }
+
+        .build-meta { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding-top: 16px; border-top: 1px solid var(--border); }
+        .build-author { font-size: 0.8rem; color: var(--text-muted); }
+        .build-author a { color: var(--accent-bright); text-decoration: none; }
+        .build-author a:hover { text-decoration: underline; }
+
+        .cta-section { text-align: center; padding: 40px 0 60px; }
+        .cta-section p { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 20px; }
+        .cta-btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 10px; font-size: 0.9rem; font-weight: 600; text-decoration: none; background: var(--accent); color: white; transition: all 0.3s ease; }
+        .cta-btn:hover { background: var(--accent-bright); transform: translateY(-2px); }
+
+        footer { text-align: center; padding: 40px 0 60px; border-top: 1px solid var(--border); }
+        footer p { font-size: 0.78rem; color: var(--text-dim); }
+        footer a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+        footer a:hover { color: var(--accent-bright); }
+
+        @media (max-width: 600px) {
+            .header { padding: 50px 0 16px; }
+            .build { padding: 28px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+
+    <div class="container">
+        <nav>
+            <a href="/" class="logo">
+                <span class="logo-icon">🪝</span>
+                <span>the claw drop</span>
+            </a>
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <a href="/showcase" class="nav-link">Archive</a>
+                <a href="/submit" class="nav-link">Submit</a>
+            </div>
+        </nav>
+
+        <section class="header">
+            <div class="issue-badge">Issue #001 · Feb 17, 2026</div>
+            <h1>Agents That <span class="highlight">Spend Money</span></h1>
+            <p class="header-sub">This week: AI agents with wallets, negotiation skills, and questionable financial judgment. Five builds where OpenClaw touches real dollars.</p>
+        </section>
+
+        <section class="builds">
+
+            <div class="build">
+                <div class="build-num">Build 01</div>
+                <h2>The $4,200 Car Deal</h2>
+                <div class="build-body">
+                    <p>An OpenClaw agent that <strong>negotiates car prices autonomously</strong>. It scraped dealer inventories across the web, filled out "get a quote" contact forms, then played dealerships against each other — forwarding competing offers via browser, email, and iMessage.</p>
+                    <p style="margin-top: 12px;">No human touched a keyboard during the negotiation. The agent handled the back-and-forth, the lowball offers, the "let me check with my manager" dance. Final result: <strong>$4,200 below sticker price.</strong></p>
+                    <p style="margin-top: 12px;">The wildest part? The dealers had no idea they were negotiating with an AI.</p>
+                </div>
+                <div class="build-meta">
+                    <div class="build-author">by <a href="https://x.com/DeFi_Cheetah" target="_blank">@DeFi_Cheetah</a> · <a href="https://x.com/DeFi_Cheetah/status/2017615352235282896" target="_blank" style="color: var(--text-dim); font-size: 0.78rem;">original post ↗</a></div>
+                </div>
+            </div>
+
+            <div class="build">
+                <div class="build-num">Build 02</div>
+                <h2>The Grocery Run (With a Virtual Credit Card)</h2>
+                <div class="build-body">
+                    <p>Two builders independently cracked the same problem: <strong>getting an AI agent to buy groceries online</strong>. The agent browses the store, adds items to cart, and checks out — using a virtual credit card for payment and bridging MFA codes through 1Password via Beeper.</p>
+                    <p style="margin-top: 12px;">One version handles the full Supermarket.nl flow end-to-end. The other uses a disposable virtual card so the agent can't go rogue on your real account. Both navigate login walls, product search, and the entire checkout flow <strong>without human intervention</strong>.</p>
+                    <p style="margin-top: 12px;">It's the boring-sounding use case that's actually insane when you think about it: your AI has a credit card.</p>
+                </div>
+                <div class="build-meta">
+                    <div class="build-author">by <a href="https://x.com/iangcarroll" target="_blank">@iangcarroll</a> / <a href="https://x.com/anitakirkovska" target="_blank">@anitakirkovska</a> &amp; <a href="https://x.com/kirjd" target="_blank">@kirjd</a> · <a href="https://x.com/iangcarroll/status/2018484378704519175" target="_blank" style="color: var(--text-dim); font-size: 0.78rem;">original post ↗</a></div>
+                </div>
+            </div>
+
+            <div style="text-align: center; padding: 32px 24px; margin-bottom: 24px; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-card); transition: border-color 0.3s ease;" onmouseover="this.style.borderColor='var(--border-glow)'" onmouseout="this.style.borderColor='var(--border)'">
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 16px;">Enjoying this? Get 5 new builds every Tuesday.</p>
+                <div style="height: 220px; overflow: hidden; border-radius: 8px;">
+                <iframe
+                    src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa"
+                    style="width: 100%; height: 500px !important; border: none; border-radius: 8px;"
+                    id="inline-signup-001"
+                    data-layout="{'id':'INLINE'}"
+                    data-trigger-type="alwaysShow"
+                    data-activation-type="alwaysActivated"
+                    data-deactivation-type="neverDeactivate"
+                    data-form-name="Newsletter Signup"
+                    data-height="300"
+                    data-form-id="OsR6NKbHoc4IUYG5phIa"
+                    title="Newsletter Signup"
+                ></iframe>
+                </div>
+                <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+            </div>
+
+            <div class="build">
+                <div class="build-num">Build 03</div>
+                <h2>Asymmetrix: The AI That Launched a Token</h2>
+                <div class="build-body">
+                    <p>An OpenClaw agent named <em>Asymmetrix</em> that <strong>autonomously launched a cryptocurrency token</strong>. Not "helped someone launch" — the agent handled deployment, liquidity provisioning, and initial promotion on its own.</p>
+                    <p style="margin-top: 12px;">This is the use case that makes compliance officers sweat. An AI agent with access to crypto wallets and smart contracts, executing a multi-step financial operation from start to finish. The builder gave it the tools and the goal, then watched it work.</p>
+                    <p style="margin-top: 12px;">Whether you think this is the future or a cautionary tale probably says a lot about you.</p>
+                </div>
+                <div class="build-meta">
+                    <div class="build-author">by <a href="https://x.com/zodomo" target="_blank">@zodomo</a> · <a href="https://x.com/Zodomo/status/2018068656765489368" target="_blank" style="color: var(--text-dim); font-size: 0.78rem;">original post ↗</a></div>
+                </div>
+            </div>
+
+            <div class="build">
+                <div class="build-num">Build 04</div>
+                <h2>Bot-to-Bot Commerce</h2>
+                <div class="build-body">
+                    <p>What happens when you point <strong>two OpenClaw agents at each other</strong> and tell them to do business? Exactly what you'd expect: they negotiate, transact, and close deals. AI buying from AI.</p>
+                    <p style="margin-top: 12px;">The setup is deceptively simple — two agents, each with their own tools, goals, and communication channels. One has something to sell, the other has a budget and a need. They handle the entire exchange: discovery, negotiation, agreement, and settlement.</p>
+                    <p style="margin-top: 12px;">It's a proof of concept today. But it's also a glimpse of an economy where agents are the customers — and the merchants.</p>
+                </div>
+                <div class="build-meta">
+                    <div class="build-author">by <a href="https://x.com/plbiojout" target="_blank">@plbiojout</a> · <a href="https://x.com/plbiojout/status/2018457662866985340" target="_blank" style="color: var(--text-dim); font-size: 0.78rem;">original post ↗</a></div>
+                </div>
+            </div>
+
+            <div class="build">
+                <div class="build-num">Build 05</div>
+                <h2>The $115K/Week Polymarket Bot</h2>
+                <div class="build-body">
+                    <p>An OpenClaw agent plugged into <strong>Polymarket</strong> — the prediction market platform — making automated trades based on news analysis, probability assessment, and market sentiment. The claimed throughput: <strong>$115,000 in weekly volume</strong>.</p>
+                    <p style="margin-top: 12px;">The agent monitors event markets, evaluates odds against its own analysis, and places bets when it spots an edge. It's not just reading prices — it's synthesizing news feeds, social signals, and historical patterns to make trading decisions in real time.</p>
+                    <p style="margin-top: 12px;">Take the numbers with a grain of salt (this is crypto Twitter, after all). But the architecture is real, and the idea of AI agents as active market participants isn't theoretical anymore.</p>
+                </div>
+                <div class="build-meta">
+                    <div class="build-author">by <a href="https://x.com/nitesheth01" target="_blank">@nitesheth01</a> · <a href="https://phemex.com/news/article/openclaw-bot-generates-115k-in-a-week-on-polymarket-57582" target="_blank" style="color: var(--text-dim); font-size: 0.78rem;">original post ↗</a></div>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="cta-section">
+            <p>5 new builds every week. Don't miss the next drop.</p>
+            <a href="/" class="cta-btn">🪝 Subscribe to The Claw Drop</a>
+        </section>
+
+        <footer>
+            <p>
+                Built with <a href="https://github.com/openclaw/openclaw" target="_blank">OpenClaw</a> ·
+                A <a href="https://fundedlist.com" target="_blank">FundedList</a> project
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

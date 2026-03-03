@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Claw Drop — 5 OpenClaw Builds Every Week</title>
+    <meta name="description" content="See what people are actually building with OpenClaw. 5 practical use cases, automations, and AI assistant patterns delivered weekly.">
+    <meta property="og:title" content="The Claw Drop — 5 OpenClaw Builds Every Week">
+    <meta property="og:description" content="Steal the best OpenClaw automations. Real builds, real patterns, zero fluff.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://clawdrop.org">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0f;
+            --bg-card: #12121a;
+            --bg-card-hover: #1a1a28;
+            --border: #1e1e2e;
+            --border-glow: #6c5ce7;
+            --text: #e8e6f0;
+            --text-muted: #8888a0;
+            --text-dim: #555568;
+            --accent: #6c5ce7;
+            --accent-bright: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.15);
+            --green: #00cec9;
+            --orange: #fdcb6e;
+            --pink: #fd79a8;
+            --gradient: linear-gradient(135deg, #6c5ce7, #a29bfe, #fd79a8);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .orb-1 { width: 600px; height: 600px; background: var(--accent); top: -200px; left: -100px; animation: float1 20s ease-in-out infinite; }
+        .orb-2 { width: 500px; height: 500px; background: var(--pink); bottom: -150px; right: -100px; animation: float2 25s ease-in-out infinite; }
+        .orb-3 { width: 300px; height: 300px; background: var(--green); top: 50%; left: 60%; animation: float3 18s ease-in-out infinite; }
+
+        @keyframes float1 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(80px, 60px); } }
+        @keyframes float2 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-60px, -80px); } }
+        @keyframes float3 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-40px, 50px); } }
+
+        .container { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+        nav { padding: 24px 0; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.1rem; font-weight: 700; letter-spacing: -0.02em; display: flex; align-items: center; gap: 8px; text-decoration: none; }
+        .logo-icon { font-size: 1.4rem; }
+        .logo span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .nav-link { font-size: 0.85rem; color: var(--text-muted); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+        .nav-link:hover { color: var(--accent-bright); }
+
+        .hero { padding: 60px 0 24px; text-align: center; }
+        .hero-pre { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--accent-bright); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .hero-pre .dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+        h1 { font-size: clamp(2.5rem, 7vw, 4rem); font-weight: 900; line-height: 1.05; letter-spacing: -0.04em; margin-bottom: 24px; }
+        h1 .highlight { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+        .hero-sub { font-size: 1.15rem; color: var(--text-muted); line-height: 1.7; max-width: 520px; margin: 0 auto 16px; }
+        .hero-sub strong { color: var(--text); font-weight: 600; }
+
+        .pills { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 32px 0 40px; }
+        .pill { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; padding: 6px 14px; border-radius: 100px; border: 1px solid var(--border); color: var(--text-muted); background: var(--bg-card); transition: all 0.3s ease; cursor: default; }
+        .pill:hover { border-color: var(--accent); color: var(--accent-bright); background: var(--accent-glow); }
+
+        .form-section { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 40px 32px; margin-bottom: 40px; position: relative; overflow: hidden; }
+        .form-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--gradient); opacity: 0.5; }
+        .form-header { text-align: center; margin-bottom: 24px; }
+        .form-header h2 { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px; }
+        .form-header p { font-size: 0.9rem; color: var(--text-muted); }
+        .form-embed { width: 100%; min-height: 380px; border: none; border-radius: 8px; background: transparent; }
+
+        .features { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 60px; }
+        .feature { display: flex; gap: 16px; padding: 20px; border-radius: 12px; border: 1px solid var(--border); background: var(--bg-card); transition: all 0.3s ease; }
+        .feature:hover { border-color: var(--border-glow); background: var(--bg-card-hover); transform: translateY(-2px); }
+        .feature-icon { font-size: 1.5rem; flex-shrink: 0; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: var(--accent-glow); border-radius: 10px; }
+        .feature-text h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 4px; letter-spacing: -0.01em; }
+        .feature-text p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; }
+
+        .sample { margin-bottom: 60px; }
+        .sample-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; text-align: center; }
+        .sample-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 28px; }
+        .sample-title { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--accent-bright); margin-bottom: 20px; }
+        .sample-item { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+        .sample-item:last-child { border-bottom: none; }
+        .sample-num { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--text-dim); padding-top: 2px; flex-shrink: 0; }
+        .sample-item-title { font-size: 0.88rem; font-weight: 600; margin-bottom: 3px; }
+        .sample-item-desc { font-size: 0.78rem; color: var(--text-muted); line-height: 1.5; }
+        .sample-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: var(--green); background: rgba(0, 206, 201, 0.1); padding: 2px 8px; border-radius: 4px; display: inline-block; margin-top: 6px; }
+
+        footer { text-align: center; padding: 40px 0 60px; border-top: 1px solid var(--border); }
+        footer p { font-size: 0.78rem; color: var(--text-dim); }
+        footer a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+        footer a:hover { color: var(--accent-bright); }
+
+        @media (max-width: 600px) {
+            .hero { padding: 50px 0 30px; }
+            .form-section { padding: 28px 20px; }
+            .pills { gap: 6px; }
+            .pill { font-size: 0.65rem; padding: 5px 10px; }
+            .features { grid-template-columns: 1fr; }
+        }
+
+        iframe { color-scheme: dark; }
+        .form-iframe-wrap {
+            height: 240px;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+        .form-iframe-wrap iframe {
+            height: 500px !important;
+            width: 100% !important;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <div class="container">
+        <nav>
+            <a href="/" class="logo">
+                <span class="logo-icon">🪝</span>
+                <span>the claw drop</span>
+            </a>
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <a href="/showcase" class="nav-link">Archive</a>
+                <a href="/submit" class="nav-link">Submit</a>
+            </div>
+        </nav>
+
+        <section class="hero">
+            <div class="hero-pre">
+                <span class="dot"></span>
+                Tailored weekly from raw internet
+            </div>
+            <h1>What are people<br><span class="highlight">building with<br>OpenClaw?</span></h1>
+            <p class="hero-sub">
+                <strong>5 hand-picked builds. Every Tuesday.</strong> We dig through Discord threads, GitHub repos, and Twitter rabbit holes so you don't have to. Each build is verified, contextualized, and written up with the story behind it.
+            </p>
+        </section>
+
+        <div class="form-section">
+            <div class="form-header">
+                <h2>Get the drop. Every Tuesday.</h2>
+                <p>Join builders who want to see what's possible.</p>
+            </div>
+            <div class="form-iframe-wrap">
+            <iframe
+                src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa"
+                class="form-embed"
+                id="inline-OsR6NKbHoc4IUYG5phIa"
+                data-layout="{'id':'INLINE'}"
+                data-trigger-type="alwaysShow"
+                data-trigger-value=""
+                data-activation-type="alwaysActivated"
+                data-activation-value=""
+                data-deactivation-type="neverDeactivate"
+                data-deactivation-value=""
+                data-form-name="Newsletter Signup"
+                data-height="340"
+                data-layout-iframe-id="inline-OsR6NKbHoc4IUYG5phIa"
+                data-form-id="OsR6NKbHoc4IUYG5phIa"
+                title="Newsletter Signup"
+            ></iframe>
+            </div>
+            <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+        </div>
+
+        <div class="pills">
+            <span class="pill">home automation</span>
+            <span class="pill">lead gen pipelines</span>
+            <span class="pill">email triage</span>
+            <span class="pill">calendar copilots</span>
+            <span class="pill">data scrapers</span>
+            <span class="pill">CRM workflows</span>
+            <span class="pill">morning briefings</span>
+            <span class="pill">social monitoring</span>
+            <span class="pill">family bots</span>
+            <span class="pill">dev ops</span>
+        </div>
+
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">🔧</div>
+                <div class="feature-text">
+                    <h3>Real setups, not demos</h3>
+                    <p>From people actually using it. With context.</p>
+                </div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <div class="feature-text">
+                    <h3>Steal-ready</h3>
+                    <p>Enough detail to recreate every build.</p>
+                </div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🧠</div>
+                <div class="feature-text">
+                    <h3>Signal, not hype</h3>
+                    <p>What works, what doesn't, what surprised us.</p>
+                </div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🌀</div>
+                <div class="feature-text">
+                    <h3>Community-sourced</h3>
+                    <p>Discord, GitHub, X — we find the weird ones.</p>
+                </div>
+            </div>
+        </div>
+
+        <section id="archive" style="margin-bottom: 60px;">
+            <div style="text-align: center; margin-bottom: 32px;">
+                <p style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px;">Recent Issues</p>
+                <h2 style="font-size: 1.5rem; font-weight: 800; letter-spacing: -0.03em;">Past Drops</h2>
+            </div>
+
+            <a href="/showcase/issues/001.html" style="display: block; text-decoration: none; color: inherit; padding: 20px; border-radius: 12px; border: 1px solid var(--border); background: var(--bg-card); margin-bottom: 12px; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--border-glow)';this.style.background='var(--bg-card-hover)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.background='var(--bg-card)';this.style.transform='none'">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--accent-bright);">#001</span>
+                        <h3 style="font-size: 1rem; font-weight: 700; margin-top: 4px;">Agents That Spend Money</h3>
+                        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">Car negotiation, grocery shopping, crypto launches, bot commerce, prediction markets</p>
+                    </div>
+                    <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-dim);">Feb 17</span>
+                </div>
+            </a>
+
+            <div style="text-align: center; margin-top: 32px;">
+                <a href="/showcase" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; border-radius: 10px; border: 1px solid var(--border); color: var(--text-muted); text-decoration: none; font-size: 0.85rem; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent-bright)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-muted)'">View full archive →</a>
+            </div>
+        </section>
+
+        <footer>
+            <p>
+                Built with <a href="https://github.com/openclaw/openclaw" target="_blank">OpenClaw</a> ·
+                A <a href="https://fundedlist.com" target="_blank">FundedList</a> project
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
+<!-- deployed Wed Feb 18 23:58:40 UTC 2026 -->

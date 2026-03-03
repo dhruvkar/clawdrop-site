@@ -1,0 +1,52 @@
+---
+title: Newsletter Archives
+description: Past issues of The Claw Drop newsletter.
+permalink: /archives/
+---
+{% extends "base.njk" %}
+
+{% block styles %}
+  .page-header { padding: 60px 0 40px; text-align: center; position: relative; z-index: 2; }
+  .page-header-pre { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--accent-bright); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px; }
+  .page-header h1 { font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 900; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 12px; }
+  .page-header h1 .hl { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .page-header p { font-size: 1rem; color: var(--text-muted); max-width: 480px; margin: 0 auto; line-height: 1.6; }
+  .cards { display: grid; grid-template-columns: 1fr; gap: 16px; padding-bottom: 80px; position: relative; z-index: 2; }
+  .card { display: block; padding: 24px; border-radius: 14px; border: 1px solid var(--border); background: var(--bg-card); text-decoration: none; color: var(--text); transition: all 0.25s ease; }
+  .card:hover { border-color: var(--border-glow); background: var(--bg-card-hover); transform: translateY(-2px); box-shadow: 0 0 30px var(--accent-glow); }
+  .card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+  .card-title { font-size: 1.1rem; font-weight: 700; letter-spacing: -0.02em; }
+  .card-issue { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--accent-bright); white-space: nowrap; }
+  .card-subject { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 8px; }
+  .card-date { font-size: 0.75rem; color: var(--text-dim); }
+  .empty { text-align: center; padding: 60px 20px; border: 1px dashed var(--border); border-radius: 16px; background: var(--bg-card); color: var(--text-muted); }
+{% endblock %}
+
+{% block body %}
+  <div class="container-wide">
+    <div class="page-header">
+      <div class="page-header-pre">// archives</div>
+      <h1>Newsletter <span class="hl">Archives</span></h1>
+      <p>Every past issue of The Claw Drop. Catch up on what you missed.</p>
+    </div>
+    <div class="cards">
+      {% set items = collections.archives %}
+      {% if items.length %}
+        {% for post in items %}
+        <a href="{{ post.url }}" class="card">
+          <div class="card-top">
+            <div class="card-title">{{ post.data.title }}</div>
+            {% if post.data.issueNumber %}<span class="card-issue">#{{ post.data.issueNumber }}</span>{% endif %}
+          </div>
+          {% if post.data.subject %}<div class="card-subject">{{ post.data.subject }}</div>{% endif %}
+          <div class="card-date">{{ post.date | readableDate }}</div>
+        </a>
+        {% endfor %}
+      {% else %}
+        <div class="empty">
+          <p>Archives coming soon. 📬</p>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

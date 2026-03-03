@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build an Autonomous Business Bot (The Felix Method) — The Claw Drop</title>
+  <meta name="description" content="Give your AI agent $1,000 and a goal. Nat Eliason&#39;s bot made $14,718 in 3 weeks. Here&#39;s the exact 3-layer memory system and setup.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --bg-card: #12121a;
+      --bg-card-hover: #1a1a28;
+      --border: #1e1e2e;
+      --border-glow: #6c5ce7;
+      --text: #e8e6f0;
+      --text-muted: #8888a0;
+      --text-dim: #555568;
+      --accent: #6c5ce7;
+      --accent-bright: #a29bfe;
+      --accent-glow: rgba(108, 92, 231, 0.15);
+      --green: #00cec9;
+      --pink: #fd79a8;
+      --gradient: linear-gradient(135deg, #6c5ce7, #a29bfe, #fd79a8);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1;
+    }
+    .orb { position: fixed; border-radius: 50%; filter: blur(120px); opacity: 0.12; pointer-events: none; z-index: 0; }
+    .orb-1 { width: 600px; height: 600px; background: var(--accent); top: -200px; left: -100px; animation: float1 20s ease-in-out infinite; }
+    .orb-2 { width: 500px; height: 500px; background: var(--pink); bottom: -150px; right: -100px; animation: float2 25s ease-in-out infinite; }
+    @keyframes float1 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(80px, 60px); } }
+    @keyframes float2 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-60px, -80px); } }
+
+    .container { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    .container-wide { position: relative; z-index: 2; max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+    nav { padding: 24px 0; border-bottom: 1px solid var(--border); margin-bottom: 0; }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-size: 1.1rem; font-weight: 700; letter-spacing: -0.02em; display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--text); }
+    .logo-icon { font-size: 1.4rem; }
+    .logo-text { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .nav-links { display: flex; align-items: center; gap: 20px; }
+    .nav-link { font-size: 0.85rem; color: var(--text-muted); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent-bright); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; border-radius: 8px; font-size: 0.82rem; font-weight: 600; text-decoration: none; background: var(--accent); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent-bright); }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--border); text-align: center; font-size: 0.82rem; color: var(--text-dim); position: relative; z-index: 2; }
+    footer a { color: var(--text-muted); text-decoration: none; }
+    footer a:hover { color: var(--accent-bright); }
+
+    
+  .post { max-width: 680px; margin: 0 auto; padding: 60px 24px 80px; position: relative; z-index: 2; }
+  .post-back { color: var(--accent-bright); text-decoration: none; font-size: 0.85rem; font-weight: 500; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { text-decoration: underline; }
+  .post-date { color: var(--text-muted); font-size: 0.82rem; margin-top: 12px; }
+  .post h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.12; margin: 24px 0 12px; }
+  .post-description { font-size: 1.05rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 24px; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
+  .meta-badge { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; padding: 6px 12px; border-radius: 8px; background: var(--bg-card); border: 1px solid var(--border); color: var(--text-muted); }
+  .meta-badge strong { color: var(--accent-bright); }
+  .post-content h2 { font-size: 1.3rem; font-weight: 700; margin-top: 40px; margin-bottom: 14px; letter-spacing: -0.02em; }
+  .post-content h3 { font-size: 1.1rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; }
+  .post-content p { color: #ccc; font-size: 0.95rem; line-height: 1.85; margin-bottom: 18px; }
+  .post-content a { color: var(--accent-bright); text-decoration: none; }
+  .post-content a:hover { text-decoration: underline; }
+  .post-content ul, .post-content ol { color: #ccc; font-size: 0.95rem; line-height: 1.85; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent-bright); padding: 14px 20px; margin: 20px 0; background: var(--bg-card); border-radius: 0 8px 8px 0; color: #bbb; font-size: 0.95rem; line-height: 1.8; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 20px 0; border: 1px solid var(--border); }
+  .post-content code { background: var(--bg-card); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--accent-bright); }
+  .post-content pre { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 18px; overflow-x: auto; margin: 20px 0; }
+  .post-content pre code { background: none; padding: 0; font-size: 0.85rem; color: #ccc; }
+  .post-content strong { color: var(--text); }
+  .post-footer { margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--border); text-align: center; }
+  .post-footer p { color: var(--text-muted); font-size: 0.92rem; margin-bottom: 16px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 12px 28px; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 0.95rem; transition: all 0.2s; box-shadow: 0 0 40px var(--accent-glow); }
+  .btn-cta:hover { background: var(--accent-bright); transform: translateY(-1px); }
+
+  </style>
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo">
+        <span class="logo-icon">🪝</span>
+        <span class="logo-text">The Claw Drop</span>
+      </a>
+      <div class="nav-links">
+        <a href="/blueprints/" class="nav-link">Blueprints</a>
+        <a href="/archives/" class="nav-link">Archives</a>
+        <a href="/showcase/" class="nav-link">Builds</a>
+        <a href="/submit/" class="nav-cta">Submit a Build</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/blueprints/" class="post-back">← All Blueprints</a>
+    <div class="post-date">March 3, 2026</div>
+    <h1>Build an Autonomous Business Bot (The Felix Method)</h1>
+    <p class="post-description">Give your AI agent $1,000 and a goal. Nat Eliason&#39;s bot made $14,718 in 3 weeks. Here&#39;s the exact 3-layer memory system and setup.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Advanced</strong></span>
+      <span class="meta-badge">💰 <strong>$20-50/month (API costs)</strong></span>
+      <span class="meta-badge">⏱ <strong>2-3 hours</strong></span>
+      <span class="meta-badge">👤 <strong>Nat Eliason</strong></span>
+    </div>
+    <div class="post-content">
+      <h2>What You'll Build</h2>
+<p>An AI agent that can autonomously build and run a small business. It creates products, manages social media, handles sales, and generates revenue while you sleep. The secret sauce is a 3-layer memory system that gives the agent genuine continuity between sessions.</p>
+<h2>Why It Works</h2>
+<p>Most AI agents forget everything between sessions. You re-explain context every morning. They make the same mistakes twice. Felix doesn't, because of the memory architecture. That's the difference between a chatbot and a business partner.</p>
+<p><strong>Results:</strong> $14,718 revenue in 3 weeks from a $1,000 starting budget.</p>
+<h2>Prerequisites</h2>
+<ul>
+<li>OpenClaw installed and running (Mac, Linux, or VPS)</li>
+<li>Claude API key (Opus recommended for complex business decisions)</li>
+<li>Payment processing (Stripe account)</li>
+<li>Domain + basic web hosting</li>
+<li>~$1,000 starting budget (or whatever you're comfortable with)</li>
+</ul>
+<h2>Architecture</h2>
+<pre><code>┌─────────────────────────────────────────────┐
+│              FELIX (Main Agent)              │
+│                                              │
+│  ┌─────────┐  ┌──────────┐  ┌────────────┐ │
+│  │ Layer 1  │  │ Layer 2   │  │  Layer 3   │ │
+│  │Knowledge │  │Daily Notes│  │   Tacit    │ │
+│  │  Graph   │  │           │  │ Knowledge  │ │
+│  └─────────┘  └──────────┘  └────────────┘ │
+│                                              │
+│  ┌──────────────────────────────────────┐   │
+│  │      Multi-Threaded Chats            │   │
+│  │  Thread 1: Product Development       │   │
+│  │  Thread 2: Marketing / X Account     │   │
+│  │  Thread 3: Sales / Stripe            │   │
+│  │  Thread 4: Content Creation          │   │
+│  │  Thread 5: Research / Market Scan    │   │
+│  └──────────────────────────────────────┘   │
+│                                              │
+│  ┌──────────────────────────────────────┐   │
+│  │      Codex Delegation                │   │
+│  │  (Coding tasks, site building)       │   │
+│  └──────────────────────────────────────┘   │
+└─────────────────────────────────────────────┘
+</code></pre>
+<h2>Step-by-Step Setup</h2>
+<h3>Step 1: Set Up the 3-Layer Memory System</h3>
+<p>This is the single biggest unlock. Get this right and everything else follows.</p>
+<p><strong>Layer 1: Knowledge Graph</strong></p>
+<p>Create a <code>~/life/</code> folder using the PARA system:</p>
+<pre><code>~/life/
+├── projects/       # Active projects with clear outcomes
+│   ├── product-launch.md
+│   └── marketing-campaign.md
+├── areas/          # Ongoing responsibilities
+│   ├── finances.md
+│   ├── customers.md
+│   └── brand.md
+├── resources/      # Reference material
+│   ├── competitors.md
+│   ├── market-research.md
+│   └── tools.md
+└── archives/       # Completed projects
+    └── v1-launch.md
+</code></pre>
+<p>Each file stores durable facts: customer names, pricing decisions, brand guidelines, product specs. The agent reads these at session start for instant context.</p>
+<p><strong>Layer 2: Daily Notes</strong></p>
+<p>Create <code>memory/YYYY-MM-DD.md</code> files. Your agent writes to these during conversations:</p>
+<pre><code class="language-markdown"># 2026-03-03
+
+## Product
+- Launched info product on Gumroad ($29 price point)
+- 12 sales in first 6 hours
+- Top traffic source: X post about productivity
+
+## Marketing
+- Posted 3 tweets, best performer: 2.4K impressions
+- New follower count: 847 (+23 today)
+
+## Revenue
+- Stripe: $348 today
+- Running total: $2,847
+</code></pre>
+<p>The agent logs what happened, what worked, what didn't. During nightly consolidation, important stuff gets extracted into Layer 1.</p>
+<p><strong>Layer 3: Tacit Knowledge</strong></p>
+<p>Create a <code>SOUL.md</code> or <code>IDENTITY.md</code> file with:</p>
+<pre><code class="language-markdown">## Communication Style
+- Direct, no fluff
+- Use short sentences for social media
+- Never use em dashes
+
+## Hard Rules
+- Never spend more than $200 without asking
+- Always A/B test before scaling
+- Reply to every customer within 4 hours
+
+## Lessons Learned
+- Gumroad converts better than Stripe Checkout for info products
+- X posts with numbers get 3x engagement
+- Don't post more than 4 times/day (diminishing returns)
+</code></pre>
+<p>This is what makes your bot feel like it actually knows you and your business.</p>
+<h3>Step 2: Configure Multi-Threaded Chats</h3>
+<p>Felix works on 5 projects simultaneously using separate chat sessions. Each thread has its own context but shares the memory layers.</p>
+<p>In your OpenClaw config, set up sessions for each business function. The main session coordinates, sub-sessions execute. Use <code>sessions_spawn</code> for parallel work.</p>
+<p><strong>Key insight from Nat:</strong> &quot;The multi-thread setup means Felix can be building a landing page, writing tweets, and researching competitors all at the same time.&quot;</p>
+<h3>Step 3: Set Up Codex Delegation</h3>
+<p>For coding tasks (building websites, creating tools, fixing bugs), Felix delegates to Codex rather than doing it inline. This keeps the main business conversation clean and lets the coding happen in a proper development environment.</p>
+<p>Configure your agent to recognize coding tasks and spawn them as sub-agents with access to a workspace directory and git.</p>
+<h3>Step 4: Connect Revenue Tools</h3>
+<ul>
+<li><strong>Stripe:</strong> Create an account, get API keys, add to your agent's environment</li>
+<li><strong>Gumroad/Lemon Squeezy:</strong> For info products (often higher conversion than raw Stripe)</li>
+<li><strong>X Account:</strong> Give your agent posting access (app password or API key)</li>
+<li><strong>Domain + Hosting:</strong> Netlify or Vercel for quick site deploys</li>
+</ul>
+<h3>Step 5: The Launch Prompt</h3>
+<p>Once everything is wired up, the actual prompt is simple:</p>
+<blockquote>
+<p>&quot;I'm giving you $1,000 and access to these tools. Your goal is to build a profitable online business. Research what's selling, pick a niche, create a product, build a landing page, and start marketing it. Report back daily with revenue numbers.&quot;</p>
+</blockquote>
+<p>Then go to sleep.</p>
+<h2>Customization Ideas</h2>
+<ul>
+<li><strong>Service business:</strong> Instead of products, have the bot sell your consulting/freelance services</li>
+<li><strong>Content business:</strong> Focus on building an audience and monetizing with sponsorships</li>
+<li><strong>SaaS:</strong> Have the bot build and launch a micro-SaaS tool</li>
+<li><strong>E-commerce:</strong> Connect to Shopify/print-on-demand and let it test products</li>
+</ul>
+<h2>Gotchas &amp; Tips</h2>
+<ul>
+<li><strong>Set spending limits.</strong> Felix had access to money. Set hard caps on what it can spend without asking.</li>
+<li><strong>Security:</strong> Nat built prompt injection resistance for the X account. If your bot is public-facing, think about this.</li>
+<li><strong>Start small.</strong> $1,000 is Nat's number. Start with $100 and see what happens.</li>
+<li><strong>Memory consolidation matters.</strong> Set up a nightly cron job to have the agent review daily notes and update the knowledge graph. Without this, Layer 2 just grows forever.</li>
+<li><strong>Don't over-constrain.</strong> The whole point is autonomy. Give it goals, not step-by-step instructions.</li>
+</ul>
+
+    </div>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit Your Build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 The Claw Drop · Powered by <a href="https://openclaw.com">OpenClaw</a></p>
+    </div>
+  </footer>
+</body>
+</html>

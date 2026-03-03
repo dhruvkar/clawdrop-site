@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Set Up a 4-Agent Business Team on a Mac Mini — The Claw Drop</title>
+  <meta name="description" content="One solopreneur runs customer support, content, research, and ops with 4 AI agents on a $600 Mac Mini. Here&#39;s the architecture.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --bg-card: #12121a;
+      --bg-card-hover: #1a1a28;
+      --border: #1e1e2e;
+      --border-glow: #6c5ce7;
+      --text: #e8e6f0;
+      --text-muted: #8888a0;
+      --text-dim: #555568;
+      --accent: #6c5ce7;
+      --accent-bright: #a29bfe;
+      --accent-glow: rgba(108, 92, 231, 0.15);
+      --green: #00cec9;
+      --pink: #fd79a8;
+      --gradient: linear-gradient(135deg, #6c5ce7, #a29bfe, #fd79a8);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1;
+    }
+    .orb { position: fixed; border-radius: 50%; filter: blur(120px); opacity: 0.12; pointer-events: none; z-index: 0; }
+    .orb-1 { width: 600px; height: 600px; background: var(--accent); top: -200px; left: -100px; animation: float1 20s ease-in-out infinite; }
+    .orb-2 { width: 500px; height: 500px; background: var(--pink); bottom: -150px; right: -100px; animation: float2 25s ease-in-out infinite; }
+    @keyframes float1 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(80px, 60px); } }
+    @keyframes float2 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-60px, -80px); } }
+
+    .container { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    .container-wide { position: relative; z-index: 2; max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+    nav { padding: 24px 0; border-bottom: 1px solid var(--border); margin-bottom: 0; }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-size: 1.1rem; font-weight: 700; letter-spacing: -0.02em; display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--text); }
+    .logo-icon { font-size: 1.4rem; }
+    .logo-text { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .nav-links { display: flex; align-items: center; gap: 20px; }
+    .nav-link { font-size: 0.85rem; color: var(--text-muted); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent-bright); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; border-radius: 8px; font-size: 0.82rem; font-weight: 600; text-decoration: none; background: var(--accent); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent-bright); }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--border); text-align: center; font-size: 0.82rem; color: var(--text-dim); position: relative; z-index: 2; }
+    footer a { color: var(--text-muted); text-decoration: none; }
+    footer a:hover { color: var(--accent-bright); }
+
+    
+  .post { max-width: 680px; margin: 0 auto; padding: 60px 24px 80px; position: relative; z-index: 2; }
+  .post-back { color: var(--accent-bright); text-decoration: none; font-size: 0.85rem; font-weight: 500; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { text-decoration: underline; }
+  .post-date { color: var(--text-muted); font-size: 0.82rem; margin-top: 12px; }
+  .post h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.12; margin: 24px 0 12px; }
+  .post-description { font-size: 1.05rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 24px; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
+  .meta-badge { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; padding: 6px 12px; border-radius: 8px; background: var(--bg-card); border: 1px solid var(--border); color: var(--text-muted); }
+  .meta-badge strong { color: var(--accent-bright); }
+  .post-content h2 { font-size: 1.3rem; font-weight: 700; margin-top: 40px; margin-bottom: 14px; letter-spacing: -0.02em; }
+  .post-content h3 { font-size: 1.1rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; }
+  .post-content p { color: #ccc; font-size: 0.95rem; line-height: 1.85; margin-bottom: 18px; }
+  .post-content a { color: var(--accent-bright); text-decoration: none; }
+  .post-content a:hover { text-decoration: underline; }
+  .post-content ul, .post-content ol { color: #ccc; font-size: 0.95rem; line-height: 1.85; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent-bright); padding: 14px 20px; margin: 20px 0; background: var(--bg-card); border-radius: 0 8px 8px 0; color: #bbb; font-size: 0.95rem; line-height: 1.8; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 20px 0; border: 1px solid var(--border); }
+  .post-content code { background: var(--bg-card); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--accent-bright); }
+  .post-content pre { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 18px; overflow-x: auto; margin: 20px 0; }
+  .post-content pre code { background: none; padding: 0; font-size: 0.85rem; color: #ccc; }
+  .post-content strong { color: var(--text); }
+  .post-footer { margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--border); text-align: center; }
+  .post-footer p { color: var(--text-muted); font-size: 0.92rem; margin-bottom: 16px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 12px 28px; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 0.95rem; transition: all 0.2s; box-shadow: 0 0 40px var(--accent-glow); }
+  .btn-cta:hover { background: var(--accent-bright); transform: translateY(-1px); }
+
+  </style>
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo">
+        <span class="logo-icon">🪝</span>
+        <span class="logo-text">The Claw Drop</span>
+      </a>
+      <div class="nav-links">
+        <a href="/blueprints/" class="nav-link">Blueprints</a>
+        <a href="/archives/" class="nav-link">Archives</a>
+        <a href="/showcase/" class="nav-link">Builds</a>
+        <a href="/submit/" class="nav-cta">Submit a Build</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/blueprints/" class="post-back">← All Blueprints</a>
+    <div class="post-date">March 3, 2026</div>
+    <h1>Set Up a 4-Agent Business Team on a Mac Mini</h1>
+    <p class="post-description">One solopreneur runs customer support, content, research, and ops with 4 AI agents on a $600 Mac Mini. Here&#39;s the architecture.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Intermediate</strong></span>
+      <span class="meta-badge">💰 <strong>$20-60/month (API costs)</strong></span>
+      <span class="meta-badge">⏱ <strong>3-4 hours</strong></span>
+      <span class="meta-badge">👤 <strong>YouTube creator</strong></span>
+    </div>
+    <div class="post-content">
+      <h2>What You'll Build</h2>
+<p>Four specialized AI agents, each owning a business function: customer support, content creation, research, and operations. All running 24/7 on a Mac Mini or VPS, managed through Telegram.</p>
+<h2>Why It Works</h2>
+<p>Context-switching kills productivity. When one agent does everything, it loses focus. When four agents each own a department, they stay sharp. You manage them like a team lead: check in, review output, make decisions.</p>
+<p><strong>Results:</strong> No more juggling 12 browser tabs. Each agent stays in its lane. You focus on closing deals and making decisions.</p>
+<h2>Prerequisites</h2>
+<ul>
+<li>OpenClaw installed on Mac Mini or VPS ($24/month for a decent VPS)</li>
+<li>Claude API key</li>
+<li>Telegram (for agent communication)</li>
+<li>Access to your business tools (email, social accounts, analytics)</li>
+</ul>
+<h2>Architecture</h2>
+<pre><code>                    ┌──────────────┐
+                    │   YOU (CEO)   │
+                    │  (Telegram)   │
+                    └──────┬───────┘
+                           │
+              ┌────────────┼────────────┐
+              │            │            │
+     ┌────────▼───┐ ┌──────▼─────┐ ┌───▼────────┐
+     │  Agent 1    │ │  Agent 2   │ │  Agent 3   │
+     │  SUPPORT    │ │  CONTENT   │ │  RESEARCH  │
+     │             │ │            │ │            │
+     │ • Monitor   │ │ • Draft    │ │ • Competitors│
+     │   channels  │ │   posts    │ │ • Trends   │
+     │ • Draft     │ │ • Schedule │ │ • Markets  │
+     │   replies   │ │ • Engage   │ │ • Opps     │
+     │ • Escalate  │ │ • Repurpose│ │ • Reports  │
+     └─────────────┘ └────────────┘ └────────────┘
+                           │
+                    ┌──────▼───────┐
+                    │   Agent 4    │
+                    │    OPS       │
+                    │              │
+                    │ • Daily brief│
+                    │ • Task track │
+                    │ • Calendar   │
+                    │ • Reporting  │
+                    └──────────────┘
+</code></pre>
+<h2>Step-by-Step Setup</h2>
+<h3>Step 1: Agent 1 — Customer Support</h3>
+<p><strong>Purpose:</strong> Monitor incoming messages, draft responses, escalate when needed.</p>
+<p><strong>Setup:</strong></p>
+<ol>
+<li>Connect your email inbox (Gmail API or IMAP)</li>
+<li>Connect any chat channels (Intercom, live chat, social DMs)</li>
+<li>Create a knowledge base document:</li>
+</ol>
+<pre><code class="language-markdown"># Support Knowledge Base
+
+## Product
+- What it does: [one paragraph]
+- Pricing: [plans and prices]
+- Free trial: [details]
+
+## Common Questions
+Q: How do I cancel?
+A: Go to Settings &gt; Billing &gt; Cancel. Refund within 30 days.
+
+Q: Do you integrate with X?
+A: Yes/No. [details]
+
+Q: My account is locked
+A: [troubleshooting steps]
+
+## Escalation Rules
+- Billing disputes over $100 → escalate immediately
+- Feature requests → log in feature-requests.md, reply with acknowledgment
+- Angry customers → draft response, don't send, flag for review
+- Bugs → create issue, notify dev, reply with ETA
+</code></pre>
+<p><strong>Cron:</strong> Check for new messages every 5-15 minutes.</p>
+<p><strong>Output:</strong> Drafts go to your Telegram for approval (or auto-send for common questions after you've built confidence).</p>
+<h3>Step 2: Agent 2 — Content</h3>
+<p><strong>Purpose:</strong> Create, schedule, and manage content across platforms.</p>
+<p><strong>Setup:</strong></p>
+<ol>
+<li>Define your content pillars (3-5 topics you always write about)</li>
+<li>Connect posting tools (X API, LinkedIn, browser automation)</li>
+<li>Create a voice guide:</li>
+</ol>
+<pre><code class="language-markdown"># Content Voice Guide
+
+## Tone
+- Direct, no fluff
+- Share real numbers and results
+- Conversational, not corporate
+
+## Content Types
+- Build-in-public updates (what I shipped today)
+- Lessons learned (what went wrong and why)
+- Industry takes (opinions on trends)
+- How-tos (step-by-step tutorials)
+
+## Rules
+- No em dashes
+- No &quot;I'd be happy to&quot; or &quot;Great question!&quot;
+- Max 280 chars for X, longer for LinkedIn
+- Always include a specific number or result
+- Post 2-3x per day on X, 1x per day on LinkedIn
+</code></pre>
+<p><strong>Cron:</strong> Draft posts hourly during work hours. You pick and approve.</p>
+<h3>Step 3: Agent 3 — Research</h3>
+<p><strong>Purpose:</strong> Keep you informed about competitors, market trends, and opportunities.</p>
+<p><strong>Setup:</strong></p>
+<ol>
+<li>Create a competitor watch list</li>
+<li>Set up monitoring sources (RSS feeds, Google Alerts, social mentions)</li>
+<li>Define what you care about:</li>
+</ol>
+<pre><code class="language-markdown"># Research Brief
+
+## Competitors to Monitor
+- Competitor A: [website, X handle, product updates page]
+- Competitor B: [same]
+- Competitor C: [same]
+
+## Signals I Care About
+- New product launches or features
+- Pricing changes
+- Funding announcements
+- Key hire announcements
+- Customer complaints (Reddit, G2, Twitter)
+
+## Opportunities to Scan
+- New markets entering my space
+- Partnership possibilities
+- Content gaps I could fill
+- Customer segments competitors ignore
+</code></pre>
+<p><strong>Cron:</strong> Daily research digest. Weekly deep-dive report.</p>
+<h3>Step 4: Agent 4 — Operations</h3>
+<p><strong>Purpose:</strong> The glue. Daily briefings, task tracking, calendar management, and cross-agent coordination.</p>
+<p><strong>Setup:</strong></p>
+<ol>
+<li>Connect calendar (Google Calendar API)</li>
+<li>Set up task tracking (markdown file, SQLite, or Turso)</li>
+<li>Create the daily briefing template:</li>
+</ol>
+<pre><code class="language-markdown"># Daily Briefing Template
+
+## Today's Calendar
+[list events with times]
+
+## Priority Tasks
+1. [most important thing]
+2. [second]
+3. [third]
+
+## Support Summary (from Agent 1)
+- X new tickets, Y resolved, Z escalated
+
+## Content Performance (from Agent 2)
+- Best post: [which one, engagement]
+- Scheduled today: [what's going out]
+
+## Research Highlights (from Agent 3)
+- [anything notable from overnight scan]
+
+## Revenue
+- Yesterday: $X
+- MTD: $Y
+- Trend: up/down/flat
+</code></pre>
+<p><strong>Cron:</strong> Morning briefing at 6 AM. Evening accountability check at 9 PM.</p>
+<h3>Step 5: Inter-Agent Communication</h3>
+<p>The agents need to share information. Three approaches:</p>
+<ol>
+<li><strong>Shared files:</strong> All agents read/write to a common <code>status/</code> directory</li>
+<li><strong>Database:</strong> SQLite or Turso DB that all agents query</li>
+<li><strong>Main agent coordination:</strong> Agent 4 (Ops) reads outputs from agents 1-3 and synthesizes</li>
+</ol>
+<p>Start with shared files. Move to a database when it gets complex.</p>
+<h2>Customization Ideas</h2>
+<ul>
+<li><strong>Agency owner:</strong> Replace research agent with a client management agent</li>
+<li><strong>E-commerce:</strong> Replace content agent with an inventory/pricing agent</li>
+<li><strong>Consultant:</strong> Add a proposal-writing agent</li>
+<li><strong>SaaS founder:</strong> Add a churn-detection agent that monitors usage patterns</li>
+</ul>
+<h2>Gotchas &amp; Tips</h2>
+<ul>
+<li><strong>Start with 2 agents, not 4.</strong> Get support + ops working first. Add content and research once the basics are solid.</li>
+<li><strong>Set clear boundaries.</strong> Each agent should know exactly what's its job and what's not. Overlap causes confusion.</li>
+<li><strong>Token costs add up with 4 agents.</strong> Use multi-model routing (see our other blueprint) to keep costs under control.</li>
+<li><strong>The Mac Mini advantage:</strong> Always on, no monthly hosting fees after the $600 purchase. But a $24/month VPS works identically.</li>
+<li><strong>Review cycles matter.</strong> Don't let agents auto-send everything. Start with drafts, build trust, then gradually automate more.</li>
+</ul>
+
+    </div>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit Your Build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 The Claw Drop · Powered by <a href="https://openclaw.com">OpenClaw</a></p>
+    </div>
+  </footer>
+</body>
+</html>
