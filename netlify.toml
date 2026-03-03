@@ -13,6 +13,16 @@
   status = 301
 
 [[redirects]]
+  from = "/showcase"
+  to = "/archives/"
+  status = 301
+
+[[redirects]]
+  from = "/showcase/"
+  to = "/archives/"
+  status = 301
+
+[[redirects]]
   from = "/showcase/*"
   to = "/archives/"
   status = 301
