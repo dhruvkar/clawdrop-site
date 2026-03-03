@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Grocery Shopping with a Virtual Credit Card — The Claw Drop</title>
-  <meta name="description" content="Your AI orders groceries online using a virtual card, handles substitutions, and keeps your fridge stocked without you lifting a finger.">
+  <title>Build a Polymarket Trading Bot — The Claw Drop</title>
+  <meta name="description" content="An AI that monitors prediction markets, analyzes events, and executes trades based on your strategy while you focus on your day job.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -119,60 +119,87 @@
   <article class="post">
     <a href="/blueprints/" class="post-back">← All Blueprints</a>
     <div class="post-date">February 17, 2026</div>
-    <h1>AI Grocery Shopping with a Virtual Credit Card</h1>
-    <p class="post-description">Your AI orders groceries online using a virtual card, handles substitutions, and keeps your fridge stocked without you lifting a finger.</p>
+    <h1>Build a Polymarket Trading Bot</h1>
+    <p class="post-description">An AI that monitors prediction markets, analyzes events, and executes trades based on your strategy while you focus on your day job.</p>
     <div class="post-meta-grid">
-      <span class="meta-badge">⚡ <strong>Beginner</strong></span>
-      <span class="meta-badge">💰 <strong>Free (+ groceries)</strong></span>
-      <span class="meta-badge">⏱ <strong>30 min</strong></span>
-      <span class="meta-badge">👤 <strong>OpenClaw Community</strong></span>
+      <span class="meta-badge">⚡ <strong>Intermediate</strong></span>
+      <span class="meta-badge">💰 <strong>Free (+ trading capital)</strong></span>
+      <span class="meta-badge">⏱ <strong>1-2 hours</strong></span>
+      <span class="meta-badge">👤 <strong>Sharbel A.</strong></span>
     </div>
     <div class="post-content">
       <h2>What You'll Build</h2>
-<p>An AI that manages your weekly grocery shopping. It knows what you like, orders from your preferred store, uses a virtual credit card (so you control the spending limit), and handles substitutions when items are out of stock.</p>
-<h2>Why This Matters</h2>
-<p>Grocery shopping isn't hard. It's just a recurring drain on your time. Every week: check what's low, open the app, scroll, pick, substitute, checkout. 30-45 minutes you'll never get back. Multiply that by 52 weeks.</p>
-<p>Your AI does it in the background while you do literally anything else.</p>
+<p>An AI trading bot that monitors Polymarket prediction markets, analyzes news and sentiment in real-time, and executes trades based on your predefined strategy. It watches the markets so you don't have to.</p>
+<h2>Why Prediction Markets</h2>
+<p>Prediction markets are uniquely suited to AI trading because:</p>
+<ul>
+<li><strong>Information edge</strong>: AI can process news, social media, and data faster than any human</li>
+<li><strong>Binary outcomes</strong>: Most markets are yes/no, making analysis simpler</li>
+<li><strong>Mispricing is common</strong>: Markets often lag behind breaking news by minutes to hours</li>
+<li><strong>Lower stakes</strong>: You can start with $50 to test your strategy</li>
+</ul>
 <h2>Prerequisites</h2>
 <ul>
 <li>OpenClaw running on your machine</li>
-<li>A virtual credit card (Privacy.com, your bank's virtual card feature, or Apple Pay virtual numbers)</li>
-<li>An account with an online grocery service (Instacart, Amazon Fresh, Walmart, etc.)</li>
-<li>Browser control enabled in OpenClaw</li>
+<li>Polymarket account with funds</li>
+<li>API access (Polymarket's API or browser automation)</li>
+<li>A news/data source for the markets you want to trade</li>
 </ul>
-<h2>Step 1: Set Up the Virtual Card</h2>
-<p>Create a virtual card with a spending limit. This is your safety net. If you set a $200/week limit, your AI physically cannot spend more than that.</p>
-<p>Privacy.com is the easiest: create a card, set the limit, done. Most banks offer this too.</p>
-<h2>Step 2: Teach Your AI What You Buy</h2>
-<p>Share your preferences. Be as specific or general as you want:</p>
+<h2>Step 1: Define Your Strategy</h2>
+<p>Don't let your AI trade randomly. Define clear rules:</p>
 <blockquote>
-<p>&quot;We're a family of 4. We eat mostly whole foods. Weekly staples: milk, eggs, bread, bananas, chicken breast, rice, seasonal vegetables. Budget: $150-180/week. Store preference: Walmart Grocery. Avoid: anything with high fructose corn syrup.&quot;</p>
+<p>&quot;Monitor political markets. When a major news event directly impacts a market and the price hasn't moved yet, buy if confidence &gt; 70%. Max position: $100 per market. Take profit at 15% gain. Stop loss at 20%.&quot;</p>
 </blockquote>
-<p>Your AI will build a running list and learn your patterns over time.</p>
-<h2>Step 3: Set the Schedule</h2>
-<p>Tell your AI when to shop:</p>
-<blockquote>
-<p>&quot;Order groceries every Sunday morning for Monday delivery. Check with me on Saturday evening if there's anything special I want to add.&quot;</p>
-</blockquote>
-<h2>Step 4: Handle Substitutions</h2>
-<p>This is where most automated grocery attempts fall apart. Your AI handles it:</p>
+<p>The more specific your rules, the better your AI performs.</p>
+<h2>Step 2: Set Up Market Monitoring</h2>
+<p>Your AI watches specific markets or categories. For each:</p>
 <ul>
-<li>Organic out of stock? Get conventional (or skip, your call)</li>
-<li>Preferred brand unavailable? Pick the next best option</li>
-<li>Price spike on something? Flag it and suggest an alternative</li>
+<li>Track the current price</li>
+<li>Monitor relevant news sources (Twitter, Reuters, AP, etc.)</li>
+<li>Detect significant events that could move the market</li>
+<li>Calculate whether current pricing reflects the new information</li>
 </ul>
-<p>You set the rules once. It follows them every time.</p>
-<h2>Step 5: Review and Approve</h2>
-<p>Start with approval mode: your AI sends you the cart summary before checkout. Once you trust it, switch to auto-checkout with a notification after purchase.</p>
+<h2>Step 3: Analysis and Signal Generation</h2>
+<p>When your AI detects a potential trade:</p>
+<ol>
+<li>Cross-reference the event across multiple sources (avoid fake news)</li>
+<li>Estimate the probability shift</li>
+<li>Compare to current market price</li>
+<li>Generate a confidence score</li>
+<li>Check against your risk rules</li>
+</ol>
+<h2>Step 4: Execution</h2>
+<p>If a trade passes all checks:</p>
+<ul>
+<li>Place the order at the target price</li>
+<li>Set up monitoring for exit conditions</li>
+<li>Log everything (entry price, reasoning, confidence, sources)</li>
+<li>Notify you of the trade</li>
+</ul>
+<h2>Step 5: Portfolio Management</h2>
+<p>Your AI also handles the boring stuff:</p>
+<ul>
+<li>Track all open positions</li>
+<li>Monitor for exit signals (profit target, stop loss, time decay)</li>
+<li>Rebalance if one position gets too large</li>
+<li>Generate daily P&amp;L summaries</li>
+</ul>
+<h2>Risk Management Rules (Non-Negotiable)</h2>
+<ul>
+<li><strong>Max position size</strong>: Never risk more than X% of your total capital on one market</li>
+<li><strong>Daily loss limit</strong>: Stop trading if you lose more than Y% in a day</li>
+<li><strong>Correlation check</strong>: Don't overload on related markets</li>
+<li><strong>Human override</strong>: You can pause all trading with one message</li>
+</ul>
 <h2>Tips</h2>
 <ul>
-<li><strong>Virtual card limits are key</strong>: They're your guardrail. Set weekly limits that match your budget</li>
-<li><strong>Seasonal adjustments</strong>: Tell your AI about seasonal preferences (&quot;more soups in winter, more salads in summer&quot;)</li>
-<li><strong>Recipe integration</strong>: Share a meal plan and let your AI build the grocery list from it</li>
-<li><strong>Pantry tracking</strong>: If you're ambitious, have your AI track what you have vs. what you need based on past orders and typical consumption rates</li>
+<li><strong>Start paper trading</strong>: Run the bot for 2 weeks with fake money before going live</li>
+<li><strong>Specialize</strong>: An AI that's great at political markets is better than one that's mediocre at everything</li>
+<li><strong>Speed matters</strong>: The edge is in reacting to news faster than the market. Make sure your news sources are fast</li>
+<li><strong>Log everything</strong>: You'll want to analyze what worked and what didn't</li>
 </ul>
-<h2>The Bigger Picture</h2>
-<p>This isn't about groceries. It's about reclaiming recurring time sinks. Once your AI handles groceries, you'll start thinking: &quot;What else do I do every week that I shouldn't?&quot;</p>
+<h2>Caution</h2>
+<p>Trading involves real money and real risk. Start small. Never invest more than you can afford to lose. Past performance doesn't predict future results. Your AI is only as good as your strategy.</p>
 
     </div>
     <div class="post-footer">

@@ -1,6 +1,5 @@
 module.exports = function(eleventyConfig) {
   // Passthrough copy for existing static pages and assets
-  eleventyConfig.addPassthroughCopy("showcase");
   eleventyConfig.addPassthroughCopy("submit");
   eleventyConfig.addPassthroughCopy("thank-you");
 
