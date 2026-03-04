@@ -6,7 +6,7 @@ date: 2026-03-03
 difficulty: Intermediate
 cost: "$20-40/month (API + optional tools)"
 timeToSetup: "2-3 hours"
-originalSource: "https://reddit.com/r/openclaw"
+originalSource: "https://reddit.com/r/openclaw/comments/1r8hek7/my_agent_doubled_my_salary_it_found_a_new_job_for/"
 originalAuthor: "Anonymous (Brazilian software engineer)"
 issueNumber: 3
 permalink: /blueprints/ai-job-search/

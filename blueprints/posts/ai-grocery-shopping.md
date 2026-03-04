@@ -6,8 +6,8 @@ date: 2026-02-17
 difficulty: Beginner
 cost: Free (+ groceries)
 timeToSetup: "30 min"
-originalSource: "https://discord.com/channels/openclaw"
-originalAuthor: "OpenClaw Community"
+originalSource: "https://www.privacy.com/blog/openclaw-ai-agent-spending-virtual-card"
+originalAuthor: "Privacy.com"
 tags:
   - shopping
   - home

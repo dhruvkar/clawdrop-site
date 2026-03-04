@@ -6,8 +6,8 @@ date: 2026-02-17
 difficulty: Advanced
 cost: "$50-500 (gas + liquidity)"
 timeToSetup: "2-3 hours"
-originalSource: "https://x.com/asymmetrix"
-originalAuthor: "Asymmetrix"
+originalSource: "https://x.com/Zodomo/status/2018068656765489368"
+originalAuthor: "zodomo.eth (@Zodomo)"
 tags:
   - crypto
   - autonomous
