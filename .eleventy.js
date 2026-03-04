@@ -1,7 +1,9 @@
 module.exports = function(eleventyConfig) {
   // Passthrough copy for existing static pages and assets
+  eleventyConfig.addPassthroughCopy("admin");
   eleventyConfig.addPassthroughCopy("submit");
   eleventyConfig.addPassthroughCopy("thank-you");
+  eleventyConfig.addPassthroughCopy("assets");
 
   // Blueprints collection
   eleventyConfig.addCollection("blueprints", function(collectionApi) {
