@@ -40,6 +40,7 @@
       {% if cost %}<span class="meta-badge">💰 <strong>{{ cost }}</strong></span>{% endif %}
       {% if timeToSetup %}<span class="meta-badge">⏱ <strong>{{ timeToSetup }}</strong></span>{% endif %}
       {% if originalAuthor %}<span class="meta-badge">👤 <strong>{{ originalAuthor }}</strong></span>{% endif %}
+      {% if originalSource %}<a href="{{ originalSource }}" target="_blank" class="meta-badge" style="text-decoration: none;">🔗 <strong>Original Post ↗</strong></a>{% endif %}
     </div>
     <div class="post-content">
       {{ content | safe }}
