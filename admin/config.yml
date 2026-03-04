@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: dhruvkar/clawdrop-site
   branch: master
 
 publish_mode: editorial_workflow
