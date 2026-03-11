@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Replace Your SaaS Stack With One AI Agent — The Claw Drop</title>
-  <meta name="description" content="One founder cut $500/month in SaaS fees to zero using a single OpenClaw agent on a Mac Mini. Here&#39;s how to replicate it.">
+  <title>AI Finds Leads, Builds Demo Sites, and Cold Calls Them For You — The Claw Drop</title>
+  <meta name="description" content="One agency owner built a full lead gen pipeline: find prospects, research them, build custom demo sites, deploy them, create video walkthroughs, and reach out via text and phone. All automated.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -118,172 +118,120 @@
   
   <article class="post">
     <a href="/blueprints/" class="post-back">← All Blueprints</a>
-    <div class="post-date">March 3, 2026</div>
-    <h1>Replace Your SaaS Stack With One AI Agent</h1>
-    <p class="post-description">One founder cut $500/month in SaaS fees to zero using a single OpenClaw agent on a Mac Mini. Here&#39;s how to replicate it.</p>
+    <div class="post-date">March 10, 2026</div>
+    <h1>AI Finds Leads, Builds Demo Sites, and Cold Calls Them For You</h1>
+    <p class="post-description">One agency owner built a full lead gen pipeline: find prospects, research them, build custom demo sites, deploy them, create video walkthroughs, and reach out via text and phone. All automated.</p>
     <div class="post-meta-grid">
-      <span class="meta-badge">⚡ <strong>Intermediate</strong></span>
-      <span class="meta-badge">💰 <strong>$0-20/month (API costs only)</strong></span>
-      <span class="meta-badge">⏱ <strong>4-6 hours</strong></span>
-      <span class="meta-badge">👤 <strong>mupengism</strong></span>
-      <a href="https://news.ycombinator.com/item?id=47029661" target="_blank" class="meta-badge" style="text-decoration: none;">🔗 <strong>Original Post ↗</strong></a>
+      <span class="meta-badge">⚡ <strong>Advanced</strong></span>
+      <span class="meta-badge">💰 <strong>$50-100/month (hosting + API + phone)</strong></span>
+      <span class="meta-badge">⏱ <strong>1-2 weeks</strong></span>
+      <span class="meta-badge">👤 <strong>Jonah (@jonahships)</strong></span>
+      <a href="https://discord.com/channels/1456350064065904867/1456609488202105005/1464459295138644173" target="_blank" class="meta-badge" style="text-decoration: none;">🔗 <strong>Original Post ↗</strong></a>
     </div>
     <div class="post-content">
       <h2>What You'll Build</h2>
-<p>A single AI agent that replaces 5-6 SaaS subscriptions: CRM, social media scheduler, customer support, analytics, project management, and email marketing. All running 24/7 on a Mac Mini or cheap VPS.</p>
-<h2>Why It Works</h2>
-<p>SaaS tools charge monthly for rigid software that does one thing. An AI agent is flexible labor that adapts to your workflow. You're not renting features. You're installing an employee who works around the clock and costs less than one month of your current stack.</p>
-<p><strong>Results:</strong> $500/month in SaaS fees eliminated. 15 hours/week of repetitive work automated. Customer response time: hours to minutes.</p>
+<p>A complete lead generation machine that runs on autopilot. Your AI agent finds potential clients, researches their business, builds a custom demo website showing what you could do for them, deploys it live, creates a video walkthrough of the demo, and reaches out via text and phone. That's not one automation. That's an entire sales team.</p>
+<h2>Why This Works</h2>
+<p>Cold outreach has a conversion problem. Generic emails get ignored. &quot;Hey {first_name}, I noticed your {company} could use...&quot; gets deleted before the second sentence.</p>
+<p>But imagine receiving a text that says: &quot;Hey, I built a demo of what your website could look like. Here's the link, and here's a 2-minute video walkthrough.&quot; That's not cold outreach anymore. That's proof of work. It shows you understand their business and you've already started solving their problem.</p>
+<p>The trick is that building custom demos for every lead doesn't scale if a human does it. But an AI can research a business, generate a tailored site, deploy it, and record a walkthrough in minutes.</p>
 <h2>Prerequisites</h2>
 <ul>
-<li>OpenClaw installed (Mac Mini, Linux box, or VPS)</li>
-<li>Claude API key</li>
-<li>Your existing tool logins (for the agent to access)</li>
-<li>~4-6 hours for initial setup</li>
+<li>OpenClaw installed and running</li>
+<li>GitHub account (for deploying demo sites)</li>
+<li>Coolify or similar self-hosting platform (Vercel, Netlify work too)</li>
+<li>Google Voice or Twilio account (for texting leads)</li>
+<li>A phone agent setup (Vapi, Bland, or similar) for cold calls</li>
+<li>Remotion installed (for generating demo videos)</li>
 </ul>
-<h2>The SaaS Audit</h2>
-<p>Before building, list what you're currently paying for:</p>
-<table>
-<thead>
-<tr>
-<th>Tool</th>
-<th>Monthly Cost</th>
-<th>What You Actually Use It For</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>HubSpot/Pipedrive</td>
-<td>$50-100</td>
-<td>Track contacts, log deals, follow-up reminders</td>
-</tr>
-<tr>
-<td>Buffer/Hootsuite</td>
-<td>$30-50</td>
-<td>Schedule posts, track engagement</td>
-</tr>
-<tr>
-<td>Intercom/Zendesk</td>
-<td>$50-100</td>
-<td>Reply to customer messages</td>
-</tr>
-<tr>
-<td>Mixpanel/GA</td>
-<td>$0-50</td>
-<td>Check what's working</td>
-</tr>
-<tr>
-<td>Asana/Monday</td>
-<td>$30-50</td>
-<td>Task lists, project tracking</td>
-</tr>
-<tr>
-<td>Mailchimp/ConvertKit</td>
-<td>$30-80</td>
-<td>Send newsletters, drip sequences</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Total:</strong> $190-430/month for tools you use 20% of.</p>
 <h2>Architecture</h2>
-<pre><code>┌─────────────────────────────────────────────┐
-│           OpenClaw Agent (24/7)              │
-│                                              │
-│  Skills Installed:                           │
-│  ┌─────────┐ ┌──────────┐ ┌──────────────┐ │
-│  │   CRM    │ │  Social  │ │   Support    │ │
-│  │ Contacts │ │ Posting  │ │  Response    │ │
-│  │  Deals   │ │ Schedule │ │  Triage      │ │
-│  └─────────┘ └──────────┘ └──────────────┘ │
-│  ┌─────────┐ ┌──────────┐ ┌──────────────┐ │
-│  │Analytics│ │  Tasks   │ │    Email     │ │
-│  │ Reports │ │ Projects │ │  Marketing   │ │
-│  └─────────┘ └──────────┘ └──────────────┘ │
-│                                              │
-│  Storage: Local files + SQLite/Turso DB      │
-│  Interface: Telegram / Signal / CLI          │
-└─────────────────────────────────────────────┘
+<pre><code>┌──────────────┐     ┌──────────────┐     ┌──────────────┐
+│  Lead Finder │────▶│  Researcher  │────▶│  Site Builder │
+│              │     │              │     │              │
+│  - Google    │     │  - Website   │     │  - Custom    │
+│  - LinkedIn  │     │  - Social    │     │    landing   │
+│  - Yelp      │     │  - Reviews   │     │    page      │
+│  - Directories│    │  - Pain pts  │     │  - Their     │
+│              │     │              │     │    branding   │
+└──────────────┘     └──────────────┘     └──────┬───────┘
+                                                  │
+                     ┌──────────────┐     ┌───────▼──────┐
+                     │  Outreach    │◀────│  Deployer    │
+                     │              │     │              │
+                     │  - Text msg  │     │  - GitHub    │
+                     │  - Phone call│     │  - Coolify   │
+                     │  - Email     │     │  - Live URL  │
+                     │              │     │  - Video     │
+                     └──────────────┘     └──────────────┘
 </code></pre>
-<h2>Step-by-Step Setup</h2>
-<h3>Step 1: CRM Replacement</h3>
-<p>Your CRM is really just a database with reminders. Build it with a simple skill:</p>
-<p>Create a <code>contacts.md</code> or SQLite database with:</p>
-<ul>
-<li>Contact name, company, email, phone</li>
-<li>Deal stage (lead, contacted, meeting, proposal, won/lost)</li>
-<li>Last contact date</li>
-<li>Next follow-up date and action</li>
-<li>Notes from each interaction</li>
-</ul>
-<p><strong>Cron job:</strong> Every morning, your agent checks for follow-ups due today and messages you the list. No more logging into Pipedrive to check what you're supposed to do.</p>
-<p><strong>Voice command:</strong> &quot;Add John from Acme to my pipeline, he wants a proposal by Friday&quot; and the agent handles the rest.</p>
-<h3>Step 2: Social Media Replacement</h3>
-<p>Install or build a posting skill:</p>
-<ol>
-<li>Connect to X/LinkedIn/Instagram via API or browser automation</li>
-<li>Create a content calendar in a markdown file</li>
-<li>Set up a cron job to draft posts based on your recent work, industry news, or content calendar</li>
-<li>Agent sends you drafts for approval (or auto-posts if you trust it)</li>
-</ol>
-<p><strong>Key advantage over Buffer:</strong> Your agent knows your business context. It doesn't just schedule posts. It writes them based on what's actually happening.</p>
-<h3>Step 3: Customer Support Replacement</h3>
-<ol>
-<li>Connect your agent to your email inbox or support channel</li>
-<li>Create a FAQ document the agent references</li>
-<li>Set rules: auto-reply to common questions, draft responses for complex ones, escalate urgent issues to you immediately</li>
-</ol>
-<p><strong>Triage rules example:</strong></p>
-<ul>
-<li>&quot;How do I cancel?&quot; -&gt; Auto-reply with cancellation link</li>
-<li>&quot;Your product is broken&quot; -&gt; Draft response, flag as urgent, notify you</li>
-<li>&quot;Can you do X custom thing?&quot; -&gt; Draft response, add to your review queue</li>
-</ul>
-<h3>Step 4: Analytics Replacement</h3>
-<p>You don't need Mixpanel. You need answers.</p>
-<p>Set up daily/weekly reports:</p>
-<ul>
-<li>Pull data from Stripe (revenue, new customers, churn)</li>
-<li>Check Google Analytics (traffic, top pages)</li>
-<li>Scan social metrics (followers, engagement)</li>
-<li>Compile into a single morning briefing</li>
-</ul>
-<p><strong>One message every morning with everything you need to know.</strong> No dashboards. No clicking through 4 tabs.</p>
-<h3>Step 5: Project Management Replacement</h3>
-<p>Task management with a simple system:</p>
-<ul>
-<li><code>tasks.md</code> or a Turso database with task name, priority, assignee, due date, status</li>
-<li>Agent tracks what's in progress, what's blocked, what's overdue</li>
-<li>Daily standup message: &quot;Here's what's on your plate today&quot;</li>
-</ul>
-<h3>Step 6: Email Marketing Replacement</h3>
-<p>For newsletters and drip sequences:</p>
-<ul>
-<li>Store templates as markdown files</li>
-<li>Use your email API (SendGrid, Mailgun, or even Gmail) to send</li>
-<li>Agent manages the subscriber list, segments by behavior, sends at optimal times</li>
-</ul>
-<h2>The 24 Reusable Skills</h2>
-<p>The original builder published 24 skills on ClawHub. Search for the ones that match your needs:</p>
-<pre><code class="language-bash">clawhub search crm
-clawhub search social
-clawhub search email
+<h2>Step 1: Define Your Ideal Client</h2>
+<p>Before the AI can find leads, it needs to know who you're looking for:</p>
+<pre><code class="language-markdown">## Target Client Profile
+- Industry: Local service businesses (plumbers, dentists, landscapers)
+- Location: [Your target metro area]
+- Signs they need help:
+  - No website or a bad one
+  - Few/no Google reviews
+  - Not running ads
+  - Competitors outranking them
+- Revenue: $500K-5M (big enough to pay, small enough to need you)
 </code></pre>
-<p>Install what exists. Build what doesn't.</p>
-<h2>Customization Ideas</h2>
+<h2>Step 2: Automated Lead Research</h2>
+<p>Once the agent finds a prospect, it digs in:</p>
 <ul>
-<li><strong>Freelancer:</strong> Focus on CRM + invoicing + project tracking</li>
-<li><strong>E-commerce:</strong> Add inventory management + order tracking</li>
-<li><strong>Agency:</strong> Multi-client task management + reporting</li>
-<li><strong>Creator:</strong> Content calendar + analytics + sponsorship tracking</li>
+<li>Pull their current website (if they have one) and analyze it</li>
+<li>Check their Google Business profile, reviews, and rating</li>
+<li>Look at their social media presence</li>
+<li>Identify their top 3 competitors and what they're doing better</li>
+<li>Note specific pain points the demo should address</li>
 </ul>
-<h2>Gotchas &amp; Tips</h2>
+<p>This research becomes the foundation for a demo that actually resonates. &quot;I noticed your competitor Johnson Plumbing has 200+ Google reviews while you have 12. Here's how we'd fix that.&quot;</p>
+<h2>Step 3: Generate Custom Demo Sites</h2>
+<p>This is the showstopper. The AI takes the research and builds a landing page tailored to that specific business:</p>
 <ul>
-<li><strong>Migrate gradually.</strong> Don't cancel all your SaaS on day one. Run parallel for 2 weeks.</li>
-<li><strong>The Mac Mini pays for itself in 5 weeks</strong> at $500/month savings. A $24/month VPS pays for itself instantly.</li>
-<li><strong>Your agent will over-engineer things.</strong> Set boundaries on what it should automate vs what stays simple.</li>
-<li><strong>Export your data first.</strong> Before canceling any tool, export contacts, deal history, and analytics.</li>
-<li><strong>Start with the tool you hate most.</strong> That's your highest-motivation replacement target.</li>
+<li>Uses their business name, colors, and industry</li>
+<li>Addresses the specific gaps found in research</li>
+<li>Shows &quot;before/after&quot; of their online presence</li>
+<li>Includes a clear CTA (&quot;Want this for your business? Let's talk.&quot;)</li>
 </ul>
+<p>Push to GitHub, deploy via Coolify, and you have a live URL in minutes.</p>
+<h2>Step 4: Create Video Walkthroughs</h2>
+<p>Using Remotion (a React-based video framework), the agent generates a short video walking through the demo site. This isn't a screen recording. It's a produced video with:</p>
+<ul>
+<li>Narration explaining what was built and why</li>
+<li>Callouts highlighting key improvements</li>
+<li>A personal touch that makes it feel custom (because it is)</li>
+</ul>
+<h2>Step 5: Multi-Channel Outreach</h2>
+<p>Now the agent reaches out with something real to show:</p>
+<p><strong>Text (Google Voice):</strong> Short, casual, with the demo link. &quot;Hey [Name], I put together a quick demo for [Business]. Take a look: [URL]&quot;</p>
+<p><strong>Phone (AI voice agent):</strong> A phone agent calls the lead, introduces the service, and references the demo site. If they're interested, it books a meeting on your calendar.</p>
+<p><strong>Email:</strong> Longer-form follow-up with the video walkthrough embedded.</p>
+<p>The key: every touchpoint references the custom demo. It's not generic outreach. It's &quot;I already did work for you, for free.&quot;</p>
+<h2>Step 6: Track and Iterate</h2>
+<p>Log every lead, every outreach attempt, and every response. The agent should track:</p>
+<ul>
+<li>How many leads found per day</li>
+<li>Demo sites built and deployed</li>
+<li>Outreach sent (text, call, email)</li>
+<li>Response rates by channel</li>
+<li>Meetings booked</li>
+<li>Deals closed</li>
+</ul>
+<p>Use this data to refine your targeting. If dentists respond at 3x the rate of plumbers, focus on dentists.</p>
+<h2>What Makes This Different</h2>
+<p>Most AI automation demos show one step: &quot;Look, it can send emails!&quot; This is the full pipeline. Finding leads, researching them, building something custom, deploying it, and reaching out across multiple channels. Each step feeds the next.</p>
+<p>The person who built this (Jonah) is running it for his own agency. It's not a concept. It's his actual sales process, running on real prospects, closing real deals.</p>
+<h2>Cost Breakdown</h2>
+<ul>
+<li><strong>OpenClaw + Claude API:</strong> ~$20-40/month depending on volume</li>
+<li><strong>Coolify hosting:</strong> ~$10-20/month for a VPS</li>
+<li><strong>Google Voice:</strong> Free (or Twilio at ~$0.01/text)</li>
+<li><strong>Phone agent (Vapi/Bland):</strong> ~$0.10-0.15/minute</li>
+<li><strong>Remotion:</strong> Free (open source)</li>
+<li><strong>Total:</strong> Roughly $50-100/month for a system that replaces a full-time SDR</li>
+</ul>
+<p>Compare that to hiring a sales rep at $4-5K/month who sends generic emails all day.</p>
 
     </div>
     <div class="post-footer">

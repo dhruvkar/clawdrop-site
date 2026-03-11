@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Replace Your SaaS Stack With One AI Agent — The Claw Drop</title>
-  <meta name="description" content="One founder cut $500/month in SaaS fees to zero using a single OpenClaw agent on a Mac Mini. Here&#39;s how to replicate it.">
+  <title>AI Whispers What to Say During Your Cold Calls in Real Time — The Claw Drop</title>
+  <meta name="description" content="An AI listens to your live sales calls and gives you real-time coaching on what to say next based on how the conversation is going.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -118,172 +118,123 @@
   
   <article class="post">
     <a href="/blueprints/" class="post-back">← All Blueprints</a>
-    <div class="post-date">March 3, 2026</div>
-    <h1>Replace Your SaaS Stack With One AI Agent</h1>
-    <p class="post-description">One founder cut $500/month in SaaS fees to zero using a single OpenClaw agent on a Mac Mini. Here&#39;s how to replicate it.</p>
+    <div class="post-date">March 10, 2026</div>
+    <h1>AI Whispers What to Say During Your Cold Calls in Real Time</h1>
+    <p class="post-description">An AI listens to your live sales calls and gives you real-time coaching on what to say next based on how the conversation is going.</p>
     <div class="post-meta-grid">
       <span class="meta-badge">⚡ <strong>Intermediate</strong></span>
-      <span class="meta-badge">💰 <strong>$0-20/month (API costs only)</strong></span>
-      <span class="meta-badge">⏱ <strong>4-6 hours</strong></span>
-      <span class="meta-badge">👤 <strong>mupengism</strong></span>
-      <a href="https://news.ycombinator.com/item?id=47029661" target="_blank" class="meta-badge" style="text-decoration: none;">🔗 <strong>Original Post ↗</strong></a>
+      <span class="meta-badge">💰 <strong>$20-40/month (transcription + API)</strong></span>
+      <span class="meta-badge">⏱ <strong>3-5 hours</strong></span>
+      <span class="meta-badge">👤 <strong>Jonah (@jonahships)</strong></span>
+      <a href="https://discord.com/channels/1456350064065904867/1456609488202105005/1464673240994676879" target="_blank" class="meta-badge" style="text-decoration: none;">🔗 <strong>Original Post ↗</strong></a>
     </div>
     <div class="post-content">
       <h2>What You'll Build</h2>
-<p>A single AI agent that replaces 5-6 SaaS subscriptions: CRM, social media scheduler, customer support, analytics, project management, and email marketing. All running 24/7 on a Mac Mini or cheap VPS.</p>
-<h2>Why It Works</h2>
-<p>SaaS tools charge monthly for rigid software that does one thing. An AI agent is flexible labor that adapts to your workflow. You're not renting features. You're installing an employee who works around the clock and costs less than one month of your current stack.</p>
-<p><strong>Results:</strong> $500/month in SaaS fees eliminated. 15 hours/week of repetitive work automated. Customer response time: hours to minutes.</p>
+<p>An AI copilot for live sales calls. While you're on the phone with a prospect, the AI listens to both sides of the conversation, analyzes the tone and content in real time, and displays suggestions on your screen: what to say next, how to handle objections, when to close, and when to shut up and listen.</p>
+<h2>Why This Works</h2>
+<p>Cold calling is hard. Even experienced salespeople freeze when a prospect throws an unexpected objection. &quot;We already have a vendor for that.&quot; &quot;Send me an email.&quot; &quot;We don't have budget.&quot; In those moments, having the perfect response ready isn't about being manipulative. It's about being prepared.</p>
+<p>Sales coaches charge $200-500/hour to listen to your calls and give feedback. That feedback usually comes after the call, when it's too late. This system gives you coaching while the call is still happening.</p>
 <h2>Prerequisites</h2>
 <ul>
-<li>OpenClaw installed (Mac Mini, Linux box, or VPS)</li>
-<li>Claude API key</li>
-<li>Your existing tool logins (for the agent to access)</li>
-<li>~4-6 hours for initial setup</li>
+<li>OpenClaw installed and running</li>
+<li>A way to capture call audio in real time (see options below)</li>
+<li>Fast transcription service (Deepgram recommended for low latency)</li>
+<li>A screen or second monitor for displaying suggestions</li>
 </ul>
-<h2>The SaaS Audit</h2>
-<p>Before building, list what you're currently paying for:</p>
-<table>
-<thead>
-<tr>
-<th>Tool</th>
-<th>Monthly Cost</th>
-<th>What You Actually Use It For</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>HubSpot/Pipedrive</td>
-<td>$50-100</td>
-<td>Track contacts, log deals, follow-up reminders</td>
-</tr>
-<tr>
-<td>Buffer/Hootsuite</td>
-<td>$30-50</td>
-<td>Schedule posts, track engagement</td>
-</tr>
-<tr>
-<td>Intercom/Zendesk</td>
-<td>$50-100</td>
-<td>Reply to customer messages</td>
-</tr>
-<tr>
-<td>Mixpanel/GA</td>
-<td>$0-50</td>
-<td>Check what's working</td>
-</tr>
-<tr>
-<td>Asana/Monday</td>
-<td>$30-50</td>
-<td>Task lists, project tracking</td>
-</tr>
-<tr>
-<td>Mailchimp/ConvertKit</td>
-<td>$30-80</td>
-<td>Send newsletters, drip sequences</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Total:</strong> $190-430/month for tools you use 20% of.</p>
 <h2>Architecture</h2>
-<pre><code>┌─────────────────────────────────────────────┐
-│           OpenClaw Agent (24/7)              │
-│                                              │
-│  Skills Installed:                           │
-│  ┌─────────┐ ┌──────────┐ ┌──────────────┐ │
-│  │   CRM    │ │  Social  │ │   Support    │ │
-│  │ Contacts │ │ Posting  │ │  Response    │ │
-│  │  Deals   │ │ Schedule │ │  Triage      │ │
-│  └─────────┘ └──────────┘ └──────────────┘ │
-│  ┌─────────┐ ┌──────────┐ ┌──────────────┐ │
-│  │Analytics│ │  Tasks   │ │    Email     │ │
-│  │ Reports │ │ Projects │ │  Marketing   │ │
-│  └─────────┘ └──────────┘ └──────────────┘ │
-│                                              │
-│  Storage: Local files + SQLite/Turso DB      │
-│  Interface: Telegram / Signal / CLI          │
-└─────────────────────────────────────────────┘
+<pre><code>┌──────────────┐     ┌──────────────┐     ┌──────────────┐
+│  Live Call   │────▶│  Real-Time   │────▶│  AI Coach    │
+│  Audio       │     │  Transcriber │     │              │
+│              │     │              │     │  - Analyze   │
+│  Both sides  │     │  - Deepgram  │     │    sentiment │
+│  of convo    │     │  - &lt;500ms    │     │  - Detect    │
+│              │     │    latency   │     │    objection │
+│              │     │              │     │  - Suggest   │
+└──────────────┘     └──────────────┘     └──────┬───────┘
+                                                  │
+                                         ┌────────▼───────┐
+                                         │  Display       │
+                                         │                │
+                                         │  Live panel:   │
+                                         │  &quot;They said    │
+                                         │  budget is     │
+                                         │  tight. Try:   │
+                                         │  [suggestion]&quot; │
+                                         └────────────────┘
 </code></pre>
-<h2>Step-by-Step Setup</h2>
-<h3>Step 1: CRM Replacement</h3>
-<p>Your CRM is really just a database with reminders. Build it with a simple skill:</p>
-<p>Create a <code>contacts.md</code> or SQLite database with:</p>
-<ul>
-<li>Contact name, company, email, phone</li>
-<li>Deal stage (lead, contacted, meeting, proposal, won/lost)</li>
-<li>Last contact date</li>
-<li>Next follow-up date and action</li>
-<li>Notes from each interaction</li>
-</ul>
-<p><strong>Cron job:</strong> Every morning, your agent checks for follow-ups due today and messages you the list. No more logging into Pipedrive to check what you're supposed to do.</p>
-<p><strong>Voice command:</strong> &quot;Add John from Acme to my pipeline, he wants a proposal by Friday&quot; and the agent handles the rest.</p>
-<h3>Step 2: Social Media Replacement</h3>
-<p>Install or build a posting skill:</p>
-<ol>
-<li>Connect to X/LinkedIn/Instagram via API or browser automation</li>
-<li>Create a content calendar in a markdown file</li>
-<li>Set up a cron job to draft posts based on your recent work, industry news, or content calendar</li>
-<li>Agent sends you drafts for approval (or auto-posts if you trust it)</li>
-</ol>
-<p><strong>Key advantage over Buffer:</strong> Your agent knows your business context. It doesn't just schedule posts. It writes them based on what's actually happening.</p>
-<h3>Step 3: Customer Support Replacement</h3>
-<ol>
-<li>Connect your agent to your email inbox or support channel</li>
-<li>Create a FAQ document the agent references</li>
-<li>Set rules: auto-reply to common questions, draft responses for complex ones, escalate urgent issues to you immediately</li>
-</ol>
-<p><strong>Triage rules example:</strong></p>
-<ul>
-<li>&quot;How do I cancel?&quot; -&gt; Auto-reply with cancellation link</li>
-<li>&quot;Your product is broken&quot; -&gt; Draft response, flag as urgent, notify you</li>
-<li>&quot;Can you do X custom thing?&quot; -&gt; Draft response, add to your review queue</li>
-</ul>
-<h3>Step 4: Analytics Replacement</h3>
-<p>You don't need Mixpanel. You need answers.</p>
-<p>Set up daily/weekly reports:</p>
-<ul>
-<li>Pull data from Stripe (revenue, new customers, churn)</li>
-<li>Check Google Analytics (traffic, top pages)</li>
-<li>Scan social metrics (followers, engagement)</li>
-<li>Compile into a single morning briefing</li>
-</ul>
-<p><strong>One message every morning with everything you need to know.</strong> No dashboards. No clicking through 4 tabs.</p>
-<h3>Step 5: Project Management Replacement</h3>
-<p>Task management with a simple system:</p>
-<ul>
-<li><code>tasks.md</code> or a Turso database with task name, priority, assignee, due date, status</li>
-<li>Agent tracks what's in progress, what's blocked, what's overdue</li>
-<li>Daily standup message: &quot;Here's what's on your plate today&quot;</li>
-</ul>
-<h3>Step 6: Email Marketing Replacement</h3>
-<p>For newsletters and drip sequences:</p>
-<ul>
-<li>Store templates as markdown files</li>
-<li>Use your email API (SendGrid, Mailgun, or even Gmail) to send</li>
-<li>Agent manages the subscriber list, segments by behavior, sends at optimal times</li>
-</ul>
-<h2>The 24 Reusable Skills</h2>
-<p>The original builder published 24 skills on ClawHub. Search for the ones that match your needs:</p>
-<pre><code class="language-bash">clawhub search crm
-clawhub search social
-clawhub search email
+<h2>Step 1: Capture Call Audio</h2>
+<p>You need both sides of the conversation in real time. Options:</p>
+<p><strong>Option A: Softphone + audio routing</strong>
+If you're using a VoIP system (Aircall, RingCentral, Dialpad), route the audio output to a local capture tool. On Mac, use BlackHole or Loopback to create a virtual audio device that captures system audio.</p>
+<p><strong>Option B: Speakerphone + mic</strong>
+The simplest approach: put the call on speaker and use your computer's microphone to capture both sides. Not ideal audio quality, but it works and takes 5 minutes to set up.</p>
+<p><strong>Option C: Phone integration</strong>
+Some phone systems offer real-time audio streams via API. Twilio's Media Streams, for example, can pipe live call audio to a WebSocket endpoint.</p>
+<h2>Step 2: Real-Time Transcription</h2>
+<p>Speed matters here. A suggestion that arrives 10 seconds late is useless. You need transcription with sub-second latency:</p>
+<p><strong>Deepgram</strong> is the go-to for this. Their streaming API transcribes audio in real time with ~300ms latency. It also handles speaker diarization (knowing who said what) which is critical for understanding the conversation flow.</p>
+<p>Set up a WebSocket connection that sends audio chunks and receives transcript fragments as they come in.</p>
+<h2>Step 3: Build the Coaching Engine</h2>
+<p>This is where OpenClaw shines. Feed the rolling transcript to your agent with instructions like:</p>
+<pre><code class="language-markdown">## Sales Coach Rules
+You are a real-time sales coach. You see a live transcript of a cold call.
+
+Your job:
+- Detect objections and suggest responses immediately
+- Notice buying signals (&quot;that's interesting&quot;, &quot;how does pricing work?&quot;)
+- Flag when the salesperson is talking too much (suggest shutting up)
+- Recommend when to go for the close
+- Provide specific phrases, not vague advice
+
+Common objections and responses:
+- &quot;Send me an email&quot; → &quot;Totally, I'll send something over. Quick question before I do...&quot;
+- &quot;We already have a vendor&quot; → &quot;Makes sense. Most of our clients did too. Curious, what would need to change for you to consider an alternative?&quot;
+- &quot;No budget&quot; → &quot;I hear you. If budget wasn't a factor, is this something you'd want to explore?&quot;
+- &quot;Not interested&quot; → &quot;Fair enough. Just so I know, is it the timing or the concept that doesn't fit?&quot;
+
+Keep suggestions SHORT. The salesperson is on a live call. 1-2 sentences max.
 </code></pre>
-<p>Install what exists. Build what doesn't.</p>
-<h2>Customization Ideas</h2>
+<h2>Step 4: The Display</h2>
+<p>The suggestions need to appear somewhere you can see during the call without it being awkward. Options:</p>
 <ul>
-<li><strong>Freelancer:</strong> Focus on CRM + invoicing + project tracking</li>
-<li><strong>E-commerce:</strong> Add inventory management + order tracking</li>
-<li><strong>Agency:</strong> Multi-client task management + reporting</li>
-<li><strong>Creator:</strong> Content calendar + analytics + sponsorship tracking</li>
+<li><strong>Floating overlay:</strong> A small transparent window on top of your screen</li>
+<li><strong>Second monitor:</strong> Dedicate a screen to the coaching panel</li>
+<li><strong>Terminal window:</strong> Simple text output, new suggestions appear as they come</li>
 </ul>
-<h2>Gotchas &amp; Tips</h2>
+<p>The display should show:</p>
 <ul>
-<li><strong>Migrate gradually.</strong> Don't cancel all your SaaS on day one. Run parallel for 2 weeks.</li>
-<li><strong>The Mac Mini pays for itself in 5 weeks</strong> at $500/month savings. A $24/month VPS pays for itself instantly.</li>
-<li><strong>Your agent will over-engineer things.</strong> Set boundaries on what it should automate vs what stays simple.</li>
-<li><strong>Export your data first.</strong> Before canceling any tool, export contacts, deal history, and analytics.</li>
-<li><strong>Start with the tool you hate most.</strong> That's your highest-motivation replacement target.</li>
+<li>The latest suggestion (big, readable at a glance)</li>
+<li>Current conversation sentiment (green/yellow/red)</li>
+<li>Talk-time ratio (are you talking too much?)</li>
+<li>Key topics detected</li>
 </ul>
+<h2>Step 5: Post-Call Analysis</h2>
+<p>After the call ends, the agent generates a summary:</p>
+<ul>
+<li>What went well</li>
+<li>Missed opportunities</li>
+<li>Objections handled (and how)</li>
+<li>Suggested follow-up actions</li>
+<li>Score: 1-10 call quality rating</li>
+</ul>
+<p>Over time, this builds a dataset of your calls. You can see patterns: which objection responses actually work, what your average talk-time ratio is on successful calls, and where you consistently lose prospects.</p>
+<h2>Privacy and Ethics</h2>
+<p>This is important: always comply with call recording laws.</p>
+<ul>
+<li><strong>One-party consent states:</strong> You can record/transcribe if you're on the call</li>
+<li><strong>Two-party consent states:</strong> You need the other person's consent</li>
+<li><strong>Best practice:</strong> &quot;This call may be recorded for quality purposes&quot; covers you in most jurisdictions</li>
+</ul>
+<p>The AI isn't recording the call for someone else. It's helping you be better at your job in real time. But make sure you're on the right side of local laws.</p>
+<h2>Real Results</h2>
+<p>The builder who created this (Jonah) uses it for his agency's cold calling. The real-time suggestions help with:</p>
+<ul>
+<li>Faster recovery from unexpected objections</li>
+<li>Better talk-to-listen ratio (the AI tells you when to stop talking)</li>
+<li>Higher conversion rates on calls (more meetings booked)</li>
+<li>Faster ramp-up for new salespeople (instant coaching from day one)</li>
+</ul>
+<p>The biggest win? Confidence. When you know you have backup, you make calls you'd otherwise skip.</p>
 
     </div>
     <div class="post-footer">

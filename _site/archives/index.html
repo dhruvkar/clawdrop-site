@@ -133,5 +133,18 @@
       <p>© 2026 The Claw Drop · Powered by <a href="https://openclaw.com">OpenClaw</a></p>
     </div>
   </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
 </body>
 </html>
+<!-- deploy test 2026-03-04T03:10:41Z -->

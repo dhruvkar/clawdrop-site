@@ -126,7 +126,7 @@
       <span class="meta-badge">💰 <strong>$20-40/month (API + optional tools)</strong></span>
       <span class="meta-badge">⏱ <strong>2-3 hours</strong></span>
       <span class="meta-badge">👤 <strong>Anonymous (Brazilian software engineer)</strong></span>
-      <a href="https://reddit.com/r/openclaw" target="_blank" class="meta-badge" style="text-decoration: none;">🔗 <strong>Original Post ↗</strong></a>
+      <a href="https://reddit.com/r/openclaw/comments/1r8hek7/my_agent_doubled_my_salary_it_found_a_new_job_for/" target="_blank" class="meta-badge" style="text-decoration: none;">🔗 <strong>Original Post ↗</strong></a>
     </div>
     <div class="post-content">
       <h2>What You'll Build</h2>
@@ -296,5 +296,18 @@ Search <code>site:linkedin.com/jobs &quot;[your title]&quot; &quot;[your city]&q
       <p>© 2026 The Claw Drop · Powered by <a href="https://openclaw.com">OpenClaw</a></p>
     </div>
   </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
 </body>
 </html>
+<!-- deploy test 2026-03-04T03:10:41Z -->
