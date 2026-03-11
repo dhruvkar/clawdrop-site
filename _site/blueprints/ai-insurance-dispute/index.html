@@ -90,6 +90,12 @@
   .post-content pre { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 18px; overflow-x: auto; margin: 20px 0; }
   .post-content pre code { background: none; padding: 0; font-size: 0.85rem; color: #ccc; }
   .post-content strong { color: var(--text); }
+  .blueprint-cta { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 32px 28px; margin: 40px 0; position: relative; overflow: hidden; text-align: center; }
+  .blueprint-cta::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--gradient); opacity: 0.5; }
+  .blueprint-cta h3 { font-size: 1.15rem; font-weight: 700; margin: 0 0 6px; color: var(--text); }
+  .blueprint-cta p { font-size: 0.88rem; color: var(--text-muted); margin: 0 0 16px; }
+  .blueprint-cta .form-iframe-wrap { height: 240px; overflow: hidden; border-radius: 12px; }
+  .blueprint-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
   .post-footer { margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--border); text-align: center; }
   .post-footer p { color: var(--text-muted); font-size: 0.92rem; margin-bottom: 16px; }
   .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 12px 28px; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 0.95rem; transition: all 0.2s; box-shadow: 0 0 40px var(--accent-glow); }
@@ -128,7 +134,7 @@
       <span class="meta-badge">👤 <strong>Duncan Rogoff</strong></span>
       <a href="https://www.youtube.com/watch?v=s-dpN0zEUjk" target="_blank" class="meta-badge" style="text-decoration: none;">🔗 <strong>Original Post ↗</strong></a>
     </div>
-    <div class="post-content">
+    <div class="post-content" id="post-content">
       <h2>What You'll Build</h2>
 <p>An AI assistant that fights insurance claim denials on your behalf. It reads your policy, identifies why the denial is wrong, drafts a professional appeal letter citing specific policy language, and handles the follow-up correspondence.</p>
 <h2>Why This Works</h2>
@@ -203,6 +209,28 @@
 <p>Anywhere there's a bureaucratic process with written rules, your AI has the edge: it actually reads the rules.</p>
 
     </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'blueprint-cta';
+      cta.innerHTML = '<h3>Get builds like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real people. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-bp-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
     <div class="post-footer">
       <p>Have a build to share? We'd love to feature it.</p>
       <a href="/submit/" class="btn-cta">Submit Your Build →</a>
