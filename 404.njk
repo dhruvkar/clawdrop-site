@@ -1,10 +1,10 @@
 ---
-layout: base.njk
 title: "404 — Lost in the Void"
 permalink: /404.html
 ---
+{% extends "base.njk" %}
 
-<style>
+{% block styles %}
   .four-oh-four {
     display: flex;
     flex-direction: column;
@@ -82,18 +82,19 @@ permalink: /404.html
     margin: 0 0.5rem;
   }
   .four-oh-four .alt-links a:hover { text-decoration: underline; }
-</style>
+{% endblock %}
 
+{% block body %}
 <div class="four-oh-four">
   <div class="claw-ascii">
-    ╔══════════════════════════════════╗
-    ║                                  ║
-    ║   &gt; searching for page...        ║
-    ║   &gt; ...                          ║
-    ║   &gt; nope. the claw came up empty ║
-    ║   &gt; 🪝                           ║
-    ║                                  ║
-    ╚══════════════════════════════════╝
+╔══════════════════════════════════╗
+║                                  ║
+║   &gt; searching for page...        ║
+║   &gt; ...                          ║
+║   &gt; nope. the claw came up empty ║
+║   &gt; 🪝                           ║
+║                                  ║
+╚══════════════════════════════════╝
   </div>
   <h1>404</h1>
   <p class="subtitle">This page got automated out of existence.</p>
@@ -108,3 +109,4 @@ permalink: /404.html
     or check out <a href="/blueprints/">Blueprints</a> · <a href="/archives/">Archives</a>
   </div>
 </div>
+{% endblock %}
