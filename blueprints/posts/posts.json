@@ -1,0 +1,3 @@
+{
+  "permalink": "/blueprints/{{ page.fileSlug }}/"
+}
