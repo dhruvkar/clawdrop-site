@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cut Your AI Agent Costs by 97% with Multi-Model Routing — The Claw Drop</title>
-  <meta name="description" content="One user dropped from $90/month to $6 by routing tasks to the right model. Here&#39;s the exact setup.">
+  <title>Turn Any Windows PC Into a Web Automation Machine — The Claw Drop</title>
+  <meta name="description" content="Set up parallel browser automation on a spare PC. Your agent controls 4+ Chrome instances at once, each logged into different accounts. No code, no Selenium, no proxies.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -124,219 +124,154 @@
   
   <article class="post">
     <a href="/blueprints/" class="post-back">← All Blueprints</a>
-    <div class="post-date">March 3, 2026</div>
-    <h1>Cut Your AI Agent Costs by 97% with Multi-Model Routing</h1>
-    <p class="post-description">One user dropped from $90/month to $6 by routing tasks to the right model. Here&#39;s the exact setup.</p>
+    <div class="post-date">March 16, 2026</div>
+    <h1>Turn Any Windows PC Into a Web Automation Machine</h1>
+    <p class="post-description">Set up parallel browser automation on a spare PC. Your agent controls 4+ Chrome instances at once, each logged into different accounts. No code, no Selenium, no proxies.</p>
     <div class="post-meta-grid">
       <span class="meta-badge">⚡ <strong>Beginner</strong></span>
-      <span class="meta-badge">💰 <strong>$6-15/month (down from $60-90)</strong></span>
-      <span class="meta-badge">⏱ <strong>30 minutes</strong></span>
-      <span class="meta-badge">👤 <strong>YouTube creator</strong></span>
-      <a href="https://www.youtube.com/watch?v=RX-fQTW2To8" target="_blank" class="meta-badge" style="text-decoration: none;">🔗 <strong>Original Post ↗</strong></a>
+      <span class="meta-badge">💰 <strong>$0 (uses existing hardware)</strong></span>
+      <span class="meta-badge">⏱ <strong>30-60 minutes</strong></span>
+      <span class="meta-badge">👤 <strong>dhruvkar</strong></span>
+      <a href="https://discord.com/channels/1456350064065904867/1457377479495913574" target="_blank" class="meta-badge" style="text-decoration: none;">🔗 <strong>Original Post ↗</strong></a>
     </div>
     <div class="post-content" id="post-content">
       <h2>What You'll Build</h2>
-<p>A model routing strategy that uses cheap models for simple tasks and expensive models only when needed. Your AI agent stays just as capable but costs 90-97% less.</p>
+<p>A spare Windows PC (or laptop collecting dust) that your AI agent controls remotely. It runs multiple Chrome browsers simultaneously, each logged into different accounts. Your agent can:</p>
+<ul>
+<li>Post to social media across 4 platforms at once</li>
+<li>Monitor LinkedIn DMs and sync leads to your CRM</li>
+<li>Scrape competitor pricing daily</li>
+<li>Fill out forms, submit applications, check dashboards</li>
+<li>Do anything a human can do in a browser, but faster and on autopilot</li>
+</ul>
+<p>All through natural language. Tell your agent &quot;check my LinkedIn DMs for positive replies&quot; and it does the rest.</p>
 <h2>Why It Works</h2>
-<p>Most people set their AI agent to use Claude Opus (the most powerful, most expensive model) for everything. Every heartbeat check, every simple question, every status ping costs premium tokens. That's like hiring a brain surgeon to take your temperature.</p>
-<p><strong>Results:</strong> Monthly bill dropped from $90 to $6. Same agent. Same capabilities. 97% cost reduction.</p>
+<p>Most &quot;browser automation&quot; tools use headless browsers or API wrappers that get flagged instantly. This approach is different:</p>
+<ul>
+<li><strong>Real Chrome, real cookies.</strong> You log in manually once. The agent uses that same session. Sites see a normal user, because it is one.</li>
+<li><strong>Separate profiles = separate identities.</strong> Each Chrome instance has its own cookies, history, and logins. Your Twitter automation never touches your LinkedIn cookies.</li>
+<li><strong>No code required.</strong> You don't write Puppeteer scripts or CSS selectors. You talk to your agent and it figures out how to click, type, and navigate.</li>
+<li><strong>Runs on hardware you already own.</strong> That old laptop? It's now a 24/7 automation server.</li>
+</ul>
+<p><strong>Real result:</strong> One user runs 4 parallel Chrome profiles handling Twitter, LinkedIn, Facebook, and general web scraping, all controlled by a single OpenClaw agent running on a $200 VPS.</p>
 <h2>Prerequisites</h2>
 <ul>
-<li>OpenClaw installed and running</li>
-<li>Access to your OpenClaw config</li>
-<li>That's it. This is a config change, not a build.</li>
+<li>A Windows PC (spare laptop, desktop, anything with Chrome)</li>
+<li>OpenClaw installed somewhere (Mac, Linux, VPS, or the same Windows PC)</li>
+<li>Google Chrome installed on the Windows PC</li>
+<li>15 minutes of patience</li>
 </ul>
-<h2>The Problem</h2>
-<p>Here's what's burning your money:</p>
-<table>
-<thead>
-<tr>
-<th>Task</th>
-<th>Frequency</th>
-<th>Tokens Per Call</th>
-<th>Model Used</th>
-<th>Monthly Cost</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Heartbeat check</td>
-<td>Every 30 min</td>
-<td>5,000-15,000</td>
-<td>Opus</td>
-<td>$30-45</td>
-</tr>
-<tr>
-<td>Simple replies</td>
-<td>20/day</td>
-<td>2,000-5,000</td>
-<td>Opus</td>
-<td>$15-25</td>
-</tr>
-<tr>
-<td>Complex tasks</td>
-<td>2-3/day</td>
-<td>10,000-30,000</td>
-<td>Opus</td>
-<td>$10-15</td>
-</tr>
-<tr>
-<td>Background jobs</td>
-<td>5-10/day</td>
-<td>5,000-15,000</td>
-<td>Opus</td>
-<td>$10-20</td>
-</tr>
-<tr>
-<td><strong>Total</strong></td>
-<td></td>
-<td></td>
-<td></td>
-<td><strong>$65-105</strong></td>
-</tr>
-</tbody>
-</table>
-<p>The heartbeat alone (a simple &quot;anything new?&quot; check) eats 30-50% of your budget.</p>
-<h2>The Solution: Tiered Model Routing</h2>
-<pre><code>┌─────────────────────────────────────────────┐
-│              Task Incoming                   │
-│                                              │
-│  Simple? ──────▶ Haiku ($0.25/M tokens)     │
-│  (heartbeats,    - Heartbeat checks          │
-│   status,        - Yes/no questions          │
-│   basic)         - Simple lookups            │
-│                                              │
-│  Medium? ──────▶ Sonnet ($3/M tokens)       │
-│  (writing,       - Email drafts              │
-│   analysis,      - Content creation          │
-│   planning)      - Research summaries        │
-│                                              │
-│  Complex? ─────▶ Opus ($15/M tokens)        │
-│  (strategy,      - Complex analysis          │
-│   coding,        - Multi-step reasoning      │
-│   critical)      - Code generation           │
-│                                              │
-│  Local? ───────▶ Ollama (FREE)              │
-│  (private,       - Personal data processing  │
-│   offline,       - Simple classification     │
-│   simple)        - Drafts nobody sees        │
-└─────────────────────────────────────────────┘
+<h2>Step 1: Install the OpenClaw App on Windows</h2>
+<p>Download the OpenClaw desktop app from <a href="https://openclaw.ai">openclaw.ai</a> and install it on the Windows PC.</p>
+<p>This app runs as a &quot;node,&quot; a lightweight bridge between your main OpenClaw gateway and the Windows machine. It doesn't run an AI model. It just receives commands and executes them locally.</p>
+<p>Open the app. It will show a pairing screen with a code.</p>
+<h2>Step 2: Pair It With Your Gateway</h2>
+<p>On your main OpenClaw machine (wherever your gateway runs), approve the new node:</p>
+<pre><code class="language-bash">openclaw devices list
+openclaw devices approve &lt;the-request-id-shown&gt;
 </code></pre>
-<h2>Step-by-Step Setup</h2>
-<h3>Step 1: Set Your Default Model to Sonnet</h3>
-<p>In your OpenClaw config, change the default model from Opus to Sonnet:</p>
-<pre><code class="language-json">{
-  &quot;model&quot;: &quot;anthropic/claude-sonnet-4-20250514&quot;
-}
+<p>That's it. Your gateway can now send commands to the Windows PC. You can verify with:</p>
+<pre><code class="language-bash">openclaw nodes list
 </code></pre>
-<p>This single change cuts your baseline costs by ~80%. Sonnet handles 90% of daily tasks perfectly well.</p>
-<h3>Step 2: Configure Heartbeats to Use Haiku</h3>
-<p>Heartbeats are the biggest cost driver. They run every 30 minutes and usually just check if anything needs attention. Haiku is perfect for this.</p>
-<p>In your OpenClaw config, set the heartbeat model:</p>
-<pre><code class="language-json">{
-  &quot;heartbeat&quot;: {
-    &quot;model&quot;: &quot;anthropic/claude-haiku&quot;
-  }
-}
-</code></pre>
-<p><strong>Cost impact:</strong> Heartbeat cost drops from $30-45/month to under $1.</p>
-<h3>Step 3: Use Opus Only for Complex Tasks</h3>
-<p>Reserve Opus for tasks that genuinely need it:</p>
-<ul>
-<li><strong>Overnight coding jobs:</strong> Building features, fixing complex bugs</li>
-<li><strong>Strategic analysis:</strong> Business decisions, competitive research</li>
-<li><strong>Long-form writing:</strong> Blog posts, reports, proposals</li>
-</ul>
-<p>You can override the model per-session or per-task:</p>
-<pre><code>/model opus
-</code></pre>
-<p>Or set specific cron jobs to use Opus:</p>
-<pre><code class="language-json">{
-  &quot;payload&quot;: {
-    &quot;kind&quot;: &quot;agentTurn&quot;,
-    &quot;message&quot;: &quot;Complex overnight task...&quot;,
-    &quot;model&quot;: &quot;anthropic/claude-opus-4-6&quot;
-  }
-}
-</code></pre>
-<h3>Step 4: Add Local Ollama (Optional, Saves More)</h3>
-<p>For tasks that don't need cloud AI at all, run a local model:</p>
-<pre><code class="language-bash"># Install Ollama
-curl -fsSL https://ollama.ai/install.sh | sh
+<p>You should see your Windows machine listed with a green status.</p>
+<h2>Step 3: Launch Chrome With Remote Debugging</h2>
+<p>This is the key step. You need to start Chrome in a way that lets OpenClaw control it. Open PowerShell on the Windows PC and run:</p>
+<pre><code class="language-powershell">$chrome = 'C:\Program Files\Google\Chrome\Application\chrome.exe'
 
-# Pull a small, fast model
-ollama pull llama3.2:3b
+Start-Process $chrome -ArgumentList `
+  &quot;--remote-debugging-port=18800&quot;,
+  &quot;--user-data-dir=$env:USERPROFILE\.openclaw\browser-profiles\main&quot;
 </code></pre>
-<p>Use cases for local models:</p>
+<p>A Chrome window opens. This is your first automation profile.</p>
+<p><strong>What just happened:</strong></p>
 <ul>
-<li>Classifying emails (spam/important/can-wait)</li>
-<li>Extracting structured data from text</li>
-<li>Simple yes/no decisions</li>
-<li>Drafts that will be rewritten anyway</li>
+<li><code>--remote-debugging-port=18800</code> tells Chrome to accept commands on port 18800</li>
+<li><code>--user-data-dir=...</code> creates a completely separate Chrome profile (its own cookies, history, extensions)</li>
 </ul>
-<p><strong>Cost:</strong> $0. Runs on your hardware.</p>
-<h3>Step 5: Monitor and Adjust</h3>
-<p>After a week, check your usage:</p>
-<pre><code>/status
+<h2>Step 4: Log Into Your Accounts (One Time)</h2>
+<p>In that Chrome window, manually log into whatever you need: Gmail, LinkedIn, Twitter, your CRM, your bank dashboard, whatever.</p>
+<p>This is a one-time setup. The agent will reuse these sessions going forward. As long as Chrome stays open, the sessions persist.</p>
+<h2>Step 5: Test It</h2>
+<p>From your main machine (or Telegram, Signal, wherever you talk to your agent), try:</p>
+<blockquote>
+<p>&quot;Take a screenshot of my Chrome browser on the Windows PC&quot;</p>
+</blockquote>
+<p>Your agent will use the browser tool, connect to the Windows node, snap a screenshot, and send it back. If you see the page you left open, everything is working.</p>
+<p>Try something more useful:</p>
+<blockquote>
+<p>&quot;Go to linkedin.com/messaging and tell me if I have any unread messages&quot;</p>
+</blockquote>
+<p>The agent navigates, reads the page, and reports back. No API keys. No LinkedIn developer account. Just a real browser.</p>
+<h2>Step 6: Add More Profiles (Parallel Automation)</h2>
+<p>Here's where it gets powerful. Launch more Chrome instances on different ports:</p>
+<pre><code class="language-powershell">$chrome = 'C:\Program Files\Google\Chrome\Application\chrome.exe'
+
+# Profile 2: Twitter/X automation
+Start-Process $chrome -ArgumentList `
+  &quot;--remote-debugging-port=18801&quot;,
+  &quot;--user-data-dir=$env:USERPROFILE\.openclaw\browser-profiles\twitter&quot;
+
+# Profile 3: LinkedIn automation
+Start-Process $chrome -ArgumentList `
+  &quot;--remote-debugging-port=18802&quot;,
+  &quot;--user-data-dir=$env:USERPROFILE\.openclaw\browser-profiles\linkedin&quot;
+
+# Profile 4: Facebook automation
+Start-Process $chrome -ArgumentList `
+  &quot;--remote-debugging-port=18803&quot;,
+  &quot;--user-data-dir=$env:USERPROFILE\.openclaw\browser-profiles\facebook&quot;
 </code></pre>
-<p>Look at:</p>
+<p>Log into the relevant accounts in each window. Now your agent can work across all four simultaneously. Twitter posting on port 18801 doesn't interfere with LinkedIn scraping on 18802.</p>
+<p><strong>You can run up to 100 profiles</strong> (ports 18800-18899). Most machines handle 4-8 comfortably.</p>
+<h2>Step 7: Automate With Cron Jobs</h2>
+<p>Set up recurring tasks that run on autopilot:</p>
+<p><strong>Morning LinkedIn check (every day at 9 AM):</strong>
+Your agent opens LinkedIn on the dedicated profile, checks DMs for positive replies to your outbound messages, and sends you a summary on Telegram.</p>
+<p><strong>Social posting (3x per day):</strong>
+Your agent posts to Twitter, LinkedIn, and Facebook using three separate Chrome profiles in parallel. Each post is tailored to the platform. No scheduling tool needed.</p>
+<p><strong>Competitor price monitoring (daily):</strong>
+Your agent visits 5 competitor websites, screenshots their pricing pages, and flags any changes.</p>
+<p><strong>Lead scraping (weekly):</strong>
+Your agent searches Google Maps or industry directories for prospects, extracts contact info, and adds them to your CRM.</p>
+<h2>What People Are Actually Building</h2>
+<p>From the OpenClaw community:</p>
 <ul>
-<li>Which tasks are using which models</li>
-<li>Where Sonnet struggled (upgrade those to Opus)</li>
-<li>Where Opus was overkill (downgrade those to Sonnet or Haiku)</li>
+<li><strong>Roofing company</strong> runs 4 agents (sales, field support, customer success, COO) each with browser access for CRM and scheduling</li>
+<li><strong>Trader</strong> uses browser automation for live market monitoring and trade execution</li>
+<li><strong>Newsletter creator</strong> scrapes Discord, Reddit, and Twitter for content via parallel browser profiles</li>
+<li><strong>Job seeker</strong> had their agent browse LinkedIn, apply to jobs, and negotiate, doubling their salary</li>
+<li><strong>Agency owner</strong> monitors 12 client dashboards daily across separate browser profiles, one per client</li>
 </ul>
-<h2>The Math</h2>
-<table>
-<thead>
-<tr>
-<th>Task</th>
-<th>Before (All Opus)</th>
-<th>After (Routed)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Heartbeats (48/day)</td>
-<td>$35/month</td>
-<td>$0.50/month</td>
-</tr>
-<tr>
-<td>Simple tasks (20/day)</td>
-<td>$20/month</td>
-<td>$2/month</td>
-</tr>
-<tr>
-<td>Medium tasks (10/day)</td>
-<td>$20/month</td>
-<td>$3/month</td>
-</tr>
-<tr>
-<td>Complex tasks (2/day)</td>
-<td>$15/month</td>
-<td>$3/month</td>
-</tr>
-<tr>
-<td><strong>Total</strong></td>
-<td><strong>$90/month</strong></td>
-<td><strong>$8.50/month</strong></td>
-</tr>
-</tbody>
-</table>
-<p>That's a $81.50/month savings. $978/year. For changing a config file.</p>
-<h2>Customization Ideas</h2>
+<h2>Making It Persistent</h2>
+<p>Chrome profiles survive restarts (the user-data-dir keeps everything). But you need to re-launch Chrome with the debugging flags after a reboot.</p>
+<p><strong>Auto-start on boot (PowerShell script):</strong></p>
+<p>Create a file called <code>start-browsers.ps1</code>:</p>
+<pre><code class="language-powershell">$chrome = 'C:\Program Files\Google\Chrome\Application\chrome.exe'
+$profiles = @(
+    @{Port=18800; Name=&quot;main&quot;},
+    @{Port=18801; Name=&quot;twitter&quot;},
+    @{Port=18802; Name=&quot;linkedin&quot;},
+    @{Port=18803; Name=&quot;facebook&quot;}
+)
+
+foreach ($p in $profiles) {
+    $dataDir = &quot;$env:USERPROFILE\.openclaw\browser-profiles\$($p.Name)&quot;
+    Start-Process $chrome -ArgumentList `
+      &quot;--remote-debugging-port=$($p.Port)&quot;,
+      &quot;--user-data-dir=$dataDir&quot;
+    Start-Sleep -Seconds 2
+}
+</code></pre>
+<p>Add it to Windows Task Scheduler to run at login, and your automation machine survives reboots.</p>
+<h2>Gotchas and Tips</h2>
 <ul>
-<li><strong>Cost-optimized:</strong> Use Haiku as default, Sonnet for writing, Opus only for strategy sessions</li>
-<li><strong>Quality-optimized:</strong> Use Sonnet as default, Opus for anything customer-facing</li>
-<li><strong>Privacy-optimized:</strong> Use Ollama for all personal data, cloud models for business tasks only</li>
-<li><strong>Hybrid:</strong> Run a local model for classification/routing, then send to the right cloud model</li>
-</ul>
-<h2>Gotchas &amp; Tips</h2>
-<ul>
-<li><strong>Don't start with Haiku for everything.</strong> Start with Sonnet as default and Haiku for heartbeats only. Expand after you see what Haiku handles well.</li>
-<li><strong>Haiku occasionally misses nuance.</strong> If your heartbeat checks need to understand complex context, Sonnet might be worth the extra cost.</li>
-<li><strong>Model names change.</strong> Check the current model names in your provider's docs.</li>
-<li><strong>Cache helps too.</strong> OpenClaw caches prompt context. Longer sessions with fewer restarts = lower costs.</li>
-<li><strong>The 80/20 rule applies.</strong> 80% of your tasks need 20% of the compute. Route accordingly.</li>
+<li><strong>Sessions expire.</strong> Some sites log you out after days or weeks. When that happens, the agent will tell you it hit a login page. Just log back in manually in that Chrome window.</li>
+<li><strong>Don't run multiple tabs on the same profile for automation.</strong> Use separate profiles instead. Multiple tabs on one profile can cause the agent to accidentally interact with the wrong tab.</li>
+<li><strong>Keep Chrome updated.</strong> The remote debugging protocol changes with Chrome versions. Staying on stable channel avoids surprises.</li>
+<li><strong>Rate limit yourself.</strong> Just because you can post to 4 platforms every 5 minutes doesn't mean you should. Mimic human patterns. Space things out.</li>
+<li><strong>The PC needs to stay on.</strong> Disable sleep mode. If it's a laptop, keep it plugged in with the lid closed (configure Windows to &quot;do nothing&quot; on lid close).</li>
+<li><strong>Headless mode works too.</strong> Add <code>--headless=new</code> to the Chrome flags if you don't need to see the browser windows. Saves RAM and screen space.</li>
+<li><strong>Start small.</strong> Get one profile working with one task before scaling to four profiles with twelve cron jobs. Build confidence first.</li>
 </ul>
 
     </div>

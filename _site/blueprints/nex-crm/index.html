@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Turn 1,000 WhatsApp Voice Messages Into a Searchable Knowledge Base — The Claw Drop</title>
-  <meta name="description" content="Your team&#39;s best ideas are buried in voice messages. This system transcribes them, cross-references with project history, and builds a searchable archive of everything your team has ever discussed.">
+  <title>Replace Your CRM With a Conversation — The Claw Drop</title>
+  <meta name="description" content="Install one skill and your AI agent becomes your CRM. Contacts, deals, follow-ups, notes. All managed through chat. No dashboards to learn, no data entry, no $50/month subscription.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -124,113 +124,116 @@
   
   <article class="post">
     <a href="/blueprints/" class="post-back">← All Blueprints</a>
-    <div class="post-date">March 10, 2026</div>
-    <h1>Turn 1,000 WhatsApp Voice Messages Into a Searchable Knowledge Base</h1>
-    <p class="post-description">Your team&#39;s best ideas are buried in voice messages. This system transcribes them, cross-references with project history, and builds a searchable archive of everything your team has ever discussed.</p>
+    <div class="post-date">March 18, 2026</div>
+    <h1>Replace Your CRM With a Conversation</h1>
+    <p class="post-description">Install one skill and your AI agent becomes your CRM. Contacts, deals, follow-ups, notes. All managed through chat. No dashboards to learn, no data entry, no $50/month subscription.</p>
     <div class="post-meta-grid">
-      <span class="meta-badge">⚡ <strong>Intermediate</strong></span>
-      <span class="meta-badge">💰 <strong>$10-30/month (transcription API)</strong></span>
-      <span class="meta-badge">⏱ <strong>3-5 hours</strong></span>
-      <span class="meta-badge">👤 <strong>The Nuanced Perspective (Substack)</strong></span>
-      <a href="https://thenuancedperspective.substack.com/p/how-are-people-using-openclaw#extracted-whatsapp-voice-message-knowledge-base" target="_blank" class="meta-badge" style="text-decoration: none;">🔗 <strong>Original Post ↗</strong></a>
+      <span class="meta-badge">⚡ <strong>Beginner</strong></span>
+      <span class="meta-badge">💰 <strong>Free (open source)</strong></span>
+      <span class="meta-badge">⏱ <strong>15-30 minutes</strong></span>
+      <span class="meta-badge">👤 <strong>iamnazzty</strong></span>
+      <a href="https://github.com/nex-crm/nex-as-a-skill" target="_blank" class="meta-badge" style="text-decoration: none;">🔗 <strong>Original Post ↗</strong></a>
     </div>
     <div class="post-content" id="post-content">
       <h2>What You'll Build</h2>
-<p>A system that takes your entire WhatsApp chat history (including voice messages), transcribes everything, cross-references conversations with your project history (Git commits, documents, tasks), and produces a searchable knowledge base. Every decision, every brainstorm, every &quot;let me send you a quick voice note&quot; becomes findable.</p>
+<p>A CRM that lives inside your AI agent. No login screens. No dashboards. No data entry. You tell your agent &quot;I just met Maria Rodriguez, she's CTO at TechFlow, they're expanding to Europe in Q3 with a $2M budget&quot; and it remembers. A week later you ask &quot;what do I know about TechFlow?&quot; and it pulls up everything: the contact, the deal size, the timeline, and the follow-up you need to send.</p>
+<p>Contacts, companies, deals, tasks, notes, and insights. All managed through conversation. All searchable. All connected.</p>
 <h2>Why This Works</h2>
-<p>Teams communicate constantly on WhatsApp. Quick voice messages, rapid-fire texts, shared links, decisions made at 11pm. But none of it is searchable. None of it is organized. When someone asks &quot;why did we decide to use Stripe instead of Square?&quot; the answer is buried in a voice message from four months ago.</p>
-<p>This is especially brutal for startups where WhatsApp IS the communication platform. No Slack, no Notion, no fancy project management tools. Just a group chat with 10,000 messages and 1,000 voice notes.</p>
-<p>The fix: let an AI listen to all of it, transcribe it, tag it, and make it searchable.</p>
+<p>CRMs are where good leads go to die. Here's what actually happens: you have a great call with a prospect. You promise to follow up. Then you open HubSpot and stare at 15 required fields. Company name. Company size. Industry. Revenue range. Lead source. Deal stage. Expected close date. You fill in what you can, skip the rest, and tell yourself you'll update it later. You won't.</p>
+<p>Two weeks pass. You remember that prospect existed but can't find the note. Was it in your CRM? Your email? A sticky note? A Slack message to yourself? The lead goes cold. The deal disappears.</p>
+<p>The problem isn't that CRMs are bad software. It's that data entry is miserable and humans avoid miserable things. The fix isn't a better dashboard. It's removing the dashboard entirely.</p>
+<p>When your CRM is a conversation, the friction disappears. &quot;Just talked to Dave at Acme, they need 50 licenses by March, budget approved, he's the decision maker.&quot; That's it. That's the CRM entry. Your agent extracts the contact, the company, the deal, the timeline, and the buying signal. No forms. No dropdowns. No required fields.</p>
 <h2>Prerequisites</h2>
 <ul>
 <li>OpenClaw installed and running</li>
-<li>WhatsApp chat export (WhatsApp lets you export chats with media)</li>
-<li>Whisper or similar transcription API (local or cloud)</li>
-<li>Optional: Git repository access for cross-referencing</li>
+<li>Node.js or Bun runtime</li>
+<li>15 minutes</li>
 </ul>
-<h2>Architecture</h2>
-<pre><code>┌──────────────┐     ┌──────────────┐     ┌──────────────┐
-│  WhatsApp    │────▶│ Transcriber  │────▶│  Tagger      │
-│  Export      │     │              │     │              │
-│              │     │  - Voice →   │     │  - Topics    │
-│  - Messages  │     │    text      │     │  - Decisions │
-│  - Voice     │     │  - Speaker   │     │  - Action    │
-│  - Media     │     │    ID        │     │    items     │
-│  - Links     │     │  - Timestamps│     │  - People    │
-└──────────────┘     └──────────────┘     └──────┬───────┘
-                                                  │
-                     ┌──────────────┐     ┌───────▼──────┐
-                     │  Search      │◀────│  Indexer     │
-                     │  Interface   │     │              │
-                     │              │     │  - Full text │
-                     │  &quot;Why did    │     │  - Git xref  │
-                     │   we pick    │     │  - Timeline  │
-                     │   Stripe?&quot;   │     │  - Embeddings│
-                     └──────────────┘     └──────────────┘
+<h2>Step 1: Install Nex</h2>
+<p>Nex is an open-source knowledge graph that plugs directly into OpenClaw. One command:</p>
+<pre><code class="language-bash">bun install -g @nex-ai/nex
+nex setup
 </code></pre>
-<h2>Step 1: Export Your WhatsApp History</h2>
-<p>WhatsApp lets you export any chat, including media:</p>
-<ol>
-<li>Open the group chat or DM</li>
-<li>Tap the contact/group name at the top</li>
-<li>Scroll down to &quot;Export Chat&quot;</li>
-<li>Choose &quot;Include Media&quot; (this gets the voice messages)</li>
-</ol>
-<p>You'll get a zip file with a text file of all messages and folders of media files (images, voice notes, videos).</p>
-<p>For ongoing monitoring, you can use tools like <code>wacli</code> to sync messages programmatically.</p>
-<h2>Step 2: Transcribe Voice Messages</h2>
-<p>Feed every <code>.opus</code> or <code>.ogg</code> voice file through a transcription service:</p>
-<ul>
-<li><strong>Whisper (local):</strong> Free, runs on your machine, good accuracy</li>
-<li><strong>Whisper API (OpenAI):</strong> $0.006/minute, excellent accuracy</li>
-<li><strong>Deepgram:</strong> Fast, good for real-time, $0.0043/minute</li>
-</ul>
-<p>For 1,000 voice messages averaging 30 seconds each, you're looking at about 500 minutes of audio. At OpenAI Whisper rates, that's roughly $3.</p>
-<p>The agent processes each file, attaches the transcript to the original message timestamp and sender, and stores it alongside the text messages.</p>
-<h2>Step 3: Tag and Categorize</h2>
-<p>Now the AI reads through the combined transcript (text messages + transcribed voice) and tags each conversation segment:</p>
-<ul>
-<li><strong>Decisions:</strong> &quot;We agreed to use Stripe&quot; / &quot;Moving the launch to March&quot;</li>
-<li><strong>Action items:</strong> &quot;John will handle the API integration&quot;</li>
-<li><strong>Ideas:</strong> Brainstorms, feature requests, &quot;what if we...&quot; moments</li>
-<li><strong>Blockers:</strong> Problems discussed, bugs reported</li>
-<li><strong>People mentioned:</strong> Clients, partners, vendors</li>
-</ul>
-<p>This turns a wall of chat into structured, searchable data.</p>
-<h2>Step 4: Cross-Reference with Project History</h2>
-<p>This is what makes it powerful. The agent matches conversations to actual work:</p>
-<ul>
-<li>A voice message on Jan 15 discussing a payment bug? Link it to the Git commit that fixed it on Jan 17.</li>
-<li>A text thread about redesigning the homepage? Link it to the Figma file and the PR that implemented it.</li>
-<li>A decision to pivot pricing? Link it to the revenue spreadsheet that shows the impact.</li>
-</ul>
-<p>Now you don't just have transcripts. You have context.</p>
-<h2>Step 5: Build the Search Layer</h2>
-<p>Store everything in a format you can query. Options:</p>
-<ul>
-<li><strong>Simple:</strong> Markdown files organized by date and topic, searchable with grep</li>
-<li><strong>Better:</strong> SQLite database with full-text search</li>
-<li><strong>Best:</strong> Vector embeddings (using OpenAI or local models) for semantic search</li>
-</ul>
-<p>Semantic search means you can ask &quot;what did we discuss about customer churn?&quot; and find the voice message where your cofounder said &quot;we're losing too many users after the trial ends&quot; even though they never used the word &quot;churn.&quot;</p>
-<h2>Real-World Impact</h2>
-<p>The team that built this had 18 months of WhatsApp history across multiple group chats. After processing:</p>
-<ul>
-<li>1,000+ voice messages transcribed</li>
-<li>200+ decisions documented (most of which nobody remembered making)</li>
-<li>50+ action items found that were never completed</li>
-<li>A complete timeline of how the product evolved, told through informal conversations</li>
-</ul>
-<p>The most valuable discovery? Finding the original reasoning behind decisions. When someone asks &quot;why is the checkout flow designed this way?&quot; instead of guessing, you search the knowledge base and find the exact voice message where the founder explained their thinking.</p>
-<h2>Ongoing Use</h2>
-<p>Set up a cron job to process new messages weekly:</p>
-<ol>
-<li>Sync latest WhatsApp messages</li>
-<li>Transcribe any new voice messages</li>
-<li>Tag and index new content</li>
-<li>Update the knowledge base</li>
-</ol>
-<p>Over time, this becomes your team's institutional memory. People leave, conversations get buried, but the knowledge base remembers everything.</p>
+<p>The setup wizard auto-detects OpenClaw, registers your API key, and configures everything. It takes about 60 seconds.</p>
+<h2>Step 2: Connect It to OpenClaw</h2>
+<p>Copy the Nex plugin into your OpenClaw plugins directory:</p>
+<pre><code class="language-bash">cp -r openclaw-plugin /path/to/openclaw/plugins/nex
+cd /path/to/openclaw/plugins/nex &amp;&amp; bun install &amp;&amp; bun run build
+</code></pre>
+<p>Then add it to your <code>openclaw.json</code> config:</p>
+<pre><code class="language-json">{
+  &quot;plugins&quot;: {
+    &quot;load&quot;: { &quot;paths&quot;: [&quot;/path/to/plugins/nex&quot;] },
+    &quot;slots&quot;: { &quot;memory&quot;: &quot;nex&quot; },
+    &quot;entries&quot;: {
+      &quot;nex&quot;: {
+        &quot;enabled&quot;: true,
+        &quot;config&quot;: {
+          &quot;apiKey&quot;: &quot;sk-your-key-here&quot;
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<p>Restart OpenClaw. Done.</p>
+<h2>Step 3: Start Talking</h2>
+<p>No setup wizard. No import process. Just start telling your agent about your business:</p>
+<p><strong>Adding contacts:</strong>
+&quot;I just had a call with Sarah Chen, VP of Marketing at GrowthLab. They're looking for lead gen help, budget around $3K/month, wants to start in April.&quot;</p>
+<p><strong>Checking on deals:</strong>
+&quot;What's the status with GrowthLab?&quot;</p>
+<p><strong>Setting follow-ups:</strong>
+&quot;Remind me to follow up with Sarah next Tuesday with the proposal.&quot;</p>
+<p><strong>Searching across everything:</strong>
+&quot;Which prospects mentioned a Q2 timeline?&quot;
+&quot;Show me all open deals over $2K.&quot;
+&quot;Who do I need to follow up with this week?&quot;</p>
+<h2>What Makes This Different</h2>
+<p><strong>Auto-capture.</strong> When the OpenClaw plugin is active, your agent automatically extracts and stores relevant information from every conversation. You don't have to say &quot;remember this.&quot; It just does.</p>
+<p><strong>Auto-recall.</strong> When a topic comes up that matches something in your knowledge graph, the agent pulls the context automatically. Ask about a company and it surfaces every related contact, deal, and note without you having to search.</p>
+<p><strong>Cross-tool memory.</strong> This is the unusual part. Nex works across Claude Code, Cursor, ChatGPT, and OpenClaw simultaneously. Tell OpenClaw about a prospect. Ask Claude Code about them later. The context follows you. One knowledge graph, multiple entry points.</p>
+<p><strong>50+ commands.</strong> Beyond basic CRM, you get full CRUD operations: list people, create tasks, search insights, pipe in meeting notes, track interactions over time.</p>
+<h2>What You're Replacing</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Traditional CRM</th>
+<th>Nex + OpenClaw</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Adding a contact</td>
+<td>Open app, click New Contact, fill 12 fields</td>
+<td>&quot;Met Sarah at GrowthLab, she runs marketing&quot;</td>
+</tr>
+<tr>
+<td>Logging a call</td>
+<td>Find contact, click Log Activity, fill form</td>
+<td>&quot;Just finished a call with Sarah, she's ready to sign&quot;</td>
+</tr>
+<tr>
+<td>Setting a follow-up</td>
+<td>Open contact, click Task, set date, set type</td>
+<td>&quot;Follow up with Sarah next Tuesday&quot;</td>
+</tr>
+<tr>
+<td>Finding a deal</td>
+<td>Open deals pipeline, scroll, filter, click</td>
+<td>&quot;What's happening with GrowthLab?&quot;</td>
+</tr>
+<tr>
+<td>Cost</td>
+<td>$30-100/month per seat</td>
+<td>Free</td>
+</tr>
+</tbody>
+</table>
+<h2>The Real Benefit</h2>
+<p>It's not the money you save (though $600-1,200/year per seat adds up). It's that you'll actually use it. Every CRM in the world has the same problem: people stop updating it after two weeks. When the CRM is just talking to your agent, the same thing you're already doing, the data stays current because there's no extra step.</p>
+<p>Your agent becomes the one teammate who actually keeps the CRM updated.</p>
 
     </div>
     <script>

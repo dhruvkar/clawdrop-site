@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Turn 1,000 WhatsApp Voice Messages Into a Searchable Knowledge Base — The Claw Drop</title>
-  <meta name="description" content="Your team&#39;s best ideas are buried in voice messages. This system transcribes them, cross-references with project history, and builds a searchable archive of everything your team has ever discussed.">
+  <title>Research Your Competitors&#39; Ads and Launch Your Own Campaign on Meta — The Claw Drop</title>
+  <meta name="description" content="Four AI agents analyze competitor ads from the Meta Ad Library, plan a campaign based on your brand, create all the assets, and publish everything to your Meta Ads account. Full pipeline from research to live campaigns in draft.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -124,113 +124,94 @@
   
   <article class="post">
     <a href="/blueprints/" class="post-back">← All Blueprints</a>
-    <div class="post-date">March 10, 2026</div>
-    <h1>Turn 1,000 WhatsApp Voice Messages Into a Searchable Knowledge Base</h1>
-    <p class="post-description">Your team&#39;s best ideas are buried in voice messages. This system transcribes them, cross-references with project history, and builds a searchable archive of everything your team has ever discussed.</p>
+    <div class="post-date">March 18, 2026</div>
+    <h1>Research Your Competitors&#39; Ads and Launch Your Own Campaign on Meta</h1>
+    <p class="post-description">Four AI agents analyze competitor ads from the Meta Ad Library, plan a campaign based on your brand, create all the assets, and publish everything to your Meta Ads account. Full pipeline from research to live campaigns in draft.</p>
     <div class="post-meta-grid">
       <span class="meta-badge">⚡ <strong>Intermediate</strong></span>
-      <span class="meta-badge">💰 <strong>$10-30/month (transcription API)</strong></span>
-      <span class="meta-badge">⏱ <strong>3-5 hours</strong></span>
-      <span class="meta-badge">👤 <strong>The Nuanced Perspective (Substack)</strong></span>
-      <a href="https://thenuancedperspective.substack.com/p/how-are-people-using-openclaw#extracted-whatsapp-voice-message-knowledge-base" target="_blank" class="meta-badge" style="text-decoration: none;">🔗 <strong>Original Post ↗</strong></a>
+      <span class="meta-badge">💰 <strong>$20-30 per full run (API costs)</strong></span>
+      <span class="meta-badge">⏱ <strong>2-3 hours</strong></span>
+      <span class="meta-badge">👤 <strong>9x Live</strong></span>
+      <a href="https://www.youtube.com/watch?v=7UaQB325EqU" target="_blank" class="meta-badge" style="text-decoration: none;">🔗 <strong>Original Post ↗</strong></a>
     </div>
     <div class="post-content" id="post-content">
       <h2>What You'll Build</h2>
-<p>A system that takes your entire WhatsApp chat history (including voice messages), transcribes everything, cross-references conversations with your project history (Git commits, documents, tasks), and produces a searchable knowledge base. Every decision, every brainstorm, every &quot;let me send you a quick voice note&quot; becomes findable.</p>
+<p>A four-stage pipeline that takes you from &quot;I want to run ads&quot; to &quot;campaigns are in Meta Ads Manager ready for review.&quot; No marketing agency. No freelancer. No back-and-forth on Slack for two weeks.</p>
+<p>Here's the pipeline:</p>
+<ol>
+<li><strong>Ads Analyst</strong> picks apart your competitor's entire Meta ad strategy: every ad creative, every landing page, every angle they're running.</li>
+<li><strong>Head of Marketing</strong> crawls your own website, understands your brand and products, then writes a full campaign proposal based on the competitive intel.</li>
+<li><strong>Creative Director</strong> builds the actual assets: landing pages, image ads, carousel ads, video scripts.</li>
+<li><strong>Performance Marketer</strong> pushes everything to Meta Ads Manager as draft campaigns, targeting configured, creatives attached, ready for your review.</li>
+</ol>
+<p>One real run produced 4 campaigns, 5 single image ads, 2 carousels with 10 cards, 8 video scripts, and 2 landing pages. Total cost: under $24 on Claude Opus.</p>
 <h2>Why This Works</h2>
-<p>Teams communicate constantly on WhatsApp. Quick voice messages, rapid-fire texts, shared links, decisions made at 11pm. But none of it is searchable. None of it is organized. When someone asks &quot;why did we decide to use Stripe instead of Square?&quot; the answer is buried in a voice message from four months ago.</p>
-<p>This is especially brutal for startups where WhatsApp IS the communication platform. No Slack, no Notion, no fancy project management tools. Just a group chat with 10,000 messages and 1,000 voice notes.</p>
-<p>The fix: let an AI listen to all of it, transcribe it, tag it, and make it searchable.</p>
+<p>Running Meta Ads the normal way looks like this: you hire a freelancer or agency ($2-5K/month), wait a week for the competitive analysis, another week for the creative brief, another week for the actual assets, then go back and forth on revisions. Six weeks and $10K later, you have your first campaign.</p>
+<p>This pipeline does the same work in about an hour. Not because the AI is smarter than a good marketer. It's not. But it can visit 20 landing pages, download 50 ad creatives, and write a 30-page analysis before a human has finished their morning coffee.</p>
+<p>The output isn't meant to run untouched. Campaigns go into Meta as drafts. You review them, adjust targeting, swap out images you don't love, and record the video scripts yourself (real video outperforms AI-generated video on Meta, and the creator specifically recommends this). The AI does the 80% that's research and grunt work. You do the 20% that's judgment.</p>
 <h2>Prerequisites</h2>
 <ul>
-<li>OpenClaw installed and running</li>
-<li>WhatsApp chat export (WhatsApp lets you export chats with media)</li>
-<li>Whisper or similar transcription API (local or cloud)</li>
-<li>Optional: Git repository access for cross-referencing</li>
+<li>OpenClaw with browser access (needs to visit Meta Ad Library and your website)</li>
+<li>Meta Marketing API credentials (your agent can walk you through setting this up)</li>
+<li>Gemini API key (for image generation via Nano Banana Pro)</li>
+<li>A competitor who runs Meta ads</li>
 </ul>
-<h2>Architecture</h2>
-<pre><code>┌──────────────┐     ┌──────────────┐     ┌──────────────┐
-│  WhatsApp    │────▶│ Transcriber  │────▶│  Tagger      │
-│  Export      │     │              │     │              │
-│              │     │  - Voice →   │     │  - Topics    │
-│  - Messages  │     │    text      │     │  - Decisions │
-│  - Voice     │     │  - Speaker   │     │  - Action    │
-│  - Media     │     │    ID        │     │    items     │
-│  - Links     │     │  - Timestamps│     │  - People    │
-└──────────────┘     └──────────────┘     └──────┬───────┘
-                                                  │
-                     ┌──────────────┐     ┌───────▼──────┐
-                     │  Search      │◀────│  Indexer     │
-                     │  Interface   │     │              │
-                     │              │     │  - Full text │
-                     │  &quot;Why did    │     │  - Git xref  │
-                     │   we pick    │     │  - Timeline  │
-                     │   Stripe?&quot;   │     │  - Embeddings│
-                     └──────────────┘     └──────────────┘
-</code></pre>
-<h2>Step 1: Export Your WhatsApp History</h2>
-<p>WhatsApp lets you export any chat, including media:</p>
+<h2>How the Pipeline Works</h2>
+<h3>Stage 1: Ads Analyst</h3>
+<p>You give it a link from the Meta Ad Library for any advertiser. The agent:</p>
+<ul>
+<li>Opens the Ad Library in a real browser</li>
+<li>Scrolls through to load all ads (the library lazy-loads, so it handles pagination)</li>
+<li>Downloads every creative: images, videos, carousel cards</li>
+<li>Visits every landing page the ads link to</li>
+<li>Analyzes each ad: hook, emotional angle, scale score</li>
+<li>Analyzes each landing page: funnel flow, strengths, weaknesses</li>
+<li>Produces an HTML report grouping ads by landing page with full strategic breakdown</li>
+</ul>
+<p>The browser-based approach matters. The Meta Ad Library doesn't have a public API for this. The agent literally browses like a human, which means it works with any advertiser, any time.</p>
+<h3>Stage 2: Head of Marketing</h3>
+<p>Takes the competitive analysis and your website URL. The agent:</p>
+<ul>
+<li>Crawls your website to understand your products, messaging, and design system</li>
+<li>Extracts your brand voice, color palette, typography</li>
+<li>Writes a campaign proposal: which landing pages to build, which ad formats to use, what messaging angles to test, how to allocate budget across funnel stages</li>
+</ul>
+<p>The proposal is a real document with specifics. Landing page briefings, image ad specs, video scripts, and budget allocation. Not a vague strategy deck.</p>
+<h3>Stage 3: Creative Director</h3>
+<p>Takes the campaign proposal and produces assets:</p>
+<ul>
+<li><strong>Image ads</strong> via Nano Banana Pro (Gemini's image model). The skill includes a self-review step: after generating each image, the agent checks for hallucinated logos, wrong text, incorrect aspect ratios, and overall quality. If something's off, it simplifies the prompt and regenerates.</li>
+<li><strong>Landing pages</strong> as working HTML with your brand's design system applied.</li>
+<li><strong>Carousel ads</strong> with multiple cards, each with its own image and copy.</li>
+<li><strong>Video scripts</strong> written for 20-40 second ads with clear hooks, emotional angles, and CTAs. You record these yourself.</li>
+</ul>
+<h3>Stage 4: Performance Marketer</h3>
+<p>Takes all the assets and publishes to Meta via the Marketing API:</p>
+<ul>
+<li>Creates campaigns (one per funnel stage: top, middle, bottom)</li>
+<li>Sets up ad sets with targeting</li>
+<li>Attaches creatives to each ad</li>
+<li>Everything goes in as <strong>drafts</strong> so you can review before anything goes live</li>
+</ul>
+<h2>Setting It Up</h2>
+<p>The creator published all 16 skills as a free downloadable template. The easiest way to install:</p>
 <ol>
-<li>Open the group chat or DM</li>
-<li>Tap the contact/group name at the top</li>
-<li>Scroll down to &quot;Export Chat&quot;</li>
-<li>Choose &quot;Include Media&quot; (this gets the voice messages)</li>
+<li>Download the skill files</li>
+<li>Share the folder with your agent</li>
+<li>Tell it: &quot;I'm sharing a set of skills for a marketing team. Import all of these for yourself.&quot;</li>
+<li>Your agent reads each file, sets up the skills, and walks you through any API keys it needs</li>
 </ol>
-<p>You'll get a zip file with a text file of all messages and folders of media files (images, voice notes, videos).</p>
-<p>For ongoing monitoring, you can use tools like <code>wacli</code> to sync messages programmatically.</p>
-<h2>Step 2: Transcribe Voice Messages</h2>
-<p>Feed every <code>.opus</code> or <code>.ogg</code> voice file through a transcription service:</p>
+<p>You'll need to set up Meta Marketing API credentials. This sounds intimidating, but your agent can walk you through the process step by step, including creating the app in Meta's developer portal.</p>
+<h2>What It Costs</h2>
+<p>The creator ran the full pipeline (competitor research through published campaigns) for under $24 on Claude Opus 4.6, the most expensive model available. On a cheaper model like Sonnet, it would be significantly less.</p>
+<p>Image generation via Nano Banana Pro: about 13 cents per image at 2K resolution, 24 cents at 4K. A dozen ad creatives runs about $2-3.</p>
+<p>Total for a complete campaign cycle: $20-30. Compare that to what even one day of a marketing freelancer's time costs.</p>
+<h2>What It Doesn't Do</h2>
 <ul>
-<li><strong>Whisper (local):</strong> Free, runs on your machine, good accuracy</li>
-<li><strong>Whisper API (OpenAI):</strong> $0.006/minute, excellent accuracy</li>
-<li><strong>Deepgram:</strong> Fast, good for real-time, $0.0043/minute</li>
+<li><strong>Record video.</strong> It writes the scripts, but the creator deliberately chose to record videos himself. Real faces perform better on Meta than AI-generated ones.</li>
+<li><strong>Optimize running campaigns.</strong> This handles the build phase. Campaign optimization (pausing underperformers, adjusting bids, scaling winners) is a separate skill the creator is planning.</li>
+<li><strong>Work on other platforms.</strong> This is Meta Ads specific. The competitive analysis could apply to Google or TikTok ads, but the publishing step is Meta only.</li>
 </ul>
-<p>For 1,000 voice messages averaging 30 seconds each, you're looking at about 500 minutes of audio. At OpenAI Whisper rates, that's roughly $3.</p>
-<p>The agent processes each file, attaches the transcript to the original message timestamp and sender, and stores it alongside the text messages.</p>
-<h2>Step 3: Tag and Categorize</h2>
-<p>Now the AI reads through the combined transcript (text messages + transcribed voice) and tags each conversation segment:</p>
-<ul>
-<li><strong>Decisions:</strong> &quot;We agreed to use Stripe&quot; / &quot;Moving the launch to March&quot;</li>
-<li><strong>Action items:</strong> &quot;John will handle the API integration&quot;</li>
-<li><strong>Ideas:</strong> Brainstorms, feature requests, &quot;what if we...&quot; moments</li>
-<li><strong>Blockers:</strong> Problems discussed, bugs reported</li>
-<li><strong>People mentioned:</strong> Clients, partners, vendors</li>
-</ul>
-<p>This turns a wall of chat into structured, searchable data.</p>
-<h2>Step 4: Cross-Reference with Project History</h2>
-<p>This is what makes it powerful. The agent matches conversations to actual work:</p>
-<ul>
-<li>A voice message on Jan 15 discussing a payment bug? Link it to the Git commit that fixed it on Jan 17.</li>
-<li>A text thread about redesigning the homepage? Link it to the Figma file and the PR that implemented it.</li>
-<li>A decision to pivot pricing? Link it to the revenue spreadsheet that shows the impact.</li>
-</ul>
-<p>Now you don't just have transcripts. You have context.</p>
-<h2>Step 5: Build the Search Layer</h2>
-<p>Store everything in a format you can query. Options:</p>
-<ul>
-<li><strong>Simple:</strong> Markdown files organized by date and topic, searchable with grep</li>
-<li><strong>Better:</strong> SQLite database with full-text search</li>
-<li><strong>Best:</strong> Vector embeddings (using OpenAI or local models) for semantic search</li>
-</ul>
-<p>Semantic search means you can ask &quot;what did we discuss about customer churn?&quot; and find the voice message where your cofounder said &quot;we're losing too many users after the trial ends&quot; even though they never used the word &quot;churn.&quot;</p>
-<h2>Real-World Impact</h2>
-<p>The team that built this had 18 months of WhatsApp history across multiple group chats. After processing:</p>
-<ul>
-<li>1,000+ voice messages transcribed</li>
-<li>200+ decisions documented (most of which nobody remembered making)</li>
-<li>50+ action items found that were never completed</li>
-<li>A complete timeline of how the product evolved, told through informal conversations</li>
-</ul>
-<p>The most valuable discovery? Finding the original reasoning behind decisions. When someone asks &quot;why is the checkout flow designed this way?&quot; instead of guessing, you search the knowledge base and find the exact voice message where the founder explained their thinking.</p>
-<h2>Ongoing Use</h2>
-<p>Set up a cron job to process new messages weekly:</p>
-<ol>
-<li>Sync latest WhatsApp messages</li>
-<li>Transcribe any new voice messages</li>
-<li>Tag and index new content</li>
-<li>Update the knowledge base</li>
-</ol>
-<p>Over time, this becomes your team's institutional memory. People leave, conversations get buried, but the knowledge base remembers everything.</p>
 
     </div>
     <script>

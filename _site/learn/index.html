@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ title }} — The Claw Drop</title>
-  <meta name="description" content="{{ description or content | excerpt }}">
+  <title>Learn OpenClaw — The Claw Drop</title>
+  <meta name="description" content="Practical guides for getting the most out of OpenClaw. Cost breakdowns, best skills, use cases, and deep dives.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -67,7 +67,18 @@
     footer a { color: var(--text-muted); text-decoration: none; }
     footer a:hover { color: var(--accent-bright); }
 
-    {% block styles %}{% endblock %}
+    
+  .learn-hero { padding: 60px 0 40px; text-align: center; }
+  .learn-hero h1 { font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 900; letter-spacing: -0.03em; margin-bottom: 12px; }
+  .learn-hero h1 .highlight { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .learn-hero p { font-size: 1.05rem; color: var(--text-muted); max-width: 520px; margin: 0 auto; line-height: 1.7; }
+  .guides-grid { display: grid; gap: 16px; margin-bottom: 60px; }
+  .guide-card { display: block; text-decoration: none; color: inherit; padding: 28px 24px; border-radius: 14px; border: 1px solid var(--border); background: var(--bg-card); transition: all 0.3s ease; }
+  .guide-card:hover { border-color: var(--border-glow); background: var(--bg-card-hover); transform: translateY(-3px); }
+  .guide-card-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--text-dim); margin-bottom: 10px; display: flex; gap: 12px; }
+  .guide-card h2 { font-size: 1.15rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px; }
+  .guide-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
+
   </style>
 </head>
 <body>
@@ -88,7 +99,27 @@
     </div>
   </nav>
 
-  {% block body %}{% endblock %}
+  
+  <div class="container">
+    <section class="learn-hero">
+      <h1><span class="highlight">Learn</span> OpenClaw</h1>
+      <p>Practical guides from people who use OpenClaw every day. No fluff, no theory. Just what works.</p>
+    </section>
+
+    <div class="guides-grid">
+      
+        <a href="/learn/openclaw-cost-breakdown/" class="guide-card">
+          <div class="guide-card-meta">
+            <span>📖 12 min read</span>
+            <span>Updated March 2026</span>
+          </div>
+          <h2>How Much Does OpenClaw Cost? The Real Pricing Breakdown for 2026</h2>
+          <p>OpenClaw is free to install. Running it costs $5-150/month. Here&#39;s exactly where every dollar goes, with real numbers from daily users.</p>
+        </a>
+      
+    </div>
+  </div>
+
 
   <footer>
     <div class="container-wide">

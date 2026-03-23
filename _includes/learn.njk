@@ -1,0 +1,100 @@
+{% extends "base.njk" %}
+
+{% block styles %}
+  .post { max-width: 720px; margin: 0 auto; padding: 60px 24px 80px; position: relative; z-index: 2; }
+  .post-back { color: var(--accent-bright); text-decoration: none; font-size: 0.85rem; font-weight: 500; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { text-decoration: underline; }
+  .post-date { color: var(--text-muted); font-size: 0.82rem; margin-top: 12px; }
+  .post h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.12; margin: 24px 0 12px; }
+  .post-description { font-size: 1.05rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 24px; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
+  .meta-badge { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; padding: 6px 12px; border-radius: 8px; background: var(--bg-card); border: 1px solid var(--border); color: var(--text-muted); }
+  .meta-badge strong { color: var(--accent-bright); }
+  .post-content h2 { font-size: 1.3rem; font-weight: 700; margin-top: 40px; margin-bottom: 14px; letter-spacing: -0.02em; }
+  .post-content h3 { font-size: 1.1rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; }
+  .post-content p { color: #ccc; font-size: 0.95rem; line-height: 1.85; margin-bottom: 18px; }
+  .post-content a { color: var(--accent-bright); text-decoration: none; }
+  .post-content a:hover { text-decoration: underline; }
+  .post-content ul, .post-content ol { color: #ccc; font-size: 0.95rem; line-height: 1.85; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent-bright); padding: 14px 20px; margin: 20px 0; background: var(--bg-card); border-radius: 0 8px 8px 0; color: #bbb; font-size: 0.95rem; line-height: 1.8; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 20px 0; border: 1px solid var(--border); }
+  .post-content code { background: var(--bg-card); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--accent-bright); }
+  .post-content pre { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 18px; overflow-x: auto; margin: 20px 0; }
+  .post-content pre code { background: none; padding: 0; font-size: 0.85rem; color: #ccc; }
+  .post-content strong { color: var(--text); }
+  .post-content table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9rem; }
+  .post-content th { text-align: left; padding: 10px 14px; background: var(--bg-card); border: 1px solid var(--border); color: var(--accent-bright); font-weight: 600; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.04em; }
+  .post-content td { padding: 10px 14px; border: 1px solid var(--border); color: #ccc; }
+  .post-content tr:hover td { background: var(--bg-card); }
+  .toc { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px 28px; margin-bottom: 32px; }
+  .toc-title { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim); margin-bottom: 12px; font-weight: 600; }
+  .toc ol { padding-left: 20px; margin: 0; }
+  .toc li { margin-bottom: 6px; }
+  .toc a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; }
+  .toc a:hover { color: var(--accent-bright); }
+  .updated-badge { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--green); background: rgba(0, 206, 201, 0.1); padding: 4px 10px; border-radius: 6px; display: inline-block; margin-bottom: 16px; }
+  .blueprint-cta { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 32px 28px; margin: 40px 0; position: relative; overflow: hidden; text-align: center; }
+  .blueprint-cta::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--gradient); opacity: 0.5; }
+  .blueprint-cta h3 { font-size: 1.15rem; font-weight: 700; margin: 0 0 6px; color: var(--text); }
+  .blueprint-cta p { font-size: 0.88rem; color: var(--text-muted); margin: 0 0 16px; }
+  .blueprint-cta .form-iframe-wrap { height: 240px; overflow: hidden; border-radius: 12px; }
+  .blueprint-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+  .post-footer { margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--border); text-align: center; }
+  .post-footer p { color: var(--text-muted); font-size: 0.92rem; margin-bottom: 16px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 12px 28px; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 0.95rem; transition: all 0.2s; box-shadow: 0 0 40px var(--accent-glow); }
+  .btn-cta:hover { background: var(--accent-bright); transform: translateY(-1px); }
+  .related-blueprints { margin: 40px 0; }
+  .related-blueprints h3 { font-size: 1rem; font-weight: 700; margin-bottom: 16px; color: var(--text); }
+  .related-card { display: block; text-decoration: none; color: inherit; padding: 16px 20px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg-card); margin-bottom: 10px; transition: all 0.3s ease; }
+  .related-card:hover { border-color: var(--border-glow); background: var(--bg-card-hover); transform: translateY(-2px); }
+  .related-card .rc-title { font-size: 0.92rem; font-weight: 600; }
+  .related-card .rc-desc { font-size: 0.8rem; color: var(--text-muted); margin-top: 4px; }
+  .faq-item { margin-bottom: 24px; }
+  .faq-item h3 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; color: var(--text); }
+  .faq-item p { color: #ccc; font-size: 0.92rem; line-height: 1.8; }
+{% endblock %}
+
+{% block body %}
+  <article class="post" itemscope itemtype="https://schema.org/Article">
+    <a href="/learn/" class="post-back">← All Guides</a>
+    {% if lastUpdated %}<div class="updated-badge">Updated {{ lastUpdated }}</div>{% endif %}
+    <div class="post-date" itemprop="datePublished">{{ date | readableDate }}</div>
+    <h1 itemprop="headline">{{ title }}</h1>
+    {% if description %}<p class="post-description" itemprop="description">{{ description }}</p>{% endif %}
+    <meta itemprop="author" content="The Claw Drop">
+    <div class="post-meta-grid">
+      {% if readTime %}<span class="meta-badge">📖 <strong>{{ readTime }}</strong></span>{% endif %}
+      {% if audience %}<span class="meta-badge">👤 <strong>{{ audience }}</strong></span>{% endif %}
+    </div>
+    <div class="post-content" itemprop="articleBody">
+      {{ content | safe }}
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'blueprint-cta';
+      cta.innerHTML = '<h3>5 OpenClaw builds. Every Tuesday.</h3>' +
+        '<p>Real automations from real people. Blueprints included.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-learn-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Want to see what people are actually building with OpenClaw?</p>
+      <a href="/blueprints/" class="btn-cta">Browse Blueprints →</a>
+    </div>
+  </article>
+{% endblock %}

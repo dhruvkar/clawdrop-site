@@ -19,6 +19,13 @@ module.exports = function(eleventyConfig) {
       .sort((a, b) => b.date - a.date);
   });
 
+  // Learn collection
+  eleventyConfig.addCollection("learn", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("learn/posts/*.md")
+      .filter(post => !post.data.draft)
+      .sort((a, b) => b.date - a.date);
+  });
+
   // Date formatting filter
   eleventyConfig.addFilter("readableDate", (dateObj) => {
     return new Date(dateObj).toLocaleDateString('en-US', {
