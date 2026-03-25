@@ -8,6 +8,7 @@ cost: "~$350 total ($7 AI tokens + ~$300 postcards)"
 timeToSetup: "1-2 hours (first time), 10 minutes after that"
 originalSource: "https://x.com/Brandondoyle/status/2036504266563805331"
 originalAuthor: "Brandon Doyle (@Brandondoyle)"
+originalAuthorUrl: "https://x.com/Brandondoyle"
 tags:
   - lead-generation
   - direct-mail

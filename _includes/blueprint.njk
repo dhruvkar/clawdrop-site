@@ -45,7 +45,7 @@
       {% if difficulty %}<span class="meta-badge">⚡ <strong>{{ difficulty }}</strong></span>{% endif %}
       {% if cost %}<span class="meta-badge">💰 <strong>{{ cost }}</strong></span>{% endif %}
       {% if timeToSetup %}<span class="meta-badge">⏱ <strong>{{ timeToSetup }}</strong></span>{% endif %}
-      {% if originalAuthor %}<span class="meta-badge">👤 <strong>{{ originalAuthor }}</strong></span>{% endif %}
+      {% if originalAuthor %}{% if originalAuthorUrl %}<a href="{{ originalAuthorUrl }}" target="_blank" class="meta-badge" style="text-decoration: none;">👤 <strong>{{ originalAuthor }} ↗</strong></a>{% else %}<span class="meta-badge">👤 <strong>{{ originalAuthor }}</strong></span>{% endif %}{% endif %}
       {% if originalSource %}<a href="{{ originalSource }}" target="_blank" class="meta-badge" style="text-decoration: none;">🔗 <strong>Original Post ↗</strong></a>{% endif %}
     </div>
     <div class="post-content" id="post-content">
