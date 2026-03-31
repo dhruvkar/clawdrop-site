@@ -291,3 +291,10 @@ Built-in skills ship with OpenClaw and are maintained by the core team. ClawHub 
 ### My agent isn't using a skill I installed. What's wrong?
 
 Common fixes: (1) Restart your OpenClaw gateway after installing. (2) Check that the skill's `SKILL.md` has the correct trigger phrases. (3) Make sure any required API keys are set in your `.env` file. (4) Check if the skill requires a specific platform or tool that isn't available in your environment.
+
+---
+
+## Keep Reading
+
+- **[How Much Does OpenClaw Cost?](/learn/openclaw-cost-breakdown/)** — The real pricing breakdown. Free tier through power user, with exact numbers.
+- **[OpenClaw Browser Automation Guide](/learn/openclaw-browser-automation/)** — Turn your agent into a web automation machine. Multi-profile Chrome, scraping, remote control.

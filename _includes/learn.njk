@@ -164,6 +164,47 @@
       document.body.appendChild(s);
     })();
     </script>
+    <script>
+    // Auto-generate FAQPage schema from FAQ section
+    (function() {
+      var faqItems = [];
+      var headings = document.querySelectorAll('.post-content h2, .post-content h3');
+      var inFaq = false;
+      for (var i = 0; i < headings.length; i++) {
+        var text = headings[i].textContent.toLowerCase();
+        if (text.indexOf('frequently asked') !== -1 || text.indexOf('faq') !== -1) {
+          inFaq = true;
+          continue;
+        }
+        if (inFaq && headings[i].tagName === 'H2') break;
+        if (inFaq) {
+          var answer = '';
+          var sibling = headings[i].nextElementSibling;
+          while (sibling && sibling.tagName !== 'H2' && sibling.tagName !== 'H3') {
+            if (sibling.textContent) answer += sibling.textContent.trim() + ' ';
+            sibling = sibling.nextElementSibling;
+          }
+          if (answer.trim()) {
+            faqItems.push({
+              "@type": "Question",
+              "name": headings[i].textContent.trim(),
+              "acceptedAnswer": { "@type": "Answer", "text": answer.trim() }
+            });
+          }
+        }
+      }
+      if (faqItems.length > 0) {
+        var script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.textContent = JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": faqItems
+        });
+        document.head.appendChild(script);
+      }
+    })();
+    </script>
     <div class="post-footer">
       <div class="blueprint-cta" style="margin-bottom: 32px;">
         <h3>The Claw Drop. Every Tuesday.</h3>

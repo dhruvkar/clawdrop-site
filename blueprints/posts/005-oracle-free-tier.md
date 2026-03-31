@@ -163,3 +163,7 @@ Over a year, you save $48-288 compared to paid alternatives. And you get 3x the 
 Once your agent is always on, things click. People set up morning briefings that land before their alarm goes off. Overnight inbox monitoring that triages email while they sleep. Automated social media posting on a schedule. Background web monitoring for competitor changes, stock alerts, or news tracking.
 
 The server just sits there, running, costing nothing, doing work.
+
+---
+
+**Want the full cost picture?** Our [OpenClaw Pricing Guide](/learn/openclaw-cost-breakdown/) breaks down every dollar: hosting, AI models, and what real users spend from $0 to $150/month.

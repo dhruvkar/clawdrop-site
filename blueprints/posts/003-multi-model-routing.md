@@ -190,3 +190,7 @@ That's a $81.50/month savings. $978/year. For changing a config file.
 - **Model names change.** Check the current model names in your provider's docs.
 - **Cache helps too.** OpenClaw caches prompt context. Longer sessions with fewer restarts = lower costs.
 - **The 80/20 rule applies.** 80% of your tasks need 20% of the compute. Route accordingly.
+
+---
+
+**Want the full cost breakdown?** See our [OpenClaw Pricing Guide](/learn/openclaw-cost-breakdown/) for exact numbers on hosting, AI models, and what real users pay.

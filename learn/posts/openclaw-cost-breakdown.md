@@ -203,3 +203,10 @@ Yes. Install [Ollama](https://ollama.com), run a model like Llama 3 or Qwen loca
 ### What model should I start with?
 
 Start with **Gemini 2.5 Flash** (cheapest) to learn how OpenClaw works. Once you know what you want it to do, upgrade to **Claude Sonnet 4** or **GPT-4o** for better results on complex tasks. Use model routing to mix cheap and premium models based on task type.
+
+---
+
+## Keep Reading
+
+- **[Best OpenClaw Skills to Install](/learn/best-openclaw-skills/)** — The skills that actually matter, organized by what you're trying to do.
+- **[OpenClaw Browser Automation Guide](/learn/openclaw-browser-automation/)** — Control Chrome like a human. Multi-profile setup, web scraping, remote browser control, and more.

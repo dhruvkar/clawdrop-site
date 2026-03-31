@@ -604,6 +604,12 @@ Up to 100 (ports 18800-18899). Practically, 4-6 before memory becomes an issue o
 The agent only controls the isolated <code>openclaw</code> profile by default. It can't touch your personal browser unless you explicitly give it access via the <code>user</code> or <code>chrome-relay</code> profile. SSRF protection prevents navigating to internal network addresses by default. And <code>evaluateEnabled: false</code> blocks arbitrary JS execution.</p>
 <p><strong>Can I save and reuse browser sessions?</strong>
 Yes. Profile data (cookies, logins, history) persists in the profile's user data directory. Log in once, and it stays logged in across gateway restarts.</p>
+<hr>
+<h2>Keep Reading</h2>
+<ul>
+<li><strong><a href="/learn/openclaw-cost-breakdown/">How Much Does OpenClaw Cost?</a></strong> — The real pricing breakdown. Hosting, AI models, and what power users actually spend.</li>
+<li><strong><a href="/learn/best-openclaw-skills/">Best OpenClaw Skills to Install</a></strong> — 13,000+ skills on ClawHub. Here are the ones worth your time (and which to avoid).</li>
+</ul>
 
     </div>
     <script>
@@ -671,6 +677,47 @@ Yes. Profile data (cookies, logins, history) persists in the profile's user data
       var s = document.createElement('script');
       s.src = 'https://link.msgsndr.com/js/form_embed.js';
       document.body.appendChild(s);
+    })();
+    </script>
+    <script>
+    // Auto-generate FAQPage schema from FAQ section
+    (function() {
+      var faqItems = [];
+      var headings = document.querySelectorAll('.post-content h2, .post-content h3');
+      var inFaq = false;
+      for (var i = 0; i < headings.length; i++) {
+        var text = headings[i].textContent.toLowerCase();
+        if (text.indexOf('frequently asked') !== -1 || text.indexOf('faq') !== -1) {
+          inFaq = true;
+          continue;
+        }
+        if (inFaq && headings[i].tagName === 'H2') break;
+        if (inFaq) {
+          var answer = '';
+          var sibling = headings[i].nextElementSibling;
+          while (sibling && sibling.tagName !== 'H2' && sibling.tagName !== 'H3') {
+            if (sibling.textContent) answer += sibling.textContent.trim() + ' ';
+            sibling = sibling.nextElementSibling;
+          }
+          if (answer.trim()) {
+            faqItems.push({
+              "@type": "Question",
+              "name": headings[i].textContent.trim(),
+              "acceptedAnswer": { "@type": "Answer", "text": answer.trim() }
+            });
+          }
+        }
+      }
+      if (faqItems.length > 0) {
+        var script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.textContent = JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": faqItems
+        });
+        document.head.appendChild(script);
+      }
     })();
     </script>
     <div class="post-footer">

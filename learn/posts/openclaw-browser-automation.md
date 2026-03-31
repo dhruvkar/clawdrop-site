@@ -479,3 +479,10 @@ The agent only controls the isolated `openclaw` profile by default. It can't tou
 
 **Can I save and reuse browser sessions?**
 Yes. Profile data (cookies, logins, history) persists in the profile's user data directory. Log in once, and it stays logged in across gateway restarts.
+
+---
+
+## Keep Reading
+
+- **[How Much Does OpenClaw Cost?](/learn/openclaw-cost-breakdown/)** — The real pricing breakdown. Hosting, AI models, and what power users actually spend.
+- **[Best OpenClaw Skills to Install](/learn/best-openclaw-skills/)** — 13,000+ skills on ClawHub. Here are the ones worth your time (and which to avoid).

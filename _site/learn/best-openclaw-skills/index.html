@@ -351,6 +351,12 @@ OpenHue + Sonos/BluOS + Weather + Cron + Telegram
 <p>Built-in skills ship with OpenClaw and are maintained by the core team. ClawHub skills are community-published and vary in quality. Both install the same way and work identically once installed.</p>
 <h3>My agent isn't using a skill I installed. What's wrong?</h3>
 <p>Common fixes: (1) Restart your OpenClaw gateway after installing. (2) Check that the skill's <code>SKILL.md</code> has the correct trigger phrases. (3) Make sure any required API keys are set in your <code>.env</code> file. (4) Check if the skill requires a specific platform or tool that isn't available in your environment.</p>
+<hr>
+<h2>Keep Reading</h2>
+<ul>
+<li><strong><a href="/learn/openclaw-cost-breakdown/">How Much Does OpenClaw Cost?</a></strong> — The real pricing breakdown. Free tier through power user, with exact numbers.</li>
+<li><strong><a href="/learn/openclaw-browser-automation/">OpenClaw Browser Automation Guide</a></strong> — Turn your agent into a web automation machine. Multi-profile Chrome, scraping, remote control.</li>
+</ul>
 
     </div>
     <script>
@@ -418,6 +424,47 @@ OpenHue + Sonos/BluOS + Weather + Cron + Telegram
       var s = document.createElement('script');
       s.src = 'https://link.msgsndr.com/js/form_embed.js';
       document.body.appendChild(s);
+    })();
+    </script>
+    <script>
+    // Auto-generate FAQPage schema from FAQ section
+    (function() {
+      var faqItems = [];
+      var headings = document.querySelectorAll('.post-content h2, .post-content h3');
+      var inFaq = false;
+      for (var i = 0; i < headings.length; i++) {
+        var text = headings[i].textContent.toLowerCase();
+        if (text.indexOf('frequently asked') !== -1 || text.indexOf('faq') !== -1) {
+          inFaq = true;
+          continue;
+        }
+        if (inFaq && headings[i].tagName === 'H2') break;
+        if (inFaq) {
+          var answer = '';
+          var sibling = headings[i].nextElementSibling;
+          while (sibling && sibling.tagName !== 'H2' && sibling.tagName !== 'H3') {
+            if (sibling.textContent) answer += sibling.textContent.trim() + ' ';
+            sibling = sibling.nextElementSibling;
+          }
+          if (answer.trim()) {
+            faqItems.push({
+              "@type": "Question",
+              "name": headings[i].textContent.trim(),
+              "acceptedAnswer": { "@type": "Answer", "text": answer.trim() }
+            });
+          }
+        }
+      }
+      if (faqItems.length > 0) {
+        var script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.textContent = JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": faqItems
+        });
+        document.head.appendChild(script);
+      }
     })();
     </script>
     <div class="post-footer">

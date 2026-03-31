@@ -198,3 +198,7 @@ Add it to Windows Task Scheduler to run at login, and your automation machine su
 - **The PC needs to stay on.** Disable sleep mode. If it's a laptop, keep it plugged in with the lid closed (configure Windows to "do nothing" on lid close).
 - **Headless mode works too.** Add `--headless=new` to the Chrome flags if you don't need to see the browser windows. Saves RAM and screen space.
 - **Start small.** Get one profile working with one task before scaling to four profiles with twelve cron jobs. Build confidence first.
+
+---
+
+**Want the full deep dive?** Read our [Complete Browser Automation Guide](/learn/openclaw-browser-automation/) for multi-profile setup, remote browser control via nodes, cloud browsers, and advanced configuration.
