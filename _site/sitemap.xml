@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://clawdrop.org/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://clawdrop.org/learn/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://clawdrop.org/blueprints/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://clawdrop.org/submit/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://clawdrop.org/learn/openclaw-browser-automation/</loc>
+    <lastmod>March 31, 2026</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://clawdrop.org/learn/best-openclaw-skills/</loc>
+    <lastmod>March 23, 2026</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://clawdrop.org/learn/openclaw-cost-breakdown/</loc>
+    <lastmod>March 23, 2026</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://clawdrop.org/blueprints/ai-content-factory/</loc>
+    <lastmod>March 25, 2026</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clawdrop.org/blueprints/ai-market-research-bot/</loc>
+    <lastmod>March 25, 2026</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clawdrop.org/blueprints/ai-postcard-lead-gen/</loc>
+    <lastmod>March 25, 2026</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clawdrop.org/blueprints/ai-real-time-assistant/</loc>
+    <lastmod>March 25, 2026</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clawdrop.org/blueprints/ai-second-brain/</loc>
+    <lastmod>March 25, 2026</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clawdrop.org/blueprints/amazon-merch-automation/</loc>
+    <lastmod>March 18, 2026</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clawdrop.org/blueprints/meta-ads-pipeline/</loc>
+    <lastmod>March 18, 2026</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clawdrop.org/blueprints/nex-crm/</loc>
+    <lastmod>March 18, 2026</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clawdrop.org/blueprints/oracle-free-tier/</loc>
+    <lastmod>March 18, 2026</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clawdrop.org/blueprints/browser-automation-machine/</loc>
+    <lastmod>March 16, 2026</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clawdrop.org/blueprints/ai-cold-call-coach/</loc>
+    <lastmod>March 10, 2026</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clawdrop.org/blueprints/ai-espresso-phone-agent/</loc>
+    <lastmod>March 10, 2026</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clawdrop.org/blueprints/ai-lead-gen-pipeline/</loc>
+    <lastmod>March 10, 2026</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clawdrop.org/blueprints/autonomous-live-trading/</loc>
+    <lastmod>March 10, 2026</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clawdrop.org/blueprints/whatsapp-voice-knowledge-base/</loc>
+    <lastmod>March 10, 2026</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clawdrop.org/blueprints/ai-job-search/</loc>
+    <lastmod>March 3, 2026</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clawdrop.org/blueprints/felix-bot/</loc>
+    <lastmod>March 3, 2026</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clawdrop.org/blueprints/four-agent-team/</loc>
+    <lastmod>March 3, 2026</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clawdrop.org/blueprints/multi-model-routing/</loc>
+    <lastmod>March 3, 2026</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clawdrop.org/blueprints/replace-saas-stack/</loc>
+    <lastmod>March 3, 2026</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clawdrop.org/blueprints/ai-insurance-dispute/</loc>
+    <lastmod>February 24, 2026</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clawdrop.org/blueprints/ai-sponsorship-negotiator/</loc>
+    <lastmod>February 24, 2026</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clawdrop.org/blueprints/five-day-automation-sprint/</loc>
+    <lastmod>February 24, 2026</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clawdrop.org/blueprints/founder-runs-business-on-ai/</loc>
+    <lastmod>February 24, 2026</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clawdrop.org/blueprints/ai-car-negotiation/</loc>
+    <lastmod>February 17, 2026</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clawdrop.org/blueprints/ai-grocery-shopping/</loc>
+    <lastmod>February 17, 2026</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clawdrop.org/blueprints/autonomous-token-launch/</loc>
+    <lastmod>February 17, 2026</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clawdrop.org/blueprints/bot-to-bot-commerce/</loc>
+    <lastmod>February 17, 2026</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clawdrop.org/blueprints/polymarket-trading-bot/</loc>
+    <lastmod>February 17, 2026</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clawdrop.org/archives/001/</loc>
+    <lastmod>February 17, 2026</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+</urlset>

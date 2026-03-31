@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ title }} — The Claw Drop</title>
   <meta name="description" content="{{ description or content | excerpt }}">
+  <meta property="og:title" content="{{ title }} — The Claw Drop">
+  <meta property="og:description" content="{{ description or content | excerpt }}">
+  <meta property="og:type" content="{% if tags and 'learn' in tags %}article{% else %}website{% endif %}">
+  <meta property="og:url" content="https://clawdrop.org{{ permalink or page.url }}">
+  <meta property="og:site_name" content="The Claw Drop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ title }} — The Claw Drop">
+  <meta name="twitter:description" content="{{ description or content | excerpt }}">
+  <link rel="canonical" href="https://clawdrop.org{{ permalink or page.url }}">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -76,6 +86,7 @@
 
     {% block styles %}{% endblock %}
   </style>
+  {% block head %}{% endblock %}
 </head>
 <body>
   <div class="orb orb-1"></div>

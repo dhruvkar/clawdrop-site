@@ -55,6 +55,33 @@
   .faq-item p { color: #ccc; font-size: 0.92rem; line-height: 1.8; }
 {% endblock %}
 
+{% block head %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": {{ title | dump | safe }},
+    "description": {{ description | dump | safe }},
+    "datePublished": "{{ date | readableDate }}",
+    {% if lastUpdated %}"dateModified": "{{ lastUpdated }}",{% endif %}
+    "author": {
+      "@type": "Organization",
+      "name": "The Claw Drop",
+      "url": "https://clawdrop.org"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "The Claw Drop",
+      "url": "https://clawdrop.org"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://clawdrop.org{{ permalink }}"
+    }
+  }
+  </script>
+{% endblock %}
+
 {% block body %}
   <article class="post" itemscope itemtype="https://schema.org/Article">
     <a href="/learn/" class="post-back">← All Guides</a>

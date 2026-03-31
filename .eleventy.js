@@ -4,6 +4,8 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("submit");
   eleventyConfig.addPassthroughCopy("thank-you");
   eleventyConfig.addPassthroughCopy("assets");
+  eleventyConfig.addPassthroughCopy("robots.txt");
+  eleventyConfig.addPassthroughCopy("llms.txt");
 
   // Blueprints collection
   eleventyConfig.addCollection("blueprints", function(collectionApi) {
