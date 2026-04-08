@@ -28,6 +28,14 @@ module.exports = function(eleventyConfig) {
       .sort((a, b) => b.date - a.date);
   });
 
+  // RSS date filters
+  eleventyConfig.addFilter("rssDate", (dateObj) => {
+    return new Date(dateObj).toUTCString();
+  });
+  eleventyConfig.addFilter("isoDate", (dateObj) => {
+    return new Date(dateObj).toUTCString();
+  });
+
   // Date formatting filter
   eleventyConfig.addFilter("readableDate", (dateObj) => {
     return new Date(dateObj).toLocaleDateString('en-US', {

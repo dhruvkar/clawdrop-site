@@ -1,0 +1,49 @@
+---
+permalink: /feed.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>The Claw Drop</title>
+    <link>https://clawdrop.org</link>
+    <description>Blueprints, guides, and use cases for OpenClaw — the open-source AI agent framework.</description>
+    <language>en-us</language>
+    <atom:link href="https://clawdrop.org/feed.xml" rel="self" type="application/rss+xml"/>
+    <lastBuildDate>{{ collections.blueprints[0].date | isoDate }}</lastBuildDate>
+    {%- for post in collections.blueprints | reverse %}
+    {%- if loop.index <= 30 %}
+    <item>
+      <title>{{ post.data.title | escape }}</title>
+      <link>https://clawdrop.org{{ post.url }}</link>
+      <guid isPermaLink="true">https://clawdrop.org{{ post.url }}</guid>
+      <pubDate>{{ post.date | rssDate }}</pubDate>
+      <description>{{ post.data.description | escape }}</description>
+      {%- if post.data.tags %}
+      {%- for tag in post.data.tags %}
+      <category>{{ tag }}</category>
+      {%- endfor %}
+      {%- endif %}
+      <dc:creator>The Claw Drop</dc:creator>
+    </item>
+    {%- endif %}
+    {%- endfor %}
+    {%- for post in collections.learn | reverse %}
+    {%- if loop.index <= 10 %}
+    <item>
+      <title>{{ post.data.title | escape }}</title>
+      <link>https://clawdrop.org{{ post.url }}</link>
+      <guid isPermaLink="true">https://clawdrop.org{{ post.url }}</guid>
+      <pubDate>{{ post.date | rssDate }}</pubDate>
+      <description>{{ post.data.description | escape }}</description>
+      {%- if post.data.tags %}
+      {%- for tag in post.data.tags %}
+      <category>{{ tag }}</category>
+      {%- endfor %}
+      {%- endif %}
+      <dc:creator>The Claw Drop</dc:creator>
+    </item>
+    {%- endif %}
+    {%- endfor %}
+  </channel>
+</rss>
