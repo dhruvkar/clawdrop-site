@@ -26,7 +26,7 @@ A cold email sending stack that actually reaches inboxes. Secondary domains that
 
 The output is an infrastructure layer that sits between your list and your sequencer, quietly doing the work nobody talks about, so that when you hit send on 500 emails nothing lands in spam.
 
-This is the exact stack we run at Clawdrop for our own outbound and what the Navreo methodology teaches. We'll walk through it using Maildoso and [InboxKit](https://www.inboxkit.com/?aff=kzfCVuvZDa8H) as the reference tools because they handle the painful parts (DNS configuration, warmup pool management, CSV export to sequencers) automatically. You can swap them for Instantly, SmartLead's infra add-on, or a hand-rolled setup. The pipeline is the playbook, not the tools.
+This is the exact stack we run at Clawdrop for our own outbound and what the Navreo methodology teaches. We'll walk through it using Maildoso and [InboxKit](/go/inboxkit) as the reference tools because they handle the painful parts (DNS configuration, warmup pool management, CSV export to sequencers) automatically. You can swap them for Instantly, SmartLead's infra add-on, or a hand-rolled setup. The pipeline is the playbook, not the tools.
 
 By the end of this guide you'll know how to go from "I want to send 500 cold emails a day" to "here are 25 mailboxes across 8 domains, warmed up, ready, and wired into my sequencer," without burning your primary domain.
 
@@ -136,7 +136,7 @@ Three DNS records have to exist on every sending domain, or your mail goes to sp
 
 These sound simple. They are. The problem is that a single typo in the TXT record, a missing selector, or an incorrect `v=spf1` syntax will silently break your deliverability with no visible error. People lose days to this. We lost days to this back before we used a tool.
 
-Maildoso and [InboxKit](https://www.inboxkit.com/?aff=kzfCVuvZDa8H) auto-configure all three records when you register a domain in their platform. This is the single biggest reason we use them. The 4 minutes you spend clicking through the setup flow saves 4 hours of debugging TXT records later. If you insist on doing this manually, expect to redo it twice before it works, and test each domain with a tool like `mail-tester.com` before trusting it.
+Maildoso and [InboxKit](/go/inboxkit) auto-configure all three records when you register a domain in their platform. This is the single biggest reason we use them. The 4 minutes you spend clicking through the setup flow saves 4 hours of debugging TXT records later. If you insist on doing this manually, expect to redo it twice before it works, and test each domain with a tool like `mail-tester.com` before trusting it.
 
 ### Step 5: Warm Up for at Least 14 Days
 
@@ -192,7 +192,7 @@ This stack fits anyone running cold outbound at small to medium scale.
 
 **B2B founders** doing founder-led outbound. The Navreo starter pack (10 domains, 40 mailboxes, 800 sends per day) is the most common starting point. Enough volume to matter, small enough to actually manage.
 
-**Anyone scaling past 1,000 sends per day.** At this scale you need 50+ mailboxes across 12+ domains, with active rotation and weekly deliverability monitoring. [InboxKit's API](https://www.inboxkit.com/?aff=kzfCVuvZDa8H) becomes important here because you'll be provisioning and retiring mailboxes programmatically.
+**Anyone scaling past 1,000 sends per day.** At this scale you need 50+ mailboxes across 12+ domains, with active rotation and weekly deliverability monitoring. [InboxKit's API](/go/inboxkit) becomes important here because you'll be provisioning and retiring mailboxes programmatically.
 
 What doesn't work: trying to send massive volume from a single domain with 30 mailboxes. That's what gets you burned. The whole point of this architecture is to distribute risk across domains so one bad week doesn't kill everything.
 
