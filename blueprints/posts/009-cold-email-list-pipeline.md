@@ -8,7 +8,7 @@ cost: "$80-300/month (tools + verification)"
 timeToSetup: "A weekend for the first list, 2-3 hours per week after"
 originalSource: "https://clawdrop.org"
 originalAuthor: "Clawdrop"
-issueNumber: 8
+issueNumber: 9
 permalink: /blueprints/cold-email-list-pipeline/
 tags:
   - cold-email
