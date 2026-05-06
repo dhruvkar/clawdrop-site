@@ -64,7 +64,7 @@ Through some clever lower-level macOS plumbing, Cua tells your apps to receive c
 
 The result is the only thing that matters. The agent's clicks land. Your cursor stays where it is. The window that was on top stays on top. Your Space does not switch. You do not feel anything.
 
-Under the hood, Cua does three things at once. It uses an internal macOS channel that delivers click events directly to a target app's process, not to the whole desktop. It uses a window-focus pattern made famous by the yabai tiling window manager that lets an app receive input without ever being raised to the front. And it does a tiny invisible "primer" click off the edge of the screen first, which is the bit of magic that makes Chromium-based apps (Chrome, Edge, Brave, Arc) actually accept the events instead of silently dropping them.
+Under the hood, Cua does three things at once. It uses an internal macOS channel that delivers click events directly to a target app's process, not to the whole desktop. It uses a window-focus pattern made famous by the [**yabai**](https://github.com/koekeishiya/yabai) tiling window manager that lets an app receive input without ever being raised to the front. And it does a tiny invisible "primer" click off the edge of the screen first, which is the bit of magic that makes Chromium-based apps (Chrome, Edge, Brave, Arc) actually accept the events instead of silently dropping them.
 
 You do not need to understand any of that to use it. You install the driver, you point your agent at the app you want it to drive, and the events go to the right place. Quietly. Out of your way.
 
@@ -105,7 +105,7 @@ You stay in App A. The agent stays in App B. The Mac runs both at full speed. Yo
 
 You need a Mac running macOS 14 (Sonoma) or higher. Anything older will not have the system APIs Cua hooks into. Apple Silicon and Intel both work.
 
-Open Terminal. Paste the install one-liner from the Cua GitHub repo. Hit enter. The installer pulls the binary, signs it for your machine, and registers it as a helper that your agent can call.
+Open Terminal. Paste the install one-liner from the Cua GitHub repo at [**github.com/trycua/cua**](https://github.com/trycua/cua). Hit enter. The installer pulls the binary, signs it for your machine, and registers it as a helper that your agent can call.
 
 The first time you run it, macOS will ask for two permissions. Accessibility (so the driver can read what is on your screen, which is how it knows where the buttons are) and Screen Recording (for the apps where reading the screen is the only way to know what is there, like CAD tools). Grant both. They are scoped per-app, you can revoke them in System Settings any time.
 

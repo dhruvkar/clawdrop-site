@@ -114,13 +114,15 @@ The other piece of infrastructure-as-code magic is the prod-and-dev pattern. Bot
 
 VidPipe, VidRecord, and VidSpec each do one thing. Clone them into the sandbox in this order.
 
-**VidRecord** is the capture tool. It records your screen, your voice, and lets you switch between screens mid-recording without losing the take. The recordings get saved to a watched folder. The filename includes the GitHub issue number you are recording against. That filename is how the rest of the pipeline knows which idea this video closes.
+The public umbrella tool that wraps the whole pipeline is [**htekdev/vidpipe**](https://github.com/htekdev/vidpipe). That is the CLI you actually install. There is also a [**htekdev/vidpipe-copilot-plugin**](https://github.com/htekdev/vidpipe-copilot-plugin) for driving the same pipeline from inside the GitHub Copilot CLI if that is your harness. The VidRecord and VidSpec layers below are conceptual stages inside the same tool. Treat them as how the work is organized rather than separate things to install.
 
-**VidPipe** is the editor. It watches the recording folder. When a new file shows up, it runs the cut. The cut does four things: trims dead air and "uhs," produces a long-form edit, finds the three highest-energy moments and slices them as 30-60 second shorts, and generates platform-specific thumbnails using your brand colors and a consistent face placement.
+**VidRecord** is the capture stage. It records your screen, your voice, and lets you switch between screens mid-recording without losing the take. The recordings get saved to a watched folder. The filename includes the GitHub issue number you are recording against. That filename is how the rest of the pipeline knows which idea this video closes.
 
-**VidSpec** is the caption and metadata generator. It reads the cut video, transcribes it, and writes the YouTube description, the Shorts hook text, the LinkedIn post, the X thread, and any other platform-specific copy you have configured. It learns your style from a `voice.md` file in the repo. Same idea as the inbox triage agent's tone doc, applied to social copy.
+**VidPipe** is the editor stage. It watches the recording folder. When a new file shows up, it runs the cut. The cut does four things: trims dead air and "uhs," produces a long-form edit, finds the three highest-energy moments and slices them as 30-60 second shorts, and generates platform-specific thumbnails using your brand colors and a consistent face placement.
 
-The three repos talk to each other through the file system inside the sandbox. VidRecord drops a file. VidPipe picks it up, processes, drops the outputs in another folder. VidSpec picks those up and writes the metadata. A small posting service watches the final folder and pushes everything out. No API contracts to maintain. No queue infrastructure. Just folders.
+**VidSpec** is the caption and metadata stage. It reads the cut video, transcribes it, and writes the YouTube description, the Shorts hook text, the LinkedIn post, the X thread, and any other platform-specific copy you have configured. It learns your style from a `voice.md` file in the repo. Same idea as the inbox triage agent's tone doc, applied to social copy.
+
+The three stages talk to each other through the file system inside the sandbox. VidRecord drops a file. VidPipe picks it up, processes, drops the outputs in another folder. VidSpec picks those up and writes the metadata. A small posting service watches the final folder and pushes everything out. No API contracts to maintain. No queue infrastructure. Just folders.
 
 ### Step 3: Set Up Your Idea Backlog As GitHub Issues
 
