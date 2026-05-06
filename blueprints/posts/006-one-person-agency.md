@@ -19,6 +19,12 @@ tags:
   - automation
 ---
 
+## Tools
+
+- [**Claude**](#aff-claude) — the AI agent producing first drafts of deliverables
+- [**Telegram**](#aff-telegram) — chat interface for sending briefs to your agent from anywhere
+- [**Anthropic**](#aff-anthropic) — model API powering the production agent
+
 ## What You'll Build
 
 A setup where you run a client services business by yourself but deliver at the speed and volume of a small team. You take the client call. You send the brief to your AI agent. The agent produces the deliverable. You review, refine, and ship. The client pays agency rates because they're getting agency-quality work. They never need to know your "team" runs on a single machine.

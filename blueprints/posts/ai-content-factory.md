@@ -18,6 +18,15 @@ tags:
 permalink: /blueprints/ai-content-factory/
 ---
 
+## Tools
+
+- [**OpenClaw**](#aff-openclaw) — orchestrates the three agents and handles the daily cron schedule
+- [**Discord**](#aff-discord) — the workspace; one channel per agent for research, scripts, and thumbnails
+- [**Anthropic**](#aff-anthropic) — Claude Opus is the high-end model option (~$200/mo)
+- [**MiniMax**](#aff-minimax) — the budget model alternative (~$10/mo)
+- [**OpenAI**](#aff-openai) — alternative model provider
+- [**YouTube**](#aff-youtube) — the primary publishing destination the scripts and thumbnails target
+
 ## What You'll Build
 
 A three-agent content pipeline that runs every morning at 8am inside Discord. While you're still in bed, one agent researches trending topics and competitor content, a second agent picks the best idea and writes a full script, and a third generates a thumbnail. By the time you pour your coffee, you've got a ready-to-publish piece of content sitting in Discord waiting for your approval.

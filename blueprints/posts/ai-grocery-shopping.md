@@ -15,6 +15,15 @@ tags:
 permalink: /blueprints/ai-grocery-shopping/
 ---
 
+## Tools
+
+- [**OpenClaw**](#aff-openclaw) — AI agent driving the grocery automation
+- [**Privacy.com**](#aff-privacy) — virtual cards with hard spending limits
+- [**Instacart**](#aff-instacart) — online grocery service for fulfillment
+- [**Amazon Fresh**](#aff-amazon-fresh) — alternative grocery delivery service
+- [**Walmart Grocery**](#aff-walmart-grocery) — alternative grocery delivery service
+- [**Apple Pay**](#aff-apple-pay) — virtual card number alternative
+
 ## What You'll Build
 
 An AI that manages your weekly grocery shopping. It knows what you like, orders from your preferred store, uses a virtual credit card (so you control the spending limit), and handles substitutions when items are out of stock.

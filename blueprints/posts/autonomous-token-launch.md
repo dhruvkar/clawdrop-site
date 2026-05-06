@@ -15,6 +15,12 @@ tags:
 permalink: /blueprints/autonomous-token-launch/
 ---
 
+## Tools
+
+- [**OpenClaw**](#aff-openclaw) — autonomous agent that drove the entire launch
+- [**Uniswap**](#aff-uniswap) — DEX where liquidity was provisioned
+- [**Gumroad**](#aff-gumroad) — example platform for safer autonomous launches
+
 ## What Happened
 
 The Asymmetrix team gave their OpenClaw agent a simple directive: launch a token. No hand-holding. The AI handled the entire process end-to-end:

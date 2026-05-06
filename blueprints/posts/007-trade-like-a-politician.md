@@ -22,6 +22,13 @@ tags:
   - politics
 ---
 
+## Tools
+
+- [**Claude**](#aff-claude) — the AI brain analyzing disclosures and deciding trades
+- [**Claude Code**](#aff-claude-code) — runtime for scheduled execution of the bot
+- [**Alpaca**](#aff-alpaca) — commission-free brokerage with API and paper trading
+- [**Capitol Trades**](#aff-capitol-trades) — public data source for congressional stock disclosures
+
 ## What You'll Build
 
 An AI trading bot that does something most retail investors can't do manually: track what members of Congress are buying and selling, figure out which politicians have the best track record, and automatically mirror their trades in your own brokerage account.

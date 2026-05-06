@@ -17,6 +17,13 @@ tags:
   - career
 ---
 
+## Tools
+
+- [**OpenClaw**](#aff-openclaw) — runs the always-on job search agent
+- [**Anthropic**](#aff-anthropic) — Claude API powers matching and resume tailoring
+- [**LinkedIn**](#aff-linkedin) — primary job board scraped via browser automation
+- [**Telegram**](#aff-telegram) — daily application reports
+
 ## What You'll Build
 
 An AI agent that searches job boards, matches listings to your profile, customizes your resume for each role, drafts cover letters, and applies. You review a daily report of what it sent.

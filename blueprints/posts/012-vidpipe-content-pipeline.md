@@ -26,6 +26,19 @@ tags:
   - solopreneur
 ---
 
+## Tools
+
+- [**OpenClaw**](#aff-openclaw) — sandboxed agent runtime that runs the editing and posting pipeline
+- [**Terraform**](#aff-terraform) — provisions the VPS and recreates prod/dev from main on every merge
+- [**Zeronia**](#aff-zeronia) — one-API cross-platform poster (formerly Late) that ships to YouTube, X, LinkedIn, Instagram, TikTok
+- [**GitHub**](#aff-github) — Issues are the content backlog; closed issues are shipped videos
+- [**GitHub Copilot**](#aff-github-copilot) — alternative harness via the vidpipe-copilot-plugin
+- [**Perplexity**](#aff-perplexity) — research source for titles, hashtags, trending angles
+- [**Anthropic**](#aff-anthropic) — model provider behind the editing and caption agents
+- [**YouTube**](#aff-youtube) — primary publishing destination for long-form and Shorts
+- [**Telegram**](#aff-telegram) — read-only notifications when videos publish
+- [**ElevenLabs**](#aff-elevenlabs) — optional voice layer for narration overlays
+
 ## What You'll Build
 
 A content pipeline that takes one screen recording and turns it into a YouTube long-form upload, three or four YouTube Shorts, captioned cuts for X and LinkedIn, custom thumbnails, and auto-posts the whole bundle to every social platform you have an account on. You hit record. You stop recording. The next thing you see is the published video on six platforms.

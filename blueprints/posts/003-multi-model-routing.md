@@ -17,6 +17,12 @@ tags:
   - models
 ---
 
+## Tools
+
+- [**OpenClaw**](#aff-openclaw) — config-level model routing
+- [**Anthropic**](#aff-anthropic) — Opus, Sonnet, and Haiku tiers
+- [**Ollama**](#aff-ollama) — free local model runner for cheap tasks
+
 ## What You'll Build
 
 A model routing strategy that uses cheap models for simple tasks and expensive models only when needed. Your AI agent stays just as capable but costs 90-97% less.

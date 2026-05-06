@@ -15,6 +15,16 @@ tags:
 permalink: /blueprints/five-day-automation-sprint/
 ---
 
+## Tools
+
+- [**OpenClaw**](#aff-openclaw) — the agent given full-access for the sprint
+- [**Slack**](#aff-slack) — work messaging connected for audit and triage
+- [**iMessage**](#aff-imessage) — personal messaging context
+- [**WhatsApp**](#aff-whatsapp) — personal messaging context
+- [**Google Drive**](#aff-google-drive) — cloud storage the agent reads
+- [**Dropbox**](#aff-dropbox) — alt cloud storage the agent reads
+- [**Google Calendar**](#aff-google-calendar) — calendar audit and time-allocation analysis
+
 ## What Happened
 
 Someone gave their OpenClaw full access to email, calendar, Slack, messages, and call recordings for 5 days. The results:

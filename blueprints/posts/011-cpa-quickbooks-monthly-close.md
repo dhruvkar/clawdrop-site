@@ -24,6 +24,19 @@ tags:
   - openclaw
 ---
 
+## Tools
+
+- [**OpenClaw**](#aff-openclaw) — the agent runtime with the wiki-memory architecture that makes the close repeatable
+- [**Claude Code**](#aff-claude-code) — alternative agent harness for the same skill pattern
+- [**QuickBooks Online**](#aff-quickbooks) — the books the agent reads from and posts journal entries into via the public REST API
+- [**Anthropic**](#aff-anthropic) — model provider behind the agent's reasoning per close
+- [**Xero**](#aff-xero) — alternative accounting platform with an equivalent API
+- [**Salesforce**](#aff-salesforce) — example CRM in the same "find the API, agent on top" pattern
+- [**HubSpot**](#aff-hubspot) — same pattern, different vertical SaaS
+- [**GoHighLevel**](#aff-gohighlevel) — same pattern for service-business CRMs
+- [**Stripe**](#aff-stripe) — example payments API the same recipe applies to
+- [**Shopify**](#aff-shopify) — example commerce API the same recipe applies to
+
 ## What You'll Build
 
 A monthly-close machine that lives inside your accounting practice. You connect your AI agent directly to the QuickBooks Online API, train it on your client's books for one to two hours, and then watch it close out the next month at roughly 90% accuracy on its first try. By the second close, it's practically perfect, and it catches discrepancies your staff missed.

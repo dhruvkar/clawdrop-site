@@ -16,6 +16,12 @@ tags:
 permalink: /blueprints/autonomous-live-trading/
 ---
 
+## Tools
+
+- [**OpenClaw**](#aff-openclaw) — agent runtime with heartbeat scheduling
+- [**Alpaca**](#aff-alpaca) — primary brokerage API for algo trading
+- [**Interactive Brokers**](#aff-interactive-brokers) — alternative brokerage API
+
 ## What You'll Build
 
 An AI trading agent that monitors market conditions, analyzes trends, and executes buy/sell orders on a live brokerage account. It runs continuously using OpenClaw's heartbeat system, checking in on positions and making decisions without human intervention.

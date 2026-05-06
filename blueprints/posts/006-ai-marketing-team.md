@@ -18,6 +18,13 @@ tags:
   - beginner-friendly
 ---
 
+## Tools
+
+- [**OpenClaw**](#aff-openclaw) — runs the seven coordinated agents
+- [**Anthropic**](#aff-anthropic) — Claude API powers writing and research
+- [**Reddit**](#aff-reddit) — pain-signal research source
+- [**X**](#aff-x) — distribution and trend scouting channel
+
 ## What You'll Build
 
 A team of AI agents that handles your marketing while you focus on the actual work. Research, writing, social media, trend monitoring, and finding conversations worth jumping into. All running in the background, handing work off to each other through simple files.

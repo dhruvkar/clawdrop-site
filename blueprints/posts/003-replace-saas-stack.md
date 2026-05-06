@@ -17,6 +17,15 @@ tags:
   - skills
 ---
 
+## Tools
+
+- [**OpenClaw**](#aff-openclaw) — single agent replacing the SaaS stack
+- [**Anthropic**](#aff-anthropic) — Claude API powers the agent
+- [**Mac mini**](#aff-mac-mini) — always-on host for the agent
+- [**Telegram**](#aff-telegram) — primary chat interface
+- [**Stripe**](#aff-stripe) — revenue data source for analytics
+- [**Gmail**](#aff-gmail) — support and email marketing channel
+
 ## What You'll Build
 
 A single AI agent that replaces 5-6 SaaS subscriptions: CRM, social media scheduler, customer support, analytics, project management, and email marketing. All running 24/7 on a Mac Mini or cheap VPS.

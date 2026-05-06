@@ -20,6 +20,18 @@ tags:
 permalink: /blueprints/ai-life-os/
 ---
 
+## Tools
+
+- [**Claude Code**](#aff-claude-code) — agent runtime with cron-driven scheduling
+- [**Telegram**](#aff-telegram) — messaging channel for daily briefs and retros
+- [**Google Calendar**](#aff-google-calendar) — schedule data source
+- [**Toggl Track**](#aff-toggl) — manual time tracking input
+- [**RescueTime**](#aff-rescuetime) — automatic screen time tracking
+- [**Obsidian**](#aff-obsidian) — daily notes and journal vault
+- [**Todoist**](#aff-todoist) — task and project source
+- [**Flot.ai**](#aff-flot) — optional floating AI for quick captures
+- [**ScreenPipe**](#aff-screenpipe) — optional screen context recorder
+
 ## What You'll Build
 
 An AI agent that sees your entire life — calendar, tasks, notes, time tracking, habits — and turns all that raw data into daily briefings, automatic retrospectives, and content ideas. Every morning you wake up to a message that says: here's your day, here's what you didn't finish yesterday, here's what matters most right now.

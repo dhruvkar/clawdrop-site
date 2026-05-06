@@ -17,6 +17,17 @@ tags:
   - operations
 ---
 
+## Tools
+
+- [**OpenClaw**](#aff-openclaw) — orchestrates the four agents
+- [**Anthropic**](#aff-anthropic) — Claude API as the brain
+- [**Mac mini**](#aff-mac-mini) — always-on hardware host
+- [**Telegram**](#aff-telegram) — operator interface to all four agents
+- [**Gmail**](#aff-gmail) — support inbox monitoring
+- [**X**](#aff-x) — content posting target
+- [**LinkedIn**](#aff-linkedin) — second content posting target
+- [**Google Calendar**](#aff-google-calendar) — ops agent calendar source
+
 ## What You'll Build
 
 Four specialized AI agents, each owning a business function: customer support, content creation, research, and operations. All running 24/7 on a Mac Mini or VPS, managed through Telegram.

@@ -15,6 +15,17 @@ tags:
   - scraping
 ---
 
+## Tools
+
+- [**OpenClaw**](#aff-openclaw) — gateway and Windows node that drives the browsers
+- [**Google Chrome**](#aff-chrome) — real browser instances with remote debugging
+- [**LinkedIn**](#aff-linkedin) — DM monitoring and lead-sync target
+- [**X**](#aff-x) — parallel posting profile
+- [**Facebook**](#aff-facebook) — parallel posting profile
+- [**Gmail**](#aff-gmail) — logged-in mailbox for the agent
+- [**Telegram**](#aff-telegram) — chat surface for talking to the agent
+- [**Windows Task Scheduler**](#aff-windows-task-scheduler) — auto-launches browsers on boot
+
 ## What You'll Build
 
 A spare Windows PC (or laptop collecting dust) that your AI agent controls remotely. It runs multiple Chrome browsers simultaneously, each logged into different accounts. Your agent can:

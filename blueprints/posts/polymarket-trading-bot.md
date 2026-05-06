@@ -15,6 +15,12 @@ tags:
 permalink: /blueprints/polymarket-trading-bot/
 ---
 
+## Tools
+
+- [**OpenClaw**](#aff-openclaw) — host for the trading agent
+- [**Polymarket**](#aff-polymarket) — prediction market venue
+- [**X**](#aff-x) — real-time news signal source
+
 ## What You'll Build
 
 An AI trading bot that monitors Polymarket prediction markets, analyzes news and sentiment in real-time, and executes trades based on your predefined strategy. It watches the markets so you don't have to.

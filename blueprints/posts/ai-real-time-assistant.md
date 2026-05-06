@@ -18,6 +18,15 @@ tags:
 permalink: /blueprints/ai-real-time-assistant/
 ---
 
+## Tools
+
+- [**Bee Pioneer**](#aff-bee-pioneer) — wearable that captures conversations in real time
+- [**OpenClaw**](#aff-openclaw) — agent processing the conversation stream
+- [**Mac mini**](#aff-mac-mini) — recommended always-on home base machine
+- [**Anthropic**](#aff-anthropic) — Claude model option for language understanding
+- [**OpenAI**](#aff-openai) — alternative model API
+- [**Google Gemini**](#aff-gemini) — alternative model API
+
 ## What You'll Build
 
 A personal AI assistant that actually hears your life happening.

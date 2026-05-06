@@ -15,6 +15,10 @@ tags:
 permalink: /blueprints/ai-sponsorship-negotiator/
 ---
 
+## Tools
+
+- [**OpenClaw**](#aff-openclaw) — agent managing the sponsorship pipeline
+
 ## What You'll Build
 
 An AI that manages your sponsorship pipeline end-to-end. It responds to inbound inquiries, references your rate card, negotiates terms, and closes deals. You review the final terms and say yes or no.

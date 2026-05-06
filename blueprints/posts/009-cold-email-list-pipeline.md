@@ -20,6 +20,20 @@ tags:
   - sales
 ---
 
+## Tools
+
+- [**Clay**](#aff-clay) — enrichment flows that pull and merge contacts from multiple sources
+- [**Apollo**](#aff-apollo) — directory-based contact search and email enrichment
+- [**Trigify**](#aff-trigify) — intent-based sourcing tied to specific signals
+- [**RB2B**](#aff-rb2b) — intent layer that identifies anonymous website visitors
+- [**MillionVerifier**](#aff-millionverifier) — primary email verification provider
+- [**Bouncer**](#aff-bouncer) — fallback verifier for risky and catch-all addresses
+- [**Manyreach**](#aff-manyreach) — sequencer the final CSV is loaded into
+- [**InboxKit**](#aff-inboxkit) — manages mailbox infrastructure for higher-volume sends
+- [**Sales Navigator**](#aff-linkedin) — LinkedIn precision search for tight account lists
+- [**Hunter**](#aff-hunter) — enrichment API fallback for email discovery
+- [**Anthropic**](#aff-anthropic) — Claude Haiku for the AI qualification scoring pass
+
 ## What You'll Build
 
 A pipeline that takes your ideal customer profile and produces a clean, verified, qualified cold email list that's ready to drop into a sequencer. The output is a CSV with names, titles, verified business emails, company context, and the AI-assisted fit score that tells you whether each person actually belongs in your campaign.

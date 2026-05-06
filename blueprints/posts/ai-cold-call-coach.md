@@ -16,6 +16,16 @@ tags:
 permalink: /blueprints/ai-cold-call-coach/
 ---
 
+## Tools
+
+- [**OpenClaw**](#aff-openclaw) — agent runtime running the live coaching engine
+- [**Deepgram**](#aff-deepgram) — sub-second streaming transcription with speaker diarization
+- [**Twilio**](#aff-twilio) — Media Streams API for piping live call audio to a WebSocket
+- [**BlackHole**](#aff-blackhole) — virtual audio device on Mac for capturing system audio
+- [**Aircall**](#aff-aircall) — example softphone the audio routing setup wires into
+- [**RingCentral**](#aff-ringcentral) — alternative VoIP softphone option
+- [**Anthropic**](#aff-anthropic) — model provider behind the real-time suggestion generation
+
 ## What You'll Build
 
 An AI copilot for live sales calls. While you're on the phone with a prospect, the AI listens to both sides of the conversation, analyzes the tone and content in real time, and displays suggestions on your screen: what to say next, how to handle objections, when to close, and when to shut up and listen.

@@ -22,6 +22,18 @@ tags:
   - ops
 ---
 
+## Tools
+
+- [**OpenClaw**](#aff-openclaw) — agent host running the three skills
+- [**Toast**](#aff-toast) — POS source for sales and labor data
+- [**Square**](#aff-square) — alt POS with API access
+- [**Lightspeed**](#aff-lightspeed) — alt POS with API access
+- [**Revel**](#aff-revel) — alt POS with API access
+- [**SpotOn**](#aff-spoton) — alt POS with API access
+- [**Slack**](#aff-slack) — team channel for pre-rush briefings
+- [**Microsoft Teams**](#aff-microsoft-teams) — alt team channel
+- [**Mac mini**](#aff-mac-mini) — cheap always-on host
+
 ## What You'll Build
 
 Three AI skills that sit on top of how a shift-based business actually runs. Not dashboards. Not KPIs on a wall. Skills that the manager running the shift can talk to and get useful work from.

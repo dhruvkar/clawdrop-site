@@ -20,6 +20,15 @@ tags:
   - reporting
 ---
 
+## Tools
+
+- [**Google Analytics 4**](#aff-google-analytics) — the analytics platform being audited and monitored
+- [**Slack**](#aff-slack) — receive anomaly alerts
+- [**Telegram**](#aff-telegram) — alternative alert channel
+- [**WhatsApp**](#aff-whatsapp) — alternative alert channel
+- [**Looker Studio**](#aff-looker-studio) — pairs with the anomaly detector for full reporting
+- [**Runable**](#aff-runable) — cleanup and formatting in one commenter's stack
+
 ## What You'll Build
 
 Three AI automations that watch your Google Analytics so you don't have to. They catch the problems that silently wreck your marketing decisions: messy event naming that makes your data unusable, traffic anomalies that nobody notices until the monthly report, and GA4's processing delays that trick you into acting on incomplete numbers.

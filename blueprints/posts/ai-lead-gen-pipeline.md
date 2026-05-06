@@ -16,6 +16,20 @@ tags:
 permalink: /blueprints/ai-lead-gen-pipeline/
 ---
 
+## Tools
+
+- [**OpenClaw**](#aff-openclaw) — orchestrator running the full pipeline
+- [**Anthropic**](#aff-anthropic) — Claude API powering agent reasoning
+- [**GitHub**](#aff-github) — version control for generated demo sites
+- [**Coolify**](#aff-coolify) — self-hosted deployment platform for demos
+- [**Vercel**](#aff-vercel) — alternative hosting target for demo sites
+- [**Netlify**](#aff-netlify) — alternative hosting target for demo sites
+- [**Google Voice**](#aff-google-voice) — texting channel for outreach
+- [**Twilio**](#aff-twilio) — SMS alternative for outreach
+- [**Vapi**](#aff-vapi) — phone agent for cold calls
+- [**Bland**](#aff-bland) — alternative phone agent platform
+- [**Remotion**](#aff-remotion) — React video framework for demo walkthroughs
+
 ## What You'll Build
 
 A complete lead generation machine that runs on autopilot. Your AI agent finds potential clients, researches their business, builds a custom demo website showing what you could do for them, deploys it live, creates a video walkthrough of the demo, and reaches out via text and phone. That's not one automation. That's an entire sales team.

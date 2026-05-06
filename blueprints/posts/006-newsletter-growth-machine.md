@@ -18,6 +18,16 @@ tags:
   - multi-channel
 ---
 
+## Tools
+
+- [**OpenClaw**](#aff-openclaw) — runs the four channel agents
+- [**Anthropic**](#aff-anthropic) — Claude API for drafting and comments
+- [**X**](#aff-x) — build-in-public posting channel
+- [**LinkedIn**](#aff-linkedin) — professional content channel
+- [**Reddit**](#aff-reddit) — long-tail credibility channel
+- [**Typefully**](#aff-typefully) — scheduling tool for X and LinkedIn
+- [**Buffer**](#aff-buffer) — alternative scheduling tool
+
 ## What You'll Build
 
 A system of AI agents that promote your newsletter across four social channels every single day. X, LinkedIn, Facebook groups, and Reddit. Each channel gets its own agent with its own strategy. You write the newsletter. The agents handle distribution, engagement, and discovery.

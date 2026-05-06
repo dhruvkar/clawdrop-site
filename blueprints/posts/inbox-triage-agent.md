@@ -21,6 +21,21 @@ tags:
   - solopreneur
 ---
 
+## Tools
+
+- [**OpenClaw**](#aff-openclaw) — host for the triage agent
+- [**Anthropic**](#aff-anthropic) — Opus 4.6 / 4.7 models powering the agent
+- [**Gmail**](#aff-gmail) — primary inbox via Gmail API
+- [**Google Workspace**](#aff-google-workspace) — workspace email via OAuth
+- [**Microsoft 365**](#aff-microsoft-365) — Outlook/Graph inbox option
+- [**Mac mini**](#aff-mac-mini) — cheap always-on host
+- [**Stripe**](#aff-stripe) — payment-failure escalation source
+- [**Mercury**](#aff-mercury) — banking failure escalation source
+- [**Ramp**](#aff-ramp) — card-failure escalation source
+- [**Calendly**](#aff-calendly) — auto-reply scheduling link
+- [**Telegram**](#aff-telegram) — morning-digest delivery channel
+- [**Slack**](#aff-slack) — alt morning-digest delivery channel
+
 ## What You'll Build
 
 An AI agent that reads every email that hits your inbox and handles each one the way you would. Most get sorted, archived, or auto-replied. The few that need you end up in a short daily list with a draft reply attached. You pick the draft, edit the one line that matters, hit send.

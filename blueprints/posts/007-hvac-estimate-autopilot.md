@@ -21,6 +21,18 @@ tags:
   - hvac
 ---
 
+## Tools
+
+- [**OpenClaw**](#aff-openclaw) — agent runtime for estimate assembly and email handling
+- [**Telegram**](#aff-telegram) — send job details from the truck, approve drafts on the go
+- [**Hostinger**](#aff-hostinger) — VPS host for running the agent
+- [**DigitalOcean**](#aff-digitalocean) — alternative VPS provider
+- [**Gmail**](#aff-gmail) — inbox the agent monitors and drafts replies into
+- [**ServiceFusion**](#aff-servicefusion) — estimating software the agent connects to
+- [**Jobber**](#aff-jobber) — alternative estimating platform
+- [**Housecall Pro**](#aff-housecall-pro) — alternative estimating platform
+- [**ServiceTitan**](#aff-servicetitan) — alternative estimating platform
+
 ## What You'll Build
 
 An AI assistant that drafts your job estimates and handles your repetitive emails while you're out on job sites. You tell it what the customer needs over Telegram from your truck. It pulls the equipment and pricing from your estimating software, assembles a professional estimate, and sends you a draft to review. Meanwhile, it's answering the common questions that pile up in your inbox all day. "How much for a 3-ton unit?" "Do you offer financing?" "What's your warranty?" Handled.

@@ -25,6 +25,22 @@ tags:
   - openclaw
 ---
 
+## Tools
+
+- [**OpenClaw**](#aff-openclaw) — the gateway brain G-Bot runs as a systemd user service
+- [**Telegram**](#aff-telegram) — the only user-facing surface; every command, photo, and voice message flows through it
+- [**Home Assistant**](#aff-home-assistant) — Docker-hosted bridge to Roborock, Hue, Govee, Tapo, Nest Hub, Sonos
+- [**Firefly III**](#aff-firefly-iii) — self-hosted personal finance with SimpleFIN syncing 13 bank accounts
+- [**Apple Health**](#aff-apple-health) — health data source piped into InfluxDB via webhook
+- [**Grafana**](#aff-grafana) — six dashboards covering sleep, HRV, heart rate, VO2 Max, activity, SpO2
+- [**InfluxDB**](#aff-influxdb) — time-series store behind the finance and health dashboards
+- [**ChromaDB**](#aff-chromadb) — vector database holding 1,078 semantic memory chunks
+- [**Coqui TTS**](#aff-coqui) — local text-to-speech server, 58 voices, 17 languages
+- [**Docker**](#aff-docker) — containerization layer for the 9 services
+- [**Cloudflare**](#aff-cloudflare) — tunnels for external access without exposing ports
+- [**Anthropic**](#aff-anthropic) — Claude Sonnet for code-flavored tasks in the multi-model router
+- [**Ollama**](#aff-ollama) — local model host used inside the multi-model routing setup
+
 ## What You'll Build
 
 A single AI assistant that owns the surface area of your entire digital life. Talks to you through Telegram. Runs your house. Tracks your money. Watches your health. Remembers what you've decided. Speaks to you in voice when it matters. Bilingual if you are. Self-hosted, so the data never leaves your network.

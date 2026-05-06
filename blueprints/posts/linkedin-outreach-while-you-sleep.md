@@ -21,6 +21,18 @@ tags:
   - browser-automation
 ---
 
+## Tools
+
+- [**OpenClaw**](#aff-openclaw) — agent host driving outreach
+- [**OpenClaw Browser Relay**](#aff-openclaw-browser-relay) — Chrome extension that lets the agent drive your tab
+- [**Google Chrome**](#aff-chrome) — real browser the agent operates
+- [**LinkedIn**](#aff-linkedin) — outreach platform and Sales Navigator source
+- [**Apollo**](#aff-apollo) — list-building and firmographic enrichment
+- [**Clay**](#aff-clay) — list-building and enrichment alternative
+- [**Mac mini**](#aff-mac-mini) — always-on host for the agent
+- [**WhatsApp**](#aff-whatsapp) — parallel messaging-assistant surface
+- [**Telegram**](#aff-telegram) — parallel messaging-assistant surface
+
 ## What You'll Build
 
 An AI agent that does your LinkedIn outreach at scale. It runs on your own LinkedIn account in your own browser. It reads the profiles on a target list, writes a personalized message for each one based on what that person actually posts and does, and sends at a pace that looks human because it is technically a human (you, sitting in your office chair, with a laptop that is busy).

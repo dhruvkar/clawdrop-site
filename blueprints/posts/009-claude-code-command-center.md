@@ -21,6 +21,19 @@ tags:
   - founder
 ---
 
+## Tools
+
+- [**Claude Code**](#aff-claude-code) — the foundation runtime the entire command center sits on
+- [**Anthropic**](#aff-anthropic) — Agent SDK and Claude models powering the agents
+- [**Telegram**](#aff-telegram) — input interface for the v0 bot and ongoing chat
+- [**SQLite**](#aff-sqlite) — memory store in the 200-line v0
+- [**Gemini**](#aff-gemini) — cheap classifier for the memory washing machine, plus Gemini Live for voice
+- [**Pipecat**](#aff-pipecat) — voice framework gluing audio input to the agent runtime
+- [**Daily.co**](#aff-daily) — transport layer for the meeting-room voice interface
+- [**Pika**](#aff-pika) — optional avatar layer for the voice war room
+- [**Cloudflare**](#aff-cloudflare) — tunnel that exposes the dashboard privately to your phone
+- [**Gumroad**](#aff-gumroad) — where Mark released the free Power Pack prompts and architecture guide
+
 ## What You'll Build
 
 A personal AI command center that runs on your Mac and does everything a team of virtual assistants would do. Five specialized agents that delegate work to each other through a shared memory. A voice interface where you pick up a phone-style handset and have an actual spoken conversation with your system. A dashboard you pull up in a browser to see what every agent is working on. Memory that cleans itself up every 30 minutes. Security layers that stop your agents from accidentally leaking your data. An auto-launch service that spins the whole thing up the moment your Mac boots.

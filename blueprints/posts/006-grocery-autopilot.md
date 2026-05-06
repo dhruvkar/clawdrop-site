@@ -18,6 +18,16 @@ tags:
   - meal-planning
 ---
 
+## Tools
+
+- [**OpenClaw**](#aff-openclaw) — orchestrates the recipe-to-cart pipeline
+- [**Anthropic**](#aff-anthropic) — Claude reads recipes and handwriting
+- [**OpenAI**](#aff-openai) — GPT-4 alternative for image-to-text
+- [**Google Gemini**](#aff-gemini) — alternative vision model
+- [**Playwright**](#aff-playwright) — browser automation for grocery store sites
+- [**Instacart**](#aff-instacart) — supported delivery platform
+- [**Amazon Fresh**](#aff-amazon-fresh) — supported grocery store
+
 ## What You'll Build
 
 A system where you take a photo of a recipe (from a cookbook, a magazine, your phone, wherever) and your AI agent handles the rest. It reads the recipe, extracts every ingredient, checks what you already have on hand, maps what's missing to your grocery store's online platform, adds everything to your cart, and books a delivery slot. You go from "that looks good" to "groceries arriving tomorrow" in under 5 minutes.

@@ -21,6 +21,18 @@ tags:
   - operators
 ---
 
+## Tools
+
+- [**Claude Code**](#aff-claude-code) — one of the AI tools whose calls the cap layer gates via MCP
+- [**OpenClaw**](#aff-openclaw) — agent runtime that routes calls through the same cap layer
+- [**Cursor**](#aff-cursor) — the IDE that produced the original $1,263 monthly bill
+- [**GitHub Copilot**](#aff-github-copilot) — another AI tool with spend that lands on the same card
+- [**Anthropic**](#aff-anthropic) — provider behind the Haiku/Sonnet/Opus tiers used in the routing rules
+- [**OpenAI**](#aff-openai) — alternative model provider in the routing layer
+- [**Gemma**](#aff-gemma) — open-weight local model used as the zero-cost fallback for cheap-lane tasks
+- [**Qwen**](#aff-qwen) — alternative open-weight local model for the same fallback role
+- [**Mac mini**](#aff-mac-mini) — recommended hardware for hosting the local fallback model
+
 ## What You'll Build
 
 A small layer between your AI assistants and your wallet. It watches every AI call your team makes. It rolls up spend per task, per project, per day, and per person. It enforces caps (hard and soft). It routes easy work to cheap models automatically and saves the expensive model for the work that actually needs it.

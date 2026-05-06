@@ -16,6 +16,15 @@ tags:
 permalink: /blueprints/oracle-free-tier/
 ---
 
+## Tools
+
+- [**Oracle Cloud**](#aff-oracle-cloud) — Always Free ARM VM hosting
+- [**OpenClaw**](#aff-openclaw) — agent installed on the VM
+- [**Tailscale**](#aff-tailscale) — private network access to the gateway
+- [**Anthropic**](#aff-anthropic) — default Claude provider for the agent
+- [**OpenAI**](#aff-openai) — alternative provider option
+- [**Google Gemini**](#aff-gemini) — alternative provider option
+
 ## What You'll Build
 
 An AI agent that runs 24/7 on a cloud server you never pay for. Not a 30-day trial. Not a "free tier that quietly starts billing you." Oracle's Always Free ARM tier gives you a real server with 4 CPU cores, 24GB of RAM, and 200GB of storage, permanently, no credit card charges.

@@ -21,6 +21,16 @@ tags:
   - drift
 ---
 
+## Tools
+
+- [**Claude Code**](#aff-claude-code) — primary runtime where `.learnings/` and CLAUDE.md live
+- [**OpenClaw**](#aff-openclaw) — alternative runtime with SOUL.md / TOOLS.md / AGENTS.md injection
+- [**Hermes**](#aff-hermes) — alternative agent runtime the layer plugs into
+- [**Codex**](#aff-codex) — alternative agent runtime with AGENTS.md support
+- [**GitHub Copilot**](#aff-github-copilot) — alternative runtime using `.github/copilot-instructions.md`
+- [**GitHub**](#aff-github) — host for Peter Skoett's original `self-improving-agent` skill and team-shared `.learnings/`
+- [**Anthropic**](#aff-anthropic) — Haiku/Opus pricing referenced for hook overhead
+
 ## What You'll Build
 
 A layer that sits on top of your existing AI agent and turns its failures into permanent knowledge. Every time the agent makes a mistake, gets corrected, runs into an error, or discovers a better way to do something, that lesson gets written down in a structured format. Every time a lesson recurs, it gets promoted to your agent's system prompt so the mistake physically cannot happen again.

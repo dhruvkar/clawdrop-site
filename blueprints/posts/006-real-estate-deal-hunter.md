@@ -17,6 +17,12 @@ tags:
   - data-pipeline
 ---
 
+## Tools
+
+- [**OpenClaw**](#aff-openclaw) — runs the scraping and analysis agents with browser relay
+- [**SQLite**](#aff-sqlite) — simple local database for the lead pipeline
+- [**PostgreSQL**](#aff-postgresql) — robust database option for storing leads
+
 ## What You'll Build
 
 An AI agent that does the tedious work of finding real estate investment opportunities. It scans public records for distressed properties, calculates whether there's enough equity for a profitable deal, and organizes everything into a clean pipeline so you know exactly who to contact and why.

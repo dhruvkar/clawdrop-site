@@ -18,6 +18,18 @@ tags:
 permalink: /blueprints/ai-second-brain/
 ---
 
+## Tools
+
+- [**OpenClaw**](#aff-openclaw) — agent platform with built-in memory and vector search
+- [**DigitalOcean**](#aff-digitalocean) — VPS hosting option for the agent
+- [**Hetzner**](#aff-hetzner) — alternative VPS hosting
+- [**Telegram**](#aff-telegram) — primary messaging input channel
+- [**iMessage**](#aff-imessage) — alternative messaging channel
+- [**Discord**](#aff-discord) — alternative messaging channel
+- [**Anthropic**](#aff-anthropic) — Claude model for understanding and retrieval
+- [**OpenAI**](#aff-openai) — GPT-4 alternative
+- [**Next.js**](#aff-nextjs) — vibe-coded dashboard framework
+
 ## What You'll Build
 
 A personal AI that remembers everything you tell it. Text it a book recommendation, a client detail, a business idea at 2am, a link you want to revisit later. It stores all of it automatically and lets you search through everything with a single query.

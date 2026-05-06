@@ -21,6 +21,14 @@ tags:
   - founder
 ---
 
+## Tools
+
+- [**Typefully**](#aff-typefully) — schedules and publishes LinkedIn posts via API
+- [**X**](#aff-x) — primary posting destination for hourly drafts
+- [**LinkedIn**](#aff-linkedin) — secondary posting channel, 3-4 times a week
+- [**Telegram**](#aff-telegram) — where the agent delivers drafts for you to pick from
+- [**Anthropic**](#aff-anthropic) — model API powering the drafting agent
+
 ## What You'll Build
 
 An agent that sits next to you all day and asks, once an hour, "want me to draft something about what you're working on right now?" You look at three options, pick one, and it's shipped to X and LinkedIn before you finish your coffee.

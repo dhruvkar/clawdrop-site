@@ -25,6 +25,17 @@ tags:
   - openclaw
 ---
 
+## Tools
+
+- [**OpenClaw**](#aff-openclaw) — the agent runtime that runs Apollo's cadence
+- [**Twilio**](#aff-twilio) — SMS and voice provider for the 2-minute response and the cadence
+- [**Google Calendar**](#aff-google-calendar) — calendar surface the agent reads slots from and books into
+- [**Calendly**](#aff-calendly) — alternative booking surface; the agent generates a personalized link
+- [**Zapier**](#aff-zapier) — webhook glue for lead-source forms that lack a native one
+- [**Make**](#aff-make) — alternative webhook router for the same job
+- [**Salesforce**](#aff-salesforce) — example lead-source CRM the cadence plugs into
+- [**Anthropic**](#aff-anthropic) — model provider behind the agent's drafting and judgment
+
 ## What You'll Build
 
 A lead-handling system that responds to every new inquiry with a text and a call attempt inside 2 minutes, runs a sequenced follow-up cadence on no-responses, books appointments and sends three rounds of reminders, recovers no-shows with one reschedule attempt, and keeps the client looped in after the application is submitted.

@@ -16,6 +16,14 @@ tags:
 permalink: /blueprints/amazon-merch-automation/
 ---
 
+## Tools
+
+- [**OpenClaw**](#aff-openclaw) — runs the upload pipeline with browser automation
+- [**Amazon Merch on Demand**](#aff-amazon-merch) — print-on-demand store the agent uploads to
+- [**PixelCut**](#aff-pixelcut) — background removal and image upscaling
+- [**Dropbox**](#aff-dropbox) — folder sync entry point for new designs
+- [**ChatGPT**](#aff-chatgpt) — generates designs that drop into the watch folder
+
 ## What You'll Build
 
 A system where you drop a design image into a folder and your AI agent handles everything else: analyzes the image, removes the background if needed, upscales to the right resolution, repositions and pads to Amazon's 4500x5400 pixel spec, generates a listing with validated keywords, picks the right colors, and uploads the whole thing to Amazon Merch on Demand. No clicking through forms. No copy-pasting keywords. No manual uploads.

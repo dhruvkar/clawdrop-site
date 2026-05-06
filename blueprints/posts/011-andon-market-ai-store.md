@@ -24,6 +24,14 @@ tags:
   - case-study
 ---
 
+## Tools
+
+- [**Anthropic**](#aff-anthropic) — Claude Sonnet 4.6 powers Luna, the AI CEO
+- [**LinkedIn**](#aff-linkedin) — where Luna posted job listings
+- [**Indeed**](#aff-indeed) — additional channel Luna used to recruit staff
+- [**Craigslist**](#aff-craigslist) — third channel Luna used for job listings
+- [**Yelp**](#aff-yelp) — where Luna found gig painters and furniture builders
+
 ## What You'll Build
 
 You won't build this one. Not yet, anyway. This is a case study, not a step-by-step. But it's the most important case study in the buyer-AI lane right now, because it's the cleanest answer to the question every founder asks privately: **what would an AI agent actually do if I gave it real money, real keys, and three years to make it work?**

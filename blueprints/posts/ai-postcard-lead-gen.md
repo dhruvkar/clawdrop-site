@@ -18,6 +18,13 @@ tags:
 permalink: /blueprints/ai-postcard-lead-gen/
 ---
 
+## Tools
+
+- [**OpenClaw**](#aff-openclaw) — orchestrator running the full campaign
+- [**Lob**](#aff-lob) — direct mail API for designing and sending postcards
+- [**GitHub Pages**](#aff-github-pages) — static hosting for generated sites
+- [**Netlify**](#aff-netlify) — alternative static hosting target
+
 ## What You'll Build
 
 A fully automated lead generation pipeline that finds local businesses without websites, builds a custom website for each one, mails them a physical postcard with a QR code to their new site, and hands your sales team a warm call list. One prompt. Ten minutes. Real clients.

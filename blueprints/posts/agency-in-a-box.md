@@ -21,6 +21,18 @@ tags:
   - client-delivery
 ---
 
+## Tools
+
+- [**OpenClaw**](#aff-openclaw) — the per-tenant agent runtime that runs each client's skills
+- [**Docker**](#aff-docker) — isolation layer; one container per client tenant
+- [**Traefik**](#aff-traefik) — reverse proxy with automatic HTTPS and per-subdomain routing
+- [**HashiCorp Vault**](#aff-vault) — encrypted, namespaced credential vault per tenant
+- [**PostgreSQL**](#aff-postgresql) — per-tenant database isolated by volume mount
+- [**SearXNG**](#aff-searxng) — self-hosted search layer that avoids surprise search-API bills
+- [**DigitalOcean**](#aff-digitalocean) — VPS option for hosting the multi-tenant base stack
+- [**Hetzner**](#aff-hetzner) — alternative VPS option named in the blueprint
+- [**Browserless**](#aff-browserless) — headless Chromium container the agents use for web tasks
+
 ## What You'll Build
 
 A version of OpenClaw your clients can use without touching anything technical. They log in to a branded web interface. They see the agents you built for them, scoped to their own data, their own credentials, their own usage. They interact with those agents via chat, via scheduled runs, or via triggers you set up. They get results. They pay you monthly.

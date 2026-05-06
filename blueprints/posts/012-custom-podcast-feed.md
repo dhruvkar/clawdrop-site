@@ -24,6 +24,19 @@ tags:
   - parks-and-rec
 ---
 
+## Tools
+
+- [**OpenClaw**](#aff-openclaw) — agent runtime running the nightly digest skill on the VPS
+- [**ElevenLabs**](#aff-elevenlabs) — text-to-speech that turns the script into a 30-minute mp3
+- [**DigitalOcean**](#aff-digitalocean) — $24/month droplet hosting the always-on agent
+- [**Substack**](#aff-substack) — newsletter source via RSS
+- [**Beehiiv**](#aff-beehiiv) — alternative newsletter source via RSS
+- [**Whisper**](#aff-whisper) — transcribes podcast audio for the agent to score and digest
+- [**YouTube**](#aff-youtube) — channel transcripts as a source feed
+- [**Gmail**](#aff-gmail) — dedicated inbox for newsletters that refuse to expose RSS
+- [**Slack**](#aff-slack) — alternate delivery surface and per-agent channel split
+- [**Telegram**](#aff-telegram) — original delivery and notification surface
+
 ## What You'll Build
 
 A 30-minute audio show, made fresh for you, dropped to your phone every morning before you wake up.

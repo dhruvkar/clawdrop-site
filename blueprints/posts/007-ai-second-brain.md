@@ -21,6 +21,14 @@ tags:
   - karpathy
 ---
 
+## Tools
+
+- [**Obsidian**](#aff-obsidian) — local markdown vault that stores your second brain
+- [**Obsidian Web Clipper**](#aff-obsidian) — browser extension for saving any webpage into the vault
+- [**Claude Code**](#aff-claude-code) — reads and organizes your vault, builds connections
+- [**OpenClaw**](#aff-openclaw) — alternative agent runtime that can access the same vault
+- [**GitHub**](#aff-github) — host the karpathy-llm-wiki setup repo and back up your vault
+
 ## What You'll Build
 
 A personal knowledge base that makes your AI smarter every single day. Not a chatbot. Not a RAG pipeline. Just a folder of plain text files that your AI reads, organizes, and connects automatically.

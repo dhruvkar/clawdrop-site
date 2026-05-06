@@ -15,6 +15,10 @@ tags:
 permalink: /blueprints/ai-insurance-dispute/
 ---
 
+## Tools
+
+- [**OpenClaw**](#aff-openclaw) — AI agent reading the policy and drafting appeals
+
 ## What You'll Build
 
 An AI assistant that fights insurance claim denials on your behalf. It reads your policy, identifies why the denial is wrong, drafts a professional appeal letter citing specific policy language, and handles the follow-up correspondence.

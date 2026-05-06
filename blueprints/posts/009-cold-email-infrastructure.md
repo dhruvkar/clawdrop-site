@@ -20,6 +20,17 @@ tags:
   - b2b-sales
 ---
 
+## Tools
+
+- [**InboxKit**](#aff-inboxkit) — auto-configures domains, mailboxes, DNS, and warmup
+- [**Maildoso**](#aff-maildoso) — alternative platform handling the same infrastructure layer
+- [**Manyreach**](#aff-manyreach) — sequencer that receives the warmed mailboxes
+- [**SmartLead**](#aff-smartlead) — alternative campaign sequencer
+- [**Instantly**](#aff-instantly) — alternative sequencer plus its own infra add-on
+- [**Glockapps**](#aff-glockapps) — standalone inbox placement testing
+- [**Gmail**](#aff-gmail) — primary inbox provider whose deliverability you're optimizing for
+- [**Outlook**](#aff-outlook) — secondary inbox provider on the placement-test target list
+
 ## What You'll Build
 
 A cold email sending stack that actually reaches inboxes. Secondary domains that aren't your main business domain, 3-4 mailboxes per domain with real-sounding names, auto-configured DNS records, a 14-day warmup period, and a rotation strategy that keeps every mailbox under 20 sends a day.

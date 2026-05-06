@@ -16,6 +16,14 @@ tags:
 permalink: /blueprints/meta-ads-pipeline/
 ---
 
+## Tools
+
+- [**OpenClaw**](#aff-openclaw) — orchestrates the four marketing agents
+- [**Anthropic**](#aff-anthropic) — Claude Opus runs the pipeline
+- [**Meta Ads Manager**](#aff-meta-ads) — destination for draft campaigns via Marketing API
+- [**Meta Ad Library**](#aff-meta-ad-library) — competitor research source
+- [**Google Gemini**](#aff-gemini) — Nano Banana Pro for image ad generation
+
 ## What You'll Build
 
 A four-stage pipeline that takes you from "I want to run ads" to "campaigns are in Meta Ads Manager ready for review." No marketing agency. No freelancer. No back-and-forth on Slack for two weeks.

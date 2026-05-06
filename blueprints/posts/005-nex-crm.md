@@ -16,6 +16,14 @@ tags:
 permalink: /blueprints/nex-crm/
 ---
 
+## Tools
+
+- [**OpenClaw**](#aff-openclaw) — host for the Nex memory plugin
+- [**Nex**](#aff-nex) — open-source knowledge graph CRM
+- [**Claude Code**](#aff-claude-code) — cross-tool memory entry point
+- [**Cursor**](#aff-cursor) — another entry point sharing the Nex graph
+- [**ChatGPT**](#aff-chatgpt) — third entry point sharing the Nex graph
+
 ## What You'll Build
 
 A CRM that lives inside your AI agent. No login screens. No dashboards. No data entry. You tell your agent "I just met Maria Rodriguez, she's CTO at TechFlow, they're expanding to Europe in Q3 with a $2M budget" and it remembers. A week later you ask "what do I know about TechFlow?" and it pulls up everything: the contact, the deal size, the timeline, and the follow-up you need to send.

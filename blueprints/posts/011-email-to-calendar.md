@@ -24,6 +24,14 @@ tags:
   - inbox-zero
 ---
 
+## Tools
+
+- [**OpenClaw**](#aff-openclaw) — the agent runtime that hosts the email-to-calendar skill
+- [**Clawhub**](#aff-clawhub) — open marketplace where the skill is published and installed from
+- [**Gmail**](#aff-gmail) — inbox the agent watches for hidden event details
+- [**Google Calendar**](#aff-google-calendar) — destination the agent creates and updates events in
+- [**Google Workspace**](#aff-google-workspace) — the underlying account suite that authorizes Gmail and Calendar access
+
 ## What You'll Build
 
 A skill named `email-to-calendar` that sits on top of your existing OpenClaw setup, watches your Gmail inbox, finds the dates that humans bury in emails, and drops them on your Google Calendar without asking. School holidays from the PTA newsletter. Flight confirmations from airlines. Meeting invites that came as plain text instead of a proper `.ics`. Doctor appointment reminders. The kid's soccer schedule. The neighborhood association meeting. The wedding RSVP date you keep meaning to put on the calendar.

@@ -15,6 +15,11 @@ tags:
 permalink: /blueprints/bot-to-bot-commerce/
 ---
 
+## Tools
+
+- [**OpenClaw**](#aff-openclaw) — multi-session host running the cooperating agents
+- [**Telegram**](#aff-telegram) — shared group as the inter-agent message bus
+
 ## What You'll Build
 
 A multi-agent setup where your AI agents communicate, negotiate, and coordinate with each other. Think of it as building a team of specialists that work together without you playing middleman.
