@@ -23,11 +23,11 @@ tags:
 
 ## Tools
 
-- [**Typefully**](#aff-typefully) — schedules and publishes LinkedIn posts via API
-- [**X**](#aff-x) — primary posting destination for hourly drafts
-- [**LinkedIn**](#aff-linkedin) — secondary posting channel, 3-4 times a week
-- [**Telegram**](#aff-telegram) — where the agent delivers drafts for you to pick from
-- [**Anthropic**](#aff-anthropic) — model API powering the drafting agent
+- [**Typefully**](#aff-typefully): schedules and publishes LinkedIn posts via API
+- [**X**](#aff-x): primary posting destination for hourly drafts
+- [**LinkedIn**](#aff-linkedin): secondary posting channel, 3-4 times a week
+- [**Telegram**](#aff-telegram): where the agent delivers drafts for you to pick from
+- [**Anthropic**](#aff-anthropic): model API powering the drafting agent
 
 ## What You'll Build
 
@@ -229,6 +229,6 @@ The actual daily cost of the system after the first week is 5-10 minutes spread 
 
 ## Keep Reading
 
-- **[Stop Buying Cold Email Lists. Build One That Actually Books Meetings.](/blueprints/cold-email-list-pipeline/)** — The outbound-side companion. If content warms your audience, cold email books the calls.
-- **[The One-Person Agency: Charge Agency Rates as a Solo Operator](/blueprints/one-person-agency/)** — The system you build *behind* the content machine, so the inbound actually goes somewhere.
-- **[Grow a Newsletter With AI Agents Across 4 Social Channels](/blueprints/newsletter-growth-machine/)** — When one-platform posting isn't enough and you want to turn the content into a distribution machine.
+- **[Stop Buying Cold Email Lists. Build One That Actually Books Meetings.](/blueprints/cold-email-list-pipeline/)**: The outbound-side companion. If content warms your audience, cold email books the calls.
+- **[The One-Person Agency: Charge Agency Rates as a Solo Operator](/blueprints/one-person-agency/)**: The system you build *behind* the content machine, so the inbound actually goes somewhere.
+- **[Grow a Newsletter With AI Agents Across 4 Social Channels](/blueprints/newsletter-growth-machine/)**: When one-platform posting isn't enough and you want to turn the content into a distribution machine.

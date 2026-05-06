@@ -19,10 +19,10 @@ tags:
 
 ## Tools
 
-- [**OpenClaw**](#aff-openclaw) — runs the always-on job search agent
-- [**Anthropic**](#aff-anthropic) — Claude API powers matching and resume tailoring
-- [**LinkedIn**](#aff-linkedin) — primary job board scraped via browser automation
-- [**Telegram**](#aff-telegram) — daily application reports
+- [**OpenClaw**](#aff-openclaw): runs the always-on job search agent
+- [**Anthropic**](#aff-anthropic): Claude API powers matching and resume tailoring
+- [**LinkedIn**](#aff-linkedin): primary job board scraped via browser automation
+- [**Telegram**](#aff-telegram): daily application reports
 
 ## What You'll Build
 
@@ -85,16 +85,16 @@ Create markdown files the agent can reference and remix:
 **Title** | email@domain.com | LinkedIn | GitHub
 
 ## Summary
-[2-3 sentences about your core value prop — the agent will customize this per job]
+[2-3 sentences about your core value prop. The agent will customize this per job.]
 
 ## Experience
 
-### Senior Developer — Company Name (2023-Present)
+### Senior Developer, Company Name (2023-Present)
 - Built X that resulted in Y
 - Led team of Z people
 - Technologies: React, Node.js, PostgreSQL
 
-### Developer — Previous Company (2021-2023)
+### Developer, Previous Company (2021-2023)
 - [accomplishments with numbers]
 
 ## Skills
@@ -104,8 +104,8 @@ Create markdown files the agent can reference and remix:
 - Soft: Team leadership, client communication
 ```
 
-**`resume/projects.md`** — detailed project descriptions the agent can pull from
-**`resume/achievements.md`** — quantified wins (saved $X, improved Y by Z%)
+**`resume/projects.md`**: detailed project descriptions the agent can pull from
+**`resume/achievements.md`**: quantified wins (saved $X, improved Y by Z%)
 
 ### Step 2: Define Your Job Search Criteria
 

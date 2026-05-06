@@ -27,16 +27,16 @@ tags:
 
 ## Tools
 
-- [**Cua**](#aff-cua) — the open-source macOS driver that delivers clicks without stealing your cursor or focus
-- [**yabai**](#aff-yabai) — the tiling window manager whose focus pattern Cua borrows from
-- [**Claude Code**](#aff-claude-code) — recommended early-experiment harness that plans the task and hands execution to Cua
-- [**OpenClaw**](#aff-openclaw) — self-hosted harness for running the same flows 24/7 on a dedicated Mac
-- [**Codex**](#aff-codex) — lighter, cheaper option for repetitive automation flows
-- [**Mac mini**](#aff-mac-mini) — the recommended dedicated hardware for running Cua-driven agents around the clock
-- [**Playwright**](#aff-playwright) — browser automation framework Cua replaces with real OS-level clicks
-- [**iMessage**](#aff-imessage) — the personal-assistant control surface; agent reads and replies from your number
-- [**Pushover**](#aff-pushover) — phone notification service for the kill-switch confirmation ping
-- [**GitHub**](#aff-github) — where the Cua repo and install one-liner live
+- [**Cua**](#aff-cua): the open-source macOS driver that delivers clicks without stealing your cursor or focus
+- [**yabai**](#aff-yabai): the tiling window manager whose focus pattern Cua borrows from
+- [**Claude Code**](#aff-claude-code): recommended early-experiment harness that plans the task and hands execution to Cua
+- [**OpenClaw**](#aff-openclaw): self-hosted harness for running the same flows 24/7 on a dedicated Mac
+- [**Codex**](#aff-codex): lighter, cheaper option for repetitive automation flows
+- [**Mac mini**](#aff-mac-mini): the recommended dedicated hardware for running Cua-driven agents around the clock
+- [**Playwright**](#aff-playwright): browser automation framework Cua replaces with real OS-level clicks
+- [**iMessage**](#aff-imessage): the personal-assistant control surface; agent reads and replies from your number
+- [**Pushover**](#aff-pushover): phone notification service for the kill-switch confirmation ping
+- [**GitHub**](#aff-github): where the Cua repo and install one-liner live
 
 ## What You'll Build
 

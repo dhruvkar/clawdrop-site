@@ -20,13 +20,13 @@ tags:
 
 ## Tools
 
-- [**OpenClaw**](#aff-openclaw) — runs the four channel agents
-- [**Anthropic**](#aff-anthropic) — Claude API for drafting and comments
-- [**X**](#aff-x) — build-in-public posting channel
-- [**LinkedIn**](#aff-linkedin) — professional content channel
-- [**Reddit**](#aff-reddit) — long-tail credibility channel
-- [**Typefully**](#aff-typefully) — scheduling tool for X and LinkedIn
-- [**Buffer**](#aff-buffer) — alternative scheduling tool
+- [**OpenClaw**](#aff-openclaw): runs the four channel agents
+- [**Anthropic**](#aff-anthropic): Claude API for drafting and comments
+- [**X**](#aff-x): build-in-public posting channel
+- [**LinkedIn**](#aff-linkedin): professional content channel
+- [**Reddit**](#aff-reddit): long-tail credibility channel
+- [**Typefully**](#aff-typefully): scheduling tool for X and LinkedIn
+- [**Buffer**](#aff-buffer): alternative scheduling tool
 
 ## What You'll Build
 

@@ -19,14 +19,14 @@ tags:
 
 ## Tools
 
-- [**OpenClaw**](#aff-openclaw) — orchestrates the four agents
-- [**Anthropic**](#aff-anthropic) — Claude API as the brain
-- [**Mac mini**](#aff-mac-mini) — always-on hardware host
-- [**Telegram**](#aff-telegram) — operator interface to all four agents
-- [**Gmail**](#aff-gmail) — support inbox monitoring
-- [**X**](#aff-x) — content posting target
-- [**LinkedIn**](#aff-linkedin) — second content posting target
-- [**Google Calendar**](#aff-google-calendar) — ops agent calendar source
+- [**OpenClaw**](#aff-openclaw): orchestrates the four agents
+- [**Anthropic**](#aff-anthropic): Claude API as the brain
+- [**Mac mini**](#aff-mac-mini): always-on hardware host
+- [**Telegram**](#aff-telegram): operator interface to all four agents
+- [**Gmail**](#aff-gmail): support inbox monitoring
+- [**X**](#aff-x): content posting target
+- [**LinkedIn**](#aff-linkedin): second content posting target
+- [**Google Calendar**](#aff-google-calendar): ops agent calendar source
 
 ## What You'll Build
 
@@ -79,7 +79,7 @@ Context-switching kills productivity. When one agent does everything, it loses f
 
 ## Step-by-Step Setup
 
-### Step 1: Agent 1 — Customer Support
+### Step 1: Customer Support
 
 **Purpose:** Monitor incoming messages, draft responses, escalate when needed.
 
@@ -117,7 +117,7 @@ A: [troubleshooting steps]
 
 **Output:** Drafts go to your Telegram for approval (or auto-send for common questions after you've built confidence).
 
-### Step 2: Agent 2 — Content
+### Step 2: Content
 
 **Purpose:** Create, schedule, and manage content across platforms.
 
@@ -150,7 +150,7 @@ A: [troubleshooting steps]
 
 **Cron:** Draft posts hourly during work hours. You pick and approve.
 
-### Step 3: Agent 3 — Research
+### Step 3: Research
 
 **Purpose:** Keep you informed about competitors, market trends, and opportunities.
 
@@ -183,7 +183,7 @@ A: [troubleshooting steps]
 
 **Cron:** Daily research digest. Weekly deep-dive report.
 
-### Step 4: Agent 4 — Operations
+### Step 4: Operations
 
 **Purpose:** The glue. Daily briefings, task tracking, calendar management, and cross-agent coordination.
 

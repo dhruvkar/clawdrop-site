@@ -17,12 +17,12 @@ permalink: /blueprints/ai-car-negotiation/
 
 ## Tools
 
-- [**OpenClaw**](#aff-openclaw) — the agent runtime that handles the multi-day email back-and-forth
-- [**Gmail**](#aff-gmail) — primary email channel for negotiating with dealers
-- [**Outlook**](#aff-outlook) — alternative email channel called out in the prerequisites
-- [**Anthropic**](#aff-anthropic) — model provider behind the agent's drafting and tone
-- [**Kelley Blue Book**](#aff-kbb) — fair-market-value reference the agent cites in counteroffers
-- [**Edmunds**](#aff-edmunds) — second market data source the agent pulls from
+- [**OpenClaw**](#aff-openclaw): the agent runtime that handles the multi-day email back-and-forth
+- [**Gmail**](#aff-gmail): primary email channel for negotiating with dealers
+- [**Outlook**](#aff-outlook): alternative email channel called out in the prerequisites
+- [**Anthropic**](#aff-anthropic): model provider behind the agent's drafting and tone
+- [**Kelley Blue Book**](#aff-kbb): fair-market-value reference the agent cites in counteroffers
+- [**Edmunds**](#aff-edmunds): second market data source the agent pulls from
 
 ## What You'll Build
 

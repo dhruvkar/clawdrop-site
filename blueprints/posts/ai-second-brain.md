@@ -20,15 +20,15 @@ permalink: /blueprints/ai-second-brain/
 
 ## Tools
 
-- [**OpenClaw**](#aff-openclaw) — agent platform with built-in memory and vector search
-- [**DigitalOcean**](#aff-digitalocean) — VPS hosting option for the agent
-- [**Hetzner**](#aff-hetzner) — alternative VPS hosting
-- [**Telegram**](#aff-telegram) — primary messaging input channel
-- [**iMessage**](#aff-imessage) — alternative messaging channel
-- [**Discord**](#aff-discord) — alternative messaging channel
-- [**Anthropic**](#aff-anthropic) — Claude model for understanding and retrieval
-- [**OpenAI**](#aff-openai) — GPT-4 alternative
-- [**Next.js**](#aff-nextjs) — vibe-coded dashboard framework
+- [**OpenClaw**](#aff-openclaw): agent platform with built-in memory and vector search
+- [**DigitalOcean**](#aff-digitalocean): VPS hosting option for the agent
+- [**Hetzner**](#aff-hetzner): alternative VPS hosting
+- [**Telegram**](#aff-telegram): primary messaging input channel
+- [**iMessage**](#aff-imessage): alternative messaging channel
+- [**Discord**](#aff-discord): alternative messaging channel
+- [**Anthropic**](#aff-anthropic): Claude model for understanding and retrieval
+- [**OpenAI**](#aff-openai): GPT-4 alternative
+- [**Next.js**](#aff-nextjs): vibe-coded dashboard framework
 
 ## What You'll Build
 

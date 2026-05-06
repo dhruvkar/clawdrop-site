@@ -22,12 +22,12 @@ tags:
 
 ## Tools
 
-- [**Google Analytics 4**](#aff-google-analytics) — the analytics platform being audited and monitored
-- [**Slack**](#aff-slack) — receive anomaly alerts
-- [**Telegram**](#aff-telegram) — alternative alert channel
-- [**WhatsApp**](#aff-whatsapp) — alternative alert channel
-- [**Looker Studio**](#aff-looker-studio) — pairs with the anomaly detector for full reporting
-- [**Runable**](#aff-runable) — cleanup and formatting in one commenter's stack
+- [**Google Analytics 4**](#aff-google-analytics): the analytics platform being audited and monitored
+- [**Slack**](#aff-slack): receive anomaly alerts
+- [**Telegram**](#aff-telegram): alternative alert channel
+- [**WhatsApp**](#aff-whatsapp): alternative alert channel
+- [**Looker Studio**](#aff-looker-studio): pairs with the anomaly detector for full reporting
+- [**Runable**](#aff-runable): cleanup and formatting in one commenter's stack
 
 ## What You'll Build
 
@@ -85,7 +85,7 @@ This is your early warning system. It monitors key metrics and alerts you when s
 The alert goes wherever you want it: email, Slack, Telegram, WhatsApp. Something like:
 
 ```
-⚠️ GA4 Anomaly Detected — yoursite.com
+⚠️ GA4 Anomaly Detected: yoursite.com
 
 Organic sessions dropped 34% yesterday (1,240 vs 30-day avg 1,880)
 Conversion rate for "submit_form" dropped from 3.2% to 1.1%
@@ -151,5 +151,5 @@ or
 
 ## Keep Reading
 
-- **[Claude Code + Google Search Console = SEO Powerhouse](https://www.youtube.com/watch?v=Cm-x1YAqgfg)** — Pair your GA4 monitoring with AI-powered Search Console analysis for the full picture.
-- **[The One-Person Agency](/blueprints/one-person-agency/)** — Offer GA4 audits and monitoring as a productized service. The AI does the work, you deliver the insights.
+- **[Claude Code + Google Search Console = SEO Powerhouse](https://www.youtube.com/watch?v=Cm-x1YAqgfg)**: Pair your GA4 monitoring with AI-powered Search Console analysis for the full picture.
+- **[The One-Person Agency](/blueprints/one-person-agency/)**: Offer GA4 audits and monitoring as a productized service. The AI does the work, you deliver the insights.

@@ -18,11 +18,11 @@ permalink: /blueprints/nex-crm/
 
 ## Tools
 
-- [**OpenClaw**](#aff-openclaw) — host for the Nex memory plugin
-- [**Nex**](#aff-nex) — open-source knowledge graph CRM
-- [**Claude Code**](#aff-claude-code) — cross-tool memory entry point
-- [**Cursor**](#aff-cursor) — another entry point sharing the Nex graph
-- [**ChatGPT**](#aff-chatgpt) — third entry point sharing the Nex graph
+- [**OpenClaw**](#aff-openclaw): host for the Nex memory plugin
+- [**Nex**](#aff-nex): open-source knowledge graph CRM
+- [**Claude Code**](#aff-claude-code): cross-tool memory entry point
+- [**Cursor**](#aff-cursor): another entry point sharing the Nex graph
+- [**ChatGPT**](#aff-chatgpt): third entry point sharing the Nex graph
 
 ## What You'll Build
 

@@ -22,25 +22,25 @@ permalink: /blueprints/ai-life-os/
 
 ## Tools
 
-- [**Claude Code**](#aff-claude-code) — agent runtime with cron-driven scheduling
-- [**Telegram**](#aff-telegram) — messaging channel for daily briefs and retros
-- [**Google Calendar**](#aff-google-calendar) — schedule data source
-- [**Toggl Track**](#aff-toggl) — manual time tracking input
-- [**RescueTime**](#aff-rescuetime) — automatic screen time tracking
-- [**Obsidian**](#aff-obsidian) — daily notes and journal vault
-- [**Todoist**](#aff-todoist) — task and project source
-- [**Flot.ai**](#aff-flot) — optional floating AI for quick captures
-- [**ScreenPipe**](#aff-screenpipe) — optional screen context recorder
+- [**Claude Code**](#aff-claude-code): agent runtime with cron-driven scheduling
+- [**Telegram**](#aff-telegram): messaging channel for daily briefs and retros
+- [**Google Calendar**](#aff-google-calendar): schedule data source
+- [**Toggl Track**](#aff-toggl): manual time tracking input
+- [**RescueTime**](#aff-rescuetime): automatic screen time tracking
+- [**Obsidian**](#aff-obsidian): daily notes and journal vault
+- [**Todoist**](#aff-todoist): task and project source
+- [**Flot.ai**](#aff-flot): optional floating AI for quick captures
+- [**ScreenPipe**](#aff-screenpipe): optional screen context recorder
 
 ## What You'll Build
 
-An AI agent that sees your entire life — calendar, tasks, notes, time tracking, habits — and turns all that raw data into daily briefings, automatic retrospectives, and content ideas. Every morning you wake up to a message that says: here's your day, here's what you didn't finish yesterday, here's what matters most right now.
+An AI agent that sees your entire life (calendar, tasks, notes, time tracking, habits) and turns all that raw data into daily briefings, automatic retrospectives, and content ideas. Every morning you wake up to a message that says: here's your day, here's what you didn't finish yesterday, here's what matters most right now.
 
 Every night, it writes your journal for you. Not a vague summary. A real retrospective: what you planned vs. what you actually did, how you spent your time, what patterns are forming.
 
 This isn't a chatbot you ask questions. It's a system that runs on autopilot, using your own life data to keep you sharp.
 
-Brian from Brain Trinity ran this experiment for six weeks. He connected every data source he uses — Google Calendar, Toggl Track, RescueTime, Obsidian, Todoist — to an AI agent via Telegram. The result was a personal chief of staff that knows his schedule, his habits, his energy patterns, and his half-finished ideas better than he does.
+Brian from Brain Trinity ran this experiment for six weeks. He connected every data source he uses (Google Calendar, Toggl Track, RescueTime, Obsidian, Todoist) to an AI agent via Telegram. The result was a personal chief of staff that knows his schedule, his habits, his energy patterns, and his half-finished ideas better than he does.
 
 His framework: **"Live it, Log it, Get it."** You live your life. The system logs it. The AI gives you back insights you'd never find on your own.
 
@@ -73,17 +73,17 @@ You don't need all of these. Start with two or three and expand.
 - Any AI agent with API access and cron/scheduling
 
 **Calendar & Time:**
-- Google Calendar (your schedule — what you planned to do)
-- Toggl Track (your time tracking — what you actually did)
-- RescueTime (automatic screen time tracking — what your computer says you did)
+- Google Calendar (your schedule, what you planned to do)
+- Toggl Track (your time tracking, what you actually did)
+- RescueTime (automatic screen time tracking, what your computer says you did)
 
 **Knowledge & Tasks:**
-- Obsidian (daily notes, ideas, journal entries — your thinking)
-- Todoist (tasks and projects — your commitments)
-- Flot.ai (optional — floating AI assistant for quick captures)
+- Obsidian (daily notes, ideas, journal entries, your thinking)
+- Todoist (tasks and projects, your commitments)
+- Flot.ai (optional, floating AI assistant for quick captures)
 
 **Capture:**
-- ScreenPipe (optional — records what's on your screen for context)
+- ScreenPipe (optional, records what's on your screen for context)
 
 **Communication:**
 - Telegram bot (how the AI talks to you)
@@ -103,7 +103,7 @@ The agent reads today's calendar events, pulls your open tasks, checks what's ov
 > 3 meetings today (first one at 10am with the design team)
 > 7 open tasks, 2 overdue from yesterday
 > Reminder: quarterly review slides due Thursday
-> Open block from 2-5pm — your best window for deep work
+> Open block from 2-5pm. Your best window for deep work
 
 That's it. One message. Your entire day in 15 seconds.
 
@@ -133,7 +133,7 @@ After two weeks of daily data, the agent starts spotting patterns. Set up a week
 >
 > Best deep work day: Tuesday (3.2 hours avg)
 > Worst day: Thursday (meetings eat everything)
-> You cancelled gym 4/5 days — usually when mornings start with meetings
+> You cancelled gym 4/5 days, usually when mornings start with meetings
 > Energy dip pattern: You write shorter, more negative journal entries on days with 4+ meetings
 > Suggestion: Block Tuesday and Wednesday mornings as no-meeting zones
 
@@ -143,14 +143,14 @@ This is where it gets powerful. No human assistant would cross-reference your ti
 
 ### Week 4: Content Mining
 
-If you create content (and if you're a solopreneur, you should), this is the payoff. The agent scans your Obsidian vault — daily notes, saved articles, random ideas — and surfaces content opportunities:
+If you create content (and if you're a solopreneur, you should), this is the payoff. The agent scans your Obsidian vault (daily notes, saved articles, random ideas) and surfaces content opportunities:
 
 > 💡 **Content Ideas This Week**
 >
 > 1. You've mentioned "async communication" in 6 notes this month. You clearly have opinions. Thread or post?
 > 2. Your retro from Thursday had a great insight about meeting culture vs. deep work. That's a LinkedIn post.
 > 3. You saved 3 articles about AI pricing models. A comparison post would get engagement.
-> 4. That client conversation about onboarding friction — anonymize it and it's a case study.
+> 4. That client conversation about onboarding friction. Anonymize it and it's a case study.
 
 Your own thinking becomes your content pipeline. No more staring at blank pages.
 
@@ -213,7 +213,7 @@ The two work beautifully together. Your second brain feeds your content mining. 
 
 **Add financial tracking:** Connect Lunch Money or your bank's API. Weekly spending patterns correlated with your calendar. "You spend 40% more on food delivery during heavy meeting weeks."
 
-**Add team context:** If you manage people, pull in Slack/Discord activity and project management data. "Your team shipped 3x more when you had fewer 1:1s — they might need more autonomy."
+**Add team context:** If you manage people, pull in Slack/Discord activity and project management data. "Your team shipped 3x more when you had fewer 1:1s. They might need more autonomy."
 
 **Multi-agent setup:** Dedicate one agent to data collection and another to analysis. The collector runs continuously, the analyst runs weekly with deeper reasoning.
 
@@ -229,6 +229,6 @@ The two work beautifully together. Your second brain feeds your content mining. 
 
 ## Keep Reading
 
-- **[AI Second Brain (Karpathy Method)](/blueprints/ai-second-brain-karpathy/)** — Build the knowledge layer that pairs with your Life OS. Your library + your mirror = complete system.
-- **[Run Your Business on AI](/blueprints/founder-runs-business-on-ai/)** — Take the Life OS concept further and automate actual business operations, not just tracking.
-- **[The One-Person Agency](/blueprints/one-person-agency/)** — Use your Life OS insights to deliver agency-quality work as a solo operator.
+- **[AI Second Brain (Karpathy Method)](/blueprints/ai-second-brain-karpathy/)**: Build the knowledge layer that pairs with your Life OS. Your library + your mirror = complete system.
+- **[Run Your Business on AI](/blueprints/founder-runs-business-on-ai/)**: Take the Life OS concept further and automate actual business operations, not just tracking.
+- **[The One-Person Agency](/blueprints/one-person-agency/)**: Use your Life OS insights to deliver agency-quality work as a solo operator.

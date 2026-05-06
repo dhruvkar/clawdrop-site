@@ -18,12 +18,12 @@ permalink: /blueprints/oracle-free-tier/
 
 ## Tools
 
-- [**Oracle Cloud**](#aff-oracle-cloud) — Always Free ARM VM hosting
-- [**OpenClaw**](#aff-openclaw) — agent installed on the VM
-- [**Tailscale**](#aff-tailscale) — private network access to the gateway
-- [**Anthropic**](#aff-anthropic) — default Claude provider for the agent
-- [**OpenAI**](#aff-openai) — alternative provider option
-- [**Google Gemini**](#aff-gemini) — alternative provider option
+- [**Oracle Cloud**](#aff-oracle-cloud): Always Free ARM VM hosting
+- [**OpenClaw**](#aff-openclaw): agent installed on the VM
+- [**Tailscale**](#aff-tailscale): private network access to the gateway
+- [**Anthropic**](#aff-anthropic): default Claude provider for the agent
+- [**OpenAI**](#aff-openai): alternative provider option
+- [**Google Gemini**](#aff-gemini): alternative provider option
 
 ## What You'll Build
 

@@ -23,18 +23,18 @@ tags:
 
 ## Tools
 
-- [**OpenClaw**](#aff-openclaw) — host for the triage agent
-- [**Anthropic**](#aff-anthropic) — Opus 4.6 / 4.7 models powering the agent
-- [**Gmail**](#aff-gmail) — primary inbox via Gmail API
-- [**Google Workspace**](#aff-google-workspace) — workspace email via OAuth
-- [**Microsoft 365**](#aff-microsoft-365) — Outlook/Graph inbox option
-- [**Mac mini**](#aff-mac-mini) — cheap always-on host
-- [**Stripe**](#aff-stripe) — payment-failure escalation source
-- [**Mercury**](#aff-mercury) — banking failure escalation source
-- [**Ramp**](#aff-ramp) — card-failure escalation source
-- [**Calendly**](#aff-calendly) — auto-reply scheduling link
-- [**Telegram**](#aff-telegram) — morning-digest delivery channel
-- [**Slack**](#aff-slack) — alt morning-digest delivery channel
+- [**OpenClaw**](#aff-openclaw): host for the triage agent
+- [**Anthropic**](#aff-anthropic): Opus 4.6 / 4.7 models powering the agent
+- [**Gmail**](#aff-gmail): primary inbox via Gmail API
+- [**Google Workspace**](#aff-google-workspace): workspace email via OAuth
+- [**Microsoft 365**](#aff-microsoft-365): Outlook/Graph inbox option
+- [**Mac mini**](#aff-mac-mini): cheap always-on host
+- [**Stripe**](#aff-stripe): payment-failure escalation source
+- [**Mercury**](#aff-mercury): banking failure escalation source
+- [**Ramp**](#aff-ramp): card-failure escalation source
+- [**Calendly**](#aff-calendly): auto-reply scheduling link
+- [**Telegram**](#aff-telegram): morning-digest delivery channel
+- [**Slack**](#aff-slack): alt morning-digest delivery channel
 
 ## What You'll Build
 
@@ -306,6 +306,6 @@ What does not work: an inbox with 10 emails a day. The overhead of building and 
 
 ## Keep Reading
 
-- **[Give Your AI a Second Brain That Gets Smarter Every Day ($0/Month)](/blueprints/ai-second-brain/)** — The knowledge layer that pairs with the triage layer. Your agent remembers what matters, not just what came in.
-- **[Teach Your AI to Stop Making the Same Mistake Twice](/blueprints/self-improving-agent/)** — Bolt this on after month one to turn every draft override into a permanent rule.
-- **[He Spent $1,263 on AI in One Month. Then He Capped It.](/blueprints/ai-budget-cap/)** — The cost-control layer. Matters more when your triage volume scales past one inbox.
+- **[Give Your AI a Second Brain That Gets Smarter Every Day ($0/Month)](/blueprints/ai-second-brain/)**: The knowledge layer that pairs with the triage layer. Your agent remembers what matters, not just what came in.
+- **[Teach Your AI to Stop Making the Same Mistake Twice](/blueprints/self-improving-agent/)**: Bolt this on after month one to turn every draft override into a permanent rule.
+- **[He Spent $1,263 on AI in One Month. Then He Capped It.](/blueprints/ai-budget-cap/)**: The cost-control layer. Matters more when your triage volume scales past one inbox.

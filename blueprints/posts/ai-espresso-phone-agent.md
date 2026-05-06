@@ -18,12 +18,12 @@ permalink: /blueprints/ai-espresso-phone-agent/
 
 ## Tools
 
-- [**OpenClaw**](#aff-openclaw) — agent brain processing all requests
-- [**Vapi**](#aff-vapi) — phone voice agent platform powering Clawdia
-- [**Clawdia Bridge**](#aff-clawdia-bridge) — open-source Node.js connector between Vapi and OpenClaw
-- [**Home Assistant**](#aff-home-assistant) — smart home bridge for device control
-- [**Decent Espresso**](#aff-decent-espresso) — espresso machine with controllable API
-- [**Kasa**](#aff-kasa) — smart plug option for any espresso machine
+- [**OpenClaw**](#aff-openclaw): agent brain processing all requests
+- [**Vapi**](#aff-vapi): phone voice agent platform powering Clawdia
+- [**Clawdia Bridge**](#aff-clawdia-bridge): open-source Node.js connector between Vapi and OpenClaw
+- [**Home Assistant**](#aff-home-assistant): smart home bridge for device control
+- [**Decent Espresso**](#aff-decent-espresso): espresso machine with controllable API
+- [**Kasa**](#aff-kasa): smart plug option for any espresso machine
 
 ## What You'll Build
 

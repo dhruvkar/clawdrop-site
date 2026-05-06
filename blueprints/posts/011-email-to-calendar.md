@@ -1,7 +1,7 @@
 ---
 layout: blueprint.njk
 title: "Never Copy a Date From an Email to Your Calendar Again"
-description: "A 100-line OpenClaw skill that watches your inbox for hidden events — school newsletters, flight confirmations, meeting invites, doctor appointments — and drops them on your calendar automatically. Including the right attendees and reminders."
+description: "A 100-line OpenClaw skill that watches your inbox for hidden events (school newsletters, flight confirmations, meeting invites, doctor appointments) and drops them on your calendar automatically. Including the right attendees and reminders."
 date: 2026-04-29
 difficulty: Set it up in an afternoon
 cost: "$0 if you already pay for Google Workspace; runs on top of any agent setup"
@@ -26,11 +26,11 @@ tags:
 
 ## Tools
 
-- [**OpenClaw**](#aff-openclaw) — the agent runtime that hosts the email-to-calendar skill
-- [**Clawhub**](#aff-clawhub) — open marketplace where the skill is published and installed from
-- [**Gmail**](#aff-gmail) — inbox the agent watches for hidden event details
-- [**Google Calendar**](#aff-google-calendar) — destination the agent creates and updates events in
-- [**Google Workspace**](#aff-google-workspace) — the underlying account suite that authorizes Gmail and Calendar access
+- [**OpenClaw**](#aff-openclaw): the agent runtime that hosts the email-to-calendar skill
+- [**Clawhub**](#aff-clawhub): open marketplace where the skill is published and installed from
+- [**Gmail**](#aff-gmail): inbox the agent watches for hidden event details
+- [**Google Calendar**](#aff-google-calendar): destination the agent creates and updates events in
+- [**Google Workspace**](#aff-google-workspace): the underlying account suite that authorizes Gmail and Calendar access
 
 ## What You'll Build
 
@@ -163,8 +163,8 @@ For a working parent or anyone juggling multiple calendars, this is the highest-
 
 ## Keep Reading
 
-- **[He Let an AI Triage 180 Emails a Day. Here's the Stack.](/blueprints/inbox-triage-agent/)** — The companion blueprint. Where this one extracts events, that one decides which emails deserve your attention at all.
-- **[Build an AI Life OS That Knows Your Entire Day (Before You Do)](/blueprints/ai-life-os/)** — The wider pattern. Email-to-calendar is one of 20 plays inside a complete personal-ops system; the Life OS blueprint is the system.
-- **[Automate Grocery Shopping With a Photo of a Recipe](/blueprints/grocery-autopilot/)** — Same architecture, different domain. Photo in, structured action out, the human-in-the-loop becomes optional once it's tuned.
+- **[He Let an AI Triage 180 Emails a Day. Here's the Stack.](/blueprints/inbox-triage-agent/)**: The companion blueprint. Where this one extracts events, that one decides which emails deserve your attention at all.
+- **[Build an AI Life OS That Knows Your Entire Day (Before You Do)](/blueprints/ai-life-os/)**: The wider pattern. Email-to-calendar is one of 20 plays inside a complete personal-ops system; the Life OS blueprint is the system.
+- **[Automate Grocery Shopping With a Photo of a Recipe](/blueprints/grocery-autopilot/)**: Same architecture, different domain. Photo in, structured action out, the human-in-the-loop becomes optional once it's tuned.
 
 **Want the full deep dive?** Read our [Best OpenClaw Skills](/learn/best-openclaw-skills/) guide for the foundational skill patterns this blueprint depends on.

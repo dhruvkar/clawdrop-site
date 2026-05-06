@@ -23,13 +23,13 @@ tags:
 
 ## Tools
 
-- [**Claude Code**](#aff-claude-code) — primary runtime where `.learnings/` and CLAUDE.md live
-- [**OpenClaw**](#aff-openclaw) — alternative runtime with SOUL.md / TOOLS.md / AGENTS.md injection
-- [**Hermes**](#aff-hermes) — alternative agent runtime the layer plugs into
-- [**Codex**](#aff-codex) — alternative agent runtime with AGENTS.md support
-- [**GitHub Copilot**](#aff-github-copilot) — alternative runtime using `.github/copilot-instructions.md`
-- [**GitHub**](#aff-github) — host for Peter Skoett's original `self-improving-agent` skill and team-shared `.learnings/`
-- [**Anthropic**](#aff-anthropic) — Haiku/Opus pricing referenced for hook overhead
+- [**Claude Code**](#aff-claude-code): primary runtime where `.learnings/` and CLAUDE.md live
+- [**OpenClaw**](#aff-openclaw): alternative runtime with SOUL.md / TOOLS.md / AGENTS.md injection
+- [**Hermes**](#aff-hermes): alternative agent runtime the layer plugs into
+- [**Codex**](#aff-codex): alternative agent runtime with AGENTS.md support
+- [**GitHub Copilot**](#aff-github-copilot): alternative runtime using `.github/copilot-instructions.md`
+- [**GitHub**](#aff-github): host for Peter Skoett's original `self-improving-agent` skill and team-shared `.learnings/`
+- [**Anthropic**](#aff-anthropic): Haiku/Opus pricing referenced for hook overhead
 
 ## What You'll Build
 
@@ -345,6 +345,6 @@ The daily cost after week 4 is about 15 minutes per week (the Friday review) plu
 
 ## Keep Reading
 
-- **[One Claude Code Subscription. Five Agents. Zero New Frameworks.](/blueprints/claude-code-command-center/)** — The command center this layer bolts onto. Mark Kashef's 5-agent setup plus self-improvement is a complete personal AI stack.
-- **[Give Your AI a Second Brain That Gets Smarter Every Day ($0/Month)](/blueprints/ai-second-brain-karpathy/)** — The knowledge-side complement. Self-improvement catches what goes wrong; the second brain stores what you learn.
-- **[Your AI Remembers Everything So You Don't Have To](/blueprints/ai-real-time-assistant/)** — The memory-first pattern. If self-improvement is the correction layer, this is the retrieval layer.
+- **[One Claude Code Subscription. Five Agents. Zero New Frameworks.](/blueprints/claude-code-command-center/)**: The command center this layer bolts onto. Mark Kashef's 5-agent setup plus self-improvement is a complete personal AI stack.
+- **[Give Your AI a Second Brain That Gets Smarter Every Day ($0/Month)](/blueprints/ai-second-brain-karpathy/)**: The knowledge-side complement. Self-improvement catches what goes wrong; the second brain stores what you learn.
+- **[Your AI Remembers Everything So You Don't Have To](/blueprints/ai-real-time-assistant/)**: The memory-first pattern. If self-improvement is the correction layer, this is the retrieval layer.

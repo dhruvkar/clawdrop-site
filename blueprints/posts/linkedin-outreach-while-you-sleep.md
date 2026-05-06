@@ -23,15 +23,15 @@ tags:
 
 ## Tools
 
-- [**OpenClaw**](#aff-openclaw) — agent host driving outreach
-- [**OpenClaw Browser Relay**](#aff-openclaw-browser-relay) — Chrome extension that lets the agent drive your tab
-- [**Google Chrome**](#aff-chrome) — real browser the agent operates
-- [**LinkedIn**](#aff-linkedin) — outreach platform and Sales Navigator source
-- [**Apollo**](#aff-apollo) — list-building and firmographic enrichment
-- [**Clay**](#aff-clay) — list-building and enrichment alternative
-- [**Mac mini**](#aff-mac-mini) — always-on host for the agent
-- [**WhatsApp**](#aff-whatsapp) — parallel messaging-assistant surface
-- [**Telegram**](#aff-telegram) — parallel messaging-assistant surface
+- [**OpenClaw**](#aff-openclaw): agent host driving outreach
+- [**OpenClaw Browser Relay**](#aff-openclaw-browser-relay): Chrome extension that lets the agent drive your tab
+- [**Google Chrome**](#aff-chrome): real browser the agent operates
+- [**LinkedIn**](#aff-linkedin): outreach platform and Sales Navigator source
+- [**Apollo**](#aff-apollo): list-building and firmographic enrichment
+- [**Clay**](#aff-clay): list-building and enrichment alternative
+- [**Mac mini**](#aff-mac-mini): always-on host for the agent
+- [**WhatsApp**](#aff-whatsapp): parallel messaging-assistant surface
+- [**Telegram**](#aff-telegram): parallel messaging-assistant surface
 
 ## What You'll Build
 
@@ -352,6 +352,6 @@ What does not work: a product that sells itself through a form on a landing page
 
 ## Keep Reading
 
-- **[Stop Buying Cold Email Lists. Build One That Actually Books Meetings.](/blueprints/cold-email-list-pipeline/)** — The email-side outbound pipeline that pairs cleanly with this LinkedIn play. Run both.
-- **[AI Finds Leads, Builds Demo Sites, and Cold Calls Them For You](/blueprints/ai-lead-gen-pipeline/)** — The full-funnel variant. If you want to combine outbound channels, start here.
-- **[Your Cold Email Infrastructure Is Why Nobody Replies (Not Your Copy)](/blueprints/cold-email-infrastructure/)** — The infrastructure layer for any cold outreach program. Matters more the second you scale past 100 sends a week.
+- **[Stop Buying Cold Email Lists. Build One That Actually Books Meetings.](/blueprints/cold-email-list-pipeline/)**: The email-side outbound pipeline that pairs cleanly with this LinkedIn play. Run both.
+- **[AI Finds Leads, Builds Demo Sites, and Cold Calls Them For You](/blueprints/ai-lead-gen-pipeline/)**: The full-funnel variant. If you want to combine outbound channels, start here.
+- **[Your Cold Email Infrastructure Is Why Nobody Replies (Not Your Copy)](/blueprints/cold-email-infrastructure/)**: The infrastructure layer for any cold outreach program. Matters more the second you scale past 100 sends a week.

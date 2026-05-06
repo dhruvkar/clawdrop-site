@@ -18,11 +18,11 @@ permalink: /blueprints/amazon-merch-automation/
 
 ## Tools
 
-- [**OpenClaw**](#aff-openclaw) — runs the upload pipeline with browser automation
-- [**Amazon Merch on Demand**](#aff-amazon-merch) — print-on-demand store the agent uploads to
-- [**PixelCut**](#aff-pixelcut) — background removal and image upscaling
-- [**Dropbox**](#aff-dropbox) — folder sync entry point for new designs
-- [**ChatGPT**](#aff-chatgpt) — generates designs that drop into the watch folder
+- [**OpenClaw**](#aff-openclaw): runs the upload pipeline with browser automation
+- [**Amazon Merch on Demand**](#aff-amazon-merch): print-on-demand store the agent uploads to
+- [**PixelCut**](#aff-pixelcut): background removal and image upscaling
+- [**Dropbox**](#aff-dropbox): folder sync entry point for new designs
+- [**ChatGPT**](#aff-chatgpt): generates designs that drop into the watch folder
 
 ## What You'll Build
 

@@ -19,12 +19,12 @@ tags:
 
 ## Tools
 
-- [**OpenClaw**](#aff-openclaw) — single agent replacing the SaaS stack
-- [**Anthropic**](#aff-anthropic) — Claude API powers the agent
-- [**Mac mini**](#aff-mac-mini) — always-on host for the agent
-- [**Telegram**](#aff-telegram) — primary chat interface
-- [**Stripe**](#aff-stripe) — revenue data source for analytics
-- [**Gmail**](#aff-gmail) — support and email marketing channel
+- [**OpenClaw**](#aff-openclaw): single agent replacing the SaaS stack
+- [**Anthropic**](#aff-anthropic): Claude API powers the agent
+- [**Mac mini**](#aff-mac-mini): always-on host for the agent
+- [**Telegram**](#aff-telegram): primary chat interface
+- [**Stripe**](#aff-stripe): revenue data source for analytics
+- [**Gmail**](#aff-gmail): support and email marketing channel
 
 ## What You'll Build
 

@@ -18,14 +18,14 @@ permalink: /blueprints/whatsapp-voice-knowledge-base/
 
 ## Tools
 
-- [**OpenClaw**](#aff-openclaw) — agent host for transcription and indexing
-- [**WhatsApp**](#aff-whatsapp) — chat history source
-- [**OpenAI Whisper**](#aff-whisper) — voice transcription (local or API)
-- [**Deepgram**](#aff-deepgram) — fast transcription alternative
-- [**OpenAI**](#aff-openai) — embeddings for semantic search
-- [**SQLite**](#aff-sqlite) — local full-text search store
-- [**Git**](#aff-git) — project-history cross-reference source
-- [**Figma**](#aff-figma) — design artifact cross-reference
+- [**OpenClaw**](#aff-openclaw): agent host for transcription and indexing
+- [**WhatsApp**](#aff-whatsapp): chat history source
+- [**OpenAI Whisper**](#aff-whisper): voice transcription (local or API)
+- [**Deepgram**](#aff-deepgram): fast transcription alternative
+- [**OpenAI**](#aff-openai): embeddings for semantic search
+- [**SQLite**](#aff-sqlite): local full-text search store
+- [**Git**](#aff-git): project-history cross-reference source
+- [**Figma**](#aff-figma): design artifact cross-reference
 
 ## What You'll Build
 

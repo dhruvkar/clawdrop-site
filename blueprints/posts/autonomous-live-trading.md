@@ -18,9 +18,9 @@ permalink: /blueprints/autonomous-live-trading/
 
 ## Tools
 
-- [**OpenClaw**](#aff-openclaw) — agent runtime with heartbeat scheduling
-- [**Alpaca**](#aff-alpaca) — primary brokerage API for algo trading
-- [**Interactive Brokers**](#aff-interactive-brokers) — alternative brokerage API
+- [**OpenClaw**](#aff-openclaw): agent runtime with heartbeat scheduling
+- [**Alpaca**](#aff-alpaca): primary brokerage API for algo trading
+- [**Interactive Brokers**](#aff-interactive-brokers): alternative brokerage API
 
 ## What You'll Build
 

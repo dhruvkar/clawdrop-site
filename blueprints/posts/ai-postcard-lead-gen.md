@@ -20,10 +20,10 @@ permalink: /blueprints/ai-postcard-lead-gen/
 
 ## Tools
 
-- [**OpenClaw**](#aff-openclaw) — orchestrator running the full campaign
-- [**Lob**](#aff-lob) — direct mail API for designing and sending postcards
-- [**GitHub Pages**](#aff-github-pages) — static hosting for generated sites
-- [**Netlify**](#aff-netlify) — alternative static hosting target
+- [**OpenClaw**](#aff-openclaw): orchestrator running the full campaign
+- [**Lob**](#aff-lob): direct mail API for designing and sending postcards
+- [**GitHub Pages**](#aff-github-pages): static hosting for generated sites
+- [**Netlify**](#aff-netlify): alternative static hosting target
 
 ## What You'll Build
 

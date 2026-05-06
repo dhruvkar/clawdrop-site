@@ -17,8 +17,8 @@ permalink: /blueprints/bot-to-bot-commerce/
 
 ## Tools
 
-- [**OpenClaw**](#aff-openclaw) — multi-session host running the cooperating agents
-- [**Telegram**](#aff-telegram) — shared group as the inter-agent message bus
+- [**OpenClaw**](#aff-openclaw): multi-session host running the cooperating agents
+- [**Telegram**](#aff-telegram): shared group as the inter-agent message bus
 
 ## What You'll Build
 

@@ -27,19 +27,19 @@ tags:
 
 ## Tools
 
-- [**OpenClaw**](#aff-openclaw) — the gateway brain G-Bot runs as a systemd user service
-- [**Telegram**](#aff-telegram) — the only user-facing surface; every command, photo, and voice message flows through it
-- [**Home Assistant**](#aff-home-assistant) — Docker-hosted bridge to Roborock, Hue, Govee, Tapo, Nest Hub, Sonos
-- [**Firefly III**](#aff-firefly-iii) — self-hosted personal finance with SimpleFIN syncing 13 bank accounts
-- [**Apple Health**](#aff-apple-health) — health data source piped into InfluxDB via webhook
-- [**Grafana**](#aff-grafana) — six dashboards covering sleep, HRV, heart rate, VO2 Max, activity, SpO2
-- [**InfluxDB**](#aff-influxdb) — time-series store behind the finance and health dashboards
-- [**ChromaDB**](#aff-chromadb) — vector database holding 1,078 semantic memory chunks
-- [**Coqui TTS**](#aff-coqui) — local text-to-speech server, 58 voices, 17 languages
-- [**Docker**](#aff-docker) — containerization layer for the 9 services
-- [**Cloudflare**](#aff-cloudflare) — tunnels for external access without exposing ports
-- [**Anthropic**](#aff-anthropic) — Claude Sonnet for code-flavored tasks in the multi-model router
-- [**Ollama**](#aff-ollama) — local model host used inside the multi-model routing setup
+- [**OpenClaw**](#aff-openclaw): the gateway brain G-Bot runs as a systemd user service
+- [**Telegram**](#aff-telegram): the only user-facing surface; every command, photo, and voice message flows through it
+- [**Home Assistant**](#aff-home-assistant): Docker-hosted bridge to Roborock, Hue, Govee, Tapo, Nest Hub, Sonos
+- [**Firefly III**](#aff-firefly-iii): self-hosted personal finance with SimpleFIN syncing 13 bank accounts
+- [**Apple Health**](#aff-apple-health): health data source piped into InfluxDB via webhook
+- [**Grafana**](#aff-grafana): six dashboards covering sleep, HRV, heart rate, VO2 Max, activity, SpO2
+- [**InfluxDB**](#aff-influxdb): time-series store behind the finance and health dashboards
+- [**ChromaDB**](#aff-chromadb): vector database holding 1,078 semantic memory chunks
+- [**Coqui TTS**](#aff-coqui): local text-to-speech server, 58 voices, 17 languages
+- [**Docker**](#aff-docker): containerization layer for the 9 services
+- [**Cloudflare**](#aff-cloudflare): tunnels for external access without exposing ports
+- [**Anthropic**](#aff-anthropic): Claude Sonnet for code-flavored tasks in the multi-model router
+- [**Ollama**](#aff-ollama): local model host used inside the multi-model routing setup
 
 ## What You'll Build
 
@@ -175,8 +175,8 @@ The qualitative effect after a couple of months is that you trust the system. Wh
 
 ## Keep Reading
 
-- **[Build an AI Life OS That Knows Your Entire Day (Before You Do)](/blueprints/ai-life-os/)** — The framework version of what G-Bot does in practice. If you want the strategy before you build, start here.
-- **[Never Copy a Date From an Email to Your Calendar Again](/blueprints/email-to-calendar/)** — One of the small skills that fits inside G-Bot's morning-briefing routine. Run this even if you don't build the rest.
-- **[Your AI Remembers Everything So You Don't Have To](/blueprints/ai-real-time-assistant/)** — The memory pattern. G-Bot's three-tier memory system is one implementation; this blueprint covers the broader architecture.
+- **[Build an AI Life OS That Knows Your Entire Day (Before You Do)](/blueprints/ai-life-os/)**: The framework version of what G-Bot does in practice. If you want the strategy before you build, start here.
+- **[Never Copy a Date From an Email to Your Calendar Again](/blueprints/email-to-calendar/)**: One of the small skills that fits inside G-Bot's morning-briefing routine. Run this even if you don't build the rest.
+- **[Your AI Remembers Everything So You Don't Have To](/blueprints/ai-real-time-assistant/)**: The memory pattern. G-Bot's three-tier memory system is one implementation; this blueprint covers the broader architecture.
 
 **Want the full deep dive?** Read our [Best OpenClaw Skills](/learn/best-openclaw-skills/) guide for the foundational skill patterns this blueprint depends on.

@@ -21,9 +21,9 @@ tags:
 
 ## Tools
 
-- [**Claude**](#aff-claude) — the AI agent producing first drafts of deliverables
-- [**Telegram**](#aff-telegram) — chat interface for sending briefs to your agent from anywhere
-- [**Anthropic**](#aff-anthropic) — model API powering the production agent
+- [**Claude**](#aff-claude): the AI agent producing first drafts of deliverables
+- [**Telegram**](#aff-telegram): chat interface for sending briefs to your agent from anywhere
+- [**Anthropic**](#aff-anthropic): model API powering the production agent
 
 ## What You'll Build
 

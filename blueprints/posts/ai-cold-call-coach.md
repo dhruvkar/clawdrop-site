@@ -18,13 +18,13 @@ permalink: /blueprints/ai-cold-call-coach/
 
 ## Tools
 
-- [**OpenClaw**](#aff-openclaw) — agent runtime running the live coaching engine
-- [**Deepgram**](#aff-deepgram) — sub-second streaming transcription with speaker diarization
-- [**Twilio**](#aff-twilio) — Media Streams API for piping live call audio to a WebSocket
-- [**BlackHole**](#aff-blackhole) — virtual audio device on Mac for capturing system audio
-- [**Aircall**](#aff-aircall) — example softphone the audio routing setup wires into
-- [**RingCentral**](#aff-ringcentral) — alternative VoIP softphone option
-- [**Anthropic**](#aff-anthropic) — model provider behind the real-time suggestion generation
+- [**OpenClaw**](#aff-openclaw): agent runtime running the live coaching engine
+- [**Deepgram**](#aff-deepgram): sub-second streaming transcription with speaker diarization
+- [**Twilio**](#aff-twilio): Media Streams API for piping live call audio to a WebSocket
+- [**BlackHole**](#aff-blackhole): virtual audio device on Mac for capturing system audio
+- [**Aircall**](#aff-aircall): example softphone the audio routing setup wires into
+- [**RingCentral**](#aff-ringcentral): alternative VoIP softphone option
+- [**Anthropic**](#aff-anthropic): model provider behind the real-time suggestion generation
 
 ## What You'll Build
 

@@ -23,15 +23,15 @@ tags:
 
 ## Tools
 
-- [**OpenClaw**](#aff-openclaw) — the per-tenant agent runtime that runs each client's skills
-- [**Docker**](#aff-docker) — isolation layer; one container per client tenant
-- [**Traefik**](#aff-traefik) — reverse proxy with automatic HTTPS and per-subdomain routing
-- [**HashiCorp Vault**](#aff-vault) — encrypted, namespaced credential vault per tenant
-- [**PostgreSQL**](#aff-postgresql) — per-tenant database isolated by volume mount
-- [**SearXNG**](#aff-searxng) — self-hosted search layer that avoids surprise search-API bills
-- [**DigitalOcean**](#aff-digitalocean) — VPS option for hosting the multi-tenant base stack
-- [**Hetzner**](#aff-hetzner) — alternative VPS option named in the blueprint
-- [**Browserless**](#aff-browserless) — headless Chromium container the agents use for web tasks
+- [**OpenClaw**](#aff-openclaw): the per-tenant agent runtime that runs each client's skills
+- [**Docker**](#aff-docker): isolation layer; one container per client tenant
+- [**Traefik**](#aff-traefik): reverse proxy with automatic HTTPS and per-subdomain routing
+- [**HashiCorp Vault**](#aff-vault): encrypted, namespaced credential vault per tenant
+- [**PostgreSQL**](#aff-postgresql): per-tenant database isolated by volume mount
+- [**SearXNG**](#aff-searxng): self-hosted search layer that avoids surprise search-API bills
+- [**DigitalOcean**](#aff-digitalocean): VPS option for hosting the multi-tenant base stack
+- [**Hetzner**](#aff-hetzner): alternative VPS option named in the blueprint
+- [**Browserless**](#aff-browserless): headless Chromium container the agents use for web tasks
 
 ## What You'll Build
 
@@ -299,6 +299,6 @@ What does not work: you have no existing book of business and no sales motion. T
 
 ## Keep Reading
 
-- **[The One-Person Agency: Charge Agency Rates as a Solo Operator](/blueprints/one-person-agency/)** — The precursor pattern. If you are still delivering one-off services, start here and productize from there.
-- **[He Spent $1,263 on AI in One Month. Then He Capped It.](/blueprints/ai-budget-cap/)** — The cost-control layer you must have before onboarding client number two.
-- **[Teach Your AI to Stop Making the Same Mistake Twice](/blueprints/self-improving-agent/)** — The self-improvement layer that compounds across all your tenants. The whole book gets smarter every week without you touching each client.
+- **[The One-Person Agency: Charge Agency Rates as a Solo Operator](/blueprints/one-person-agency/)**: The precursor pattern. If you are still delivering one-off services, start here and productize from there.
+- **[He Spent $1,263 on AI in One Month. Then He Capped It.](/blueprints/ai-budget-cap/)**: The cost-control layer you must have before onboarding client number two.
+- **[Teach Your AI to Stop Making the Same Mistake Twice](/blueprints/self-improving-agent/)**: The self-improvement layer that compounds across all your tenants. The whole book gets smarter every week without you touching each client.

@@ -19,14 +19,14 @@ tags:
 
 ## Tools
 
-- [**OpenClaw**](#aff-openclaw) — hosts the autonomous Felix agent
-- [**Anthropic**](#aff-anthropic) — Claude Opus for business decisions
-- [**Codex**](#aff-codex) — sub-agent for coding and site building
-- [**Stripe**](#aff-stripe) — payment processing for products
-- [**Gumroad**](#aff-gumroad) — info product storefront
-- [**X**](#aff-x) — marketing channel the bot posts on
-- [**Netlify**](#aff-netlify) — quick site deploys
-- [**Vercel**](#aff-vercel) — alternative hosting for landing pages
+- [**OpenClaw**](#aff-openclaw): hosts the autonomous Felix agent
+- [**Anthropic**](#aff-anthropic): Claude Opus for business decisions
+- [**Codex**](#aff-codex): sub-agent for coding and site building
+- [**Stripe**](#aff-stripe): payment processing for products
+- [**Gumroad**](#aff-gumroad): info product storefront
+- [**X**](#aff-x): marketing channel the bot posts on
+- [**Netlify**](#aff-netlify): quick site deploys
+- [**Vercel**](#aff-vercel): alternative hosting for landing pages
 
 ## What You'll Build
 

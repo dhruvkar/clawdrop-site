@@ -17,7 +17,7 @@ permalink: /blueprints/ai-insurance-dispute/
 
 ## Tools
 
-- [**OpenClaw**](#aff-openclaw) — AI agent reading the policy and drafting appeals
+- [**OpenClaw**](#aff-openclaw): AI agent reading the policy and drafting appeals
 
 ## What You'll Build
 

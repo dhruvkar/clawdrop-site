@@ -24,15 +24,15 @@ tags:
 
 ## Tools
 
-- [**OpenClaw**](#aff-openclaw) — agent host running the three skills
-- [**Toast**](#aff-toast) — POS source for sales and labor data
-- [**Square**](#aff-square) — alt POS with API access
-- [**Lightspeed**](#aff-lightspeed) — alt POS with API access
-- [**Revel**](#aff-revel) — alt POS with API access
-- [**SpotOn**](#aff-spoton) — alt POS with API access
-- [**Slack**](#aff-slack) — team channel for pre-rush briefings
-- [**Microsoft Teams**](#aff-microsoft-teams) — alt team channel
-- [**Mac mini**](#aff-mac-mini) — cheap always-on host
+- [**OpenClaw**](#aff-openclaw): agent host running the three skills
+- [**Toast**](#aff-toast): POS source for sales and labor data
+- [**Square**](#aff-square): alt POS with API access
+- [**Lightspeed**](#aff-lightspeed): alt POS with API access
+- [**Revel**](#aff-revel): alt POS with API access
+- [**SpotOn**](#aff-spoton): alt POS with API access
+- [**Slack**](#aff-slack): team channel for pre-rush briefings
+- [**Microsoft Teams**](#aff-microsoft-teams): alt team channel
+- [**Mac mini**](#aff-mac-mini): cheap always-on host
 
 ## What You'll Build
 
@@ -325,6 +325,6 @@ What does not work: a single-shift business with one person. You do not have the
 
 ## Keep Reading
 
-- **[The One-Person Agency: Charge Agency Rates as a Solo Operator](/blueprints/one-person-agency/)** — How operators productize their playbooks into client-ready deliverables. Adjacent pattern if you're thinking "I could sell this to other GMs."
-- **[He Spent $1,263 on AI in One Month. Then He Capped It.](/blueprints/ai-budget-cap/)** — The cost-control layer you'll want once you run three skills on the same machine. Matters more when multiple locations share infrastructure.
-- **[Teach Your AI to Stop Making the Same Mistake Twice](/blueprints/self-improving-agent/)** — The self-improvement layer that makes your shift coach sharper every week. Bolt it on after month one.
+- **[The One-Person Agency: Charge Agency Rates as a Solo Operator](/blueprints/one-person-agency/)**: How operators productize their playbooks into client-ready deliverables. Adjacent pattern if you're thinking "I could sell this to other GMs."
+- **[He Spent $1,263 on AI in One Month. Then He Capped It.](/blueprints/ai-budget-cap/)**: The cost-control layer you'll want once you run three skills on the same machine. Matters more when multiple locations share infrastructure.
+- **[Teach Your AI to Stop Making the Same Mistake Twice](/blueprints/self-improving-agent/)**: The self-improvement layer that makes your shift coach sharper every week. Bolt it on after month one.

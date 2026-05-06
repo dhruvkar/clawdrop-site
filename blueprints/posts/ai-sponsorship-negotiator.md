@@ -17,7 +17,7 @@ permalink: /blueprints/ai-sponsorship-negotiator/
 
 ## Tools
 
-- [**OpenClaw**](#aff-openclaw) — agent managing the sponsorship pipeline
+- [**OpenClaw**](#aff-openclaw): agent managing the sponsorship pipeline
 
 ## What You'll Build
 

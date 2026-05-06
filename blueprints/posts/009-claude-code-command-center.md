@@ -23,16 +23,16 @@ tags:
 
 ## Tools
 
-- [**Claude Code**](#aff-claude-code) — the foundation runtime the entire command center sits on
-- [**Anthropic**](#aff-anthropic) — Agent SDK and Claude models powering the agents
-- [**Telegram**](#aff-telegram) — input interface for the v0 bot and ongoing chat
-- [**SQLite**](#aff-sqlite) — memory store in the 200-line v0
-- [**Gemini**](#aff-gemini) — cheap classifier for the memory washing machine, plus Gemini Live for voice
-- [**Pipecat**](#aff-pipecat) — voice framework gluing audio input to the agent runtime
-- [**Daily.co**](#aff-daily) — transport layer for the meeting-room voice interface
-- [**Pika**](#aff-pika) — optional avatar layer for the voice war room
-- [**Cloudflare**](#aff-cloudflare) — tunnel that exposes the dashboard privately to your phone
-- [**Gumroad**](#aff-gumroad) — where Mark released the free Power Pack prompts and architecture guide
+- [**Claude Code**](#aff-claude-code): the foundation runtime the entire command center sits on
+- [**Anthropic**](#aff-anthropic): Agent SDK and Claude models powering the agents
+- [**Telegram**](#aff-telegram): input interface for the v0 bot and ongoing chat
+- [**SQLite**](#aff-sqlite): memory store in the 200-line v0
+- [**Gemini**](#aff-gemini): cheap classifier for the memory washing machine, plus Gemini Live for voice
+- [**Pipecat**](#aff-pipecat): voice framework gluing audio input to the agent runtime
+- [**Daily.co**](#aff-daily): transport layer for the meeting-room voice interface
+- [**Pika**](#aff-pika): optional avatar layer for the voice war room
+- [**Cloudflare**](#aff-cloudflare): tunnel that exposes the dashboard privately to your phone
+- [**Gumroad**](#aff-gumroad): where Mark released the free Power Pack prompts and architecture guide
 
 ## What You'll Build
 
@@ -245,6 +245,6 @@ Compare that to the stack it replaces: ChatGPT Plus ($20), a note-taking AI app 
 
 ## Keep Reading
 
-- **[Build an Autonomous Business Bot (The Felix Method)](/blueprints/felix-bot/)** — A simpler version of the same pattern. If the command center is too much, start here.
-- **[Replace Your SaaS Stack With One AI Agent](/blueprints/replace-saas-stack/)** — The financial case for consolidating tools into a single agentic system, with specific subscriptions to kill.
-- **[Give Your AI a Second Brain That Gets Smarter Every Day ($0/Month)](/blueprints/ai-second-brain-karpathy/)** — The memory layer Mark builds on top of, explained in more depth if you want to go deeper on the knowledge side.
+- **[Build an Autonomous Business Bot (The Felix Method)](/blueprints/felix-bot/)**: A simpler version of the same pattern. If the command center is too much, start here.
+- **[Replace Your SaaS Stack With One AI Agent](/blueprints/replace-saas-stack/)**: The financial case for consolidating tools into a single agentic system, with specific subscriptions to kill.
+- **[Give Your AI a Second Brain That Gets Smarter Every Day ($0/Month)](/blueprints/ai-second-brain-karpathy/)**: The memory layer Mark builds on top of, explained in more depth if you want to go deeper on the knowledge side.

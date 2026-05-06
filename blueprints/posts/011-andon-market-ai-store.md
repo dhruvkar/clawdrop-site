@@ -26,11 +26,11 @@ tags:
 
 ## Tools
 
-- [**Anthropic**](#aff-anthropic) — Claude Sonnet 4.6 powers Luna, the AI CEO
-- [**LinkedIn**](#aff-linkedin) — where Luna posted job listings
-- [**Indeed**](#aff-indeed) — additional channel Luna used to recruit staff
-- [**Craigslist**](#aff-craigslist) — third channel Luna used for job listings
-- [**Yelp**](#aff-yelp) — where Luna found gig painters and furniture builders
+- [**Anthropic**](#aff-anthropic): Claude Sonnet 4.6 powers Luna, the AI CEO
+- [**LinkedIn**](#aff-linkedin): where Luna posted job listings
+- [**Indeed**](#aff-indeed): additional channel Luna used to recruit staff
+- [**Craigslist**](#aff-craigslist): third channel Luna used for job listings
+- [**Yelp**](#aff-yelp): where Luna found gig painters and furniture builders
 
 ## What You'll Build
 
@@ -162,8 +162,8 @@ You don't need a 3-year retail lease and a corporate card to start. You need to 
 
 ## Keep Reading
 
-- **[This Accountant Trained Her AI to Close the Books Every Month](/blueprints/cpa-quickbooks-monthly-close/)** — The CPA version of the Luna playbook. One agent, one SaaS API, one recurring procedure. Different scale, same shift in what AI can hold.
-- **[His Life Insurance Agency Texts and Calls New Leads in 2 Minutes. Automatically.](/blueprints/life-insurance-2-minute-follow-up/)** — Apollo handles the bottom of the lead funnel for an insurance owner. Luna handles the entire funnel for a retail concept. Both are operator-grade agents with real authority.
-- **[Run Your Business on AI (While Living Your Life)](/blueprints/founder-runs-business-on-ai/)** — The founder pattern that the Luna experiment extrapolates to its logical end. Less dramatic, more applicable, equally important.
+- **[This Accountant Trained Her AI to Close the Books Every Month](/blueprints/cpa-quickbooks-monthly-close/)**: The CPA version of the Luna playbook. One agent, one SaaS API, one recurring procedure. Different scale, same shift in what AI can hold.
+- **[His Life Insurance Agency Texts and Calls New Leads in 2 Minutes. Automatically.](/blueprints/life-insurance-2-minute-follow-up/)**: Apollo handles the bottom of the lead funnel for an insurance owner. Luna handles the entire funnel for a retail concept. Both are operator-grade agents with real authority.
+- **[Run Your Business on AI (While Living Your Life)](/blueprints/founder-runs-business-on-ai/)**: The founder pattern that the Luna experiment extrapolates to its logical end. Less dramatic, more applicable, equally important.
 
 **Want the full deep dive?** Read our [Best OpenClaw Skills](/learn/best-openclaw-skills/) guide for the foundational skill patterns that the Luna playbook depends on.

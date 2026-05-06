@@ -23,11 +23,11 @@ tags:
 
 ## Tools
 
-- [**Obsidian**](#aff-obsidian) — local markdown vault that stores your second brain
-- [**Obsidian Web Clipper**](#aff-obsidian) — browser extension for saving any webpage into the vault
-- [**Claude Code**](#aff-claude-code) — reads and organizes your vault, builds connections
-- [**OpenClaw**](#aff-openclaw) — alternative agent runtime that can access the same vault
-- [**GitHub**](#aff-github) — host the karpathy-llm-wiki setup repo and back up your vault
+- [**Obsidian**](#aff-obsidian): local markdown vault that stores your second brain
+- [**Obsidian Web Clipper**](#aff-obsidian): browser extension for saving any webpage into the vault
+- [**Claude Code**](#aff-claude-code): reads and organizes your vault, builds connections
+- [**OpenClaw**](#aff-openclaw): alternative agent runtime that can access the same vault
+- [**GitHub**](#aff-github): host the karpathy-llm-wiki setup repo and back up your vault
 
 ## What You'll Build
 
@@ -178,5 +178,5 @@ And because it's all local markdown files, you own everything. No vendor lock-in
 
 ## Keep Reading
 
-- **[The One-Person Agency](/blueprints/one-person-agency/)** — Pair your second brain with a service business and deliver agency-quality work as a solo operator.
-- **[Build a 7-Agent Marketing Team](/blueprints/ai-marketing-team/)** — Give each of your marketing agents access to your knowledge base for smarter content and campaigns.
+- **[The One-Person Agency](/blueprints/one-person-agency/)**: Pair your second brain with a service business and deliver agency-quality work as a solo operator.
+- **[Build a 7-Agent Marketing Team](/blueprints/ai-marketing-team/)**: Give each of your marketing agents access to your knowledge base for smarter content and campaigns.

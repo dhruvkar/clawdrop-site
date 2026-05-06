@@ -22,14 +22,14 @@ tags:
 
 ## Tools
 
-- [**InboxKit**](#aff-inboxkit) — auto-configures domains, mailboxes, DNS, and warmup
-- [**Maildoso**](#aff-maildoso) — alternative platform handling the same infrastructure layer
-- [**Manyreach**](#aff-manyreach) — sequencer that receives the warmed mailboxes
-- [**SmartLead**](#aff-smartlead) — alternative campaign sequencer
-- [**Instantly**](#aff-instantly) — alternative sequencer plus its own infra add-on
-- [**Glockapps**](#aff-glockapps) — standalone inbox placement testing
-- [**Gmail**](#aff-gmail) — primary inbox provider whose deliverability you're optimizing for
-- [**Outlook**](#aff-outlook) — secondary inbox provider on the placement-test target list
+- [**InboxKit**](#aff-inboxkit): auto-configures domains, mailboxes, DNS, and warmup
+- [**Maildoso**](#aff-maildoso): alternative platform handling the same infrastructure layer
+- [**Manyreach**](#aff-manyreach): sequencer that receives the warmed mailboxes
+- [**SmartLead**](#aff-smartlead): alternative campaign sequencer
+- [**Instantly**](#aff-instantly): alternative sequencer plus its own infra add-on
+- [**Glockapps**](#aff-glockapps): standalone inbox placement testing
+- [**Gmail**](#aff-gmail): primary inbox provider whose deliverability you're optimizing for
+- [**Outlook**](#aff-outlook): secondary inbox provider on the placement-test target list
 
 ## What You'll Build
 
@@ -249,6 +249,6 @@ The total time investment is about 2 hours a week once the stack is built. The f
 
 ## Keep Reading
 
-- **[Stop Buying Cold Email Lists. Build One That Actually Books Meetings.](/blueprints/cold-email-list-pipeline/)** — The list side of the stack. Pair it with this infrastructure guide for the full outbound setup.
-- **[The One-Person Agency: Charge Agency Rates as a Solo Operator](/blueprints/one-person-agency/)** — Once your outbound machine is live, this is the delivery engine that handles the inbound meetings it generates.
-- **[Post on X and LinkedIn Every Day Without Being a 'Content Person'](/blueprints/daily-content-machine/)** — The inbound-side complement. Warm your audience with content so the cold email isn't quite so cold.
+- **[Stop Buying Cold Email Lists. Build One That Actually Books Meetings.](/blueprints/cold-email-list-pipeline/)**: The list side of the stack. Pair it with this infrastructure guide for the full outbound setup.
+- **[The One-Person Agency: Charge Agency Rates as a Solo Operator](/blueprints/one-person-agency/)**: Once your outbound machine is live, this is the delivery engine that handles the inbound meetings it generates.
+- **[Post on X and LinkedIn Every Day Without Being a 'Content Person'](/blueprints/daily-content-machine/)**: The inbound-side complement. Warm your audience with content so the cold email isn't quite so cold.

@@ -20,13 +20,13 @@ permalink: /blueprints/ai-market-research-bot/
 
 ## Tools
 
-- [**OpenClaw**](#aff-openclaw) — AI agent that runs the skill
-- [**ClawHub**](#aff-clawhub) — skill marketplace hosting Last 30 Days
-- [**Last 30 Days**](#aff-last-30-days) — the market research skill itself
-- [**OpenAI**](#aff-openai) — API key powers Reddit scanning
-- [**xAI**](#aff-xai) — API key powers X/Twitter scanning
-- [**Reddit**](#aff-reddit) — primary pain-point source
-- [**X**](#aff-x) — secondary social-conversation source
+- [**OpenClaw**](#aff-openclaw): AI agent that runs the skill
+- [**ClawHub**](#aff-clawhub): skill marketplace hosting Last 30 Days
+- [**Last 30 Days**](#aff-last-30-days): the market research skill itself
+- [**OpenAI**](#aff-openai): API key powers Reddit scanning
+- [**xAI**](#aff-xai): API key powers X/Twitter scanning
+- [**Reddit**](#aff-reddit): primary pain-point source
+- [**X**](#aff-x): secondary social-conversation source
 
 ## What You'll Build
 

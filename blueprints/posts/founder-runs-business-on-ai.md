@@ -17,10 +17,10 @@ permalink: /blueprints/founder-runs-business-on-ai/
 
 ## Tools
 
-- [**OpenClaw**](#aff-openclaw) — the always-on operations agent
-- [**Mac mini**](#aff-mac-mini) — dedicated always-on hardware host
-- [**Raspberry Pi**](#aff-raspberry-pi) — alternate always-on host
-- [**Amazon**](#aff-amazon) — ordering and procurement target
+- [**OpenClaw**](#aff-openclaw): the always-on operations agent
+- [**Mac mini**](#aff-mac-mini): dedicated always-on hardware host
+- [**Raspberry Pi**](#aff-raspberry-pi): alternate always-on host
+- [**Amazon**](#aff-amazon): ordering and procurement target
 
 ## The Story
 

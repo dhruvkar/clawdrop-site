@@ -27,14 +27,14 @@ tags:
 
 ## Tools
 
-- [**OpenClaw**](#aff-openclaw) — the agent runtime that runs Apollo's cadence
-- [**Twilio**](#aff-twilio) — SMS and voice provider for the 2-minute response and the cadence
-- [**Google Calendar**](#aff-google-calendar) — calendar surface the agent reads slots from and books into
-- [**Calendly**](#aff-calendly) — alternative booking surface; the agent generates a personalized link
-- [**Zapier**](#aff-zapier) — webhook glue for lead-source forms that lack a native one
-- [**Make**](#aff-make) — alternative webhook router for the same job
-- [**Salesforce**](#aff-salesforce) — example lead-source CRM the cadence plugs into
-- [**Anthropic**](#aff-anthropic) — model provider behind the agent's drafting and judgment
+- [**OpenClaw**](#aff-openclaw): the agent runtime that runs Apollo's cadence
+- [**Twilio**](#aff-twilio): SMS and voice provider for the 2-minute response and the cadence
+- [**Google Calendar**](#aff-google-calendar): calendar surface the agent reads slots from and books into
+- [**Calendly**](#aff-calendly): alternative booking surface; the agent generates a personalized link
+- [**Zapier**](#aff-zapier): webhook glue for lead-source forms that lack a native one
+- [**Make**](#aff-make): alternative webhook router for the same job
+- [**Salesforce**](#aff-salesforce): example lead-source CRM the cadence plugs into
+- [**Anthropic**](#aff-anthropic): model provider behind the agent's drafting and judgment
 
 ## What You'll Build
 
@@ -193,8 +193,8 @@ The qualitative change is bigger. You stop dreading the 7am scroll-through-yeste
 
 ## Keep Reading
 
-- **[AI Whispers What to Say During Your Cold Calls in Real Time](/blueprints/ai-cold-call-coach/)** — The other half of the sales-process automation story. Apollo handles the follow-up; this is the live-call coach for when you're actually on with a prospect.
-- **[The Blueprint for Running LinkedIn Outreach Through an AI Agent](/blueprints/linkedin-outreach-while-you-sleep/)** — The outbound counterpart. Same agent pattern, different starting move. Combined with this blueprint you have inbound + outbound on autopilot.
-- **[Your AI Remembers Everything So You Don't Have To](/blueprints/ai-real-time-assistant/)** — The always-on memory layer. When the agent remembers every prior conversation with a lead, the follow-up cadence stops feeling automated and starts feeling like attention.
+- **[AI Whispers What to Say During Your Cold Calls in Real Time](/blueprints/ai-cold-call-coach/)**: The other half of the sales-process automation story. Apollo handles the follow-up; this is the live-call coach for when you're actually on with a prospect.
+- **[The Blueprint for Running LinkedIn Outreach Through an AI Agent](/blueprints/linkedin-outreach-while-you-sleep/)**: The outbound counterpart. Same agent pattern, different starting move. Combined with this blueprint you have inbound + outbound on autopilot.
+- **[Your AI Remembers Everything So You Don't Have To](/blueprints/ai-real-time-assistant/)**: The always-on memory layer. When the agent remembers every prior conversation with a lead, the follow-up cadence stops feeling automated and starts feeling like attention.
 
 **Want the full deep dive?** Read our [Best OpenClaw Skills](/learn/best-openclaw-skills/) guide for the foundational skill patterns this blueprint depends on.

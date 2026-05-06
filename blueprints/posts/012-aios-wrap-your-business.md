@@ -27,18 +27,18 @@ tags:
 
 ## Tools
 
-- [**Claude Code**](#aff-claude-code) — the substrate the whole AIOS runs on
-- [**Anthropic**](#aff-anthropic) — model provider behind Claude Code
-- [**Cursor**](#aff-cursor) — Liam's recommended editor for non-technical founders
-- [**Telegram**](#aff-telegram) — phone-side control surface for the wrapper
-- [**iMessage**](#aff-imessage) — alternative phone control for Mac users
-- [**Mac mini**](#aff-mac-mini) — always-on host that runs the wrapper 24/7
-- [**Zoho**](#aff-zoho) — example financial integration (Cape Town capstone)
-- [**QuickBooks**](#aff-quickbooks) — accounting integration for finance automation
-- [**Stripe**](#aff-stripe) — payment links inside customer estimates
-- [**Google Business Profile**](#aff-google-business-profile) — review monitoring and response drafting
-- [**ElevenLabs**](#aff-elevenlabs) — optional voice layer for narration and digests
-- [**OpenClaw**](#aff-openclaw) — the alternative substrate Liam considered and didn't pick
+- [**Claude Code**](#aff-claude-code): the substrate the whole AIOS runs on
+- [**Anthropic**](#aff-anthropic): model provider behind Claude Code
+- [**Cursor**](#aff-cursor): Liam's recommended editor for non-technical founders
+- [**Telegram**](#aff-telegram): phone-side control surface for the wrapper
+- [**iMessage**](#aff-imessage): alternative phone control for Mac users
+- [**Mac mini**](#aff-mac-mini): always-on host that runs the wrapper 24/7
+- [**Zoho**](#aff-zoho): example financial integration (Cape Town capstone)
+- [**QuickBooks**](#aff-quickbooks): accounting integration for finance automation
+- [**Stripe**](#aff-stripe): payment links inside customer estimates
+- [**Google Business Profile**](#aff-google-business-profile): review monitoring and response drafting
+- [**ElevenLabs**](#aff-elevenlabs): optional voice layer for narration and digests
+- [**OpenClaw**](#aff-openclaw): the alternative substrate Liam considered and didn't pick
 
 ## What You'll Build
 
@@ -276,6 +276,6 @@ This is also the moment your relationship with the business changes. You stop be
 
 ## Keep Reading
 
-- **[One Claude Code Subscription. Five Agents. Zero New Frameworks.](/blueprints/claude-code-command-center/)** — The personal-stack version of this thesis. Same substrate, smaller scope.
-- **[This HVAC Guy Spent Friday Night Setting Up AI. Now His Estimates Write Themselves.](/blueprints/hvac-estimate-autopilot/)** — The home services capstone in full. Photo-to-estimate, missed-call autoresponder, the whole field-service stack.
-- **[Run Your Business on AI (While Living Your Life)](/blueprints/founder-runs-business-on-ai/)** — Adjacent thesis. The lifestyle case for wrapping your business in AI before someone else wraps theirs first.
+- **[One Claude Code Subscription. Five Agents. Zero New Frameworks.](/blueprints/claude-code-command-center/)**: The personal-stack version of this thesis. Same substrate, smaller scope.
+- **[This HVAC Guy Spent Friday Night Setting Up AI. Now His Estimates Write Themselves.](/blueprints/hvac-estimate-autopilot/)**: The home services capstone in full. Photo-to-estimate, missed-call autoresponder, the whole field-service stack.
+- **[Run Your Business on AI (While Living Your Life)](/blueprints/founder-runs-business-on-ai/)**: Adjacent thesis. The lifestyle case for wrapping your business in AI before someone else wraps theirs first.

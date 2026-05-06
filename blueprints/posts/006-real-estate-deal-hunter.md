@@ -19,9 +19,9 @@ tags:
 
 ## Tools
 
-- [**OpenClaw**](#aff-openclaw) — runs the scraping and analysis agents with browser relay
-- [**SQLite**](#aff-sqlite) — simple local database for the lead pipeline
-- [**PostgreSQL**](#aff-postgresql) — robust database option for storing leads
+- [**OpenClaw**](#aff-openclaw): runs the scraping and analysis agents with browser relay
+- [**SQLite**](#aff-sqlite): simple local database for the lead pipeline
+- [**PostgreSQL**](#aff-postgresql): robust database option for storing leads
 
 ## What You'll Build
 

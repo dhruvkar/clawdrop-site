@@ -26,16 +26,16 @@ tags:
 
 ## Tools
 
-- [**OpenClaw**](#aff-openclaw) — the agent runtime with the wiki-memory architecture that makes the close repeatable
-- [**Claude Code**](#aff-claude-code) — alternative agent harness for the same skill pattern
-- [**QuickBooks Online**](#aff-quickbooks) — the books the agent reads from and posts journal entries into via the public REST API
-- [**Anthropic**](#aff-anthropic) — model provider behind the agent's reasoning per close
-- [**Xero**](#aff-xero) — alternative accounting platform with an equivalent API
-- [**Salesforce**](#aff-salesforce) — example CRM in the same "find the API, agent on top" pattern
-- [**HubSpot**](#aff-hubspot) — same pattern, different vertical SaaS
-- [**GoHighLevel**](#aff-gohighlevel) — same pattern for service-business CRMs
-- [**Stripe**](#aff-stripe) — example payments API the same recipe applies to
-- [**Shopify**](#aff-shopify) — example commerce API the same recipe applies to
+- [**OpenClaw**](#aff-openclaw): the agent runtime with the wiki-memory architecture that makes the close repeatable
+- [**Claude Code**](#aff-claude-code): alternative agent harness for the same skill pattern
+- [**QuickBooks Online**](#aff-quickbooks): the books the agent reads from and posts journal entries into via the public REST API
+- [**Anthropic**](#aff-anthropic): model provider behind the agent's reasoning per close
+- [**Xero**](#aff-xero): alternative accounting platform with an equivalent API
+- [**Salesforce**](#aff-salesforce): example CRM in the same "find the API, agent on top" pattern
+- [**HubSpot**](#aff-hubspot): same pattern, different vertical SaaS
+- [**GoHighLevel**](#aff-gohighlevel): same pattern for service-business CRMs
+- [**Stripe**](#aff-stripe): example payments API the same recipe applies to
+- [**Shopify**](#aff-shopify): example commerce API the same recipe applies to
 
 ## What You'll Build
 
@@ -157,8 +157,8 @@ Any service business where someone in your office spends 4 to 20 hours a week do
 
 ## Keep Reading
 
-- **[The 5-Day Automation Sprint: $22K Found in Tax Deductions](/blueprints/five-day-automation-sprint/)** — The other side of the same coin. Where the QBO close blueprint catches errors in the books, this one finds the deductions hiding inside them.
-- **[Run Your Business on AI (While Living Your Life)](/blueprints/founder-runs-business-on-ai/)** — The bigger picture for any small-practice owner. What it looks like when AI handles the operational core and you handle the client work.
-- **[Replace Your CRM With a Conversation](/blueprints/nex-crm/)** — Same pattern, different SaaS. Take the tool you already pay for, find its API, put an AI agent on top, run the practice from one place.
+- **[The 5-Day Automation Sprint: $22K Found in Tax Deductions](/blueprints/five-day-automation-sprint/)**: The other side of the same coin. Where the QBO close blueprint catches errors in the books, this one finds the deductions hiding inside them.
+- **[Run Your Business on AI (While Living Your Life)](/blueprints/founder-runs-business-on-ai/)**: The bigger picture for any small-practice owner. What it looks like when AI handles the operational core and you handle the client work.
+- **[Replace Your CRM With a Conversation](/blueprints/nex-crm/)**: Same pattern, different SaaS. Take the tool you already pay for, find its API, put an AI agent on top, run the practice from one place.
 
 **Want the full deep dive?** Read our [Best OpenClaw Skills](/learn/best-openclaw-skills/) guide for the foundational skill patterns this blueprint depends on.

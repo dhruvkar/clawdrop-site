@@ -22,17 +22,17 @@ tags:
 
 ## Tools
 
-- [**Clay**](#aff-clay) — enrichment flows that pull and merge contacts from multiple sources
-- [**Apollo**](#aff-apollo) — directory-based contact search and email enrichment
-- [**Trigify**](#aff-trigify) — intent-based sourcing tied to specific signals
-- [**RB2B**](#aff-rb2b) — intent layer that identifies anonymous website visitors
-- [**MillionVerifier**](#aff-millionverifier) — primary email verification provider
-- [**Bouncer**](#aff-bouncer) — fallback verifier for risky and catch-all addresses
-- [**Manyreach**](#aff-manyreach) — sequencer the final CSV is loaded into
-- [**InboxKit**](#aff-inboxkit) — manages mailbox infrastructure for higher-volume sends
-- [**Sales Navigator**](#aff-linkedin) — LinkedIn precision search for tight account lists
-- [**Hunter**](#aff-hunter) — enrichment API fallback for email discovery
-- [**Anthropic**](#aff-anthropic) — Claude Haiku for the AI qualification scoring pass
+- [**Clay**](#aff-clay): enrichment flows that pull and merge contacts from multiple sources
+- [**Apollo**](#aff-apollo): directory-based contact search and email enrichment
+- [**Trigify**](#aff-trigify): intent-based sourcing tied to specific signals
+- [**RB2B**](#aff-rb2b): intent layer that identifies anonymous website visitors
+- [**MillionVerifier**](#aff-millionverifier): primary email verification provider
+- [**Bouncer**](#aff-bouncer): fallback verifier for risky and catch-all addresses
+- [**Manyreach**](#aff-manyreach): sequencer the final CSV is loaded into
+- [**InboxKit**](#aff-inboxkit): manages mailbox infrastructure for higher-volume sends
+- [**Sales Navigator**](#aff-linkedin): LinkedIn precision search for tight account lists
+- [**Hunter**](#aff-hunter): enrichment API fallback for email discovery
+- [**Anthropic**](#aff-anthropic): Claude Haiku for the AI qualification scoring pass
 
 ## What You'll Build
 
@@ -287,6 +287,6 @@ The time investment after the first list drops a lot. Weeks 2 and beyond look mo
 
 ## Keep Reading
 
-- **[AI Whispers What to Say During Your Cold Calls in Real Time](/blueprints/ai-cold-call-coach/)** — Once the list gets you a booked call, this is how you run the call itself with an AI coach in your ear.
-- **[Research Your Competitors' Ads and Launch Your Own Campaign on Meta](/blueprints/meta-ads-pipeline/)** — The paid-side parallel. Same ICP discipline, different distribution channel.
-- **[The One-Person Agency: Charge Agency Rates as a Solo Operator](/blueprints/one-person-agency/)** — If cold outbound is how you fill the pipeline, this is how you deliver on what you sell.
+- **[AI Whispers What to Say During Your Cold Calls in Real Time](/blueprints/ai-cold-call-coach/)**: Once the list gets you a booked call, this is how you run the call itself with an AI coach in your ear.
+- **[Research Your Competitors' Ads and Launch Your Own Campaign on Meta](/blueprints/meta-ads-pipeline/)**: The paid-side parallel. Same ICP discipline, different distribution channel.
+- **[The One-Person Agency: Charge Agency Rates as a Solo Operator](/blueprints/one-person-agency/)**: If cold outbound is how you fill the pipeline, this is how you deliver on what you sell.

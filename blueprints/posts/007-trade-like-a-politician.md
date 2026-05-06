@@ -24,10 +24,10 @@ tags:
 
 ## Tools
 
-- [**Claude**](#aff-claude) — the AI brain analyzing disclosures and deciding trades
-- [**Claude Code**](#aff-claude-code) — runtime for scheduled execution of the bot
-- [**Alpaca**](#aff-alpaca) — commission-free brokerage with API and paper trading
-- [**Capitol Trades**](#aff-capitol-trades) — public data source for congressional stock disclosures
+- [**Claude**](#aff-claude): the AI brain analyzing disclosures and deciding trades
+- [**Claude Code**](#aff-claude-code): runtime for scheduled execution of the bot
+- [**Alpaca**](#aff-alpaca): commission-free brokerage with API and paper trading
+- [**Capitol Trades**](#aff-capitol-trades): public data source for congressional stock disclosures
 
 ## What You'll Build
 
@@ -168,5 +168,5 @@ This is genuinely complex stuff that most retail investors don't attempt because
 
 ## Keep Reading
 
-- **[Build a Polymarket Trading Bot](/blueprints/polymarket-trading-bot/)** — Apply the same AI trading principles to prediction markets instead of stocks.
-- **[The One-Person Agency](/blueprints/one-person-agency/)** — Put your trading profits to work building a service business that runs on AI.
+- **[Build a Polymarket Trading Bot](/blueprints/polymarket-trading-bot/)**: Apply the same AI trading principles to prediction markets instead of stocks.
+- **[The One-Person Agency](/blueprints/one-person-agency/)**: Put your trading profits to work building a service business that runs on AI.

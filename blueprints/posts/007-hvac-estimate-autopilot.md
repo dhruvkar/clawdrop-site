@@ -23,15 +23,15 @@ tags:
 
 ## Tools
 
-- [**OpenClaw**](#aff-openclaw) — agent runtime for estimate assembly and email handling
-- [**Telegram**](#aff-telegram) — send job details from the truck, approve drafts on the go
-- [**Hostinger**](#aff-hostinger) — VPS host for running the agent
-- [**DigitalOcean**](#aff-digitalocean) — alternative VPS provider
-- [**Gmail**](#aff-gmail) — inbox the agent monitors and drafts replies into
-- [**ServiceFusion**](#aff-servicefusion) — estimating software the agent connects to
-- [**Jobber**](#aff-jobber) — alternative estimating platform
-- [**Housecall Pro**](#aff-housecall-pro) — alternative estimating platform
-- [**ServiceTitan**](#aff-servicetitan) — alternative estimating platform
+- [**OpenClaw**](#aff-openclaw): agent runtime for estimate assembly and email handling
+- [**Telegram**](#aff-telegram): send job details from the truck, approve drafts on the go
+- [**Hostinger**](#aff-hostinger): VPS host for running the agent
+- [**DigitalOcean**](#aff-digitalocean): alternative VPS provider
+- [**Gmail**](#aff-gmail): inbox the agent monitors and drafts replies into
+- [**ServiceFusion**](#aff-servicefusion): estimating software the agent connects to
+- [**Jobber**](#aff-jobber): alternative estimating platform
+- [**Housecall Pro**](#aff-housecall-pro): alternative estimating platform
+- [**ServiceTitan**](#aff-servicetitan): alternative estimating platform
 
 ## What You'll Build
 
@@ -165,5 +165,5 @@ The common thread: if you're building similar documents over and over with minor
 
 ## Keep Reading
 
-- **[The One-Person Agency](/blueprints/one-person-agency/)** — The same AI-handles-production, you-handle-clients pattern applied to digital services.
-- **[Give Your AI a Second Brain](/blueprints/ai-second-brain-karpathy/)** — Feed your AI every manual, spec sheet, and installation guide you've ever used. It gets smarter about your trade over time.
+- **[The One-Person Agency](/blueprints/one-person-agency/)**: The same AI-handles-production, you-handle-clients pattern applied to digital services.
+- **[Give Your AI a Second Brain](/blueprints/ai-second-brain-karpathy/)**: Feed your AI every manual, spec sheet, and installation guide you've ever used. It gets smarter about your trade over time.

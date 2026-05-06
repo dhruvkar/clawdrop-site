@@ -17,9 +17,9 @@ permalink: /blueprints/autonomous-token-launch/
 
 ## Tools
 
-- [**OpenClaw**](#aff-openclaw) — autonomous agent that drove the entire launch
-- [**Uniswap**](#aff-uniswap) — DEX where liquidity was provisioned
-- [**Gumroad**](#aff-gumroad) — example platform for safer autonomous launches
+- [**OpenClaw**](#aff-openclaw): autonomous agent that drove the entire launch
+- [**Uniswap**](#aff-uniswap): DEX where liquidity was provisioned
+- [**Gumroad**](#aff-gumroad): example platform for safer autonomous launches
 
 ## What Happened
 

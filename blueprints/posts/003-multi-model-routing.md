@@ -19,9 +19,9 @@ tags:
 
 ## Tools
 
-- [**OpenClaw**](#aff-openclaw) — config-level model routing
-- [**Anthropic**](#aff-anthropic) — Opus, Sonnet, and Haiku tiers
-- [**Ollama**](#aff-ollama) — free local model runner for cheap tasks
+- [**OpenClaw**](#aff-openclaw): config-level model routing
+- [**Anthropic**](#aff-anthropic): Opus, Sonnet, and Haiku tiers
+- [**Ollama**](#aff-ollama): free local model runner for cheap tasks
 
 ## What You'll Build
 

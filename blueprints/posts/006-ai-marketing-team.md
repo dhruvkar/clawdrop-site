@@ -20,10 +20,10 @@ tags:
 
 ## Tools
 
-- [**OpenClaw**](#aff-openclaw) — runs the seven coordinated agents
-- [**Anthropic**](#aff-anthropic) — Claude API powers writing and research
-- [**Reddit**](#aff-reddit) — pain-signal research source
-- [**X**](#aff-x) — distribution and trend scouting channel
+- [**OpenClaw**](#aff-openclaw): runs the seven coordinated agents
+- [**Anthropic**](#aff-anthropic): Claude API powers writing and research
+- [**Reddit**](#aff-reddit): pain-signal research source
+- [**X**](#aff-x): distribution and trend scouting channel
 
 ## What You'll Build
 

@@ -20,13 +20,13 @@ tags:
 
 ## Tools
 
-- [**OpenClaw**](#aff-openclaw) — orchestrates the recipe-to-cart pipeline
-- [**Anthropic**](#aff-anthropic) — Claude reads recipes and handwriting
-- [**OpenAI**](#aff-openai) — GPT-4 alternative for image-to-text
-- [**Google Gemini**](#aff-gemini) — alternative vision model
-- [**Playwright**](#aff-playwright) — browser automation for grocery store sites
-- [**Instacart**](#aff-instacart) — supported delivery platform
-- [**Amazon Fresh**](#aff-amazon-fresh) — supported grocery store
+- [**OpenClaw**](#aff-openclaw): orchestrates the recipe-to-cart pipeline
+- [**Anthropic**](#aff-anthropic): Claude reads recipes and handwriting
+- [**OpenAI**](#aff-openai): GPT-4 alternative for image-to-text
+- [**Google Gemini**](#aff-gemini): alternative vision model
+- [**Playwright**](#aff-playwright): browser automation for grocery store sites
+- [**Instacart**](#aff-instacart): supported delivery platform
+- [**Amazon Fresh**](#aff-amazon-fresh): supported grocery store
 
 ## What You'll Build
 
