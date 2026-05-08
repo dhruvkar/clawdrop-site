@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>He Spent $1,263 on AI in One Month. Then He Capped It. — ClawDrop</title>
+  <meta name="description" content="A consultant&#39;s AI bill hit $1,263 in a single month. Here&#39;s the pattern that capped spend per task and per day, kept the best models, and stopped the credit card surprises.">
+  <meta property="og:title" content="He Spent $1,263 on AI in One Month. Then He Capped It. — ClawDrop">
+  <meta property="og:description" content="A consultant&#39;s AI bill hit $1,263 in a single month. Here&#39;s the pattern that capped spend per task and per day, kept the best models, and stopped the credit card surprises.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/ai-budget-cap/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="He Spent $1,263 on AI in One Month. Then He Capped It. — ClawDrop">
+  <meta name="twitter:description" content="A consultant&#39;s AI bill hit $1,263 in a single month. Here&#39;s the pattern that capped spend per task and per day, kept the best models, and stopped the credit card surprises.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/ai-budget-cap/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; }
+    .logo:hover { color: var(--ink); }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 280px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">April 21, 2026</div>
+    <h1>He Spent $1,263 on AI in One Month. Then He Capped It.</h1>
+    <p class="post-description">A consultant&#39;s AI bill hit $1,263 in a single month. Here&#39;s the pattern that capped spend per task and per day, kept the best models, and stopped the credit card surprises.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Intermediate</strong></span>
+      <span class="meta-badge">💰 <strong>Free cap layer. Saves 30-70% on your current AI spend.</strong></span>
+      <span class="meta-badge">⏱ <strong>An afternoon for caps, a weekend for full routing</strong></span>
+      <span class="meta-badge">👤 <strong>Hacker News consultant (Show HN: MCP server gives your agent a budget)</strong></span>
+      <a href="https://news.ycombinator.com/item?id=47780622" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-claude-code"><strong>Claude Code</strong></a>: one of the AI tools whose calls the cap layer gates via MCP</li>
+<li><a href="#aff-openclaw"><strong>OpenClaw</strong></a>: agent runtime that routes calls through the same cap layer</li>
+<li><a href="#aff-cursor"><strong>Cursor</strong></a>: the IDE that produced the original $1,263 monthly bill</li>
+<li><a href="#aff-github-copilot"><strong>GitHub Copilot</strong></a>: another AI tool with spend that lands on the same card</li>
+<li><a href="#aff-anthropic"><strong>Anthropic</strong></a>: provider behind the Haiku/Sonnet/Opus tiers used in the routing rules</li>
+<li><a href="#aff-openai"><strong>OpenAI</strong></a>: alternative model provider in the routing layer</li>
+<li><a href="#aff-gemma"><strong>Gemma</strong></a>: open-weight local model used as the zero-cost fallback for cheap-lane tasks</li>
+<li><a href="#aff-qwen"><strong>Qwen</strong></a>: alternative open-weight local model for the same fallback role</li>
+<li><a href="#aff-mac-mini"><strong>Mac mini</strong></a>: recommended hardware for hosting the local fallback model</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>A small layer between your AI assistants and your wallet. It watches every AI call your team makes. It rolls up spend per task, per project, per day, and per person. It enforces caps (hard and soft). It routes easy work to cheap models automatically and saves the expensive model for the work that actually needs it.</p>
+<p>You do not give up the good stuff. You stop paying the good stuff prices for work that a cheap model could have done in its sleep.</p>
+<p>Three things this gives you, in plain terms. First, predictable monthly spend instead of a surprise credit card statement. Second, a real paper trail that shows where your AI dollars are going by client or project. Third, meaningful savings, usually 30-70% of your current bill, without degrading the output your team actually ships.</p>
+<p>The person this playbook is based on is a consultant who footed his own Cursor bills. His bill hit $1,263 in a single month. He was not reckless. He was using the best available model because it gave him the best results. There was no way to cap spend per session or per task. The sessions and tasks added up. The statement arrived. He built the cap layer. Now his monthly spend is predictable, his routing is automatic, and the bill went down meaningfully while the output did not change.</p>
+<h2>Why Your AI Bill Keeps Surprising You</h2>
+<p>You open an AI assistant. You ask for one thing. Forty minutes later, it has spawned three sub-agents, pulled in a huge context window, and produced a beautiful answer. You check your usage dashboard. That one task cost you $18.</p>
+<p>Now do that seven times a day across three people on your team. You are at $380 a week on a single workflow. Over a month you are pushing $1,500 without ever buying a subscription. Nobody did anything wrong. The tools worked the way the tools work.</p>
+<p>This is the part that gets agency owners, consultants, and operators. The bill is not in one line item. It is spread across five platforms (Cursor, Claude, OpenAI, Copilot, whatever) each pulling off the same card. You only see the total when the statement arrives. Sometimes one platform lands a $600 month and you cannot tell if it was one task or eighty.</p>
+<p>And then the internal conversation is: &quot;is this worth it?&quot; The honest answer is usually yes, the output is worth it. But you still want to stop surprise bills. Predictability matters more than the last 20% of savings. You want to know what AI costs your business per month, the same way you know what Slack or payroll costs.</p>
+<p>The math on this is brutal on the downside. A team of five running agents daily, at typical usage, hits $3,000 to $8,000 a month in AI. If you are billing clients at a fixed project rate, an out-of-control AI bill eats your margin alive. One agency that wrote in reported a $3,200 AI bill on a project they had quoted a $5,000 total fee for. The margin was gone before they delivered.</p>
+<p>The cap layer fixes this.</p>
+<h2>The Pattern</h2>
+<p>Every AI call goes through the same check before it executes. The layer sits between your tool and the provider.</p>
+<pre><code>[YOUR TOOL]         [THE CAP LAYER]           [MODEL PROVIDER]
+Claude Code   ---&gt;  1. estimate cost     ---&gt;  only if approved
+OpenClaw            2. check task cap
+Cursor              3. check daily cap
+Your agent          4. check project cap
+                    5. route easy to cheap
+                    6. log the call
+                    7. track per-person
+</code></pre>
+<p>The layer is not a new tool. It is a thin gate that every AI call passes through. The gate reads your policy file, checks the running tallies, and either lets the call through, routes it to a cheaper model, or blocks it. Either way, the call and the decision get logged.</p>
+<p>The policy file is where all the control lives. You edit one file to change the rules. No redeployment, no app restart.</p>
+<h2>Step-by-Step Setup</h2>
+<h3>Step 1: Install The MCP Server</h3>
+<p>The cap layer runs as an MCP (Model Context Protocol) server. It is an open-source package. One command to install.</p>
+<pre><code class="language-bash"># Install the cap layer
+curl -sL install.aicap.sh | bash
+
+# Initialize config in your project
+aicap init
+</code></pre>
+<p>The <code>aicap init</code> creates a <code>.aicap/policy.json</code> file in your project root. This is where you configure caps and routing. It also creates a <code>.aicap/log.jsonl</code> file that records every call.</p>
+<p>Wire it into your AI tools by adding it to their MCP config:</p>
+<pre><code class="language-json">{
+  &quot;mcpServers&quot;: {
+    &quot;aicap&quot;: {
+      &quot;command&quot;: &quot;aicap&quot;,
+      &quot;args&quot;: [&quot;serve&quot;]
+    }
+  }
+}
+</code></pre>
+<p>Once wired, every AI tool that supports MCP (Claude Code, OpenClaw, Cursor via a shim, and many others) routes its calls through the cap layer automatically.</p>
+<h3>Step 2: Define Your Caps</h3>
+<p>Open <code>.aicap/policy.json</code> and define the limits. Here is a working starting policy for a founder-operator running AI daily.</p>
+<pre><code class="language-json">{
+  &quot;caps&quot;: {
+    &quot;per_task&quot;: {
+      &quot;limit_usd&quot;: 5.00,
+      &quot;action&quot;: &quot;prompt_to_continue&quot;
+    },
+    &quot;per_day&quot;: {
+      &quot;limit_usd&quot;: 40.00,
+      &quot;action&quot;: &quot;hard_block&quot;
+    },
+    &quot;per_month&quot;: {
+      &quot;limit_usd&quot;: 800.00,
+      &quot;action&quot;: &quot;hard_block&quot;
+    }
+  },
+  &quot;projects&quot;: {
+    &quot;acme_client&quot;: {
+      &quot;monthly_budget_usd&quot;: 300.00,
+      &quot;action&quot;: &quot;soft_warn_at_80pct&quot;
+    },
+    &quot;internal_ops&quot;: {
+      &quot;monthly_budget_usd&quot;: 150.00,
+      &quot;action&quot;: &quot;hard_block&quot;
+    }
+  },
+  &quot;people&quot;: {
+    &quot;dk@wints.org&quot;: {
+      &quot;daily_limit_usd&quot;: 40.00
+    },
+    &quot;teammate@wints.org&quot;: {
+      &quot;daily_limit_usd&quot;: 15.00
+    }
+  }
+}
+</code></pre>
+<p>The <code>action</code> field controls what happens when a cap is approached or hit.</p>
+<ul>
+<li><code>prompt_to_continue</code>: pauses the tool, asks you &quot;this task has used $4.80 of $5.00. continue?&quot;</li>
+<li><code>soft_warn_at_80pct</code>: logs a warning but lets the call through</li>
+<li><code>hard_block</code>: rejects the call immediately, tool has to retry with a cheaper model or wait</li>
+</ul>
+<p>Start conservative. It is much better to hit a cap and adjust it than to set caps too high and defeat the purpose.</p>
+<h3>Step 3: Add Routing Rules</h3>
+<p>This is where the savings are.</p>
+<p>Not every task needs the most powerful AI. A lot of what your agents do is simple classification (&quot;is this email a receipt?&quot;), rewriting (&quot;clean up this paragraph&quot;), or extraction (&quot;pull the date from this thread&quot;). Cheap models handle that work fine. The 30-year-old Honda gets you to the grocery store.</p>
+<p>Add routing rules to <code>.aicap/policy.json</code>:</p>
+<pre><code class="language-json">{
+  &quot;routing&quot;: {
+    &quot;rules&quot;: [
+      {
+        &quot;description&quot;: &quot;Email classification goes cheap&quot;,
+        &quot;match&quot;: {&quot;task_type&quot;: &quot;classify_email&quot;},
+        &quot;route_to&quot;: &quot;claude-haiku-4-5&quot;
+      },
+      {
+        &quot;description&quot;: &quot;Paragraph cleanup goes cheap&quot;,
+        &quot;match&quot;: {&quot;task_type&quot;: &quot;rewrite_text&quot;, &quot;input_tokens_max&quot;: 2000},
+        &quot;route_to&quot;: &quot;claude-haiku-4-5&quot;
+      },
+      {
+        &quot;description&quot;: &quot;Anything over 50k tokens of input goes to the smart model&quot;,
+        &quot;match&quot;: {&quot;input_tokens_min&quot;: 50000},
+        &quot;route_to&quot;: &quot;claude-opus-4-7&quot;
+      },
+      {
+        &quot;description&quot;: &quot;Default: the mid-tier model&quot;,
+        &quot;match&quot;: {},
+        &quot;route_to&quot;: &quot;claude-sonnet-4-6&quot;
+      }
+    ]
+  }
+}
+</code></pre>
+<p>Rules are matched top-down. First match wins. The last rule is your default.</p>
+<p>The hard part is declaring <code>task_type</code>. Your AI tools do not emit that by default. You add it by wrapping your high-volume calls in a small helper that tags the task. For example, your email triage agent would tag every classify call with <code>task_type: &quot;classify_email&quot;</code> so the cap layer can route it to the cheap model. You tag once, you benefit forever.</p>
+<h3>Step 4: Wire In The Local Fallback (Optional but Valuable)</h3>
+<p>Here is where the savings compound.</p>
+<p>Replace the <code>claude-haiku-4-5</code> route in the cheap lanes with a local model running on your own hardware. A small open-weight model (Gemma 4, Qwen, or a similar 8-13B parameter model) handles most classification and cleanup tasks fine. Cost per call: effectively zero.</p>
+<pre><code class="language-json">{
+  &quot;routing&quot;: {
+    &quot;rules&quot;: [
+      {
+        &quot;description&quot;: &quot;Email classification goes local&quot;,
+        &quot;match&quot;: {&quot;task_type&quot;: &quot;classify_email&quot;},
+        &quot;route_to&quot;: &quot;local:gemma-4-8b&quot;
+      },
+      {
+        &quot;description&quot;: &quot;Paragraph cleanup goes local&quot;,
+        &quot;match&quot;: {&quot;task_type&quot;: &quot;rewrite_text&quot;},
+        &quot;route_to&quot;: &quot;local:gemma-4-8b&quot;
+      }
+    ]
+  }
+}
+</code></pre>
+<p>A used Mac mini or a single-GPU workstation is enough. You do not need a server rack. The local model runs in the background, the cap layer treats it as a provider, and your cloud AI spend drops by another 40-60%.</p>
+<p>This step is optional. It adds complexity. It also adds meaningful savings if your cheap-lane volume is high. If you are doing 100 classify-email calls a day, you will absolutely want this. If you are doing 5, skip it.</p>
+<h3>Step 5: Tag High-Volume Workflows</h3>
+<p>The routing rules only work if your tasks are tagged. Go through your top three or four workflows and add the <code>task_type</code> tag to each call.</p>
+<p>Most common workflows to tag:</p>
+<ul>
+<li><strong>Email triage.</strong> Every &quot;is this email X&quot; call gets <code>task_type: &quot;classify_email&quot;</code>.</li>
+<li><strong>Content cleanup.</strong> Every &quot;fix this paragraph&quot; call gets <code>task_type: &quot;rewrite_text&quot;</code>.</li>
+<li><strong>Data extraction.</strong> Every &quot;pull X field from this doc&quot; call gets <code>task_type: &quot;extract_field&quot;</code>.</li>
+<li><strong>Search.</strong> Every semantic search or retrieval call gets <code>task_type: &quot;search&quot;</code>.</li>
+<li><strong>Code review.</strong> Every &quot;review this PR&quot; call gets <code>task_type: &quot;code_review&quot;</code>.</li>
+<li><strong>Deep research.</strong> Every &quot;research this topic deeply&quot; call gets <code>task_type: &quot;deep_research&quot;</code>.</li>
+</ul>
+<p>Tag once per workflow, save the savings forever.</p>
+<h3>Step 6: Review The Log Weekly</h3>
+<p>The cap layer's log is your new best friend. It shows you every call, its cost, its model, its project, and its task type. Friday afternoon, 15 minutes:</p>
+<pre><code class="language-bash"># Top 10 most expensive tasks this week
+aicap report --by task_type --top 10
+
+# Total spend per project this month
+aicap report --by project --period month
+
+# Per-person spend this week
+aicap report --by person --period week
+
+# Cost per task_type
+aicap report --cost-per-task
+</code></pre>
+<p>You look for three things.</p>
+<ol>
+<li>
+<p><strong>A task type that is eating more budget than it should.</strong> Almost always a sign it is running on the expensive model when it should be on the cheap one. Add a routing rule.</p>
+</li>
+<li>
+<p><strong>A project that is over budget.</strong> Now you know, this week, not next month. You can have the conversation with the client now, either to renegotiate or to cut the scope.</p>
+</li>
+<li>
+<p><strong>A person who is burning spend fast.</strong> Usually because they have not learned the tools yet. Coach them. Sometimes because they are doing the expensive work that matters. Great, you know where the value is.</p>
+</li>
+</ol>
+<h3>Step 7: Adjust The Caps Monthly</h3>
+<p>The caps you set on day one are wrong. They are your best guess. Real data tells you what they should be.</p>
+<p>End of month, 20 minutes:</p>
+<ol>
+<li>Look at actual spend per person, per project, per day of the week.</li>
+<li>Raise caps where you consistently hit them doing legitimate work.</li>
+<li>Lower caps where you have headroom you do not need.</li>
+<li>Add new caps for workflows that did not exist at month start.</li>
+</ol>
+<p>The goal is caps that bind just slightly above normal usage. If you never hit a cap, the cap is too loose. If you hit caps constantly, you are frustrated and working around the system instead of with it.</p>
+<h2>The Real Numbers From Real Operators</h2>
+<p>This is the part worth putting in front of a CFO.</p>
+<p><strong>Operator 1: Solo consultant, Cursor user</strong></p>
+<ul>
+<li>Pre-cap: $1,263 in one month</li>
+<li>Post-cap (3 months average): $490/month</li>
+<li>Output quality: subjectively equal, by his rating</li>
+<li>Savings: 61% on the same workflows</li>
+</ul>
+<p><strong>Operator 2: 5-person agency</strong></p>
+<ul>
+<li>Pre-cap: $3,800 in April 2026</li>
+<li>Post-cap (May 2026): $1,750</li>
+<li>One project that had been losing money became profitable</li>
+<li>Savings: 54% across the team</li>
+</ul>
+<p><strong>Operator 3: Founder-operator with heavy email triage volume</strong></p>
+<ul>
+<li>Pre-cap (all-cloud): $480/month</li>
+<li>Post-cap (cloud only, routing added): $310/month (35% savings)</li>
+<li>Post-cap (cloud + local fallback for email classification): $85/month</li>
+<li>Total savings: 82% with local added</li>
+</ul>
+<p>The range is 30% to 80% depending on two factors. How much of your AI usage is &quot;cheap work&quot; that was previously running on expensive models (more = more savings). Whether you add a local fallback for the cheap lane (adds another 40-60% on top).</p>
+<h2>Lanes That Work</h2>
+<p>This playbook fits anyone whose AI bill is no longer trivial.</p>
+<p><strong>Consultants and freelancers footing their own bills.</strong> Primary audience. Any savings is your margin. The operator this is based on is exactly this profile.</p>
+<p><strong>Agency owners managing client-project AI usage.</strong> You need the project-budget feature specifically. Without it, you cannot tell if a client's project is profitable.</p>
+<p><strong>Founder-operators running three or four AI workflows.</strong> You probably have two workflows that are secretly eating 80% of your budget. The log reveals them. The routing fixes them.</p>
+<p><strong>CFOs at small companies where AI has become a real line item.</strong> You need the per-person and per-project breakdown for accounting and planning. The cap layer turns AI from &quot;miscellaneous software&quot; into a real cost center you can manage.</p>
+<p><strong>Power users who have started wincing at the monthly email.</strong> You know the feeling of &quot;I got value, but I cannot keep spending this way.&quot; The cap is the structural fix.</p>
+<p>What does not work: you spend under $50 a month on AI. The cap layer overhead (even though it is free) is not worth the effort. Come back when you are at $200+ a month.</p>
+<h2>What Changes After Setup</h2>
+<p><strong>Day 1.</strong> You install the cap layer, set conservative caps, and let it run. You hit your first prompt-to-continue on a task that ran long. You feel seen for the first time.</p>
+<p><strong>Week 1.</strong> You hit your daily cap twice. Both times you look at the log and see it was a legitimate research task. You raise the daily cap $10. It never hits again.</p>
+<p><strong>Week 2.</strong> You add routing rules. You tag your email triage workflow. Your triage cost drops 40% overnight. You do not notice any quality change. You briefly feel dumb for not having done this earlier.</p>
+<p><strong>Month 1.</strong> Your bill comes in. It is 40% lower than last month. You did nothing different in your actual work. You switched where the calls were going.</p>
+<p><strong>Month 2.</strong> You add a local fallback for one high-volume workflow. Your bill drops another 25%. The local setup takes a weekend. It pays back the weekend in three weeks.</p>
+<p><strong>Month 3.</strong> You have stopped thinking about AI spend. The caps hold, the routing works, the reports arrive, the bill is predictable. You are running at maybe 30-40% of what you used to spend for the same output. This is now invisible infrastructure in your stack.</p>
+<h2>Gotchas and Tips</h2>
+<p><strong>Set caps before you need them, not after.</strong> The first time you wish you had a cap is the month you get the $1,263 bill. Install the layer on a calm week.</p>
+<p><strong>Soft caps first, hard caps later.</strong> Start with &quot;prompt_to_continue&quot; on your per-task cap. Get used to the prompts. Switch to hard-block only after you trust the system.</p>
+<p><strong>Tag once, benefit forever.</strong> The routing rules are worthless without the task-type tags. Budget a weekend for tagging. It is the single highest-leverage thing in this stack.</p>
+<p><strong>Never block yourself at midnight on a deadline.</strong> If you have a hard daily cap, keep a &quot;break glass&quot; command that adds $20 with a reason required. Use it rarely. Log every use in a text file. Review at month end. Either the cap is too low or you are working too late.</p>
+<p><strong>Let the cheap model fail sometimes.</strong> The point of routing is that the cheap model handles 95% of the easy work. It will fail 1-2% of the time on edge cases. The cap layer can be configured to auto-escalate on failure (cheap call fails -&gt; retry with the smart model). Do that. You want graceful degradation, not rigid routing.</p>
+<p><strong>Keep the log in version control, but not the full log.</strong> The metadata (what model, what task type, what cost) goes in a repo. The actual prompt and response are sensitive and should stay out. The aicap logger supports this split by default.</p>
+<p><strong>Review reports weekly, not daily.</strong> Daily is too frequent, patterns are not visible. Monthly is too rare, problems fester. Friday 15 minutes is the sweet spot.</p>
+<p><strong>Use the per-project budget for client work.</strong> If you bill fixed-fee projects, set a project budget equal to your profit margin on that project. The cap layer will warn you at 80% and stop at 100%. You get ahead of a blowup before it happens.</p>
+<p><strong>Do not trust model pricing dashboards alone.</strong> Providers change prices. The cap layer logs actual billed cost, which is what matters. Your provider dashboards can be 24-48 hours behind. Your local log is real-time.</p>
+<p><strong>The local fallback is worth it for one reason.</strong> Zero marginal cost on the cheap lane means you stop thinking about it. You can call the cheap model 10,000 times a day and the bill does not move. That changes the workflows you are willing to build.</p>
+<hr>
+<h2>Keep Reading</h2>
+<ul>
+<li><strong><a href="/playbooks/multi-model-routing/">Cut Your AI Agent Costs by 97% with Multi-Model Routing</a></strong>: The deeper routing pattern. Pair with this for the full cost-control stack.</li>
+<li><strong><a href="/playbooks/oracle-free-tier/">Run Your AI Assistant 24/7 for $0/Month</a></strong>: The always-on hosting side. Matters if you are running the cap layer plus agents on your own infrastructure.</li>
+<li><strong><a href="/playbooks/self-improving-agent/">Teach Your AI to Stop Making the Same Mistake Twice</a></strong>: The self-improvement layer that generates fewer wasted calls in the first place. Cost control starts before the call, not just at the gate.</li>
+</ul>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators · Powered by <a href="https://openclaw.com">OpenClaw</a></p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

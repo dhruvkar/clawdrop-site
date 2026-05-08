@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Record Your Screen Once. Your AI Cuts the Shorts, Writes the Captions, and Posts Everywhere. — ClawDrop</title>
+  <meta name="description" content="htekdev built a three-piece content stack (VidPipe, VidRecord, VidSpec) that records his screen, edits the long-form video, cuts shorts, generates captions and thumbnails, and auto-posts to every social platform. The whole thing runs on a Terraform-provisioned OpenClaw sandbox. His content ideas live as GitHub Issues. The agent closes them when it ships the video.">
+  <meta property="og:title" content="Record Your Screen Once. Your AI Cuts the Shorts, Writes the Captions, and Posts Everywhere. — ClawDrop">
+  <meta property="og:description" content="htekdev built a three-piece content stack (VidPipe, VidRecord, VidSpec) that records his screen, edits the long-form video, cuts shorts, generates captions and thumbnails, and auto-posts to every social platform. The whole thing runs on a Terraform-provisioned OpenClaw sandbox. His content ideas live as GitHub Issues. The agent closes them when it ships the video.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/vidpipe-content-pipeline/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Record Your Screen Once. Your AI Cuts the Shorts, Writes the Captions, and Posts Everywhere. — ClawDrop">
+  <meta name="twitter:description" content="htekdev built a three-piece content stack (VidPipe, VidRecord, VidSpec) that records his screen, edits the long-form video, cuts shorts, generates captions and thumbnails, and auto-posts to every social platform. The whole thing runs on a Terraform-provisioned OpenClaw sandbox. His content ideas live as GitHub Issues. The agent closes them when it ships the video.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/vidpipe-content-pipeline/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; }
+    .logo:hover { color: var(--ink); }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 280px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">May 4, 2026</div>
+    <h1>Record Your Screen Once. Your AI Cuts the Shorts, Writes the Captions, and Posts Everywhere.</h1>
+    <p class="post-description">htekdev built a three-piece content stack (VidPipe, VidRecord, VidSpec) that records his screen, edits the long-form video, cuts shorts, generates captions and thumbnails, and auto-posts to every social platform. The whole thing runs on a Terraform-provisioned OpenClaw sandbox. His content ideas live as GitHub Issues. The agent closes them when it ships the video.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Needs a developer, but just once</strong></span>
+      <span class="meta-badge">💰 <strong>$24/mo VPS + Late/Zeronia API ($30-50/mo) + ElevenLabs optional</strong></span>
+      <span class="meta-badge">⏱ <strong>A weekend for v1, two weekends for the full pipeline</strong></span>
+      <a href="https://www.youtube.com/watch?v=Bm8gq99SvJE" target="_blank" class="meta-badge">👤 <strong>htekdev ↗</strong></a>
+      <a href="https://www.youtube.com/watch?v=Bm8gq99SvJE" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-openclaw"><strong>OpenClaw</strong></a>: sandboxed agent runtime that runs the editing and posting pipeline</li>
+<li><a href="#aff-terraform"><strong>Terraform</strong></a>: provisions the VPS and recreates prod/dev from main on every merge</li>
+<li><a href="#aff-zeronia"><strong>Zeronia</strong></a>: one-API cross-platform poster (formerly Late) that ships to YouTube, X, LinkedIn, Instagram, TikTok</li>
+<li><a href="#aff-github"><strong>GitHub</strong></a>: Issues are the content backlog; closed issues are shipped videos</li>
+<li><a href="#aff-github-copilot"><strong>GitHub Copilot</strong></a>: alternative harness via the vidpipe-copilot-plugin</li>
+<li><a href="#aff-perplexity"><strong>Perplexity</strong></a>: research source for titles, hashtags, trending angles</li>
+<li><a href="#aff-anthropic"><strong>Anthropic</strong></a>: model provider behind the editing and caption agents</li>
+<li><a href="#aff-youtube"><strong>YouTube</strong></a>: primary publishing destination for long-form and Shorts</li>
+<li><a href="#aff-telegram"><strong>Telegram</strong></a>: read-only notifications when videos publish</li>
+<li><a href="#aff-elevenlabs"><strong>ElevenLabs</strong></a>: optional voice layer for narration overlays</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>A content pipeline that takes one screen recording and turns it into a YouTube long-form upload, three or four YouTube Shorts, captioned cuts for X and LinkedIn, custom thumbnails, and auto-posts the whole bundle to every social platform you have an account on. You hit record. You stop recording. The next thing you see is the published video on six platforms.</p>
+<p>Concretely, three small repos do the work in sequence. VidRecord captures the screen and your voice. VidPipe takes that raw recording and runs it through an editing agent that cuts the long-form, slices Shorts at the high-energy moments, generates captions in your style, and builds platform-specific thumbnails. A posting layer (originally Late, now rebranded to Zeronia) ships the bundle out to YouTube, X, LinkedIn, Instagram, TikTok, and wherever else you publish.</p>
+<p>The killer pattern is the idea management. Your content backlog does not live in a Notion doc that goes stale. It lives as GitHub Issues. Every video idea is an open issue. Every piece of context you want to mention is a comment on that issue. When you record a video that satisfies an issue, the agent closes the matching issue automatically. Your repo becomes your kanban. Your kanban becomes your output. Closed issues are shipped videos.</p>
+<p>The whole thing runs on a sandboxed OpenClaw instance provisioned by Terraform on a cheap VPS. Prod and dev are recreated from <code>main</code> on every merge with state preserved. A policy file says the agent can only reach Perplexity, YouTube, Anthropic, and Telegram. Nothing else. If the agent goes weird, you redeploy in two minutes from version control.</p>
+<p>You walk away with: a single command that turns &quot;I had a thought worth recording&quot; into a published multi-platform video, a content backlog that manages itself, and an infrastructure setup you can blow away and rebuild from <code>main</code> whenever you want.</p>
+<h2>Why Most Content Pipelines Break</h2>
+<p>The gap between &quot;I made a video&quot; and &quot;the video is live on six platforms with the right thumbnail per platform&quot; is where 90% of creators give up.</p>
+<p>Recording is the easy part. Anyone can hit record on QuickTime or OBS. The death spiral starts at step two. You have a 47-minute raw recording with three &quot;uhs&quot; per sentence. Now you need to cut the long-form down to 12 tight minutes. Now you need to find the three best 30-second moments and reframe them vertically for Shorts. Now you need captions for the platforms that need captions. Now you need thumbnails, plural, because YouTube wants 16:9 with big text and Instagram wants 1:1 with a tasteful crop and TikTok wants something else entirely.</p>
+<p>Then you cross-post. Six tabs open. Six different upload UIs. Six different &quot;schedule for later&quot; buttons that all behave slightly differently. Each platform has its own caption length limit. Each one wants the description formatted just so. By the time you finish posting, three hours have gone by and you are angry at the internet.</p>
+<p>So you do what every creator does. You skip Shorts this week. You skip LinkedIn entirely because it feels weird to post there. You promise yourself you will batch on Sunday. Sunday comes and you cut grass instead. The video sits in a folder called <code>to-post</code> for six months and then you delete it because you have learned to live with the shame.</p>
+<p>The other problem is the idea pile. You have a doc somewhere called &quot;video ideas.&quot; It has 47 entries. You have shipped 4 of them. The other 43 mock you every time you open the doc. You have no way to tell which ones are still worth shipping, which ones got stale, which ones you actually started recording and abandoned. The doc is a graveyard with no headstones.</p>
+<p>You do not need a better camera. You do not need a better mic. You need a layer that takes the raw recording and ships it. And you need an idea management system that closes the loop when an idea becomes a video.</p>
+<p>The business math here is also clean. If a creator posts twice a week and spends 90 minutes per video on the post-production and crossposting tax, that is three hours a week, or about 156 hours a year. At any reasonable hourly rate, that is real money. More importantly, it is the bottleneck. Most creators ship 2 videos a week not because they cannot record more but because they cannot post more. Removing that bottleneck doubles or triples output without adding a single new working hour.</p>
+<h2>The Pattern</h2>
+<p>The whole stack is one loop with five stages. You only touch stage 1 (write an idea) and stage 3 (record). The agent does the rest.</p>
+<pre><code>[1] IDEA
+    -&gt; open a GitHub Issue with a title and 2-3 lines of context
+    -&gt; tag with target platform (youtube, shorts, linkedin)
+         |
+         v
+[2] PROMPT
+    -&gt; agent reads the issue and surfaces it on your dashboard
+    -&gt; &quot;you opened this 6 days ago. record it today?&quot;
+         |
+         v
+[3] RECORD (your only manual step)
+    -&gt; VidRecord captures screen + voice
+    -&gt; recording saved with the issue number in the filename
+         |
+         v
+[4] PROCESS (automatic)
+    -&gt; VidPipe edits long-form, cuts shorts, builds thumbnails
+    -&gt; VidSpec generates captions, descriptions, and platform variants
+         |
+         v
+[5] PUBLISH (automatic)
+    -&gt; Late/Zeronia posts to every platform with the right format
+    -&gt; agent comments on the GitHub Issue with the published URLs
+    -&gt; agent closes the issue
+</code></pre>
+<p>The leverage point is stage 4. The agent doing the editing and platform-specific formatting is what collapses three hours of post-production into ten minutes of you watching a progress bar. Stage 5 is the second leverage point. One API call, six platforms posted, no tabs.</p>
+<p>The clever bit is the loop closure. The agent comments on the issue with links to every published version. Then it closes the issue. Your &quot;ideas&quot; backlog becomes your &quot;shipped&quot; history. You can open the closed issues anytime and see exactly what you posted, where, and when. The graveyard becomes a museum.</p>
+<h2>Step-by-Step Setup</h2>
+<h3>Step 1: Stand Up The OpenClaw Sandbox</h3>
+<p>This is the first weekend's first afternoon. You are setting up the box that everything else runs on.</p>
+<p>Pick a small VPS. The original operator runs this on a $24-a-month box. That is enough for one creator pumping out 2-4 videos a week. If you batch heavier, go to a bigger box, but do not start there.</p>
+<p>The setup uses Terraform plus an OpenShell sandbox layer on top. Terraform handles the box itself (provisioning, networking, the firewall). OpenShell handles the agent's permissions inside the box (what it can read, what it can run, what it can call). The two together mean your entire stack is described in version-controlled files. If the box explodes or you want to move providers, you <code>terraform apply</code> somewhere else and you are back online in five minutes.</p>
+<p>The policy file is the part most people skip and regret. It is a small file that allowlists exactly which external services the agent can talk to. The original setup allows four:</p>
+<ul>
+<li><strong>Perplexity</strong> for research (titles, hashtags, what is trending in the niche)</li>
+<li><strong>YouTube</strong> for upload and metadata</li>
+<li><strong>Anthropic</strong> for the agent itself</li>
+<li><strong>Telegram</strong> for the &quot;your video posted&quot; notification</li>
+</ul>
+<p>Nothing else. No general internet. No package install at runtime. No &quot;let me just curl this real quick.&quot; If the agent ever tries to reach out to something not on the list, the call fails loudly. This is what lets you sleep when the agent is running unsupervised at 2 AM.</p>
+<p>The other piece of infrastructure-as-code magic is the prod-and-dev pattern. Both environments redeploy from <code>main</code> on every merge. Terraform state is preserved across redeploys, so your secrets and your workspace volume survive, but the agent process and its dependencies get rebuilt clean every time. No drift. No &quot;it works on my box.&quot; Your whole stack is the code.</p>
+<h3>Step 2: Wire The Three Repos</h3>
+<p>VidPipe, VidRecord, and VidSpec each do one thing. Clone them into the sandbox in this order.</p>
+<p>The public umbrella tool that wraps the whole pipeline is <a href="https://github.com/htekdev/vidpipe"><strong>htekdev/vidpipe</strong></a>. That is the CLI you actually install. There is also a <a href="https://github.com/htekdev/vidpipe-copilot-plugin"><strong>htekdev/vidpipe-copilot-plugin</strong></a> for driving the same pipeline from inside the GitHub Copilot CLI if that is your harness. The VidRecord and VidSpec layers below are conceptual stages inside the same tool. Treat them as how the work is organized rather than separate things to install.</p>
+<p><strong>VidRecord</strong> is the capture stage. It records your screen, your voice, and lets you switch between screens mid-recording without losing the take. The recordings get saved to a watched folder. The filename includes the GitHub issue number you are recording against. That filename is how the rest of the pipeline knows which idea this video closes.</p>
+<p><strong>VidPipe</strong> is the editor stage. It watches the recording folder. When a new file shows up, it runs the cut. The cut does four things: trims dead air and &quot;uhs,&quot; produces a long-form edit, finds the three highest-energy moments and slices them as 30-60 second shorts, and generates platform-specific thumbnails using your brand colors and a consistent face placement.</p>
+<p><strong>VidSpec</strong> is the caption and metadata stage. It reads the cut video, transcribes it, and writes the YouTube description, the Shorts hook text, the LinkedIn post, the X thread, and any other platform-specific copy you have configured. It learns your style from a <code>voice.md</code> file in the repo. Same idea as the inbox triage agent's tone doc, applied to social copy.</p>
+<p>The three stages talk to each other through the file system inside the sandbox. VidRecord drops a file. VidPipe picks it up, processes, drops the outputs in another folder. VidSpec picks those up and writes the metadata. A small posting service watches the final folder and pushes everything out. No API contracts to maintain. No queue infrastructure. Just folders.</p>
+<h3>Step 3: Set Up Your Idea Backlog As GitHub Issues</h3>
+<p>This is the part that changes how you think about content.</p>
+<p>Create a private GitHub repo called something like <code>content-backlog</code>. Every video idea is an issue. The title is the working title of the video. The body is two or three lines: what is the hook, what is the payoff, what is the call to action. Tags say which platform mix this is for: <code>youtube-long</code>, <code>shorts-only</code>, <code>linkedin-native</code>, etc.</p>
+<p>Some examples of how an issue looks:</p>
+<pre><code>Title: &quot;Why your AI keeps forgetting what you told it last week&quot;
+Body: Hook: agents have no memory by default. Payoff: how to give
+yours a markdown second-brain in 20 minutes. CTA: link to second
+brain playbook.
+Labels: youtube-long, shorts
+</code></pre>
+<pre><code>Title: &quot;I deleted 40 of my 47 cron jobs and nothing broke&quot;
+Body: Hook: half your automations are doing nothing. Payoff: a
+3-question audit. CTA: subscribe.
+Labels: shorts-only
+</code></pre>
+<p>You add ideas as they come. You do not need to write a script. You do not need to outline. The issue is just enough to remind you what you were thinking when you had the spark.</p>
+<p>The agent reads open issues and surfaces them in three ways. A daily Telegram digest at 7 AM with the oldest 5 open issues, ranked by how long they have been sitting. A web dashboard inside your sandbox showing the queue. A nudge that pings you on Telegram if an issue has been open more than 14 days, asking &quot;ship this or close it as won't-do?&quot;</p>
+<p>The discipline rule is one idea per issue. Resist the urge to put &quot;and also a Short version&quot; or &quot;tie this to last week's video&quot; in the body. If those are real ideas, open new issues. The agent's loop closure depends on one issue equals one shipped artifact.</p>
+<h3>Step 4: Connect Late/Zeronia For Cross-Platform Posting</h3>
+<p>Late was the API that did the cross-platform publishing. They recently rebranded to Zeronia. Same product, same API, different name. Both names show up in the docs and in old code. Use whichever your account is on.</p>
+<p>Sign up. Connect your platforms one at a time: YouTube, X, LinkedIn, Instagram, TikTok, Threads, Bluesky if you post there. Each one is an OAuth flow. Allow 20 minutes for the whole onboarding because some platforms throw weird auth challenges and you will end up on the phone with two-factor codes.</p>
+<p>The agent posts through one API endpoint. You give it the video file, the caption, and the list of target platforms. It handles the rest. Each platform's quirks (caption length, hashtag rules, thumbnail format) are handled inside the API.</p>
+<p>Test posting before you wire it into the pipeline. Pick a 30-second test video. Post it via the API to one platform first. Watch it land. Then test the multi-platform variant. Then delete the test posts. Now you trust the API.</p>
+<p>The single-API-for-all-platforms move is what makes this whole thing tractable. Without it you would be writing six separate integrations and re-writing them every time a platform changes its API. With it you write one and let someone else worry about TikTok's monthly breakage.</p>
+<h3>Step 5: Define Your Style</h3>
+<p>This is the second-highest-leverage 30 minutes after the SOUL.md file in the inbox playbook. You write three small files that teach the pipeline what your stuff looks like.</p>
+<p><strong><code>brand.md</code></strong> for colors, fonts, thumbnail layout rules. &quot;Primary color is #3B82F6. Headline font is Inter Bold. My face goes in the right third of the thumbnail. Headline text never exceeds 6 words.&quot; The agent uses this when generating thumbnails.</p>
+<p><strong><code>voice.md</code></strong> for how you write captions and descriptions. Tone, banned phrases, signature openings. Same shape as the SOUL.md from the inbox playbook. Five real captions you wrote and were happy with goes a long way.</p>
+<p><strong><code>recipe.md</code></strong> for the editing recipe. &quot;Cut all silence over 0.6 seconds. Cut all 'um' and 'uh.' Add a quick zoom on any sentence with a number. Add a 1-second outro card with my logo and 'subscribe' text.&quot; This is the file you tune the most over time. Start with five rules. Grow it weekly.</p>
+<p>The first time you run the pipeline these files will be wrong. The second time they will be 70% right. By the fifth video they are tuned in and you stop touching them.</p>
+<h3>Step 6: Record Your First Video With VidRecord</h3>
+<p>Pick the easiest open issue. Two or three minutes of content max. Hit record. Stop. Walk away.</p>
+<p>VidRecord saves the file with the issue number embedded. VidPipe picks it up automatically. The progress dashboard inside your sandbox shows the cut happening: trimming, slicing shorts, generating thumbnails, writing captions. On a $24 box it takes about 8-12 minutes for a 5-minute raw recording.</p>
+<p>You watch the long-form output. You watch the shorts. You eyeball the thumbnails. The first time, expect the cuts to be slightly off and the thumbnails to be slightly ugly. Tweak <code>recipe.md</code> and <code>brand.md</code>. Re-run the pipeline (it is one command). Watch again.</p>
+<p>When it looks right, hit publish. The posting service pushes to every platform. Telegram pings you with the URLs. The agent comments on the original GitHub Issue with the published links and closes the issue.</p>
+<p>You did not open six tabs. You did not open Premiere. You did not crop a thumbnail. You wrote an issue, you recorded the take, you watched the cut, you hit publish.</p>
+<h3>Step 7: Watch The Pipeline Run End-To-End</h3>
+<p>The first week is observation week. Do not trust the auto-post yet. Run with <code>auto_publish: false</code> in the config. Every video gets cut, captioned, and queued, but the actual posting needs your one-tap approval on Telegram.</p>
+<p>Look at the cuts critically. Are the shorts hitting the right moments or random ones? Tune the high-energy detection in <code>recipe.md</code> (volume threshold, words-per-minute spike, gesture detection if you have it).</p>
+<p>Look at the captions. Are they in your voice or generic? Add three more sample captions to <code>voice.md</code> and re-run the pipeline on the same raw recording. Better? Keep going.</p>
+<p>Look at the thumbnails. Are they consistent? Are your fonts right? Is your face in the same spot every time? Tune <code>brand.md</code>.</p>
+<p>After a week of approve-each-post, flip the config to <code>auto_publish: true</code>. The posting happens unattended. You still get the Telegram ping with the links so you can spot-check after the fact. If something looks bad you delete the post and tune.</p>
+<h3>Step 8: Tune The Recipe Weekly</h3>
+<p>Same Friday cadence as the inbox playbook. 20 minutes per week.</p>
+<ol>
+<li><strong>Review the week's posts.</strong> Which short hit best? Why? Update the high-energy detector to favor that pattern.</li>
+<li><strong>Review the closed issues.</strong> Any issue close that should not have happened? (Wrong video matched to wrong issue.) Tighten the issue-number-in-filename convention.</li>
+<li><strong>Prune <code>recipe.md</code>.</strong> Any rule that has not fired in two weeks is probably dead. Delete it. Short recipes beat long ones.</li>
+<li><strong>Add one new sample to <code>voice.md</code>.</strong> Pick the caption you loved most this week. Drop it in.</li>
+<li><strong>Skim open issues.</strong> Any open more than 21 days? Either record them this week or close as won't-do. Stale issues poison the dashboard.</li>
+</ol>
+<p>20 minutes a week. That is the entire ongoing cost of a pipeline that ships 8-15 pieces of content weekly without you opening a single tab.</p>
+<h2>Lanes That Work</h2>
+<p>This playbook fits anyone whose output is short videos plus the cuts and crossposts that go with them.</p>
+<p><strong>Solo creators with day jobs.</strong> You have 4 hours a week to do content, total. The pipeline gives you back the 3 hours you used to spend on post-production and posting. You spend those 3 hours recording instead. Output triples without adding a single working hour.</p>
+<p><strong>Founders shipping build-in-public content.</strong> You are already coding all day. Recording a 5-minute screen capture about what you just shipped is natural. The pipeline turns that capture into a YouTube long-form, three Shorts, an X thread, and a LinkedIn post. Your audience grows on autopilot while you keep building.</p>
+<p><strong>Indie hackers documenting their journey.</strong> Same pattern as build-in-public but pointed at one specific story arc. The GitHub Issues backlog becomes the chapter outline of your journey. Each closed issue is a chapter shipped.</p>
+<p><strong>Agencies running multiple client channels.</strong> The pipeline is a per-client deployment. Each client gets their own sandbox, their own <code>brand.md</code>, their own <code>voice.md</code>, their own GitHub Issues backlog. One operator can run 5-10 clients off the same template. The unit economics are obscene.</p>
+<p><strong>Teachers and course creators.</strong> Your raw lecture recordings become marketing. Record once for the course, the pipeline cuts a teaser short and a &quot;best-of&quot; reel for socials. The course itself stays gated. The pipeline-generated cuts are the funnel.</p>
+<p><strong>Anyone with a &quot;good ideas&quot; doc that never gets shipped.</strong> You know who you are. The pipeline plus the GitHub Issues idea management is the unstuck. The doc dies. The repo replaces it. The dashboard pushes the oldest unshipped idea in your face every morning until you record it or kill it.</p>
+<p>What does not work: people who are not actually willing to record. The pipeline is end-to-end automation for everything except the recording itself. If you do not record, you have nothing to ship. The pipeline cannot fix the discipline problem. It can only remove the post-production excuse.</p>
+<h2>What Changes After Setup</h2>
+<p><strong>Day 1.</strong> You spend the day on Terraform and OpenShell. The sandbox boots. The policy file is restrictive. You do a hello-world recording with VidRecord just to confirm the file shows up where it should. Nothing publishes yet. You go to bed feeling like a serious person.</p>
+<p><strong>Day 3.</strong> The three repos are wired. The first real video runs through. The cuts are mediocre. The thumbnail looks like a college poster. You tune <code>brand.md</code> and <code>recipe.md</code>. Run two more videos that night. The second one is ugly but watchable. The third one is good.</p>
+<p><strong>Week 1.</strong> Four videos shipped. Each one took 12 minutes of attention from &quot;stop recording&quot; to &quot;live on six platforms.&quot; You realize you have been holding back ideas because of the post-production tax. The dam breaks. You open 18 new GitHub Issues in a single sitting.</p>
+<p><strong>Week 2.</strong> First Short goes mildly viral. 28K views on the YouTube Short, which is more than your last 6 long-forms combined. You did not write the caption. The agent did. You did not crop the vertical. The agent did. You realize the leverage is real.</p>
+<p><strong>Month 1.</strong> You ship 11 videos. Three Shorts have over 10K views. Your follower count on three platforms is up materially. You have not opened Premiere or Final Cut once this month. You have not opened six platform tabs to crosspost once this month. You have spent your content time on what you actually like, which is recording.</p>
+<p><strong>Month 3.</strong> The closed-issues count is over 40. You can scroll back through them and see exactly what you have shipped, when, and where. The pipeline runs unsupervised. You record on a Tuesday and the videos are live by Wednesday morning. The Telegram pings start to feel routine.</p>
+<p><strong>Month 6.</strong> You go on vacation. You record three videos the week before. You schedule them through the pipeline's <code>publish_at</code> field. You are on a beach when the first one goes live. You see the Telegram ping. You read it. You go back to the beach. This is the moment you realize you have built a real piece of infrastructure, not a toy.</p>
+<h2>Gotchas and Tips</h2>
+<p><strong>One idea per GitHub Issue. No exceptions.</strong> The loop closure depends on a clean one-to-one between issue and shipped video. If you let yourself write &quot;and also a follow-up short about X&quot; in the body, the close logic gets confused, the agent closes the issue when only half the work is done, and the follow-up short never ships. New idea, new issue.</p>
+<p><strong>Thumbnail style consistency beats thumbnail cleverness.</strong> The agent will generate a thumbnail every time. The win is that they all look like yours. Do not change <code>brand.md</code> more than once a quarter. Viewers learn to recognize your thumbnails. Drift kills the recognition.</p>
+<p><strong>Some videos should not become Shorts.</strong> Tutorials with multi-step setup. Anything where the punchline only works after 90 seconds of context. Add a <code>no-shorts</code> label to issues you do not want sliced. Respect it. Bad shorts are worse than no shorts.</p>
+<p><strong>The Late-to-Zeronia rebrand is a warning.</strong> Anytime your stack depends on one third-party API, you are one rebrand or one acquisition away from a frantic weekend of rewiring. Keep your posting layer behind a thin wrapper of your own. When the API changes, you change one file. Do not let the third-party SDK leak into the rest of your codebase.</p>
+<p><strong>Back up your Terraform state.</strong> It is the most boring file in your stack and the most catastrophic to lose. State holds the link between your Terraform code and the actual cloud resources. Lose it, and <code>terraform apply</code> will try to recreate everything from scratch, possibly while the old resources are still running. Use a remote state backend (Terraform Cloud, S3, whatever). Set it up on day one.</p>
+<p><strong>Do not record 90-minute monologues.</strong> The pipeline can cut them but the cut quality drops fast past 15 minutes. Long recordings have more dead air, more &quot;let me back up,&quot; more lost threads. Record in 5-12 minute takes. If a topic needs more, record it as a series and link them.</p>
+<p><strong>Watch the policy file like a hawk.</strong> Every time you add a new dependency to the agent, ask &quot;does this need to call out to the internet?&quot; If yes, that is a new entry in the allowlist, and it is a security review. If you can avoid it (use a local package, self-host the dependency, etc.) do that instead. The policy file is small for a reason. Keep it small.</p>
+<p><strong>Telegram for notifications, not for control.</strong> Use Telegram to know what the pipeline did. Do not build a Telegram bot that can trigger publishes or change configs. The blast radius if your Telegram is compromised should be near zero. Read-only pings, nothing else.</p>
+<p><strong>Keep the sandbox stateless except for the workspace volume.</strong> Everything except your raw recordings, brand files, and GitHub Issues data should be reproducible from the repo. If your box dies, you should be able to redeploy from <code>main</code> and lose nothing important. Test this monthly. Actually destroy the dev box and redeploy. If anything is missing, that is a state-leak you need to fix.</p>
+<p><strong>The recipe file is your most expensive artifact.</strong> Like the SOUL.md from the inbox playbook. Check it into a private repo. Back it up. Treat it like the secret sauce it is. A six-month-tuned <code>recipe.md</code> is what separates &quot;AI-generated cuts that look AI-generated&quot; from &quot;cuts indistinguishable from a human editor.&quot;</p>
+<p><strong>Do not let the agent post your face to platforms you have not okayed.</strong> The default config should be &quot;post to YouTube and X only.&quot; Adding Instagram, TikTok, and the rest should be explicit, per-platform, after you have seen the platform-specific output and approved it. Auto-posting your face to a TikTok format you have never seen is how you become a meme.</p>
+<p><strong>Resist the urge to record from inside the sandbox.</strong> Recursive demos are fun but in production it gets fragile. Record on your local machine. Drop the recording into the watched folder via a sync. Keep the sandbox doing one thing: processing and posting. Recording in production sandboxes is for the demo video, not the everyday pipeline.</p>
+<p><strong>The pipeline cannot fix bad ideas.</strong> It can ship a bad idea to six platforms in ten minutes. That is not always good. Spend more time on the issue body than you think you should. The two minutes you put into framing the hook before recording is the two minutes that decides whether the video does anything.</p>
+<hr>
+<h2>Keep Reading</h2>
+<ul>
+<li><strong><a href="/playbooks/daily-content-machine/">Post on X and LinkedIn Every Day Without Being a &quot;Content Person&quot;</a></strong>. The text-first cousin to this playbook. Same idea management pattern, different output format. Pair them and you have a video plus text engine running off the same backlog.</li>
+<li><strong><a href="/playbooks/newsletter-growth-machine/">Grow a Newsletter With AI Agents Across 4 Social Channels</a></strong>. Bolt this on after your video pipeline is humming. Every closed issue becomes an item in a weekly newsletter the agent assembles for you. Distribution gets compounding.</li>
+<li><strong><a href="/playbooks/one-person-agency/">The One-Person Agency: Charge Agency Rates as a Solo Operator</a></strong>. If the per-client deployment idea in &quot;Lanes That Work&quot; caught your eye, this is the playbook that turns it into a business. Five clients, one operator, agency margins.</li>
+</ul>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators · Powered by <a href="https://openclaw.com">OpenClaw</a></p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

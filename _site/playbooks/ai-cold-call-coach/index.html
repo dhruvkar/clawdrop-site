@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Whispers What to Say During Your Cold Calls in Real Time — ClawDrop</title>
+  <meta name="description" content="An AI listens to your live sales calls and gives you real-time coaching on what to say next based on how the conversation is going.">
+  <meta property="og:title" content="AI Whispers What to Say During Your Cold Calls in Real Time — ClawDrop">
+  <meta property="og:description" content="An AI listens to your live sales calls and gives you real-time coaching on what to say next based on how the conversation is going.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/ai-cold-call-coach/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="AI Whispers What to Say During Your Cold Calls in Real Time — ClawDrop">
+  <meta name="twitter:description" content="An AI listens to your live sales calls and gives you real-time coaching on what to say next based on how the conversation is going.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/ai-cold-call-coach/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; }
+    .logo:hover { color: var(--ink); }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 280px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">March 9, 2026</div>
+    <h1>AI Whispers What to Say During Your Cold Calls in Real Time</h1>
+    <p class="post-description">An AI listens to your live sales calls and gives you real-time coaching on what to say next based on how the conversation is going.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Intermediate</strong></span>
+      <span class="meta-badge">💰 <strong>$20-40/month (transcription + API)</strong></span>
+      <span class="meta-badge">⏱ <strong>3-5 hours</strong></span>
+      <span class="meta-badge">👤 <strong>Jonah (@jonahships)</strong></span>
+      <a href="https://discord.com/channels/1456350064065904867/1456609488202105005/1464673240994676879" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-openclaw"><strong>OpenClaw</strong></a>: agent runtime running the live coaching engine</li>
+<li><a href="#aff-deepgram"><strong>Deepgram</strong></a>: sub-second streaming transcription with speaker diarization</li>
+<li><a href="#aff-twilio"><strong>Twilio</strong></a>: Media Streams API for piping live call audio to a WebSocket</li>
+<li><a href="#aff-blackhole"><strong>BlackHole</strong></a>: virtual audio device on Mac for capturing system audio</li>
+<li><a href="#aff-aircall"><strong>Aircall</strong></a>: example softphone the audio routing setup wires into</li>
+<li><a href="#aff-ringcentral"><strong>RingCentral</strong></a>: alternative VoIP softphone option</li>
+<li><a href="#aff-anthropic"><strong>Anthropic</strong></a>: model provider behind the real-time suggestion generation</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>An AI copilot for live sales calls. While you're on the phone with a prospect, the AI listens to both sides of the conversation, analyzes the tone and content in real time, and displays suggestions on your screen: what to say next, how to handle objections, when to close, and when to shut up and listen.</p>
+<h2>Why This Works</h2>
+<p>Cold calling is hard. Even experienced salespeople freeze when a prospect throws an unexpected objection. &quot;We already have a vendor for that.&quot; &quot;Send me an email.&quot; &quot;We don't have budget.&quot; In those moments, having the perfect response ready isn't about being manipulative. It's about being prepared.</p>
+<p>Sales coaches charge $200-500/hour to listen to your calls and give feedback. That feedback usually comes after the call, when it's too late. This system gives you coaching while the call is still happening.</p>
+<h2>Prerequisites</h2>
+<ul>
+<li>OpenClaw installed and running</li>
+<li>A way to capture call audio in real time (see options below)</li>
+<li>Fast transcription service (Deepgram recommended for low latency)</li>
+<li>A screen or second monitor for displaying suggestions</li>
+</ul>
+<h2>Architecture</h2>
+<pre><code>┌──────────────┐     ┌──────────────┐     ┌──────────────┐
+│  Live Call   │────▶│  Real-Time   │────▶│  AI Coach    │
+│  Audio       │     │  Transcriber │     │              │
+│              │     │              │     │  - Analyze   │
+│  Both sides  │     │  - Deepgram  │     │    sentiment │
+│  of convo    │     │  - &lt;500ms    │     │  - Detect    │
+│              │     │    latency   │     │    objection │
+│              │     │              │     │  - Suggest   │
+└──────────────┘     └──────────────┘     └──────┬───────┘
+                                                  │
+                                         ┌────────▼───────┐
+                                         │  Display       │
+                                         │                │
+                                         │  Live panel:   │
+                                         │  &quot;They said    │
+                                         │  budget is     │
+                                         │  tight. Try:   │
+                                         │  [suggestion]&quot; │
+                                         └────────────────┘
+</code></pre>
+<h2>Step 1: Capture Call Audio</h2>
+<p>You need both sides of the conversation in real time. Options:</p>
+<p><strong>Option A: Softphone + audio routing</strong>
+If you're using a VoIP system (Aircall, RingCentral, Dialpad), route the audio output to a local capture tool. On Mac, use BlackHole or Loopback to create a virtual audio device that captures system audio.</p>
+<p><strong>Option B: Speakerphone + mic</strong>
+The simplest approach: put the call on speaker and use your computer's microphone to capture both sides. Not ideal audio quality, but it works and takes 5 minutes to set up.</p>
+<p><strong>Option C: Phone integration</strong>
+Some phone systems offer real-time audio streams via API. Twilio's Media Streams, for example, can pipe live call audio to a WebSocket endpoint.</p>
+<h2>Step 2: Real-Time Transcription</h2>
+<p>Speed matters here. A suggestion that arrives 10 seconds late is useless. You need transcription with sub-second latency:</p>
+<p><strong>Deepgram</strong> is the go-to for this. Their streaming API transcribes audio in real time with ~300ms latency. It also handles speaker diarization (knowing who said what) which is critical for understanding the conversation flow.</p>
+<p>Set up a WebSocket connection that sends audio chunks and receives transcript fragments as they come in.</p>
+<h2>Step 3: Build the Coaching Engine</h2>
+<p>This is where OpenClaw shines. Feed the rolling transcript to your agent with instructions like:</p>
+<pre><code class="language-markdown">## Sales Coach Rules
+You are a real-time sales coach. You see a live transcript of a cold call.
+
+Your job:
+- Detect objections and suggest responses immediately
+- Notice buying signals (&quot;that's interesting&quot;, &quot;how does pricing work?&quot;)
+- Flag when the salesperson is talking too much (suggest shutting up)
+- Recommend when to go for the close
+- Provide specific phrases, not vague advice
+
+Common objections and responses:
+- &quot;Send me an email&quot; → &quot;Totally, I'll send something over. Quick question before I do...&quot;
+- &quot;We already have a vendor&quot; → &quot;Makes sense. Most of our clients did too. Curious, what would need to change for you to consider an alternative?&quot;
+- &quot;No budget&quot; → &quot;I hear you. If budget wasn't a factor, is this something you'd want to explore?&quot;
+- &quot;Not interested&quot; → &quot;Fair enough. Just so I know, is it the timing or the concept that doesn't fit?&quot;
+
+Keep suggestions SHORT. The salesperson is on a live call. 1-2 sentences max.
+</code></pre>
+<h2>Step 4: The Display</h2>
+<p>The suggestions need to appear somewhere you can see during the call without it being awkward. Options:</p>
+<ul>
+<li><strong>Floating overlay:</strong> A small transparent window on top of your screen</li>
+<li><strong>Second monitor:</strong> Dedicate a screen to the coaching panel</li>
+<li><strong>Terminal window:</strong> Simple text output, new suggestions appear as they come</li>
+</ul>
+<p>The display should show:</p>
+<ul>
+<li>The latest suggestion (big, readable at a glance)</li>
+<li>Current conversation sentiment (green/yellow/red)</li>
+<li>Talk-time ratio (are you talking too much?)</li>
+<li>Key topics detected</li>
+</ul>
+<h2>Step 5: Post-Call Analysis</h2>
+<p>After the call ends, the agent generates a summary:</p>
+<ul>
+<li>What went well</li>
+<li>Missed opportunities</li>
+<li>Objections handled (and how)</li>
+<li>Suggested follow-up actions</li>
+<li>Score: 1-10 call quality rating</li>
+</ul>
+<p>Over time, this builds a dataset of your calls. You can see patterns: which objection responses actually work, what your average talk-time ratio is on successful calls, and where you consistently lose prospects.</p>
+<h2>Privacy and Ethics</h2>
+<p>This is important: always comply with call recording laws.</p>
+<ul>
+<li><strong>One-party consent states:</strong> You can record/transcribe if you're on the call</li>
+<li><strong>Two-party consent states:</strong> You need the other person's consent</li>
+<li><strong>Best practice:</strong> &quot;This call may be recorded for quality purposes&quot; covers you in most jurisdictions</li>
+</ul>
+<p>The AI isn't recording the call for someone else. It's helping you be better at your job in real time. But make sure you're on the right side of local laws.</p>
+<h2>Real Results</h2>
+<p>The builder who created this (Jonah) uses it for his agency's cold calling. The real-time suggestions help with:</p>
+<ul>
+<li>Faster recovery from unexpected objections</li>
+<li>Better talk-to-listen ratio (the AI tells you when to stop talking)</li>
+<li>Higher conversion rates on calls (more meetings booked)</li>
+<li>Faster ramp-up for new salespeople (instant coaching from day one)</li>
+</ul>
+<p>The biggest win? Confidence. When you know you have backup, you make calls you'd otherwise skip.</p>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators · Powered by <a href="https://openclaw.com">OpenClaw</a></p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

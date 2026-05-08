@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teach Your AI to Stop Making the Same Mistake Twice — ClawDrop</title>
+  <meta name="description" content="The layer that catches AI mistakes, writes them down, and promotes the lessons into permanent context. Your agent gets smarter every week, not dumber.">
+  <meta property="og:title" content="Teach Your AI to Stop Making the Same Mistake Twice — ClawDrop">
+  <meta property="og:description" content="The layer that catches AI mistakes, writes them down, and promotes the lessons into permanent context. Your agent gets smarter every week, not dumber.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/self-improving-agent/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Teach Your AI to Stop Making the Same Mistake Twice — ClawDrop">
+  <meta name="twitter:description" content="The layer that catches AI mistakes, writes them down, and promotes the lessons into permanent context. Your agent gets smarter every week, not dumber.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/self-improving-agent/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; }
+    .logo:hover { color: var(--ink); }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 280px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">April 14, 2026</div>
+    <h1>Teach Your AI to Stop Making the Same Mistake Twice</h1>
+    <p class="post-description">The layer that catches AI mistakes, writes them down, and promotes the lessons into permanent context. Your agent gets smarter every week, not dumber.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Intermediate</strong></span>
+      <span class="meta-badge">💰 <strong>$0 (works on top of any existing agent setup)</strong></span>
+      <span class="meta-badge">⏱ <strong>An hour to wire up, weeks to see the compounding</strong></span>
+      <span class="meta-badge">👤 <strong>Peter Skoett</strong></span>
+      <a href="https://github.com/peterskoett/self-improving-agent" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-claude-code"><strong>Claude Code</strong></a>: primary runtime where <code>.learnings/</code> and CLAUDE.md live</li>
+<li><a href="#aff-openclaw"><strong>OpenClaw</strong></a>: alternative runtime with SOUL.md / TOOLS.md / AGENTS.md injection</li>
+<li><a href="#aff-hermes"><strong>Hermes</strong></a>: alternative agent runtime the layer plugs into</li>
+<li><a href="#aff-codex"><strong>Codex</strong></a>: alternative agent runtime with AGENTS.md support</li>
+<li><a href="#aff-github-copilot"><strong>GitHub Copilot</strong></a>: alternative runtime using <code>.github/copilot-instructions.md</code></li>
+<li><a href="#aff-github"><strong>GitHub</strong></a>: host for Peter Skoett's original <code>self-improving-agent</code> skill and team-shared <code>.learnings/</code></li>
+<li><a href="#aff-anthropic"><strong>Anthropic</strong></a>: Haiku/Opus pricing referenced for hook overhead</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>A layer that sits on top of your existing AI agent and turns its failures into permanent knowledge. Every time the agent makes a mistake, gets corrected, runs into an error, or discovers a better way to do something, that lesson gets written down in a structured format. Every time a lesson recurs, it gets promoted to your agent's system prompt so the mistake physically cannot happen again.</p>
+<p>The output is an agent that gets measurably smarter every week. Not because the underlying model improved. Because your system learned from its own history and stopped repeating the same 14 dumb errors you're tired of correcting.</p>
+<p>This layer is free. It runs on top of Claude Code, OpenClaw, Hermes, Codex, Copilot, or any agent runtime you're already using. The original implementation comes from Peter Skoett's <code>self-improving-agent</code> skill, and it's one of those rare additions that changes how you relate to your AI once you actually set it up.</p>
+<p>The first week, nothing noticeable happens. You're just logging. By week 4, you stop typing &quot;no, that's wrong, remember I told you last time&quot; because your agent has already read the lesson from last time and adjusted. By week 12, the lessons that used to live in your head now live in the system, and a fresh agent session on day 1 is already smarter than your old agents were on day 90.</p>
+<h2>Why Your AI Keeps Making the Same Mistakes</h2>
+<p>Here's the thing nobody writes about. An LLM doesn't have a memory. Every session starts from zero. If you corrected Claude last Tuesday and told it to stop using <code>async def</code> in a sync file, it will happily do it again today, unless you remind it. If you told OpenClaw that your test suite uses pytest and not unittest, it will forget next time. If you explained to Copilot that your project uses pnpm and not npm, you will explain it again. And again. And again.</p>
+<p>The default assumption is that this is fine because you just correct the AI in the moment and move on. But stop and count how many times you've typed some variation of &quot;remember, we use X not Y&quot; in the last month. For most founders running agents daily, the number is shockingly high. Tens of corrections per week. Hundreds per quarter. Thousands per year.</p>
+<p>Every one of those corrections is a small tax on your time. And every one of them is information your system should have learned permanently but didn't, because you had no layer for promoting corrections into permanent memory.</p>
+<p>The second problem is drift. Over time, your agent starts doing things slightly wrong in ways you stop noticing. You catch the big mistakes. The small ones slip through. Your code quality drops 5%. Your email drafts start sounding slightly less like you. Your task breakdowns get lazier. You don't notice until you look back at output from six months ago and realize something changed and you can't pinpoint when.</p>
+<p>The self-improving agent layer solves both problems at once. Corrections get captured the moment they happen, so they don't rely on your memory. Recurring corrections get promoted to the system prompt, so they stop being corrections and start being rules. Drift gets caught because you're running a weekly review of what's actually been logged, and patterns become visible.</p>
+<p>The whole thing is disarmingly simple. Three markdown files, a logging format, and a promotion rule. That's it.</p>
+<h2>The Pattern</h2>
+<p>The layer has 4 parts.</p>
+<pre><code>1. THREE LOG FILES
+   .learnings/LEARNINGS.md    (corrections, knowledge gaps, best practices)
+   .learnings/ERRORS.md       (command failures, exceptions)
+   .learnings/FEATURE_REQUESTS.md (capabilities the user wanted)
+        |
+        v
+2. DETECTION TRIGGERS
+   &quot;No, that's wrong&quot; → log to LEARNINGS.md
+   Command returns exit code 1 → log to ERRORS.md
+   &quot;Can you also...&quot; → log to FEATURE_REQUESTS.md
+        |
+        v
+3. RECURRING PATTERN DETECTION
+   grep for similar entries, link them, bump priority
+        |
+        v
+4. PROMOTION TO PERMANENT CONTEXT
+   3+ occurrences → promote to CLAUDE.md / AGENTS.md / SOUL.md
+</code></pre>
+<p>The core insight: <strong>corrections that stay in <code>.learnings/</code> are tactical. Corrections that get promoted to the system prompt are structural.</strong> You want every recurring mistake to eventually become structural so it stops being your problem.</p>
+<h2>Step-by-Step Setup</h2>
+<h3>Step 1: Create the <code>.learnings/</code> Directory</h3>
+<p>This goes in your agent's project root. For Claude Code that's wherever you launch from. For OpenClaw that's <code>~/.openclaw/workspace/.learnings/</code>. For Codex it's <code>.codex/.learnings/</code>. For project-level use, it's just <code>.learnings/</code> at the repo root.</p>
+<p>Three files live inside:</p>
+<pre><code>.learnings/
+├── LEARNINGS.md        # corrections, knowledge gaps, best practices
+├── ERRORS.md           # command failures, exceptions
+└── FEATURE_REQUESTS.md # capabilities the user wanted but didn't have
+</code></pre>
+<p>That's the entire &quot;database.&quot; No SQL. No vector store. No embedding model. Just markdown files that humans and agents can both read.</p>
+<h3>Step 2: Define the Logging Format</h3>
+<p>Every entry follows the same shape. Consistent structure matters because you're going to grep these files constantly.</p>
+<p>For a <strong>learning</strong> entry (a correction or better approach):</p>
+<pre><code class="language-markdown">## [LRN-20260415-001] correction
+
+**Logged**: 2026-04-15T14:22:00Z
+**Priority**: medium
+**Status**: pending
+**Area**: backend
+
+### Summary
+User said we use pnpm, not npm. Agent tried to install dependencies with npm.
+
+### Details
+In the `setup-deps.sh` script, agent wrote `npm install` but the project uses pnpm workspaces. Lock file is `pnpm-lock.yaml`. User corrected immediately.
+
+### Suggested Action
+Before running any dependency install, check for lock file. If `pnpm-lock.yaml` exists, use pnpm. If `yarn.lock`, use yarn. If `package-lock.json`, use npm.
+
+### Metadata
+- Source: user_feedback
+- Related Files: setup-deps.sh
+- Tags: dependencies, pnpm, tooling
+</code></pre>
+<p>For an <strong>error</strong> entry (something failed):</p>
+<pre><code class="language-markdown">## [ERR-20260415-002] gh-pr-create
+
+**Logged**: 2026-04-15T15:01:00Z
+**Priority**: high
+**Status**: pending
+
+### Summary
+`gh pr create` failed with auth error.
+
+### Error
+gh: Resource not accessible by integration
+
+### Context
+Tried to create PR from feature branch to main. Auth token lacked `pull_requests: write` scope.
+
+### Suggested Fix
+Check `GITHUB_TOKEN` scopes before running `gh pr create`. If missing, embed PAT in remote URL instead.
+
+### Metadata
+- Reproducible: yes
+</code></pre>
+<p>For a <strong>feature request</strong> (something the user wanted the agent to do but it couldn't):</p>
+<pre><code class="language-markdown">## [FEAT-20260415-003] telegram_voice_messages
+
+**Logged**: 2026-04-15T16:42:00Z
+**Priority**: medium
+**Status**: pending
+
+### Requested Capability
+User wanted to send voice messages through Telegram, not just text.
+
+### User Context
+They're driving and can't type. Voice-first interaction would unblock their use of the agent in the car.
+
+### Complexity Estimate
+medium
+
+### Suggested Implementation
+Add Telegram voice message handler. Pipe to Whisper for transcription, then pass the text to the normal task router.
+</code></pre>
+<p>The format looks heavy. It isn't. Every entry takes 30 seconds to write once you've done it 5 times. The structure is what makes grepping useful later.</p>
+<h3>Step 3: Detect When to Log</h3>
+<p>The rule is &quot;log the moment something is surprising or corrected.&quot; That sounds vague. Here's a concrete trigger list:</p>
+<p><strong>Log a learning when:</strong></p>
+<ul>
+<li>The user says &quot;no, that's wrong&quot; or &quot;actually&quot; or &quot;you're confusing X with Y&quot;</li>
+<li>The user tells you about a project convention you didn't know</li>
+<li>You referenced outdated documentation and it led you astray</li>
+<li>You found a better approach to a task you've done before</li>
+</ul>
+<p><strong>Log an error when:</strong></p>
+<ul>
+<li>A command returns a non-zero exit code</li>
+<li>An API call fails or times out</li>
+<li>An unexpected exception propagates up the stack</li>
+<li>A test suddenly fails where it passed before</li>
+</ul>
+<p><strong>Log a feature request when:</strong></p>
+<ul>
+<li>The user says &quot;can you also...&quot; and you can't</li>
+<li>The user says &quot;I wish you could...&quot;</li>
+<li>The user asks for something outside your current capability</li>
+</ul>
+<p>If you're running Claude Code, you can automate this with hooks. A <code>UserPromptSubmit</code> hook runs a small script that checks the most recent interaction for trigger phrases and reminds you (or the agent) to log. A <code>PostToolUse</code> hook on Bash tool calls detects errors automatically and pre-fills an error entry.</p>
+<p>If you're not running hooks, you manually log. The manual version works fine as long as you're honest about logging every time, which takes about 2 weeks of discipline before it becomes automatic.</p>
+<h3>Step 4: Check for Recurring Patterns Before Logging</h3>
+<p>Before adding a new entry, grep the existing files for similar issues:</p>
+<pre><code class="language-bash">grep -r &quot;pnpm&quot; .learnings/
+grep -r &quot;gh pr create&quot; .learnings/
+</code></pre>
+<p>If you find a related entry, link the new one to the old one with a <code>See Also</code> reference:</p>
+<pre><code class="language-markdown">### Metadata
+- See Also: LRN-20260401-003
+</code></pre>
+<p>Then bump the priority on the original entry. A recurring issue is higher priority than a one-off by definition.</p>
+<p>This is the step that most people skip and it's the most important one. The whole promotion system depends on knowing when a pattern is recurring versus novel. If you log the same mistake 5 times under 5 different IDs without linking them, the system thinks you have 5 separate problems. If you link them all, the system sees one compounding problem and flags it for promotion.</p>
+<h3>Step 5: Promote Recurring Lessons to Permanent Context</h3>
+<p>Here's where the system earns its keep. Once a learning has recurred 3 times, move it out of <code>.learnings/</code> and into your agent's actual system prompt.</p>
+<p>For Claude Code, that means <code>CLAUDE.md</code> at the project root.
+For OpenClaw, that means <code>SOUL.md</code> (behavior), <code>TOOLS.md</code> (tool usage), or <code>AGENTS.md</code> (workflows) in <code>~/.openclaw/workspace/</code>.
+For Copilot, that means <code>.github/copilot-instructions.md</code>.
+For Codex, that means <code>AGENTS.md</code> at the project root.</p>
+<p>The promoted version is short and declarative, not long and narrative. The raw learning might be 200 words describing the full incident. The promoted version is one sentence.</p>
+<p><strong>Raw learning</strong> (200 words, detailed):</p>
+<blockquote>
+<p>LRN-20260401-003: Agent kept using <code>npm install</code> in this project. Project uses pnpm workspaces. Lock file is <code>pnpm-lock.yaml</code>. Corrected 3 times by user. Root cause: agent defaults to npm when package.json exists without checking for lock files first.</p>
+</blockquote>
+<p><strong>Promoted to CLAUDE.md</strong> (1 sentence, declarative):</p>
+<pre><code class="language-markdown">## Build &amp; Dependencies
+- Package manager: pnpm (not npm). Always check for `pnpm-lock.yaml` before running install commands.
+</code></pre>
+<p>The learning entry gets marked <code>Status: promoted</code> and stops appearing in active review. It's now a permanent rule. The next time a fresh session fires up, <code>CLAUDE.md</code> loads with the new rule and the mistake cannot happen again.</p>
+<p>The promotion rule is: <strong>3 or more occurrences across at least 2 distinct tasks within a 30-day window</strong>. Fewer than that and the pattern might be coincidence. More than that and you're letting a systemic problem persist.</p>
+<h3>Step 6: Use Hooks to Automate the Reminders (Optional)</h3>
+<p>Manual logging is fine, but hooks make it much stickier. For Claude Code, create <code>.claude/settings.json</code>:</p>
+<pre><code class="language-json">{
+  &quot;hooks&quot;: {
+    &quot;UserPromptSubmit&quot;: [{
+      &quot;matcher&quot;: &quot;&quot;,
+      &quot;hooks&quot;: [{
+        &quot;type&quot;: &quot;command&quot;,
+        &quot;command&quot;: &quot;./skills/self-improvement/scripts/activator.sh&quot;
+      }]
+    }],
+    &quot;PostToolUse&quot;: [{
+      &quot;matcher&quot;: &quot;Bash&quot;,
+      &quot;hooks&quot;: [{
+        &quot;type&quot;: &quot;command&quot;,
+        &quot;command&quot;: &quot;./skills/self-improvement/scripts/error-detector.sh&quot;
+      }]
+    }]
+  }
+}
+</code></pre>
+<p>The <code>activator.sh</code> injects a short reminder into every prompt (&quot;consider whether this interaction contains a learning worth logging&quot;). The <code>error-detector.sh</code> watches bash tool calls for non-zero exit codes and pre-fills an error entry when one fires.</p>
+<p>The hook overhead is about 50-100 tokens per prompt. For a founder running 200 prompts a day, that's 10k-20k tokens of overhead. At Haiku pricing, that's a few cents a day. At Opus pricing, it's maybe a dollar a day. Cheap compared to the value of not making the same mistake twice.</p>
+<h3>Step 7: Set a Weekly Review Cadence</h3>
+<p>On Friday afternoon (or Monday morning, or whenever your week inflects), spend 15 minutes in <code>.learnings/</code>. The review has 4 steps:</p>
+<ol>
+<li>
+<p><strong>Count pending items.</strong> <code>grep -c &quot;Status.*pending&quot; .learnings/*.md</code>. If the number is climbing week over week, you're logging but not resolving. Fix that.</p>
+</li>
+<li>
+<p><strong>Promote high-priority recurrings.</strong> Any learning with 3+ recurrences gets distilled and moved to <code>CLAUDE.md</code> / <code>AGENTS.md</code> / wherever. Mark the original <code>Status: promoted</code>.</p>
+</li>
+<li>
+<p><strong>Resolve one-off fixes.</strong> Any entry where you made the fix and it worked gets <code>Status: resolved</code> with a brief note.</p>
+</li>
+<li>
+<p><strong>Kill stale entries.</strong> Any entry older than 90 days that hasn't recurred is probably obsolete. Mark <code>Status: wont_fix</code> and move on. Stale learnings are worse than missing ones because they add noise without adding signal.</p>
+</li>
+</ol>
+<p>15 minutes a week. That's the entire maintenance cost of a system that replaces hours of &quot;wait, didn't I tell you this already&quot; frustration per month.</p>
+<h2>Lanes That Work</h2>
+<p>This layer fits anyone who runs the same AI agent across more than a week.</p>
+<p><strong>Technical founders using Claude Code daily.</strong> You're the primary audience. You're already living in the terminal. You already have a <code>CLAUDE.md</code> file you barely maintain. Adding <code>.learnings/</code> takes an hour and compounds forever.</p>
+<p><strong>Solo operators running OpenClaw or Hermes.</strong> The workspace injection model is built for this. Your agent already reads <code>SOUL.md</code>, <code>TOOLS.md</code>, and <code>AGENTS.md</code> on every session. <code>.learnings/</code> is the place where new rules incubate before they earn a spot in those files.</p>
+<p><strong>Anyone who's tired of explaining the same convention 10 times.</strong> If you've thought &quot;I wish Claude would just remember that&quot; in the last week, this is the fix. You've been wishing for permanent memory. This is how you build it.</p>
+<p><strong>Teams sharing an agent across multiple developers.</strong> Check <code>.learnings/</code> into git. Every learning becomes shared knowledge. A new developer inheriting the repo also inherits every correction the previous developer gave the agent, automatically, without any handoff doc.</p>
+<p>What doesn't work: <strong>one-shot users.</strong> If you're only asking Claude a handful of things per month, the system is overhead with no return. You need enough interaction volume (50+ prompts per week minimum) before the compounding starts to matter. Below that threshold, you're logging into a vacuum.</p>
+<h2>What Changes After Setup</h2>
+<p>Week 1. You feel like you're adding paperwork. You log a few entries. Nothing feels different.</p>
+<p>Week 2. You notice you're typing the same correction you typed last week. You check <code>.learnings/</code>. It's in there. You mark the recurrence, bump the priority.</p>
+<p>Week 3. The first promotion happens. A learning that recurred 3 times this week gets distilled into a one-line rule in <code>CLAUDE.md</code>. You feel slightly smug.</p>
+<p>Week 4. A fresh Claude session starts with the promoted rule already loaded. It doesn't make the mistake. You were waiting to correct it and the correction never came. This is the moment the system earns its keep.</p>
+<p>Week 8. You look at <code>CLAUDE.md</code> and realize it's twice as long as it was at the start. Every new rule is a mistake that cannot happen anymore. The file is an artifact of your entire debugging history with the agent, distilled into declarative rules.</p>
+<p>Week 12. You bring up the system to a friend and they ask why their Claude doesn't remember their project conventions. You send them this playbook. They set it up. Two weeks later they message you: &quot;okay, this actually works.&quot;</p>
+<p>The daily cost after week 4 is about 15 minutes per week (the Friday review) plus the small hook overhead. The value is compounding and unbounded. Every week, your agent is slightly smarter than it was the week before, and the curve doesn't flatten because there are always new mistakes to catch.</p>
+<h2>Gotchas and Tips</h2>
+<p><strong>Log immediately, even imperfectly.</strong> The biggest failure mode is &quot;I'll write it up properly later.&quot; You won't. Scribble a rough entry in the moment. Clean it up during the weekly review. The cost of a messy entry is zero. The cost of a forgotten one is permanent.</p>
+<p><strong>Be specific about what went wrong.</strong> &quot;Agent made a mistake&quot; is useless. &quot;Agent used npm install in a pnpm workspace and broke the lockfile&quot; is actionable. The more concrete the entry, the more useful the eventual promotion.</p>
+<p><strong>Always write a suggested fix, not just a diagnosis.</strong> A learning without a fix is a complaint. A learning with a fix is a rule you can actually apply. Every entry should end with &quot;next time, do X instead.&quot;</p>
+<p><strong>Grep before logging.</strong> If the entry is similar to an existing one, link them. Don't create duplicate IDs for the same underlying issue. The whole promotion system depends on accurate recurrence counts.</p>
+<p><strong>Promote aggressively after 3 recurrences.</strong> Don't wait for 5, don't wait for 10. The pattern is clear at 3. Distill it, move it to <code>CLAUDE.md</code>, mark the original <code>promoted</code>. The longer you wait, the more tax you pay on the same mistake.</p>
+<p><strong>Keep promoted rules short.</strong> A 200-word learning distills to a 1-sentence rule. If your promoted rule is more than 2 sentences, you didn't distill enough. The point of promotion is that the rule becomes so concise the agent can't miss it.</p>
+<p><strong>Review weekly, not daily.</strong> Daily is too frequent (not enough has changed). Monthly is too rare (patterns get lost). Weekly hits the sweet spot. 15 minutes, Friday afternoon, before you shut down for the weekend.</p>
+<p><strong>Don't log corrections you made up.</strong> Some founders get into the habit of logging &quot;learnings&quot; that never actually came from a real failure. Don't. The whole system depends on the signal being real. Fake entries poison the promotion rules and waste context.</p>
+<p><strong>Share the <code>.learnings/</code> directory with your team if you have one.</strong> Git-checked, reviewable, inherited. Your agent's institutional knowledge becomes your team's institutional knowledge. The compounding gets bigger when more people contribute.</p>
+<p><strong>This works on top of any other layer in this issue.</strong> Cold email pipeline, content machine, command center, it doesn't matter. The self-improving layer sits above all of them and applies to all of them. If you build one of the other playbooks first, come back to this one and bolt it on. It's the highest-leverage thing you can add to any existing agent setup.</p>
+<hr>
+<h2>Keep Reading</h2>
+<ul>
+<li><strong><a href="/playbooks/claude-code-command-center/">One Claude Code Subscription. Five Agents. Zero New Frameworks.</a></strong>: The command center this layer bolts onto. Mark Kashef's 5-agent setup plus self-improvement is a complete personal AI stack.</li>
+<li><strong><a href="/playbooks/ai-second-brain-karpathy/">Give Your AI a Second Brain That Gets Smarter Every Day ($0/Month)</a></strong>: The knowledge-side complement. Self-improvement catches what goes wrong; the second brain stores what you learn.</li>
+<li><strong><a href="/playbooks/ai-real-time-assistant/">Your AI Remembers Everything So You Don't Have To</a></strong>: The memory-first pattern. If self-improvement is the correction layer, this is the retrieval layer.</li>
+</ul>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators · Powered by <a href="https://openclaw.com">OpenClaw</a></p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

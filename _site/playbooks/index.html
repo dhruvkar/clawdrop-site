@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Playbooks — ClawDrop</title>
+  <meta name="description" content="Step-by-step guides for building real automations with OpenClaw. Copy, tweak, deploy.">
+  <meta property="og:title" content="Playbooks — ClawDrop">
+  <meta property="og:description" content="Step-by-step guides for building real automations with OpenClaw. Copy, tweak, deploy.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Playbooks — ClawDrop">
+  <meta name="twitter:description" content="Step-by-step guides for building real automations with OpenClaw. Copy, tweak, deploy.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; }
+    .logo:hover { color: var(--ink); }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .page-header { padding: 64px 0 44px; text-align: center; }
+  .page-header-pre { font-size: 0.78rem; font-weight: 600; color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; }
+  .page-header h1 { font-family: 'Fraunces', serif; font-size: clamp(2.2rem, 5vw, 3rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.05; margin-bottom: 14px; color: var(--ink); }
+  .page-header h1 em { font-style: italic; color: var(--accent); font-weight: 500; }
+  .page-header p { font-size: 1.05rem; color: var(--ink-soft); max-width: 520px; margin: 0 auto; line-height: 1.6; }
+
+  .cards { display: grid; grid-template-columns: 1fr; gap: 14px; padding-bottom: 80px; max-width: 760px; margin: 0 auto; }
+  .card { display: block; padding: 24px 26px; border-radius: 14px; border: 1px solid var(--rule); background: var(--paper); text-decoration: none; color: inherit; transition: all 0.2s; }
+  .card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 12px 30px rgba(21, 36, 61, 0.07); }
+  .card-title { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-bottom: 6px; letter-spacing: -0.01em; color: var(--ink); line-height: 1.3; }
+  .card-desc { font-size: 0.92rem; color: var(--ink-soft); line-height: 1.6; margin-bottom: 14px; }
+  .card-meta { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+  .card-badge { font-size: 0.72rem; padding: 4px 10px; border-radius: 100px; background: var(--warm); color: var(--ink-soft); font-weight: 500; }
+  .card-date { font-size: 0.78rem; color: var(--ink-mute); }
+
+  .empty { text-align: center; padding: 60px 20px; border: 1px dashed var(--rule-strong); border-radius: 16px; background: var(--paper); color: var(--ink-mute); }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <div class="container-wide">
+    <div class="page-header">
+      <div class="page-header-pre">Playbooks</div>
+      <h1>What owners are <em>actually building</em></h1>
+      <p>Step-by-step playbooks from real operators using OpenClaw. Copy, tweak, deploy.</p>
+    </div>
+    <div class="cards">
+      
+      
+        
+        <a href="/playbooks/aios-wrap-your-business/" class="card">
+          <div class="card-title">6 Non-Technical Founders Wrapped Their Businesses in Claude Code in 8 Hours. Here&#39;s What They Built.</div>
+          <div class="card-desc">Liam Ottley&#39;s AIOS framework treats Claude Code as a wrapper around your existing business, not a coding tool. Six non-technical founders ran the methodology in a single day at a Cape Town mastermind and shipped real integrations: a Zoho invoice agent, a finance reconciliation pipeline, a competitor analysis machine, a content engine. Here&#39;s the playbook for any small business owner.</div>
+          <div class="card-meta">
+            <span class="card-date">May 5, 2026</span>
+            <span class="card-badge">Intermediate</span>
+            <span class="card-badge">$24/mo VPS optional. $20/mo Claude Code subscription. Or $5K productized via Liam&#39;s accelerator.</span>
+            <span class="card-badge">8 hours of focused work for v1. 3 weeks of layering for the full wrapper.</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/puppy-claude-stack/" class="card">
+          <div class="card-title">He Built a 5-Tool Claude Stack to Pick Out a Puppy. The Pattern Works for Anything New in Your Life.</div>
+          <div class="card-desc">A creator at Blazing Zebra walked through every surface of Claude (chat, Cowork, Code, Office, Chrome, Dispatch) using one running example: adopting a new puppy. Folder scaffolding, milestone tracker app, vaccine schedule Excel, Petfinder shortlist, trainer research from his phone, all in one afternoon. The puppy is the storyline. The methodology works for any new chapter in your life: new baby, new house, new business, new health challenge.</div>
+          <div class="card-meta">
+            <span class="card-date">May 5, 2026</span>
+            <span class="card-badge">Beginner</span>
+            <span class="card-badge">$20-100/month Claude subscription depending on tier</span>
+            <span class="card-badge">An afternoon for the full stack, an evening for any single piece</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/cua-driver/" class="card">
+          <div class="card-title">Your AI Can Now Run Your Mac in the Background. Without Stealing Your Mouse.</div>
+          <div class="card-desc">Cua Driver fixes the single biggest reason most people don&#39;t run AI agents on their daily-driver Mac. The agent can click, type, scroll, and read inside any macOS app in the background. Your cursor stays put. Your active app stays put. Your Space stays put. You keep working. The agent works. Same machine, no fight.</div>
+          <div class="card-meta">
+            <span class="card-date">May 4, 2026</span>
+            <span class="card-badge">Intermediate</span>
+            <span class="card-badge">Free (open source). $0 to install.</span>
+            <span class="card-badge">30 minutes to install, an afternoon to wire your first agent flow</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/custom-podcast-feed/" class="card">
+          <div class="card-title">His AI Builds Him a 30-Minute Podcast Every Morning. From the 50 Podcasts He&#39;ll Never Have Time to Listen To.</div>
+          <div class="card-desc">Ryan Eade was losing 45 minutes a morning to AI newsletters and a podcast queue he could never finish. So he built an OpenClaw agent that distills 50 podcasts and dozens of newsletters into a single 30-minute custom audio digest, every day, on a $24/month VPS. The whole thing rides on the ElevenLabs free tier. Here&#39;s the stack.</div>
+          <div class="card-meta">
+            <span class="card-date">May 4, 2026</span>
+            <span class="card-badge">Intermediate</span>
+            <span class="card-badge">$24/month VPS + $0 ElevenLabs free tier (or $5/mo for more audio)</span>
+            <span class="card-badge">A weekend to wire it, a week to tune the source list</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/vidpipe-content-pipeline/" class="card">
+          <div class="card-title">Record Your Screen Once. Your AI Cuts the Shorts, Writes the Captions, and Posts Everywhere.</div>
+          <div class="card-desc">htekdev built a three-piece content stack (VidPipe, VidRecord, VidSpec) that records his screen, edits the long-form video, cuts shorts, generates captions and thumbnails, and auto-posts to every social platform. The whole thing runs on a Terraform-provisioned OpenClaw sandbox. His content ideas live as GitHub Issues. The agent closes them when it ships the video.</div>
+          <div class="card-meta">
+            <span class="card-date">May 4, 2026</span>
+            <span class="card-badge">Needs a developer, but just once</span>
+            <span class="card-badge">$24/mo VPS + Late/Zeronia API ($30-50/mo) + ElevenLabs optional</span>
+            <span class="card-badge">A weekend for v1, two weekends for the full pipeline</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/andon-market-ai-store/" class="card">
+          <div class="card-title">An AI Just Opened a Real Retail Store in San Francisco. It Hired Two Humans.</div>
+          <div class="card-desc">Andon Labs leased a 3-year retail space in Cow Hollow and put an AI named Luna in charge. She has corporate cards, security cameras, and the authority to hire. She used it. Here&#39;s what an autonomous AI actually does when you hand it the keys to a storefront.</div>
+          <div class="card-meta">
+            <span class="card-date">April 28, 2026</span>
+            <span class="card-badge">Don&#39;t try this at home yet</span>
+            <span class="card-badge">Budget undisclosed; the individual playbook pieces cost $50-100/mo each</span>
+            <span class="card-badge">3 weeks from lease signing to grand opening</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/cpa-quickbooks-monthly-close/" class="card">
+          <div class="card-title">This Accountant Trained Her AI to Close the Books Every Month</div>
+          <div class="card-desc">A working CPA wired her AI agent into the QuickBooks Online API. Six weeks of training and her monthly close is now 90% one-shot. By the second pass, it catches errors her staff missed.</div>
+          <div class="card-meta">
+            <span class="card-date">April 28, 2026</span>
+            <span class="card-badge">Intermediate</span>
+            <span class="card-badge">~$50/mo (QBO subscription you already pay for plus agent API costs)</span>
+            <span class="card-badge">Six weeks of training to reach 90% accuracy. One weekend to wire up the API.</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/email-to-calendar/" class="card">
+          <div class="card-title">Never Copy a Date From an Email to Your Calendar Again</div>
+          <div class="card-desc">A 100-line OpenClaw skill that watches your inbox for hidden events (school newsletters, flight confirmations, meeting invites, doctor appointments) and drops them on your calendar automatically. Including the right attendees and reminders.</div>
+          <div class="card-meta">
+            <span class="card-date">April 28, 2026</span>
+            <span class="card-badge">Set it up in an afternoon</span>
+            <span class="card-badge">$0 if you already pay for Google Workspace; runs on top of any agent setup</span>
+            <span class="card-badge">30 minutes to install. A week of running before you stop noticing it&#39;s there.</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/g-bot-home-brain/" class="card">
+          <div class="card-title">He Gave His Home a Brain. 50 Days Later, His AI Wakes Him Up, Cleans His House, and Judges His Sleep.</div>
+          <div class="card-desc">G-Bot is a self-hosted OpenClaw assistant running on a Linux VM, talking to its owner only through Telegram. In 50 days it grew from a chatbot into a 23-service stack that runs his home, finances, health, and memory. Here&#39;s what&#39;s inside, what works, and what to steal.</div>
+          <div class="card-meta">
+            <span class="card-date">April 28, 2026</span>
+            <span class="card-badge">Advanced</span>
+            <span class="card-badge">$30-50/mo in AI tokens; everything else self-hosted on existing hardware</span>
+            <span class="card-badge">50 days as documented. A few focused weekends to reach 80% of the value.</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/life-insurance-2-minute-follow-up/" class="card">
+          <div class="card-title">His Life Insurance Agency Texts and Calls New Leads in 2 Minutes. Automatically.</div>
+          <div class="card-desc">How an insurance agent built an agent named Apollo that handles every step of follow-up: instant lead response, sequenced cadence, appointment reminders, no-show recovery, post-application updates. He focuses on closing. Apollo handles the rest.</div>
+          <div class="card-meta">
+            <span class="card-date">April 28, 2026</span>
+            <span class="card-badge">Intermediate</span>
+            <span class="card-badge">~$50/mo (Twilio + agent API costs; works on top of any CRM you already use)</span>
+            <span class="card-badge">A weekend to wire up the lead-flow and appointment-confirmation cadences. Two weeks to tune the messages.</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/agency-in-a-box/" class="card">
+          <div class="card-title">How One Operator Turned OpenClaw Into a Client-Ready Platform in Two Weeks</div>
+          <div class="card-desc">An agency owner spent two weeks packaging OpenClaw into a multi-tenant platform his clients could log into. Here&#39;s what broke, what he fixed, and the business model that makes this the move for agencies right now.</div>
+          <div class="card-meta">
+            <span class="card-date">April 21, 2026</span>
+            <span class="card-badge">Advanced</span>
+            <span class="card-badge">$80-200/month infrastructure. Clients pay $500-5,000/month.</span>
+            <span class="card-badge">Two weeks (the honest answer)</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/ai-budget-cap/" class="card">
+          <div class="card-title">He Spent $1,263 on AI in One Month. Then He Capped It.</div>
+          <div class="card-desc">A consultant&#39;s AI bill hit $1,263 in a single month. Here&#39;s the pattern that capped spend per task and per day, kept the best models, and stopped the credit card surprises.</div>
+          <div class="card-meta">
+            <span class="card-date">April 21, 2026</span>
+            <span class="card-badge">Intermediate</span>
+            <span class="card-badge">Free cap layer. Saves 30-70% on your current AI spend.</span>
+            <span class="card-badge">An afternoon for caps, a weekend for full routing</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/inbox-triage-agent/" class="card">
+          <div class="card-title">He Let an AI Triage 180 Emails a Day. Here&#39;s the Stack.</div>
+          <div class="card-desc">A real operator runs 180 emails a day through an AI triage agent. We show the setup, the tone doc, the rules, and the A/B numbers from switching models. Stop losing your morning to email.</div>
+          <div class="card-meta">
+            <span class="card-date">April 21, 2026</span>
+            <span class="card-badge">Intermediate</span>
+            <span class="card-badge">$25-60/month</span>
+            <span class="card-badge">A weekend to build, a week to tune</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/linkedin-outreach-while-you-sleep/" class="card">
+          <div class="card-title">100 Personalized LinkedIn DMs. Sent Overnight. Zero Copy-Paste.</div>
+          <div class="card-desc">The playbook for running LinkedIn outreach through an AI agent. Personalized messages at human pace, sent from your own account. For founders and service-business owners who know outreach works but can&#39;t find the hours.</div>
+          <div class="card-meta">
+            <span class="card-date">April 21, 2026</span>
+            <span class="card-badge">Intermediate</span>
+            <span class="card-badge">$30-80/month</span>
+            <span class="card-badge">A weekend to build, a week to tune</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/qsr-shift-coach/" class="card">
+          <div class="card-title">The Restaurant GM Who Built AI Coaches for Every Shift</div>
+          <div class="card-desc">A working GM wired OpenClaw into his QSR operation. Shifts stopped losing context overnight, the pre-rush briefing writes itself, labor leaks get caught the same day. The pattern works for any shift-based business.</div>
+          <div class="card-meta">
+            <span class="card-date">April 21, 2026</span>
+            <span class="card-badge">Intermediate</span>
+            <span class="card-badge">$20-40/month</span>
+            <span class="card-badge">A weekend to build, another to tune</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/claude-code-command-center/" class="card">
+          <div class="card-title">One Claude Code Subscription. Five Agents. Zero New Frameworks.</div>
+          <div class="card-desc">How one founder built a voice-controlled AI command center with 5 specialized agents and self-managing memory, using only his existing Claude Code plan.</div>
+          <div class="card-meta">
+            <span class="card-date">April 14, 2026</span>
+            <span class="card-badge">Advanced</span>
+            <span class="card-badge">$20/month (existing Claude Code subscription)</span>
+            <span class="card-badge">A weekend to replicate, ongoing to extend</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/cold-email-infrastructure/" class="card">
+          <div class="card-title">Your Cold Email Infrastructure Is Why Nobody Replies (Not Your Copy)</div>
+          <div class="card-desc">The domains, mailboxes, DNS, and warmup rules that keep your sender reputation alive. The infrastructure piece nobody writes about but everyone needs.</div>
+          <div class="card-meta">
+            <span class="card-date">April 14, 2026</span>
+            <span class="card-badge">Intermediate</span>
+            <span class="card-badge">$100-300/month (Maildoso or InboxKit + domains)</span>
+            <span class="card-badge">An afternoon to set up, 14+ days to warm up before sending</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/cold-email-list-pipeline/" class="card">
+          <div class="card-title">Stop Buying Cold Email Lists. Build One That Actually Books Meetings.</div>
+          <div class="card-desc">The 7-step pipeline for building a verified, qualified cold email list that books meetings instead of bouncing your domain. From ICP to sequencer-ready CSV.</div>
+          <div class="card-meta">
+            <span class="card-date">April 14, 2026</span>
+            <span class="card-badge">Intermediate</span>
+            <span class="card-badge">$80-300/month (tools + verification)</span>
+            <span class="card-badge">A weekend for the first list, 2-3 hours per week after</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/daily-content-machine/" class="card">
+          <div class="card-title">Post on X and LinkedIn Every Day Without Being a &#39;Content Person&#39;</div>
+          <div class="card-desc">An hourly AI drafting system that turns your real work into social posts. Agent generates 3 drafts, you pick one, ship. No content calendar, no burnout.</div>
+          <div class="card-meta">
+            <span class="card-date">April 14, 2026</span>
+            <span class="card-badge">Intermediate</span>
+            <span class="card-badge">$10-30/month (Typefully + API costs)</span>
+            <span class="card-badge">A Saturday afternoon</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/self-improving-agent/" class="card">
+          <div class="card-title">Teach Your AI to Stop Making the Same Mistake Twice</div>
+          <div class="card-desc">The layer that catches AI mistakes, writes them down, and promotes the lessons into permanent context. Your agent gets smarter every week, not dumber.</div>
+          <div class="card-meta">
+            <span class="card-date">April 14, 2026</span>
+            <span class="card-badge">Intermediate</span>
+            <span class="card-badge">$0 (works on top of any existing agent setup)</span>
+            <span class="card-badge">An hour to wire up, weeks to see the compounding</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/ai-second-brain-karpathy/" class="card">
+          <div class="card-title">Give Your AI a Second Brain That Gets Smarter Every Day ($0/Month)</div>
+          <div class="card-desc">Build a personal knowledge base using Karpathy&#39;s LLM wiki method. Markdown files + Obsidian + Claude Code. Your AI remembers everything you&#39;ve ever read, saved, or learned. Zero cost, 10 minutes to set up.</div>
+          <div class="card-meta">
+            <span class="card-date">April 7, 2026</span>
+            <span class="card-badge">Beginner</span>
+            <span class="card-badge">$0/month</span>
+            <span class="card-badge">10-15 minutes</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/ga4-analytics-autopilot/" class="card">
+          <div class="card-title">Your Google Analytics Is Lying to You. This AI Catches It Before You Make Bad Decisions.</div>
+          <div class="card-desc">Three AI automations for GA4: audit your messy event taxonomy, detect traffic anomalies before they hit your reports, and monitor data freshness so you never make decisions on incomplete numbers. Built for agencies and business owners who rely on analytics but don&#39;t have time to babysit them.</div>
+          <div class="card-meta">
+            <span class="card-date">April 7, 2026</span>
+            <span class="card-badge">Beginner</span>
+            <span class="card-badge">$0-20/month</span>
+            <span class="card-badge">30-60 minutes</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/hvac-estimate-autopilot/" class="card">
+          <div class="card-title">This HVAC Guy Spent Friday Night Setting Up AI. Now His Estimates Write Themselves.</div>
+          <div class="card-desc">How a non-developer HVAC sales rep connected AI to his estimating software and email. Draft estimates assembled automatically, repetitive quote questions answered on autopilot. Works for any trade or field service business with repetitive paperwork.</div>
+          <div class="card-meta">
+            <span class="card-date">April 7, 2026</span>
+            <span class="card-badge">Beginner</span>
+            <span class="card-badge">$5-15/month (VPS hosting)</span>
+            <span class="card-badge">One evening</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/trade-like-a-politician/" class="card">
+          <div class="card-title">Your AI Now Trades Like a Congressman (And It&#39;s Beating the S&amp;P 500)</div>
+          <div class="card-desc">Build an AI trading bot that monitors congressional stock disclosures and automatically copies the best-performing politicians&#39; trades. Uses Capitol Trades data, Alpaca brokerage, and Claude. Paper trade first, go live when ready.</div>
+          <div class="card-meta">
+            <span class="card-date">April 7, 2026</span>
+            <span class="card-badge">Intermediate</span>
+            <span class="card-badge">$0 to paper trade, $20-50/month live</span>
+            <span class="card-badge">1-2 hours</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/ai-life-os/" class="card">
+          <div class="card-title">Build an AI Life OS That Knows Your Entire Day (Before You Do)</div>
+          <div class="card-desc">Connect your calendar, notes, time tracking, and habits to one AI agent. Get automated morning briefings, daily retrospectives, and content ideas pulled from your own life data. 20 minutes a day, everything else runs itself.</div>
+          <div class="card-meta">
+            <span class="card-date">April 7, 2026</span>
+            <span class="card-badge">Intermediate</span>
+            <span class="card-badge">$5-20/month (API costs)</span>
+            <span class="card-badge">1-2 weeks (gradual rollout)</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/ai-marketing-team/" class="card">
+          <div class="card-title">Build a 7-Agent Marketing Team That Runs While You Sleep</div>
+          <div class="card-desc">A solo founder replaced his entire marketing workflow with 7 AI agents. Research, writing, social media, engagement. 20 minutes a day to review. The same pattern works for any business with repeatable tasks.</div>
+          <div class="card-meta">
+            <span class="card-date">March 31, 2026</span>
+            <span class="card-badge">Beginner-Intermediate</span>
+            <span class="card-badge">~$20/month (API costs)</span>
+            <span class="card-badge">1-2 hours (start with 2 agents, expand over time)</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/grocery-autopilot/" class="card">
+          <div class="card-title">Automate Grocery Shopping With a Photo of a Recipe</div>
+          <div class="card-desc">Snap a photo of a recipe. Your AI agent extracts the ingredients, maps them to your grocery store, adds everything to your online cart, and books a delivery slot. Dinner planned in under 5 minutes.</div>
+          <div class="card-meta">
+            <span class="card-date">March 31, 2026</span>
+            <span class="card-badge">Intermediate</span>
+            <span class="card-badge">$5-15/month (API costs only)</span>
+            <span class="card-badge">2-3 hours</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/newsletter-growth-machine/" class="card">
+          <div class="card-title">Grow a Newsletter With AI Agents Across 4 Social Channels</div>
+          <div class="card-desc">Use AI agents to post on X, LinkedIn, Facebook groups, and Reddit every day. Not spam. Genuine engagement that drives newsletter subscribers while you focus on writing.</div>
+          <div class="card-meta">
+            <span class="card-date">March 31, 2026</span>
+            <span class="card-badge">Intermediate</span>
+            <span class="card-badge">$20-50/month (API costs + optional scheduling tools)</span>
+            <span class="card-badge">4-6 hours across a weekend</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/one-person-agency/" class="card">
+          <div class="card-title">The One-Person Agency: Charge Agency Rates as a Solo Operator</div>
+          <div class="card-desc">Use an AI agent to handle 80% of production work while you handle client relationships and quality control. Web design, copywriting, SEO, social media management. One person, agency output, agency pricing.</div>
+          <div class="card-meta">
+            <span class="card-date">March 31, 2026</span>
+            <span class="card-badge">Intermediate</span>
+            <span class="card-badge">$20-50/month (AI API costs)</span>
+            <span class="card-badge">3-5 hours</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/real-estate-deal-hunter/" class="card">
+          <div class="card-title">Build an AI Agent That Finds Real Estate Deals Before Anyone Else</div>
+          <div class="card-desc">An AI agent that scans public records for distressed properties, calculates equity, and builds a clean lead pipeline. Replaces hours of manual searching with overnight automation.</div>
+          <div class="card-meta">
+            <span class="card-date">March 31, 2026</span>
+            <span class="card-badge">Intermediate</span>
+            <span class="card-badge">$20-40/month (API costs + data access)</span>
+            <span class="card-badge">A weekend to get the basics running</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/ai-content-factory/" class="card">
+          <div class="card-title">This AI Content Factory Writes, Researches, and Designs While You Sleep</div>
+          <div class="card-desc">A multi-agent system where one AI researches trending topics, another writes scripts and posts, and a third generates thumbnails. Every morning at 8am, your content pipeline delivers fresh, ready-to-publish work.</div>
+          <div class="card-meta">
+            <span class="card-date">March 24, 2026</span>
+            <span class="card-badge">Beginner</span>
+            <span class="card-badge">$10-200/month (depending on model choice)</span>
+            <span class="card-badge">30-60 minutes</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/ai-market-research-bot/" class="card">
+          <div class="card-title">Find Your Next Product Idea in 15 Seconds by Scanning Reddit and X</div>
+          <div class="card-desc">Install one skill, type one sentence, and your AI scans 30 days of Reddit, X, and the web for what people are complaining about, what they wish existed, and where competitors are falling short.</div>
+          <div class="card-meta">
+            <span class="card-date">March 24, 2026</span>
+            <span class="card-badge">Beginner</span>
+            <span class="card-badge">$0-10/month (free web-only mode available)</span>
+            <span class="card-badge">5 minutes</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/ai-postcard-lead-gen/" class="card">
+          <div class="card-title">How One AI Prompt Landed 6 Paying Clients in a Week</div>
+          <div class="card-desc">An AI agent scraped 350 local businesses, built each one a custom website, mailed physical postcards with QR codes, and closed 6 monthly clients. Total AI cost: $7.</div>
+          <div class="card-meta">
+            <span class="card-date">March 24, 2026</span>
+            <span class="card-badge">Intermediate</span>
+            <span class="card-badge">~$350 total ($7 AI tokens + ~$300 postcards)</span>
+            <span class="card-badge">1-2 hours (first time), 10 minutes after that</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/ai-real-time-assistant/" class="card">
+          <div class="card-title">Turn Your AI Into a Real-Time Assistant That Listens, Remembers, and Acts for $50</div>
+          <div class="card-desc">A $50 wearable captures every conversation, meeting, and idea in real time. Your OpenClaw agent turns it into tasks, follow-ups, searchable memory, and daily briefs without you touching your phone.</div>
+          <div class="card-meta">
+            <span class="card-date">March 24, 2026</span>
+            <span class="card-badge">Beginner</span>
+            <span class="card-badge">$50 one-time (Bee Pioneer) + $5-50/month (AI model)</span>
+            <span class="card-badge">30-60 minutes</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/ai-second-brain/" class="card">
+          <div class="card-title">Your AI Remembers Everything So You Don&#39;t Have To</div>
+          <div class="card-desc">Text your AI anything worth remembering. A book recommendation, a business idea, a meeting note. It stores everything and builds you a searchable second brain you can query from anywhere.</div>
+          <div class="card-meta">
+            <span class="card-date">March 24, 2026</span>
+            <span class="card-badge">Beginner</span>
+            <span class="card-badge">$5-50/month (depending on model choice)</span>
+            <span class="card-badge">15-30 minutes</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/amazon-merch-automation/" class="card">
+          <div class="card-title">Automate Your Entire Amazon Merch Upload Pipeline</div>
+          <div class="card-desc">Drop a design into a folder and walk away. Your AI agent removes the background, upscales it, repositions it to Amazon&#39;s specs, generates validated keywords, and uploads the listing. From image to live product in minutes.</div>
+          <div class="card-meta">
+            <span class="card-date">March 17, 2026</span>
+            <span class="card-badge">Intermediate</span>
+            <span class="card-badge">$5-20/month (image processing APIs)</span>
+            <span class="card-badge">4-6 hours (first time teaching the agent)</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/meta-ads-pipeline/" class="card">
+          <div class="card-title">Research Your Competitors&#39; Ads and Launch Your Own Campaign on Meta</div>
+          <div class="card-desc">Four AI agents analyze competitor ads from the Meta Ad Library, plan a campaign based on your brand, create all the assets, and publish everything to your Meta Ads account. Full pipeline from research to live campaigns in draft.</div>
+          <div class="card-meta">
+            <span class="card-date">March 17, 2026</span>
+            <span class="card-badge">Intermediate</span>
+            <span class="card-badge">$20-30 per full run (API costs)</span>
+            <span class="card-badge">2-3 hours</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/nex-crm/" class="card">
+          <div class="card-title">Replace Your CRM With a Conversation</div>
+          <div class="card-desc">Install one skill and your AI agent becomes your CRM. Contacts, deals, follow-ups, notes. All managed through chat. No dashboards to learn, no data entry, no $50/month subscription.</div>
+          <div class="card-meta">
+            <span class="card-date">March 17, 2026</span>
+            <span class="card-badge">Beginner</span>
+            <span class="card-badge">Free (open source)</span>
+            <span class="card-badge">15-30 minutes</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/oracle-free-tier/" class="card">
+          <div class="card-title">Run Your AI Assistant 24/7 for $0/Month</div>
+          <div class="card-desc">Set up an always-on AI agent on Oracle Cloud&#39;s free tier. 4 CPU cores, 24GB RAM, 200GB storage. No credit card charges, no trial period, no surprise bills. Ever.</div>
+          <div class="card-meta">
+            <span class="card-date">March 17, 2026</span>
+            <span class="card-badge">Beginner</span>
+            <span class="card-badge">$0/month (forever)</span>
+            <span class="card-badge">30-45 minutes</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/browser-automation-machine/" class="card">
+          <div class="card-title">Turn Any Windows PC Into a Web Automation Machine</div>
+          <div class="card-desc">Set up parallel browser automation on a spare PC. Your agent controls 4+ Chrome instances at once, each logged into different accounts. No code, no Selenium, no proxies.</div>
+          <div class="card-meta">
+            <span class="card-date">March 15, 2026</span>
+            <span class="card-badge">Beginner</span>
+            <span class="card-badge">$0 (uses existing hardware)</span>
+            <span class="card-badge">30-60 minutes</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/ai-cold-call-coach/" class="card">
+          <div class="card-title">AI Whispers What to Say During Your Cold Calls in Real Time</div>
+          <div class="card-desc">An AI listens to your live sales calls and gives you real-time coaching on what to say next based on how the conversation is going.</div>
+          <div class="card-meta">
+            <span class="card-date">March 9, 2026</span>
+            <span class="card-badge">Intermediate</span>
+            <span class="card-badge">$20-40/month (transcription + API)</span>
+            <span class="card-badge">3-5 hours</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/ai-espresso-phone-agent/" class="card">
+          <div class="card-title">Your AI Makes Your Coffee, Orders Your Lunch, and Answers Your Phone</div>
+          <div class="card-desc">Physical world automation is here. One builder connected OpenClaw to an espresso machine, food ordering, and a phone agent that talks to callers and relays to your AI.</div>
+          <div class="card-meta">
+            <span class="card-date">March 9, 2026</span>
+            <span class="card-badge">Intermediate</span>
+            <span class="card-badge">$15-40/month (Vapi + API costs)</span>
+            <span class="card-badge">4-6 hours</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/ai-lead-gen-pipeline/" class="card">
+          <div class="card-title">AI Finds Leads, Builds Demo Sites, and Cold Calls Them For You</div>
+          <div class="card-desc">One agency owner built a full lead gen pipeline: find prospects, research them, build custom demo sites, deploy them, create video walkthroughs, and reach out via text and phone. All automated.</div>
+          <div class="card-meta">
+            <span class="card-date">March 9, 2026</span>
+            <span class="card-badge">Advanced</span>
+            <span class="card-badge">$50-100/month (hosting + API + phone)</span>
+            <span class="card-badge">1-2 weeks</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/autonomous-live-trading/" class="card">
+          <div class="card-title">This AI Trades Stocks on a Live Account While You Sleep</div>
+          <div class="card-desc">An OpenClaw agent monitors markets and executes trades autonomously using heartbeats. One builder is running it on a real account right now.</div>
+          <div class="card-meta">
+            <span class="card-date">March 9, 2026</span>
+            <span class="card-badge">Advanced</span>
+            <span class="card-badge">$20-50/month (API costs)</span>
+            <span class="card-badge">1-2 days</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/whatsapp-voice-knowledge-base/" class="card">
+          <div class="card-title">Turn 1,000 WhatsApp Voice Messages Into a Searchable Knowledge Base</div>
+          <div class="card-desc">Your team&#39;s best ideas are buried in voice messages. This system transcribes them, cross-references with project history, and builds a searchable archive of everything your team has ever discussed.</div>
+          <div class="card-meta">
+            <span class="card-date">March 9, 2026</span>
+            <span class="card-badge">Intermediate</span>
+            <span class="card-badge">$10-30/month (transcription API)</span>
+            <span class="card-badge">3-5 hours</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/ai-job-search/" class="card">
+          <div class="card-title">Build an AI Job Search Agent That Applies While You Sleep</div>
+          <div class="card-desc">A developer doubled his salary in 3 days by letting his AI agent apply to 100+ jobs. Here&#39;s how to build the same system.</div>
+          <div class="card-meta">
+            <span class="card-date">March 2, 2026</span>
+            <span class="card-badge">Intermediate</span>
+            <span class="card-badge">$20-40/month (API + optional tools)</span>
+            <span class="card-badge">2-3 hours</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/felix-bot/" class="card">
+          <div class="card-title">Build an Autonomous Business Bot (The Felix Method)</div>
+          <div class="card-desc">Give your AI agent $1,000 and a goal. Nat Eliason&#39;s bot made $14,718 in 3 weeks. Here&#39;s the exact 3-layer memory system and setup.</div>
+          <div class="card-meta">
+            <span class="card-date">March 2, 2026</span>
+            <span class="card-badge">Advanced</span>
+            <span class="card-badge">$20-50/month (API costs)</span>
+            <span class="card-badge">2-3 hours</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/four-agent-team/" class="card">
+          <div class="card-title">Set Up a 4-Agent Business Team on a Mac Mini</div>
+          <div class="card-desc">One solopreneur runs customer support, content, research, and ops with 4 AI agents on a $600 Mac Mini. Here&#39;s the architecture.</div>
+          <div class="card-meta">
+            <span class="card-date">March 2, 2026</span>
+            <span class="card-badge">Intermediate</span>
+            <span class="card-badge">$20-60/month (API costs)</span>
+            <span class="card-badge">3-4 hours</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/multi-model-routing/" class="card">
+          <div class="card-title">Cut Your AI Agent Costs by 97% with Multi-Model Routing</div>
+          <div class="card-desc">One user dropped from $90/month to $6 by routing tasks to the right model. Here&#39;s the exact setup.</div>
+          <div class="card-meta">
+            <span class="card-date">March 2, 2026</span>
+            <span class="card-badge">Beginner</span>
+            <span class="card-badge">$6-15/month (down from $60-90)</span>
+            <span class="card-badge">30 minutes</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/replace-saas-stack/" class="card">
+          <div class="card-title">Replace Your SaaS Stack With One AI Agent</div>
+          <div class="card-desc">One founder cut $500/month in SaaS fees to zero using a single OpenClaw agent on a Mac Mini. Here&#39;s how to replicate it.</div>
+          <div class="card-meta">
+            <span class="card-date">March 2, 2026</span>
+            <span class="card-badge">Intermediate</span>
+            <span class="card-badge">$0-20/month (API costs only)</span>
+            <span class="card-badge">4-6 hours</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/ai-insurance-dispute/" class="card">
+          <div class="card-title">AI Wins Your Insurance Dispute</div>
+          <div class="card-desc">Your AI drafts the appeal, cites the right policy sections, and gets a rejected claim overturned. No lawyer needed.</div>
+          <div class="card-meta">
+            <span class="card-date">February 23, 2026</span>
+            <span class="card-badge">Beginner</span>
+            <span class="card-badge">Free</span>
+            <span class="card-badge">30 min</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/ai-sponsorship-negotiator/" class="card">
+          <div class="card-title">AI Negotiates Sponsorship Deals for You</div>
+          <div class="card-desc">Your AI handles sponsor outreach, rate card discussions, and deal negotiation via email so you can focus on creating content.</div>
+          <div class="card-meta">
+            <span class="card-date">February 23, 2026</span>
+            <span class="card-badge">Intermediate</span>
+            <span class="card-badge">Free</span>
+            <span class="card-badge">45 min</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/five-day-automation-sprint/" class="card">
+          <div class="card-title">The 5-Day Automation Sprint: $22K Found in Tax Deductions</div>
+          <div class="card-desc">Give your AI full access to your digital life for 5 days. It found $22K in missed tax deductions, built a content pipeline, and sent daily love notes to his wife.</div>
+          <div class="card-meta">
+            <span class="card-date">February 23, 2026</span>
+            <span class="card-badge">Intermediate</span>
+            <span class="card-badge">Free</span>
+            <span class="card-badge">1 day (setup), 4 days (let it run)</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/founder-runs-business-on-ai/" class="card">
+          <div class="card-title">Run Your Business on AI (While Living Your Life)</div>
+          <div class="card-desc">Jesse Genet runs her company on OpenClaw from a Mac Mini. Amazon orders, printing, procurement, all automated while she homeschools 4 kids.</div>
+          <div class="card-meta">
+            <span class="card-date">February 23, 2026</span>
+            <span class="card-badge">Intermediate</span>
+            <span class="card-badge">$10-50/month (API costs)</span>
+            <span class="card-badge">1-2 days (gradual)</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/ai-car-negotiation/" class="card">
+          <div class="card-title">AI Negotiates Your Car Purchase, Saves $4,200</div>
+          <div class="card-desc">Your AI handles the back-and-forth with dealerships via email, knows market value, and closes a better deal than you would.</div>
+          <div class="card-meta">
+            <span class="card-date">February 16, 2026</span>
+            <span class="card-badge">Beginner</span>
+            <span class="card-badge">Free</span>
+            <span class="card-badge">20 min</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/ai-grocery-shopping/" class="card">
+          <div class="card-title">AI Grocery Shopping with a Virtual Credit Card</div>
+          <div class="card-desc">Your AI orders groceries online using a virtual card, handles substitutions, and keeps your fridge stocked without you lifting a finger.</div>
+          <div class="card-meta">
+            <span class="card-date">February 16, 2026</span>
+            <span class="card-badge">Beginner</span>
+            <span class="card-badge">Free (+ groceries)</span>
+            <span class="card-badge">30 min</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/autonomous-token-launch/" class="card">
+          <div class="card-title">AI Launches a Token Autonomously</div>
+          <div class="card-desc">The Asymmetrix team gave their AI agent full autonomy to create and launch a crypto token. It did everything: branding, smart contract, liquidity, and marketing.</div>
+          <div class="card-meta">
+            <span class="card-date">February 16, 2026</span>
+            <span class="card-badge">Advanced</span>
+            <span class="card-badge">$50-500 (gas + liquidity)</span>
+            <span class="card-badge">2-3 hours</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/bot-to-bot-commerce/" class="card">
+          <div class="card-title">Bot-to-Bot Commerce: AIs Negotiating with AIs</div>
+          <div class="card-desc">Multiple AI agents coordinating, negotiating, and transacting with each other in a shared environment. The future of automated business operations.</div>
+          <div class="card-meta">
+            <span class="card-date">February 16, 2026</span>
+            <span class="card-badge">Advanced</span>
+            <span class="card-badge">Free</span>
+            <span class="card-badge">2+ hours</span>
+          </div>
+        </a>
+        
+        <a href="/playbooks/polymarket-trading-bot/" class="card">
+          <div class="card-title">Build a Polymarket Trading Bot</div>
+          <div class="card-desc">An AI that monitors prediction markets, analyzes events, and executes trades based on your strategy while you focus on your day job.</div>
+          <div class="card-meta">
+            <span class="card-date">February 16, 2026</span>
+            <span class="card-badge">Intermediate</span>
+            <span class="card-badge">Free (+ trading capital)</span>
+            <span class="card-badge">1-2 hours</span>
+          </div>
+        </a>
+        
+      
+    </div>
+  </div>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators · Powered by <a href="https://openclaw.com">OpenClaw</a></p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

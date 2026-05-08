@@ -76,7 +76,7 @@ A Raspberry Pi 5 (8GB) costs around $80 and runs OpenClaw comfortably. It sits o
 
 **Cons:** Slower than a VPS for heavy AI workloads. No browser automation unless you connect a display.
 
-Plenty of people in the community run OpenClaw on a Pi as their always-on assistant. It works well for messaging, scheduling, email triage, and other lightweight tasks. See our blueprint on [building a home AI hub](/blueprints/whatsapp-voice-knowledge-base/) for an example.
+Plenty of people in the community run OpenClaw on a Pi as their always-on assistant. It works well for messaging, scheduling, email triage, and other lightweight tasks. See our playbook on [building a home AI hub](/playbooks/whatsapp-voice-knowledge-base/) for an example.
 
 ## Part 2: AI Model Costs (The Big Variable)
 
@@ -174,9 +174,9 @@ Compare OpenClaw's cost to what it replaces:
 
 The people who get the most value are those who use OpenClaw to **replace multiple tools** or **automate repetitive work**. If it saves you 30 minutes a day on email, calendar, and research tasks, that's 15 hours a month. At any reasonable hourly rate, $25-60/month is a no-brainer.
 
-See our blueprint on [the 5-Day Automation Sprint](/blueprints/five-day-automation-sprint/) where one user found $22,000 in missed tax deductions by letting OpenClaw analyze their finances. That's a pretty good ROI on a $25/month tool.
+See our playbook on [the 5-Day Automation Sprint](/playbooks/five-day-automation-sprint/) where one user found $22,000 in missed tax deductions by letting OpenClaw analyze their finances. That's a pretty good ROI on a $25/month tool.
 
-Or check out [how one founder runs her entire business on OpenClaw](/blueprints/founder-runs-business-on-ai/) from a Mac Mini while homeschooling four kids.
+Or check out [how one founder runs her entire business on OpenClaw](/playbooks/founder-runs-business-on-ai/) from a Mac Mini while homeschooling four kids.
 
 ## Frequently Asked Questions
 

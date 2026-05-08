@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The One-Person Agency: Charge Agency Rates as a Solo Operator — ClawDrop</title>
+  <meta name="description" content="Use an AI agent to handle 80% of production work while you handle client relationships and quality control. Web design, copywriting, SEO, social media management. One person, agency output, agency pricing.">
+  <meta property="og:title" content="The One-Person Agency: Charge Agency Rates as a Solo Operator — ClawDrop">
+  <meta property="og:description" content="Use an AI agent to handle 80% of production work while you handle client relationships and quality control. Web design, copywriting, SEO, social media management. One person, agency output, agency pricing.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/one-person-agency/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="The One-Person Agency: Charge Agency Rates as a Solo Operator — ClawDrop">
+  <meta name="twitter:description" content="Use an AI agent to handle 80% of production work while you handle client relationships and quality control. Web design, copywriting, SEO, social media management. One person, agency output, agency pricing.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/one-person-agency/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; }
+    .logo:hover { color: var(--ink); }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 280px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">March 31, 2026</div>
+    <h1>The One-Person Agency: Charge Agency Rates as a Solo Operator</h1>
+    <p class="post-description">Use an AI agent to handle 80% of production work while you handle client relationships and quality control. Web design, copywriting, SEO, social media management. One person, agency output, agency pricing.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Intermediate</strong></span>
+      <span class="meta-badge">💰 <strong>$20-50/month (AI API costs)</strong></span>
+      <span class="meta-badge">⏱ <strong>3-5 hours</strong></span>
+      <span class="meta-badge">👤 <strong>CreatorKore</strong></span>
+      <a href="https://www.youtube.com/watch?v=kwjLYoOwxUo" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-claude"><strong>Claude</strong></a>: the AI agent producing first drafts of deliverables</li>
+<li><a href="#aff-telegram"><strong>Telegram</strong></a>: chat interface for sending briefs to your agent from anywhere</li>
+<li><a href="#aff-anthropic"><strong>Anthropic</strong></a>: model API powering the production agent</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>A setup where you run a client services business by yourself but deliver at the speed and volume of a small team. You take the client call. You send the brief to your AI agent. The agent produces the deliverable. You review, refine, and ship. The client pays agency rates because they're getting agency-quality work. They never need to know your &quot;team&quot; runs on a single machine.</p>
+<p>This works for web design, copywriting, SEO content, social media management, pitch decks, email marketing, and basically any service where the deliverable is a digital asset.</p>
+<p>The original inspiration comes from a creator who built a web design agent that handles $5,000 projects through Telegram. But the pattern underneath is much bigger than web design. It's a playbook for turning any freelance skill into an agency-scale operation without hiring anyone.</p>
+<h2>Why This Works</h2>
+<p>Freelancers have a math problem. You sell your time, and there's a hard ceiling on how many hours exist in a day. The typical freelancer caps out at $5-10K/month because they physically can't take on more work.</p>
+<p>Agencies solve this by hiring. But hiring creates its own problems: payroll, management, quality control, office space, HR. Most freelancers who try to scale into an agency either burn out managing people or go broke paying salaries before revenue catches up.</p>
+<p>An AI agent breaks this trade-off. The production work that used to require a junior designer, a copywriter, or a dev can now be handled by an agent that costs $20-50/month in API fees. You keep your overhead near zero while multiplying your output by 3-5x.</p>
+<p>The key insight: you're not replacing yourself. You're replacing the team you'd need to hire. You still handle the parts that require judgment, taste, and client relationships. The agent handles the parts that require effort and hours.</p>
+<p>Here's what the economics look like:</p>
+<p><strong>Solo freelancer (before)</strong></p>
+<ul>
+<li>3 clients/month at $2,000 = $6,000/month</li>
+<li>40+ hours of production per client</li>
+<li>Always at capacity, turning down work</li>
+</ul>
+<p><strong>One-person agency (after)</strong></p>
+<ul>
+<li>8-10 clients/month at $2,500-5,000</li>
+<li>5-8 hours per client (review, refine, client calls)</li>
+<li>Agent handles 30+ hours of production work per client</li>
+<li>Revenue: $20,000-50,000/month with the same number of working hours</li>
+</ul>
+<p>That's not a fantasy number. It's what happens when production time drops from 40 hours to 5, and you fill the freed-up hours with more clients.</p>
+<h2>The Pattern</h2>
+<p>Every service business follows the same workflow. The agent slots into the middle.</p>
+<pre><code>CLIENT BRIEF
+    |
+    v
+YOU: Scope the project, ask smart questions
+    |
+    v
+AGENT: Produce the first draft (80% of work)
+    |
+    v
+YOU: Review, refine, add taste (20% of work)
+    |
+    v
+CLIENT: Feedback round
+    |
+    v
+AGENT: Implement revisions
+    |
+    v
+YOU: Final QA, deliver
+</code></pre>
+<p>The agent handles the grunt work. You handle the thinking work. The client gets a better result faster because the feedback loop tightened from days to hours.</p>
+<h2>Service Types That Work</h2>
+<h3>Web Design ($2,000-5,000/project)</h3>
+<p>The original use case. Client sends a brief, competitor examples, brand assets. You relay it to the agent via Telegram or your chat interface.</p>
+<p><strong>What the agent builds:</strong></p>
+<ul>
+<li>Full responsive HTML/CSS from a text brief</li>
+<li>Landing pages, multi-page sites, simple e-commerce layouts</li>
+<li>Iterates on feedback (&quot;make the CTA more prominent,&quot; &quot;swap to a dark theme&quot;)</li>
+<li>Deploys to a staging URL for client review</li>
+</ul>
+<p><strong>What you do:</strong></p>
+<ul>
+<li>Discovery call to understand the client's business</li>
+<li>Review the agent's output for design coherence and brand fit</li>
+<li>Handle the subjective stuff (does this feel right for a law firm vs a skateboard brand?)</li>
+<li>Present to the client, manage revisions</li>
+</ul>
+<p><strong>Typical timeline:</strong> Client brief to first draft in 2-3 hours instead of 2-3 days.</p>
+<h3>Copywriting ($1,000-3,000/project)</h3>
+<p>Client sends product info, target audience, brand voice examples. Agent drafts everything.</p>
+<p><strong>What the agent produces:</strong></p>
+<ul>
+<li>Landing page copy (headline, subheads, body, CTAs)</li>
+<li>Email welcome sequences (5-7 emails)</li>
+<li>Ad copy variants (10-20 options for testing)</li>
+<li>Sales pages, case studies, blog posts</li>
+</ul>
+<p><strong>What you do:</strong></p>
+<ul>
+<li>Interview the client to understand their customer's pain points</li>
+<li>Edit for voice, personality, and persuasion</li>
+<li>Cut the generic AI-sounding phrases</li>
+<li>Structure the narrative arc</li>
+</ul>
+<p><strong>Why it works:</strong> First drafts are the hardest part of copywriting. Getting from blank page to rough draft is 60% of the effort. The agent eliminates that completely.</p>
+<h3>SEO Content ($500-2,000/month retainer)</h3>
+<p>Client gives you target keywords. Agent handles the research and writing. You handle strategy and quality.</p>
+<p><strong>What the agent produces:</strong></p>
+<ul>
+<li>Keyword research and competitor analysis</li>
+<li>Full blog posts (2,000-3,000 words, properly structured with H2s/H3s)</li>
+<li>Meta descriptions, title tags, internal linking suggestions</li>
+<li>Content calendars based on search volume and difficulty</li>
+</ul>
+<p><strong>What you do:</strong></p>
+<ul>
+<li>Pick the right keywords (strategy, not execution)</li>
+<li>Edit for accuracy and depth</li>
+<li>Add proprietary insights the AI can't generate</li>
+<li>Track rankings and adjust the plan</li>
+</ul>
+<p><strong>Volume play:</strong> A solo SEO freelancer writes maybe 8-10 articles/month. With an agent producing first drafts, you can edit and publish 30-40.</p>
+<h3>Social Media Management ($1,000-2,500/month retainer)</h3>
+<p>Client provides brand guidelines and content pillars. Agent runs the content machine.</p>
+<p><strong>What the agent produces:</strong></p>
+<ul>
+<li>30 days of posts per platform (X, LinkedIn, Instagram captions)</li>
+<li>Hashtag research per post</li>
+<li>Image prompts for visual content</li>
+<li>Engagement responses and comment replies</li>
+<li>Weekly performance summaries</li>
+</ul>
+<p><strong>What you do:</strong></p>
+<ul>
+<li>Set the content strategy and posting calendar</li>
+<li>Review and approve the content batch</li>
+<li>Handle sensitive interactions (complaints, partnership DMs)</li>
+<li>Monthly strategy calls with the client</li>
+</ul>
+<h3>Email Marketing ($1,500-3,000/project)</h3>
+<p>Client sends product details and customer segments. Agent builds the campaigns.</p>
+<p><strong>What the agent produces:</strong></p>
+<ul>
+<li>Welcome sequences, abandoned cart flows, re-engagement campaigns</li>
+<li>Subject line variants (10+ per email for A/B testing)</li>
+<li>Segmentation logic based on customer behavior</li>
+<li>Campaign performance analysis and optimization suggestions</li>
+</ul>
+<p><strong>What you do:</strong></p>
+<ul>
+<li>Map the customer journey</li>
+<li>Review copy for brand voice and persuasion</li>
+<li>Set up the flows in the client's ESP</li>
+<li>Analyze results and recommend changes</li>
+</ul>
+<h3>Pitch Decks ($1,000-3,000/project)</h3>
+<p>Founders and sales teams need decks constantly. Agent builds them fast.</p>
+<p><strong>What the agent produces:</strong></p>
+<ul>
+<li>Full slide structure from rough notes or a conversation transcript</li>
+<li>Copy for each slide (problem, solution, traction, team, ask)</li>
+<li>Data visualization suggestions</li>
+<li>Multiple layout options</li>
+</ul>
+<p><strong>What you do:</strong></p>
+<ul>
+<li>Understand the story the client needs to tell</li>
+<li>Refine the narrative flow</li>
+<li>Handle visual design polish</li>
+<li>Coach on presentation delivery</li>
+</ul>
+<h2>Step-by-Step Setup</h2>
+<h3>Step 1: Pick Your Service</h3>
+<p>Start with one. Whichever service you already know how to deliver. The agent amplifies your existing skill. It doesn't replace skill you don't have.</p>
+<p>If you're a designer, start with web design. If you're a writer, start with copywriting or SEO content. Don't try to offer five services on day one.</p>
+<h3>Step 2: Build Your Agent's Workspace</h3>
+<p>Create a project folder structure the agent can work within:</p>
+<pre><code>clients/
+  acme-corp/
+    brief.md          # Client requirements
+    brand-assets/     # Logos, colors, fonts
+    drafts/           # Agent output
+    final/            # Approved deliverables
+    feedback.md       # Client revision notes
+</code></pre>
+<p>The agent reads the brief, works in drafts, and you move approved work to final. Clean separation between &quot;agent working&quot; and &quot;client-ready.&quot;</p>
+<h3>Step 3: Create Your Brief Template</h3>
+<p>This is the most important part. A good brief is the difference between an agent that produces usable work and one that produces garbage.</p>
+<p>For web design:</p>
+<pre><code>Project: [Client name] website
+Type: [Landing page / Multi-page / E-commerce]
+Business: [What they do, who they serve]
+Tone: [Professional / Playful / Minimal / Bold]
+Competitors: [3-5 URLs to reference]
+Must include: [Sections, features, specific content]
+Must avoid: [Design patterns, colors, approaches they hate]
+Brand assets: [Link to folder with logos, colors, fonts]
+</code></pre>
+<p>For copywriting:</p>
+<pre><code>Project: [Deliverable type]
+Product: [What it is, what it costs]
+Customer: [Who buys this, what problem it solves]
+Voice: [Examples of writing they like]
+Goal: [Sign up, buy, book a call, download]
+Proof points: [Testimonials, stats, case studies to reference]
+</code></pre>
+<p>Build one template per service type. Reuse it for every client.</p>
+<h3>Step 4: Train the Agent on Your Standards</h3>
+<p>Before taking client work, run 3-5 practice projects. Use fictional briefs or rework old projects you've already delivered.</p>
+<p>After each practice run, note where the agent's output missed the mark. Add those corrections to the agent's context:</p>
+<ul>
+<li>&quot;Always use short paragraphs. Max 3 sentences.&quot;</li>
+<li>&quot;Never use stock photo language like 'cutting-edge solutions.'&quot;</li>
+<li>&quot;Headlines should be specific, not vague. '$47K saved in Q1' beats 'Save money with our solution.'&quot;</li>
+<li>&quot;For law firms, use navy and white. Never bright colors.&quot;</li>
+</ul>
+<p>These accumulated preferences become your competitive advantage. Your agent's output gets better with every project because it learns your standards.</p>
+<h3>Step 5: Set Up the Client Workflow</h3>
+<p>Your delivery process:</p>
+<ol>
+<li><strong>Discovery call</strong> (30-60 min) with the client. Fill out the brief template.</li>
+<li><strong>Feed the brief</strong> to your agent. Let it produce a first draft.</li>
+<li><strong>Review the draft</strong> (1-2 hours). Fix what's wrong, elevate what's good.</li>
+<li><strong>Present to client.</strong> Collect feedback.</li>
+<li><strong>Feed feedback to agent.</strong> It implements revisions.</li>
+<li><strong>Final review</strong> (30 min). Deliver.</li>
+</ol>
+<p>Total your time per project: 4-8 hours. Charge for 20-40 hours of value. That's the margin.</p>
+<h3>Step 6: Price Like an Agency</h3>
+<p>You're not selling hours anymore. You're selling deliverables and outcomes.</p>
+<p>Don't say: &quot;I charge $75/hour and this will take 40 hours.&quot;
+Do say: &quot;A landing page with copy, design, and deployment is $3,500. Delivered in 5 business days.&quot;</p>
+<p>Package your services:</p>
+<ul>
+<li><strong>Starter:</strong> Landing page + 5 blog posts = $3,000</li>
+<li><strong>Growth:</strong> Full website + content strategy + 3 months of SEO content = $8,000</li>
+<li><strong>Retainer:</strong> Ongoing content + social media + email = $3,000/month</li>
+</ul>
+<p>The client pays for the result. How many hours it takes you is irrelevant.</p>
+<h2>Scaling Up</h2>
+<p>Once the first service is running smoothly:</p>
+<p><strong>Add complementary services.</strong> Web design clients need copy. SEO clients need landing pages. Social media clients need email funnels. Cross-sell into work your agent can already handle.</p>
+<p><strong>Productize the offering.</strong> Instead of custom scoping every project, create 3 fixed packages. The agent can handle standardized deliverables faster than custom work.</p>
+<p><strong>Stack clients, not hours.</strong> With an agent handling production, the bottleneck becomes client management, not production capacity. At some point you might hire a project manager (one human) to handle client communication while you focus on quality control across 20+ active clients.</p>
+<p><strong>Build niche expertise.</strong> &quot;AI-powered web design agency&quot; is generic. &quot;Landing pages for SaaS companies that convert at 5%+&quot; is a business. The agent's accumulated context for a specific niche compounds into a real moat.</p>
+<h2>Gotchas and Tips</h2>
+<ul>
+<li><strong>Quality control is your entire job now.</strong> The agent produces volume. You produce quality. Never ship anything you haven't personally reviewed. One bad deliverable kills the trust that took months to build.</li>
+<li><strong>Don't tell clients &quot;AI made this.&quot;</strong> You're selling a result, not a process. If a carpenter uses a power saw instead of a hand saw, they don't discount the table. Same principle.</li>
+<li><strong>The brief is everything.</strong> Bad brief = bad output = wasted revision cycles. Spend more time on the discovery call than you think you need to. The 20 minutes you invest in a thorough brief saves 5 hours of rework.</li>
+<li><strong>Start with existing clients.</strong> Don't launch a new agency from scratch. Take your current freelance work and run it through the agent workflow. Once you've proven the model works, scale up.</li>
+<li><strong>Keep a swipe file.</strong> Every time the agent produces something great, save it. Build a library of patterns, templates, and examples that the agent can reference on future projects. This compounds fast.</li>
+<li><strong>Have a human backup plan.</strong> For the 5-10% of projects where the agent can't get it right (complex interactive features, highly technical content, unusual design requirements), know a contractor you can call. Don't promise what you can't deliver.</li>
+<li><strong>Revision rounds matter.</strong> Set clear expectations: &quot;2 rounds of revisions included.&quot; Without this, clients will iterate forever and your margins disappear. The agent makes revisions fast, but your review time still costs something.</li>
+</ul>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators · Powered by <a href="https://openclaw.com">OpenClaw</a></p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

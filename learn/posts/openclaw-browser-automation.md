@@ -279,7 +279,7 @@ Here's what people are building with OpenClaw browser automation. These aren't h
 
 Post to Twitter/X, LinkedIn, Facebook, Instagram, Bluesky. Schedule content, engage with comments, monitor mentions. Multi-profile setup means you can manage multiple accounts without logging in and out.
 
-One user runs [a content factory](/blueprints/ai-content-factory/) that posts to 5 platforms simultaneously, each from its own browser profile.
+One user runs [a content factory](/playbooks/ai-content-factory/) that posts to 5 platforms simultaneously, each from its own browser profile.
 
 ### Web Scraping and Data Extraction
 

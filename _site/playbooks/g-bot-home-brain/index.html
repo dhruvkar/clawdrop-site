@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>He Gave His Home a Brain. 50 Days Later, His AI Wakes Him Up, Cleans His House, and Judges His Sleep. — ClawDrop</title>
+  <meta name="description" content="G-Bot is a self-hosted OpenClaw assistant running on a Linux VM, talking to its owner only through Telegram. In 50 days it grew from a chatbot into a 23-service stack that runs his home, finances, health, and memory. Here&#39;s what&#39;s inside, what works, and what to steal.">
+  <meta property="og:title" content="He Gave His Home a Brain. 50 Days Later, His AI Wakes Him Up, Cleans His House, and Judges His Sleep. — ClawDrop">
+  <meta property="og:description" content="G-Bot is a self-hosted OpenClaw assistant running on a Linux VM, talking to its owner only through Telegram. In 50 days it grew from a chatbot into a 23-service stack that runs his home, finances, health, and memory. Here&#39;s what&#39;s inside, what works, and what to steal.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/g-bot-home-brain/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="He Gave His Home a Brain. 50 Days Later, His AI Wakes Him Up, Cleans His House, and Judges His Sleep. — ClawDrop">
+  <meta name="twitter:description" content="G-Bot is a self-hosted OpenClaw assistant running on a Linux VM, talking to its owner only through Telegram. In 50 days it grew from a chatbot into a 23-service stack that runs his home, finances, health, and memory. Here&#39;s what&#39;s inside, what works, and what to steal.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/g-bot-home-brain/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; }
+    .logo:hover { color: var(--ink); }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 280px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">April 28, 2026</div>
+    <h1>He Gave His Home a Brain. 50 Days Later, His AI Wakes Him Up, Cleans His House, and Judges His Sleep.</h1>
+    <p class="post-description">G-Bot is a self-hosted OpenClaw assistant running on a Linux VM, talking to its owner only through Telegram. In 50 days it grew from a chatbot into a 23-service stack that runs his home, finances, health, and memory. Here&#39;s what&#39;s inside, what works, and what to steal.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Advanced</strong></span>
+      <span class="meta-badge">💰 <strong>$30-50/mo in AI tokens; everything else self-hosted on existing hardware</strong></span>
+      <span class="meta-badge">⏱ <strong>50 days as documented. A few focused weekends to reach 80% of the value.</strong></span>
+      <a href="https://www.reddit.com/user/RelationDull2825" target="_blank" class="meta-badge">👤 <strong>RelationDull2825 ↗</strong></a>
+      <a href="https://www.reddit.com/r/openclaw/comments/1s0ywz6/i_gave_my_home_a_brain_heres_what_50_days_of" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-openclaw"><strong>OpenClaw</strong></a>: the gateway brain G-Bot runs as a systemd user service</li>
+<li><a href="#aff-telegram"><strong>Telegram</strong></a>: the only user-facing surface; every command, photo, and voice message flows through it</li>
+<li><a href="#aff-home-assistant"><strong>Home Assistant</strong></a>: Docker-hosted bridge to Roborock, Hue, Govee, Tapo, Nest Hub, Sonos</li>
+<li><a href="#aff-firefly-iii"><strong>Firefly III</strong></a>: self-hosted personal finance with SimpleFIN syncing 13 bank accounts</li>
+<li><a href="#aff-apple-health"><strong>Apple Health</strong></a>: health data source piped into InfluxDB via webhook</li>
+<li><a href="#aff-grafana"><strong>Grafana</strong></a>: six dashboards covering sleep, HRV, heart rate, VO2 Max, activity, SpO2</li>
+<li><a href="#aff-influxdb"><strong>InfluxDB</strong></a>: time-series store behind the finance and health dashboards</li>
+<li><a href="#aff-chromadb"><strong>ChromaDB</strong></a>: vector database holding 1,078 semantic memory chunks</li>
+<li><a href="#aff-coqui"><strong>Coqui TTS</strong></a>: local text-to-speech server, 58 voices, 17 languages</li>
+<li><a href="#aff-docker"><strong>Docker</strong></a>: containerization layer for the 9 services</li>
+<li><a href="#aff-cloudflare"><strong>Cloudflare</strong></a>: tunnels for external access without exposing ports</li>
+<li><a href="#aff-anthropic"><strong>Anthropic</strong></a>: Claude Sonnet for code-flavored tasks in the multi-model router</li>
+<li><a href="#aff-ollama"><strong>Ollama</strong></a>: local model host used inside the multi-model routing setup</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>A single AI assistant that owns the surface area of your entire digital life. Talks to you through Telegram. Runs your house. Tracks your money. Watches your health. Remembers what you've decided. Speaks to you in voice when it matters. Bilingual if you are. Self-hosted, so the data never leaves your network.</p>
+<p>The original builder, who posts as <code>RelationDull2825</code> on Reddit, calls his version <strong>G-Bot</strong>. He started with a basic Telegram chatbot 50 days ago. As of his writeup it runs <strong>12 LLMs, 9 Docker containers, 23 monitored services, 1,078 semantic memory chunks</strong>, and a custom dashboard he uses to watch the whole stack.</p>
+<p>This is the most ambitious personal-AI build we've covered. It's also the most replicable, in pieces. Most readers won't run all 23 services. Most readers will read this, pick the 3 or 4 components that match their life, and walk away with a system that does 80% of what G-Bot does.</p>
+<p>The point of the playbook is not that you should clone the whole thing. It's that <strong>one ambitious user spent 50 days proving what's possible</strong>, and the cost of replicating any single component (the morning briefing, the spending tracker, the sleep analysis, the home automation layer) is one focused weekend.</p>
+<h2>Why You're Still Switching Between 7 Apps</h2>
+<p>Stop and count the surfaces you check on a normal Tuesday morning. Calendar app. Weather app. News headlines. Personal email. Work email. Banking app. Step counter. Smart-home dashboard. Spotify. Slack or Discord.</p>
+<p>That's 10 contexts. Each requires you to load it, scan it, decide if anything matters, and move on. The combined cognitive cost of those switches is the reason you feel slightly behind on your own life by 9am, even though nothing has gone wrong.</p>
+<p>The reason most people haven't fixed this is that &quot;consolidating your tools&quot; used to mean &quot;building a custom dashboard,&quot; which nobody had time for. The dashboard era never delivered on its promise. The agent era is doing it instead.</p>
+<p>G-Bot's pitch is simple. One inbox, Telegram. One brain, an OpenClaw agent. Everything that used to require an app is now a sentence. <em>&quot;How did I sleep this week.&quot;</em> <em>&quot;What did I spend on restaurants.&quot;</em> <em>&quot;Clean the kitchen.&quot;</em> <em>&quot;Cast the photos on the Hub.&quot;</em> <em>&quot;Tu te souviens comment on a fixé le bug du Roborock?&quot;</em> (yes, that's a real example from the writeup, in French because he code-switches and the agent follows.)</p>
+<p>The shift in attention this produces is the actual product. You stop opening apps. You ask one thing. Sometimes you talk back to the answer.</p>
+<h2>The Pattern</h2>
+<p>G-Bot is built around 4 organizing layers. Every other piece slots into one of them.</p>
+<h3>1. The Brain</h3>
+<p>A Linux VM running an OpenClaw Gateway as a <code>systemd</code> user service. Multi-model routing: GLM-5 as the default, Kimi K2.5 for complex reasoning, Claude Sonnet for code tasks, MiniMax for voice briefings, GLM4-Flash for lightweight background work. The agent picks the right model per task automatically.</p>
+<p>The interface to the user is a single Telegram chat. Every command, query, photo, and voice message flows through it.</p>
+<h3>2. The Surfaces</h3>
+<p>Each domain G-Bot manages has its own integration layer:</p>
+<ul>
+<li><strong>Home:</strong> Home Assistant (Docker) bridges to Roborock vacuum, Philips Hue, Govee thermometers, Tapo cameras, Google Nest Hub, NVIDIA Shield, Sonos, a humidifier.</li>
+<li><strong>Money:</strong> Firefly III with SimpleFIN Bridge syncing 13 bank accounts twice a day. 65+ auto-categorization rules, 4 budgets with monthly limits, custom Python pushing data to InfluxDB and Grafana.</li>
+<li><strong>Health:</strong> Apple Health auto-synced to InfluxDB via a local webhook. Six Grafana dashboards (sleep, HRV, heart rate, VO2 Max, activity, SpO2). A RandomForest ML model retrained every Sunday at 3am.</li>
+<li><strong>Voice:</strong> Local Coqui TTS server, 58 voices, 17 languages, free. Telegram voice clips in Opus, Nest Hub clips in MP3, no ffmpeg pipeline.</li>
+<li><strong>Memory:</strong> Three tiers. Daily markdown logs for raw session notes. A <code>MEMORY.md</code> for curated long-term knowledge. ChromaDB with 1,078 semantic chunks for retrieval. The long-term memory is only loaded in private sessions, never in group chats.</li>
+</ul>
+<h3>3. The Plumbing</h3>
+<p>The unsexy layer that holds everything together. Docker for containerization. InfluxDB for time-series data. Grafana for the dashboards. ChromaDB for vector retrieval. Cloudflare tunnels for external access without exposing ports. A custom Node.js dashboard that shows live status of all 23 services, with one-click sync triggers.</p>
+<h3>4. The Routines</h3>
+<p>The agent runs on cron and heartbeat:</p>
+<ul>
+<li>Morning briefing at wake-up: news, weather, calendar, finance update, an AI project idea, voice summary on the Nest Hub.</li>
+<li>Bank sync 2x/day with categorization.</li>
+<li>Apple Health webhook ingest, continuous.</li>
+<li>Sleep prediction every Sunday with the retrained ML model.</li>
+<li>Memory consolidation per session.</li>
+</ul>
+<h2>Step-by-Step Setup (the 80% version)</h2>
+<p>You're not going to replicate G-Bot in a weekend. You can replicate the 4 highest-leverage components in a weekend each.</p>
+<h3>Weekend 1: Telegram + OpenClaw + Multi-Model Routing</h3>
+<p>Install OpenClaw on a small Linux box. Wire it to Telegram. Configure 2-3 model providers (GLM, Claude, a local model via Ollama). Test that asking different kinds of questions routes to the right model. By Sunday night, you can text a chat thread and get useful answers back.</p>
+<h3>Weekend 2: Home Assistant Bridge</h3>
+<p>Install Home Assistant in Docker. Connect 3-5 of your existing smart devices. Wire your agent to Home Assistant via the REST API. By Sunday night, &quot;<em>dim the lights</em>&quot; and &quot;<em>what's the temperature in the bedroom</em>&quot; both work.</p>
+<h3>Weekend 3: Finance Tracking</h3>
+<p>Install Firefly III. Connect SimpleFIN Bridge (or Plaid via a self-hosted wrapper, or just upload CSVs from your bank). Set 5 categorization rules. By Sunday night, your agent can answer &quot;<em>how much did I spend on restaurants</em>.&quot;</p>
+<h3>Weekend 4: Health Tracking + Morning Briefing</h3>
+<p>Wire Apple Health to a webhook that pushes to InfluxDB. Set up 2 Grafana dashboards (sleep + activity). Build the morning briefing routine that combines weather + calendar + a quick health summary, fires it at your wake-up time, optionally voices it through Coqui TTS.</p>
+<p>After 4 focused weekends, you have G-Bot's most-used 80%. Memory tier, voice on the Nest Hub, the ML sleep predictor, and the dashboard are all polish you can layer in over time.</p>
+<h2>What Failed (Hard-Learned Gotchas)</h2>
+<p>The most useful part of the original Reddit post is the section on what went wrong, because every long-running agent setup hits something equivalent. The two big ones G-Bot called out:</p>
+<p><strong>The Roborock app_segment_clean trap.</strong> Calling <code>app_segment_clean</code> on a Roborock silently resets the mop intensity on every call. The original builder lost a full custom map by triggering room-cleaning runs without realizing the mop was being reset each time. The fix: explicitly set mop settings and <code>sleep 15</code> before each launch. The API docs don't mention this anywhere.</p>
+<p><strong>The Apple Health step-count granule.</strong> Apple Health exports step counts as per-minute granules, not daily totals. Naive queries returned &quot;5 steps today&quot; instead of the actual thousands. The fix: switch to <code>sum()</code> aggregation for cumulative metrics.</p>
+<p>These look like obscure gotchas. They're representative of every long-running agent setup. The reality of running a self-hosted assistant is that 80% of your debugging time is &quot;the API I'm calling has a non-obvious behavior I didn't expect,&quot; and the only way to find them is to break things over weeks of real use.</p>
+<p>The lesson, useful even if you never touch a Roborock: <strong>build for surprise, not perfection.</strong> Log everything. Make every action reversible. Run the new automation in dry-run mode for 3 days before you trust it. Read the writeup's gotchas before you start the equivalent integration in your own setup.</p>
+<h2>Lanes That Work</h2>
+<p>You don't have to be the kind of person with 13 bank accounts and an ML sleep predictor to use this pattern.</p>
+<p><strong>The single-domain version.</strong> Pick one of the 4 layers. Run only that one. A finance-tracking agent that ingests your accounts and answers &quot;where am I overspending&quot; is itself worth a weekend.</p>
+<p><strong>The household version.</strong> Skip the personal-finance layer entirely. Run Home Assistant + a Telegram agent. Family members can text the agent. &quot;<em>Is the front door locked.</em>&quot; &quot;<em>Turn off the lights downstairs.</em>&quot; &quot;<em>Who left the upstairs window open at 3am.</em>&quot;</p>
+<p><strong>The remote-worker version.</strong> Skip the smart-home layer. Run finance + health + memory + a project-tracking layer. Talk to one assistant about your week. Ask &quot;<em>what did I commit to this week</em>&quot;, &quot;<em>what's my burn rate</em>&quot;, &quot;<em>how am I sleeping</em>&quot;. Personal accountability without 4 different apps.</p>
+<p><strong>The small-business owner version.</strong> Replace the personal-finance layer with QuickBooks. Replace the health layer with your CRM or your calendar. Replace the smart-home layer with your physical premises (security cameras, point-of-sale, scheduling system). Same architecture, business-flavored. This is essentially the Andon Market playbook at a smaller scale.</p>
+<h2>What Changes After Setup</h2>
+<p>The shift G-Bot's builder describes is subtle but real. Your relationship to your own data changes when one entity can see all of it. You stop checking 10 apps. You stop forgetting what you committed to last week. You stop noticing whether your sleep is trending up or down because the system tells you. Your home becomes ambient, not interactive.</p>
+<p>For the kind of person who has tried 4 different &quot;personal CRM&quot; apps and abandoned all of them, this is the answer. The CRM apps failed because they required you to type things into them. The agent works because <em>you don't</em>. Everything that touches your digital life flows through the agent automatically, and the agent surfaces what matters.</p>
+<p>The qualitative effect after a couple of months is that you trust the system. When you can't remember whether you turned off the kitchen lights, you ask. When you can't remember how much you spent on a recent trip, you ask. When you forgot what you decided to do about a problem 6 weeks ago, you ask. The cognitive overhead of remembering everything yourself, which most adults absorb invisibly, drops noticeably.</p>
+<h2>Gotchas and Tips</h2>
+<p><strong>Don't try to build all 4 layers at once.</strong> Pick one. Get it stable for 2 weeks. Then add the next. The compounding pain of debugging 4 half-finished integrations simultaneously is what kills most builds at this scale.</p>
+<p><strong>Self-host everything you can.</strong> G-Bot's defining choice is that almost everything (Home Assistant, Firefly, Grafana, ChromaDB, Coqui TTS, the dashboard) is on the builder's own machine. The data never leaves. The system survives any individual SaaS shutting down or hiking prices. The cost is one Linux VM and one weekend of setup per service.</p>
+<p><strong>Use Telegram as the only interface.</strong> The temptation to build a fancy web UI is strong and wrong. Telegram is universal, supports voice, supports photos, runs on every phone, and your family can use it without any onboarding. G-Bot's &quot;exclusively via Telegram&quot; rule is a feature, not a limitation.</p>
+<p><strong>Keep the long-term memory private.</strong> G-Bot's memory layer is gated: the curated long-term <code>MEMORY.md</code> only loads in private chats, never in group chats. If your family also talks to the agent, you don't want it dropping personal financial details into a household thread. Build this guardrail in from day one; it's annoying to retrofit.</p>
+<p><strong>Run a status dashboard.</strong> With 23 services, something is always slightly broken. The custom Node.js dashboard the builder describes (clickable sync jobs, last-run + next-run times, live Docker status) is the difference between &quot;I trust this stack&quot; and &quot;I'm scared to look at it.&quot; If you're running 5+ integrations, build the dashboard early.</p>
+<p><strong>Document the gotchas as you find them.</strong> Every weird API behavior, every silent failure, every &quot;it works but only if you do it in this exact order&quot; gets a line in a <code>LESSONS.md</code> file. By month 3, this file is what makes the system maintainable, especially when you come back to fix something at midnight 6 weeks later.</p>
+<p><strong>Pick the right LLM router policy.</strong> G-Bot uses GLM-5 by default and bumps up to Claude or Kimi only when needed. This is the cost-saving move that makes 24/7 multi-agent setups affordable. You don't need a frontier model for &quot;what's the temperature in the kitchen.&quot; Save the expensive models for the work that actually justifies them.</p>
+<p><strong>Set up Cloudflare tunnels (or equivalent) for external access.</strong> The temptation to expose ports directly is huge. Don't. Cloudflare tunnels give you external access to your dashboard without opening anything to the internet. The setup is one afternoon. The peace of mind is permanent.</p>
+<p><strong>The hardest part is the discipline, not the tech.</strong> Every component G-Bot uses (Home Assistant, Firefly, Coqui TTS, OpenClaw) is documented and self-hostable. The skill is showing up every weekend for 50 days and adding the next layer. Most people who try this give up around weekend 3. The ones who don't end up with something they'll never go back from.</p>
+<hr>
+<h2>Keep Reading</h2>
+<ul>
+<li><strong><a href="/playbooks/ai-life-os/">Build an AI Life OS That Knows Your Entire Day (Before You Do)</a></strong>: The framework version of what G-Bot does in practice. If you want the strategy before you build, start here.</li>
+<li><strong><a href="/playbooks/email-to-calendar/">Never Copy a Date From an Email to Your Calendar Again</a></strong>: One of the small skills that fits inside G-Bot's morning-briefing routine. Run this even if you don't build the rest.</li>
+<li><strong><a href="/playbooks/ai-real-time-assistant/">Your AI Remembers Everything So You Don't Have To</a></strong>: The memory pattern. G-Bot's three-tier memory system is one implementation; this playbook covers the broader architecture.</li>
+</ul>
+<p><strong>Want the full deep dive?</strong> Read our <a href="/learn/best-openclaw-skills/">Best OpenClaw Skills</a> guide for the foundational skill patterns this playbook depends on.</p>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators · Powered by <a href="https://openclaw.com">OpenClaw</a></p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,156 +1,191 @@
 ---
-title: "5 OpenClaw Builds Every Week"
-description: "See what people are actually building with OpenClaw. 5 practical use cases, automations, and AI assistant patterns delivered weekly."
+title: "The AI playbook for people who run things"
+description: "Five plays your team can actually run, every Tuesday — drawn from real owners and operators using OpenClaw to do real work."
 permalink: /
 ---
 {% extends "base.njk" %}
 
 {% block styles %}
-    .orb-3 { width: 300px; height: 300px; background: var(--green); top: 50%; left: 60%; animation: float3 18s ease-in-out infinite; position: fixed; border-radius: 50%; filter: blur(120px); opacity: 0.12; pointer-events: none; z-index: 0; }
-    @keyframes float3 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-40px, 50px); } }
+  .hero { padding: 64px 0 44px; }
+  .hero-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 60px; align-items: center; }
+  .hero-flag { font-size: 0.78rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 20px; }
+  .hero h1 { font-family: 'Fraunces', serif; font-size: clamp(2.4rem, 5.2vw, 3.6rem); font-weight: 700; line-height: 1.05; letter-spacing: -0.025em; margin-bottom: 22px; color: var(--ink); }
+  .hero h1 em { font-style: italic; font-weight: 500; color: var(--accent); }
+  .lede { font-size: 1.1rem; color: var(--ink-soft); line-height: 1.65; margin-bottom: 28px; max-width: 480px; }
+  .signed { display: flex; align-items: center; gap: 12px; }
+  .avatar { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #d8552c, #f5b041); color: white; display: grid; place-items: center; font-weight: 700; font-size: 1.1rem; }
+  .signed-text { font-size: 0.88rem; }
+  .signed-text strong { display: block; color: var(--ink); }
+  .signed-text span { color: var(--ink-mute); }
 
-    .hero { padding: 60px 0 24px; text-align: center; }
-    .hero-pre { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--accent-bright); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; gap: 10px; }
-    .hero-pre .dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
-    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+  .form-card { background: var(--paper); border: 1px solid var(--rule); border-radius: 16px; padding: 26px 22px; box-shadow: 0 12px 36px rgba(21, 36, 61, 0.06); }
+  .form-card h3 { font-family: 'Fraunces', serif; font-size: 1.3rem; font-weight: 600; margin-bottom: 4px; color: var(--ink); }
+  .form-card .sub { font-size: 0.85rem; color: var(--ink-mute); margin-bottom: 16px; }
+  .form-iframe-wrap { height: 340px; overflow: hidden; border-radius: 8px; }
+  .form-iframe-wrap iframe { width: 100%; height: 500px; border: none; }
+  .form-tiny { margin-top: 12px; font-size: 0.75rem; color: var(--ink-mute); text-align: center; }
 
-    h1 { font-size: clamp(2.5rem, 7vw, 4rem); font-weight: 900; line-height: 1.05; letter-spacing: -0.04em; margin-bottom: 24px; }
-    h1 .highlight { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .logos-band { padding: 8px 0 56px; background: var(--bg); }
+  .logos-label { text-align: center; font-size: 0.78rem; font-weight: 600; color: var(--ink-mute); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 28px; }
+  .logos-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 32px 52px; max-width: 980px; margin: 0 auto; padding: 0 24px; }
+  .logos-row img { width: auto; max-width: 140px; object-fit: contain; transition: transform 0.2s; display: block; }
+  .logos-row img:hover { transform: translateY(-2px); }
+  .logos-row .lg-roadid { height: 28px; }
+  .logos-row .lg-gds { height: 38px; filter: invert(1); }
+  .logos-row .lg-crimsonlogic { height: 26px; }
+  .logos-row .lg-nextiva { height: 28px; }
+  .logos-row .lg-trainline { height: 22px; }
+  .logos-row .lg-qualtrics { height: 26px; }
+  .logos-row .lg-tkowners { font-family: 'Inter', sans-serif; font-weight: 900; font-size: 22px; letter-spacing: -0.045em; color: var(--ink); height: 28px; display: flex; align-items: center; line-height: 1; transition: transform 0.2s; }
+  .logos-row .lg-tkowners:hover { transform: translateY(-2px); }
+  .logos-row .lg-tkowners .tko { color: var(--accent); }
 
-    .hero-sub { font-size: 1.15rem; color: var(--text-muted); line-height: 1.7; max-width: 520px; margin: 0 auto 16px; }
-    .hero-sub strong { color: var(--text); font-weight: 600; }
+  .latest { padding: 70px 0 60px; }
+  .section-h { text-align: center; margin-bottom: 40px; }
+  .section-h .label { font-size: 0.78rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 10px; }
+  .section-h h2 { font-family: 'Fraunces', serif; font-size: 2.2rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
 
-    .pills { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 32px 0 40px; }
-    .pill { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; padding: 6px 14px; border-radius: 100px; border: 1px solid var(--border); color: var(--text-muted); background: var(--bg-card); transition: all 0.3s ease; cursor: default; }
-    .pill:hover { border-color: var(--accent); color: var(--accent-bright); background: var(--accent-glow); }
+  .post-list { display: grid; gap: 12px; }
+  .post-card { display: flex; gap: 24px; padding: 22px 24px; background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; text-decoration: none; color: inherit; transition: all 0.2s; }
+  .post-card:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(21, 36, 61, 0.07); border-color: var(--accent); }
+  .post-thumb { width: 72px; height: 72px; flex-shrink: 0; border-radius: 12px; background: var(--accent-soft); display: grid; place-items: center; font-size: 1.6rem; }
+  .post-thumb.warm { background: var(--warm); }
+  .post-meta { font-size: 0.75rem; color: var(--ink-mute); margin-bottom: 6px; }
+  .post-card h3 { font-family: 'Fraunces', serif; font-size: 1.15rem; font-weight: 600; line-height: 1.3; margin-bottom: 6px; color: var(--ink); }
+  .post-card p { font-size: 0.88rem; color: var(--ink-soft); line-height: 1.5; }
 
-    .form-section { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 40px 32px; margin-bottom: 40px; position: relative; overflow: hidden; }
-    .form-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--gradient); opacity: 0.5; }
-    .form-header { text-align: center; margin-bottom: 24px; }
-    .form-header h2 { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px; }
-    .form-header p { font-size: 0.9rem; color: var(--text-muted); }
-    .form-embed { width: 100%; min-height: 380px; border: none; border-radius: 8px; background: transparent; }
-    .form-iframe-wrap { height: 240px; overflow: hidden; border-radius: 12px; }
-    .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+  .cta-final { padding: 80px 0; text-align: center; }
+  .cta-final h2 { font-family: 'Fraunces', serif; font-size: 2.4rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 14px; max-width: 560px; margin-left: auto; margin-right: auto; line-height: 1.15; color: var(--ink); }
+  .cta-final p { color: var(--ink-soft); max-width: 480px; margin: 0 auto 28px; }
+  .cta-btn { display: inline-flex; padding: 14px 32px; background: var(--accent); color: white; border-radius: 100px; font-weight: 600; text-decoration: none; transition: all 0.2s; }
+  .cta-btn:hover { background: var(--accent-hover); color: white; transform: translateY(-1px); }
 
-    .features { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 60px; }
-    .feature { display: flex; gap: 16px; padding: 20px; border-radius: 12px; border: 1px solid var(--border); background: var(--bg-card); transition: all 0.3s ease; }
-    .feature:hover { border-color: var(--border-glow); background: var(--bg-card-hover); transform: translateY(-2px); }
-    .feature-icon { font-size: 1.5rem; flex-shrink: 0; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: var(--accent-glow); border-radius: 10px; }
-    .feature-text h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 4px; letter-spacing: -0.01em; }
-    .feature-text p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; }
+  @media (max-width: 760px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+    .post-card { flex-direction: column; gap: 14px; }
+    .post-thumb { width: 56px; height: 56px; }
+  }
 
-    .past-drops { margin-bottom: 60px; }
-    .past-drops-header { text-align: center; margin-bottom: 32px; }
-    .past-drops-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; }
-    .past-drops-header h2 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.03em; }
-    .issue-card { display: block; text-decoration: none; color: inherit; padding: 20px; border-radius: 12px; border: 1px solid var(--border); background: var(--bg-card); margin-bottom: 12px; transition: all 0.3s ease; }
-    .issue-card:hover { border-color: var(--border-glow); background: var(--bg-card-hover); transform: translateY(-2px); }
-    .issue-card-inner { display: flex; justify-content: space-between; align-items: center; }
-    .issue-num { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--accent-bright); }
-    .issue-title { font-size: 1rem; font-weight: 700; margin-top: 4px; }
-    .issue-desc { font-size: 0.8rem; color: var(--text-muted); margin-top: 4px; }
-    .issue-date { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-dim); }
-    .archive-link { display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; border-radius: 10px; border: 1px solid var(--border); color: var(--text-muted); text-decoration: none; font-size: 0.85rem; font-weight: 600; transition: all 0.3s ease; }
-    .archive-link:hover { border-color: var(--accent); color: var(--accent-bright); }
-
-    iframe { color-scheme: dark; }
-
-    @media (max-width: 600px) {
-        .hero { padding: 50px 0 30px; }
-        .form-section { padding: 28px 20px; }
-        .pills { gap: 6px; }
-        .pill { font-size: 0.65rem; padding: 5px 10px; }
-        .features { grid-template-columns: 1fr; }
-    }
+  @media (max-width: 600px) {
+    .logos-band { padding: 0 0 44px; }
+    .logos-label { margin-bottom: 20px; font-size: 0.72rem; }
+    .logos-row { gap: 22px 32px; }
+    .logos-row .lg-roadid { height: 22px; }
+    .logos-row .lg-gds { height: 30px; }
+    .logos-row .lg-crimsonlogic { height: 20px; }
+    .logos-row .lg-nextiva { height: 22px; }
+    .logos-row .lg-trainline { height: 18px; }
+    .logos-row .lg-qualtrics { height: 20px; }
+    .logos-row .lg-tkowners { height: 22px; font-size: 17px; }
+  }
 {% endblock %}
 
 {% block body %}
-    <div class="orb orb-3"></div>
-
-    <div class="container">
-        <section class="hero">
-            <div class="hero-pre">
-                <span class="dot"></span>
-                Tailored weekly from raw internet
+  <section class="hero" id="subscribe">
+    <div class="container-wide">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-flag">For owners &amp; operators</div>
+          <h1>The AI playbook for <em>people who run things.</em></h1>
+          <p class="lede">Every Tuesday: five plays your team can actually run — drawn from owners and operators using OpenClaw to do real work. No demos. No hype. Just what's working, what isn't, and how to start.</p>
+          <div class="signed">
+            <div class="avatar">D</div>
+            <div class="signed-text">
+              <strong>Dhruv Kar</strong>
+              <span>Editor · runs ClawDrop</span>
             </div>
-            <h1>What are people<br><span class="highlight">building with<br>OpenClaw?</span></h1>
-            <p class="hero-sub">
-                <strong>5 hand-picked builds. Every Tuesday.</strong> We dig through Discord threads, GitHub repos, and Twitter rabbit holes so you don't have to. Each build is verified, contextualized, and written up with the story behind it.
-            </p>
-        </section>
-
-        <div class="form-section">
-            <div class="form-header">
-                <h2>Get the drop. Every Tuesday.</h2>
-                <p>Join builders who want to see what's possible.</p>
-            </div>
-            <div class="form-iframe-wrap">
-            <iframe
-                src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa"
-                class="form-embed"
-                id="inline-OsR6NKbHoc4IUYG5phIa"
-                data-layout="{'id':'INLINE'}"
-                data-trigger-type="alwaysShow"
-                data-trigger-value=""
-                data-activation-type="alwaysActivated"
-                data-activation-value=""
-                data-deactivation-type="neverDeactivate"
-                data-deactivation-value=""
-                data-form-name="Newsletter Signup"
-                data-height="340"
-                data-layout-iframe-id="inline-OsR6NKbHoc4IUYG5phIa"
-                data-form-id="OsR6NKbHoc4IUYG5phIa"
-                title="Newsletter Signup"
-            ></iframe>
-            </div>
-            <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+          </div>
         </div>
-
-        <div class="pills">
-            <span class="pill">home automation</span>
-            <span class="pill">lead gen pipelines</span>
-            <span class="pill">email triage</span>
-            <span class="pill">calendar copilots</span>
-            <span class="pill">data scrapers</span>
-            <span class="pill">CRM workflows</span>
-            <span class="pill">morning briefings</span>
-            <span class="pill">social monitoring</span>
-            <span class="pill">family bots</span>
-            <span class="pill">dev ops</span>
+        <div class="form-card">
+          <h3>Join 1,000+ operators</h3>
+          <p class="sub">Free. Tuesdays. Unsubscribe whenever.</p>
+          <div class="form-iframe-wrap">
+            <iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe>
+          </div>
+          <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+          <div class="form-tiny">No spam. No selling lists. Just the playbook.</div>
         </div>
-
-        <div class="features">
-            <div class="feature">
-                <div class="feature-icon">🔧</div>
-                <div class="feature-text">
-                    <h3>Real setups, not demos</h3>
-                    <p>From people actually using it. With context.</p>
-                </div>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">⚡</div>
-                <div class="feature-text">
-                    <h3>Steal-ready</h3>
-                    <p>Enough detail to recreate every build.</p>
-                </div>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">🧠</div>
-                <div class="feature-text">
-                    <h3>Signal, not hype</h3>
-                    <p>What works, what doesn't, what surprised us.</p>
-                </div>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">🌀</div>
-                <div class="feature-text">
-                    <h3>Community-sourced</h3>
-                    <p>Discord, GitHub, X — we find the weird ones.</p>
-                </div>
-            </div>
-        </div>
-
-        
+      </div>
     </div>
+  </section>
+
+  <section class="logos-band">
+    <div class="logos-label">Read by operators at</div>
+    <div class="logos-row">
+      <img src="/assets/logos/roadid.png" alt="Road ID" class="lg-roadid">
+      <img src="/assets/logos/gdsgroup.svg" alt="GDS Group" class="lg-gds">
+      <img src="/assets/logos/crimsonlogic.png" alt="CrimsonLogic" class="lg-crimsonlogic">
+      <img src="/assets/logos/nextiva.svg" alt="Nextiva" class="lg-nextiva">
+      <img src="/assets/logos/trainline.svg" alt="Trainline" class="lg-trainline">
+      <img src="/assets/logos/qualtrics.svg" alt="Qualtrics" class="lg-qualtrics">
+      <div class="lg-tkowners" aria-label="TKOwners"><span class="tko">TKO</span>wners</div>
+    </div>
+  </section>
+
+  <section class="latest">
+    <div class="container">
+      <div class="section-h">
+        <div class="label">Real owners · Real builds</div>
+        <h2>What's working right now</h2>
+      </div>
+      <div class="post-list">
+        <a href="/playbooks/founder-runs-business-on-ai/" class="post-card">
+          <div class="post-thumb">🏠</div>
+          <div>
+            <div class="post-meta">Issue #002 · Founder</div>
+            <h3>Run your business on AI (while living your life)</h3>
+            <p>Jesse Genet runs her company on OpenClaw from a Mac Mini. Amazon orders, printing, procurement — all automated while she homeschools 4 kids.</p>
+          </div>
+        </a>
+        <a href="/playbooks/replace-saas-stack/" class="post-card">
+          <div class="post-thumb warm">💸</div>
+          <div>
+            <div class="post-meta">Issue #003 · Cost cutting</div>
+            <h3>Replace your SaaS stack with one AI agent</h3>
+            <p>One founder cut $500/month in SaaS fees to zero using a single OpenClaw agent on a Mac Mini. Here's how to replicate it.</p>
+          </div>
+        </a>
+        <a href="/playbooks/hvac-estimate-autopilot/" class="post-card">
+          <div class="post-thumb">🔧</div>
+          <div>
+            <div class="post-meta">Issue #007 · Trades</div>
+            <h3>This HVAC guy spent Friday night setting up AI. Now his estimates write themselves.</h3>
+            <p>A non-developer sales rep wired AI into his estimating software and email. Draft estimates assembled automatically. Works for any field-service business.</p>
+          </div>
+        </a>
+        <a href="/playbooks/cpa-quickbooks-monthly-close/" class="post-card">
+          <div class="post-thumb warm">📒</div>
+          <div>
+            <div class="post-meta">Issue #011 · Professional services</div>
+            <h3>This accountant trained her AI to close the books every month</h3>
+            <p>A working CPA wired her agent into the QuickBooks API. Six weeks of training and her monthly close is now 90% one-shot — catching errors her staff missed.</p>
+          </div>
+        </a>
+        <a href="/playbooks/life-insurance-2-minute-follow-up/" class="post-card">
+          <div class="post-thumb">📞</div>
+          <div>
+            <div class="post-meta">Issue #011 · Insurance &amp; sales</div>
+            <h3>His insurance agency texts and calls new leads in 2 minutes. Automatically.</h3>
+            <p>An agent named Apollo handles every step of follow-up: instant lead response, sequenced cadence, appointment reminders, no-show recovery. He focuses on closing.</p>
+          </div>
+        </a>
+        <a href="/playbooks/inbox-triage-agent/" class="post-card">
+          <div class="post-thumb warm">📥</div>
+          <div>
+            <div class="post-meta">Issue #010 · Time back</div>
+            <h3>He let an AI triage 180 emails a day. Here's the stack.</h3>
+            <p>The setup, the tone doc, the rules, and the A/B numbers from switching models. Stop losing your morning to email.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-final">
+    <div class="container">
+      <h2>The newsletter for people who actually run things.</h2>
+      <p>Free. Tuesday mornings. Five plays. No fluff.</p>
+      <a href="#subscribe" class="cta-btn">Get this Tuesday's drop →</a>
+    </div>
+  </section>
 {% endblock %}

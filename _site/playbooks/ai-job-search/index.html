@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build an AI Job Search Agent That Applies While You Sleep — ClawDrop</title>
+  <meta name="description" content="A developer doubled his salary in 3 days by letting his AI agent apply to 100+ jobs. Here&#39;s how to build the same system.">
+  <meta property="og:title" content="Build an AI Job Search Agent That Applies While You Sleep — ClawDrop">
+  <meta property="og:description" content="A developer doubled his salary in 3 days by letting his AI agent apply to 100+ jobs. Here&#39;s how to build the same system.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/ai-job-search/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Build an AI Job Search Agent That Applies While You Sleep — ClawDrop">
+  <meta name="twitter:description" content="A developer doubled his salary in 3 days by letting his AI agent apply to 100+ jobs. Here&#39;s how to build the same system.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/ai-job-search/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; }
+    .logo:hover { color: var(--ink); }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 280px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">March 2, 2026</div>
+    <h1>Build an AI Job Search Agent That Applies While You Sleep</h1>
+    <p class="post-description">A developer doubled his salary in 3 days by letting his AI agent apply to 100+ jobs. Here&#39;s how to build the same system.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Intermediate</strong></span>
+      <span class="meta-badge">💰 <strong>$20-40/month (API + optional tools)</strong></span>
+      <span class="meta-badge">⏱ <strong>2-3 hours</strong></span>
+      <span class="meta-badge">👤 <strong>Anonymous (Brazilian software engineer)</strong></span>
+      <a href="https://reddit.com/r/openclaw/comments/1r8hek7/my_agent_doubled_my_salary_it_found_a_new_job_for/" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-openclaw"><strong>OpenClaw</strong></a>: runs the always-on job search agent</li>
+<li><a href="#aff-anthropic"><strong>Anthropic</strong></a>: Claude API powers matching and resume tailoring</li>
+<li><a href="#aff-linkedin"><strong>LinkedIn</strong></a>: primary job board scraped via browser automation</li>
+<li><a href="#aff-telegram"><strong>Telegram</strong></a>: daily application reports</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>An AI agent that searches job boards, matches listings to your profile, customizes your resume for each role, drafts cover letters, and applies. You review a daily report of what it sent.</p>
+<h2>Why It Works</h2>
+<p>Job searching is 90% repetitive grunt work: scrolling listings, tweaking resumes, writing cover letters, filling forms. An AI agent can do this 24/7 with zero burnout. A human applying to 5 jobs per day competes against an agent applying to 50.</p>
+<p><strong>Results:</strong> 100+ applications in 3 days. 6 interviews. 2 offers. Salary doubled from $2,500 to $5,000/month.</p>
+<h2>Prerequisites</h2>
+<ul>
+<li>OpenClaw installed and running</li>
+<li>Claude API key</li>
+<li>LinkedIn account (logged in via browser or API)</li>
+<li>Your work history (will be converted to structured format)</li>
+<li>Browser automation capability (for form filling)</li>
+</ul>
+<h2>Architecture</h2>
+<pre><code>┌─────────────┐     ┌──────────────┐     ┌─────────────────┐
+│  Job Scanner │────▶│ Match Filter  │────▶│ Resume Tailorer  │
+│              │     │              │     │                  │
+│ - LinkedIn   │     │ - Role fit   │     │ - .md to PDF     │
+│ - Indeed     │     │ - Salary     │     │ - Custom summary │
+│ - Remote.co  │     │ - Location   │     │ - Highlight      │
+│ - AngelList  │     │ - Tech stack │     │   relevant exp   │
+└─────────────┘     └──────────────┘     └────────┬────────┘
+                                                   │
+                                          ┌────────▼────────┐
+                                          │   Applicator     │
+                                          │                  │
+                                          │ - Cover letter   │
+                                          │ - Form fill      │
+                                          │ - Email apply    │
+                                          │ - Track status   │
+                                          └────────┬────────┘
+                                                   │
+                                          ┌────────▼────────┐
+                                          │  Daily Report    │
+                                          │                  │
+                                          │ - Applied: 47    │
+                                          │ - Matched: 12    │
+                                          │ - Responses: 3   │
+                                          │ - Interviews: 1  │
+                                          └─────────────────┘
+</code></pre>
+<h2>Step-by-Step Setup</h2>
+<h3>Step 1: Structure Your Work History</h3>
+<p>Create markdown files the agent can reference and remix:</p>
+<p><strong><code>resume/base-resume.md</code></strong></p>
+<pre><code class="language-markdown"># Your Name
+**Title** | email@domain.com | LinkedIn | GitHub
+
+## Summary
+[2-3 sentences about your core value prop. The agent will customize this per job.]
+
+## Experience
+
+### Senior Developer, Company Name (2023-Present)
+- Built X that resulted in Y
+- Led team of Z people
+- Technologies: React, Node.js, PostgreSQL
+
+### Developer, Previous Company (2021-2023)
+- [accomplishments with numbers]
+
+## Skills
+- Languages: Python, JavaScript, TypeScript
+- Frameworks: React, Next.js, Node.js
+- Tools: Docker, AWS, PostgreSQL
+- Soft: Team leadership, client communication
+</code></pre>
+<p><strong><code>resume/projects.md</code></strong>: detailed project descriptions the agent can pull from
+<strong><code>resume/achievements.md</code></strong>: quantified wins (saved $X, improved Y by Z%)</p>
+<h3>Step 2: Define Your Job Search Criteria</h3>
+<p>Create a <code>job-search-config.md</code>:</p>
+<pre><code class="language-markdown">## Target Roles
+- Software Engineer (Senior/Staff)
+- Full-Stack Developer
+- Backend Engineer
+
+## Requirements
+- Salary: $100K+ (or equivalent remote)
+- Remote: preferred, open to hybrid in [city]
+- Company size: 10-500 employees
+- Industry: SaaS, fintech, dev tools (preferred)
+
+## Deal Breakers
+- No crypto/web3
+- No agencies
+- Must have health insurance
+
+## Tech Stack Preferences
+- Strong match: React, Node.js, PostgreSQL, AWS
+- Good match: Python, Go, TypeScript
+- Weak match: Java, C#, Angular
+
+## Application Strategy
+- Prioritize: roles posted in last 48 hours
+- Skip: roles with 500+ applicants on LinkedIn
+- Always apply if: company is in my target list (see below)
+
+## Target Companies
+- Stripe, Vercel, Linear, Notion, Figma, Supabase
+</code></pre>
+<h3>Step 3: Build the Job Scanner</h3>
+<p>The agent needs to find jobs. Several approaches:</p>
+<p><strong>LinkedIn (browser automation):</strong>
+Give your agent browser access with LinkedIn logged in. It searches using your criteria, scrolls through results, and extracts job details.</p>
+<p><strong>Job board APIs:</strong></p>
+<ul>
+<li>LinkedIn doesn't have a public job API, but you can scrape RSS feeds</li>
+<li>Indeed has an affiliate API</li>
+<li>Remote.co, AngelList, and WeWorkRemotely have feeds</li>
+<li>Hacker News &quot;Who is Hiring&quot; monthly threads</li>
+</ul>
+<p><strong>Google Jobs:</strong>
+Search <code>site:linkedin.com/jobs &quot;[your title]&quot; &quot;[your city]&quot;</code> or use Google Jobs API.</p>
+<h3>Step 4: Match and Rank</h3>
+<p>The agent reads each job description and scores it against your config:</p>
+<pre><code>Score = (role_match * 3) + (salary_match * 2) + (tech_match * 2) + (company_size * 1) + (recency * 1)
+</code></pre>
+<p>Only jobs scoring above your threshold get applications.</p>
+<h3>Step 5: Customize and Apply</h3>
+<p>For each matched job, the agent:</p>
+<ol>
+<li><strong>Reads the full job description</strong></li>
+<li><strong>Customizes your resume summary</strong> to highlight relevant experience</li>
+<li><strong>Reorders skills</strong> to match what the job asks for</li>
+<li><strong>Writes a cover letter</strong> (if required) that references specific things from the job post</li>
+<li><strong>Converts resume to PDF</strong> (use <code>pandoc</code> or a markdown-to-PDF tool)</li>
+<li><strong>Applies</strong> via the platform's easy-apply, email, or form fill</li>
+</ol>
+<h3>Step 6: Track Everything</h3>
+<p>Create an <code>applications.md</code> or SQLite database:</p>
+<pre><code class="language-markdown">| Date | Company | Role | Status | Link | Notes |
+|------|---------|------|--------|------|-------|
+| 3/3 | Linear | Senior FE | Applied | [link] | Strong match, used React |
+| 3/3 | Vercel | Staff Eng | Applied | [link] | Dream company |
+| 3/4 | Notion | Backend | Interview | [link] | Phone screen 3/7 |
+</code></pre>
+<p>Daily report to your Telegram/email: what was applied, any responses, upcoming interviews.</p>
+<h2>Customization Ideas</h2>
+<ul>
+<li><strong>Freelancers:</strong> Monitor Upwork, Fiverr, Toptal for matching gigs instead of full-time roles</li>
+<li><strong>Sales roles:</strong> Focus on company research + personalized outreach rather than form applications</li>
+<li><strong>Recruiters:</strong> Run this for multiple candidates simultaneously</li>
+<li><strong>Career changers:</strong> Weight transferable skills and write cover letters that bridge the gap</li>
+</ul>
+<h2>Gotchas &amp; Tips</h2>
+<ul>
+<li><strong>Don't apply to your current employer.</strong> Add them to the exclusion list.</li>
+<li><strong>Review before dream companies.</strong> Let the agent handle bulk applications, but personally review anything going to your top-5 target companies.</li>
+<li><strong>The flood is real.</strong> The original builder had to shut it down because of overwhelming responses. Set a daily cap (20-30 applications/day is plenty).</li>
+<li><strong>LinkedIn has rate limits.</strong> Space out actions. Don't apply to 50 jobs in 10 minutes or you'll get flagged.</li>
+<li><strong>Quality over quantity for senior roles.</strong> For junior/mid roles, volume wins. For senior/staff, customize heavily and apply to fewer.</li>
+<li><strong>Track what works.</strong> After a week, check which resume versions and cover letter styles got responses. Feed that back to the agent.</li>
+</ul>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators · Powered by <a href="https://openclaw.com">OpenClaw</a></p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

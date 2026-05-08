@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Install OpenClaw on Windows (With Telegram, Step by Step) — ClawDrop</title>
+  <meta name="description" content="A practical walkthrough for getting OpenClaw running on Windows via WSL, hooked up to Telegram, locked down, and ready to use. Based on a live install walkthrough.">
+  <meta property="og:title" content="How to Install OpenClaw on Windows (With Telegram, Step by Step) — ClawDrop">
+  <meta property="og:description" content="A practical walkthrough for getting OpenClaw running on Windows via WSL, hooked up to Telegram, locked down, and ready to use. Based on a live install walkthrough.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://clawdrop.org/learn/openclaw-windows-install/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="How to Install OpenClaw on Windows (With Telegram, Step by Step) — ClawDrop">
+  <meta name="twitter:description" content="A practical walkthrough for getting OpenClaw running on Windows via WSL, hooked up to Telegram, locked down, and ready to use. Based on a live install walkthrough.">
+  <link rel="canonical" href="https://clawdrop.org/learn/openclaw-windows-install/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; }
+    .logo:hover { color: var(--ink); }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 760px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .toc { background: var(--paper); border: 1px solid var(--rule); border-radius: 12px; padding: 22px 26px; margin-bottom: 32px; }
+  .toc-title { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); margin-bottom: 12px; font-weight: 600; }
+  .toc ol { padding-left: 20px; margin: 0; color: var(--ink); }
+  .toc li { margin-bottom: 6px; }
+  .toc a { color: var(--ink-soft); text-decoration: none; font-size: 0.92rem; }
+  .toc a:hover { color: var(--accent); }
+
+  .updated-badge { font-size: 0.74rem; color: var(--accent); background: var(--accent-soft); padding: 4px 10px; border-radius: 100px; display: inline-block; margin-bottom: 16px; font-weight: 600; }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 280px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  .related-playbooks { margin: 40px 0; }
+  .related-playbooks h3 { font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 600; margin-bottom: 16px; color: var(--ink); }
+  .related-card { display: block; text-decoration: none; color: inherit; padding: 16px 20px; border-radius: 12px; border: 1px solid var(--rule); background: var(--paper); margin-bottom: 10px; transition: all 0.2s; }
+  .related-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 6px 16px rgba(21, 36, 61, 0.05); }
+  .related-card .rc-title { font-size: 0.95rem; font-weight: 600; color: var(--ink); }
+  .related-card .rc-desc { font-size: 0.82rem; color: var(--ink-soft); margin-top: 4px; }
+
+  .faq-item { margin-bottom: 24px; }
+  .faq-item h3 { font-family: 'Fraunces', serif; font-size: 1.05rem; font-weight: 600; margin-bottom: 6px; color: var(--ink); }
+  .faq-item p { color: var(--ink); font-size: 0.95rem; line-height: 1.75; }
+
+  </style>
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "How to Install OpenClaw on Windows (With Telegram, Step by Step)",
+    "description": "A practical walkthrough for getting OpenClaw running on Windows via WSL, hooked up to Telegram, locked down, and ready to use. Based on a live install walkthrough.",
+    "datePublished": "April 17, 2026",
+    "dateModified": "April 2026",
+    "author": {
+      "@type": "Organization",
+      "name": "ClawDrop",
+      "url": "https://clawdrop.org"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "ClawDrop",
+      "url": "https://clawdrop.org"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://clawdrop.org/learn/openclaw-windows-install/"
+    }
+  }
+  </script>
+
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post" itemscope itemtype="https://schema.org/Article">
+    <a href="/learn/" class="post-back">← All Guides</a>
+    <div class="updated-badge">Updated April 2026</div>
+    <div class="post-date" itemprop="datePublished">April 17, 2026</div>
+    <h1 itemprop="headline">How to Install OpenClaw on Windows (With Telegram, Step by Step)</h1>
+    <p class="post-description" itemprop="description">A practical walkthrough for getting OpenClaw running on Windows via WSL, hooked up to Telegram, locked down, and ready to use. Based on a live install walkthrough.</p>
+    <meta itemprop="author" content="ClawDrop">
+    <div class="post-meta-grid">
+      <span class="meta-badge">📖 <strong>10 min read</strong></span>
+      <span class="meta-badge">👤 <strong>Windows users, first-time installers</strong></span>
+    </div>
+    <div class="post-content" id="post-content" itemprop="articleBody">
+      <p><strong>OpenClaw runs natively on Mac and Linux. On Windows, it runs through WSL (Windows Subsystem for Linux), which is basically Ubuntu running inside Windows.</strong> That sounds intimidating if you've never touched a terminal, but Windows handles almost all of the setup for you. This guide walks through the full install end to end, including the gotchas that cost people the most time.</p>
+<p>By the end, you'll have OpenClaw installed, connected to Telegram, and responding to DMs from your phone.</p>
+<h2>Before You Start: Build Your Own Support Channel</h2>
+<p>Before you install anything, do this. It'll save you hours.</p>
+<p>Go to <a href="https://context7.com">context7.com</a>, search for <strong>OpenClaw</strong>, and click the result that points to <code>docs.openclaw.ai</code>. You'll see a token slider. Add a zero at the end of the number to max it out (this grabs the complete documentation instead of a summary). Hit <strong>Copy</strong>.</p>
+<p>Now open ChatGPT or Claude.ai and create a new <strong>Project</strong> called &quot;OpenClaw Support.&quot; Paste the documentation you just copied as a text file in the project's sources.</p>
+<p>From now on, when you hit an error or can't remember a command, ask that project. It has the full, current OpenClaw docs and will give you step-by-step answers instead of sending you Googling.</p>
+<h2>Step 1: Check WSL</h2>
+<p>Right-click the Start menu and open <strong>Terminal (Admin)</strong>. Type:</p>
+<pre><code>wsl
+</code></pre>
+<p>If WSL is installed, you'll drop into a Linux prompt. If not, Windows will prompt you to install it and restart. Do that, then come back.</p>
+<p>Everything from this point runs <strong>inside WSL</strong>, not native Windows. The Linux prompt is where you'll work.</p>
+<h2>Step 2: Run the Install Command</h2>
+<p>Inside WSL, paste the install command from the OpenClaw docs. It looks like this:</p>
+<pre><code>curl -fsSL https://get.openclaw.ai | bash
+</code></pre>
+<p>If you hit a permissions error, prefix it with <code>sudo</code>. When typing your sudo password, nothing will appear on screen. That's normal. Just type it and press Enter.</p>
+<h2>Step 3: Let It Install Dependencies</h2>
+<p>The installer handles <strong>Homebrew, Git, and Node.js</strong> automatically. Yes, WSL runs Homebrew too. The Node.js step can stall for 20 minutes on a fresh machine. Don't cancel it. Go get coffee.</p>
+<h3>The Most Common Gotcha</h3>
+<p>Once install finishes, you type <code>openclaw</code> and see:</p>
+<pre><code>command not found: openclaw
+</code></pre>
+<p><strong>Fix: close the terminal and reopen it.</strong> Your shell needs to reload its PATH to see the new command. This trips up almost everyone.</p>
+<h2>Step 4: Run the Setup Wizard</h2>
+<p>Run <code>openclaw</code> to launch the interactive setup. Use arrow keys to navigate.</p>
+<p>Here's what to pick:</p>
+<ul>
+<li><strong>Lockdown prompt:</strong> Yes</li>
+<li><strong>Setup mode:</strong> Quick Start</li>
+<li><strong>LLM provider:</strong> OpenAI Codex (recommended)</li>
+<li><strong>Model:</strong> GPT 5.4</li>
+<li><strong>Search provider:</strong> Brave Search if you want web search, otherwise skip</li>
+<li><strong>Skills:</strong> GitHub, GOG (Gmail/Google Workspace), Session Logs, Summarize</li>
+<li><strong>Hooks:</strong> enable &quot;log all commands to a centralized audit file&quot; and &quot;session memory&quot;</li>
+</ul>
+<h3>Why OpenAI Codex?</h3>
+<p>OpenAI Codex uses <strong>OAuth through your ChatGPT login</strong>. That means no API key, no per-request charges, and it works on the standard $20/month ChatGPT Personal plan. It's the cheapest, smoothest option for most people.</p>
+<p>Anthropic works too but requires a paid API key and pay-per-request billing. OpenAI's own API also works but costs more than the ChatGPT subscription model.</p>
+<h3>About Brave Search</h3>
+<p>Brave's free tier gives you 1,000 searches per month, which is plenty. The catch: it requires a credit card even for the free tier. If that's annoying, skip it for now. You can add it later.</p>
+<h2>Step 5: Start the Gateway</h2>
+<p>When the wizard finishes, the <strong>gateway service</strong> starts automatically. The gateway is what lets external channels like Telegram, Discord, or Slack talk to OpenClaw.</p>
+<p>Open your browser to <a href="http://localhost:8789">http://localhost:8789</a>. Paste the gateway token when prompted. You'll see a dashboard with chat, channels, and cron jobs.</p>
+<h2>Step 6: Connect Telegram</h2>
+<p>This is where people get stuck. Follow these steps exactly.</p>
+<h3>Why Telegram (and why a dedicated account)</h3>
+<p>Telegram is the easiest channel to connect and the one this guide covers. Discord and Slack work too but aren't walked through here.</p>
+<p><strong>Strong recommendation: use a Telegram account that only talks to OpenClaw.</strong> Don't hook OpenClaw to your personal Telegram that you use for friends and family.</p>
+<p>The reason is prompt injection. If OpenClaw can read your personal DMs, a bad actor can message you saying &quot;Hey this is you, locked out, send me my SSN.&quot; If OpenClaw has access to your credentials, it might comply. Keeping Telegram isolated removes that risk entirely.</p>
+<h3>Install Telegram Desktop</h3>
+<p>Download Telegram Desktop for Windows. The mobile app works too, but desktop makes copy-paste much easier.</p>
+<h3>Create a Bot With BotFather</h3>
+<p>BotFather is Telegram's official bot creator. It's a bot that makes other bots.</p>
+<ol>
+<li>Open Telegram and search for <strong>@BotFather</strong>. Start the chat.</li>
+<li>Send <code>/newbot</code>.</li>
+<li>BotFather asks for a <strong>display name</strong>. Any string works. Try &quot;My OpenClaw.&quot;</li>
+<li>BotFather asks for a <strong>username</strong>. It must be globally unique and <strong>must end in <code>bot</code></strong>. Pure numeric usernames get rejected. Add letters if your first pick is taken. Example: <code>dhruvopenclawbot</code>.</li>
+<li>BotFather replies with a link to your bot and a <strong>token</strong> that looks like this:</li>
+</ol>
+<pre><code>8234567890:AAFcdEfGhIjKlMnOpQrStUvWxYzAbCdEfGhIj
+</code></pre>
+<p>The format is: 8 digit ID, a colon, then about 35 characters of letters and numbers.</p>
+<h3>Paste the Token Into OpenClaw (Carefully)</h3>
+<p>Back in OpenClaw, the setup will ask for your bot token. Paste it in.</p>
+<p><strong>Critical: do not type the token manually.</strong> If you mistype even one character, OpenClaw will not give you an error. It just silently fails to pair. There's no feedback because pairing hasn't happened yet, so nothing is there to validate against.</p>
+<p>Always copy-paste directly from BotFather. If you need to bounce the token through another app to copy it, that's fine. Just don't retype it.</p>
+<h3>Pick an Allowlist, Not Open Access</h3>
+<p>OpenClaw now asks about channel access:</p>
+<ul>
+<li><strong>Allow list:</strong> pick this. You whitelist specific Telegram chats or channels your bot can see.</li>
+<li><strong>Open all:</strong> avoid. This gives the bot access to every channel you're in.</li>
+</ul>
+<h3>Pair Your Account</h3>
+<p>The default DM access policy is <strong>pairing mode</strong>. Leave it there for first-time setup.</p>
+<ol>
+<li>Click the link BotFather gave you to open your new bot in Telegram.</li>
+<li>Send it any message. Try <code>start</code>.</li>
+<li>The bot replies with a <strong>pairing code</strong>.</li>
+<li>Paste the pairing code back into OpenClaw.</li>
+</ol>
+<p>You're now paired. The bot will respond as OpenClaw from here on.</p>
+<h2>Step 7: Lock It Down</h2>
+<p>After pairing works, tighten security.</p>
+<ol>
+<li>Run <code>openclaw configure</code> to re-open the settings wizard.</li>
+<li>Re-enter your bot token if prompted.</li>
+<li>Change <strong>DM Access Policy</strong> from &quot;pairing&quot; to &quot;allowlist&quot; (or leave on pairing if you're the only user).</li>
+<li><strong>Restart the gateway</strong> to apply changes.</li>
+</ol>
+<p>Your bot now only responds to the specific accounts or channels you've whitelisted.</p>
+<h2>Test It</h2>
+<p>Try one of these:</p>
+<ul>
+<li>Run <code>openclaw tui</code> in your terminal for a text interface</li>
+<li>DM your bot in Telegram from your phone</li>
+<li>Open the dashboard at <a href="http://localhost:8789">http://localhost:8789</a></li>
+</ul>
+<p>All three talk to the same OpenClaw instance. You should see the same conversation from any of them.</p>
+<h2>Power Tips for Later</h2>
+<p><strong>Multi-channel Telegram setup:</strong> Create separate Telegram channels for different contexts, like one for daily briefings, one for inbox management, one for client work. OpenClaw keeps separate conversation context per channel, so you don't pollute your morning brief with work-project chatter.</p>
+<p><strong>Skip the menus:</strong> The setup wizard writes to a plain text config file. Once you know its path, editing the file directly is much faster than clicking through the wizard every time. Ask your OpenClaw Support project: &quot;Which file does <code>openclaw configure</code> write Telegram settings to?&quot;</p>
+<p><strong>Cron jobs:</strong> The dashboard at <code>localhost:8789</code> has a Cron Jobs tab. Set up a recurring task like &quot;every morning at 7am, send me my calendar and top three emails.&quot; That single automation alone makes the install worth it.</p>
+<h2>Common Issues</h2>
+<p><strong>&quot;command not found: openclaw&quot;</strong> after install: close and reopen your terminal.</p>
+<p><strong>Bot not responding after pasting token:</strong> you mistyped the token. Copy-paste again from BotFather.</p>
+<p><strong>Setup wizard stuck on Node.js install:</strong> it's slow, not stuck. Wait it out.</p>
+<p><strong>Gateway won't start:</strong> restart your WSL terminal and run <code>openclaw</code> again. If it still fails, check port 8789 isn't already in use.</p>
+<p><strong>Prompt injection paranoia:</strong> good. Keep your OpenClaw Telegram separate from personal messaging. Don't give OpenClaw access to credentials it doesn't need.</p>
+<h2>You're Done</h2>
+<p>You now have an AI agent that lives on your Windows machine, reads your Gmail if you gave it GOG access, and responds to Telegram DMs from anywhere.</p>
+<p>Next up: figure out what you actually want it to do for you. That's the fun part.</p>
+
+    </div>
+    <script>
+    (function() {
+      var iframeSrc = 'https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa';
+      var iframeAttrs = 'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"';
+
+      function makeCTA(headline, subtitle, id) {
+        var el = document.createElement('div');
+        el.className = 'playbook-cta';
+        el.innerHTML = '<h3>' + headline + '</h3>' +
+          '<p>' + subtitle + '</p>' +
+          '<div class="form-iframe-wrap">' +
+          '<iframe src="' + iframeSrc + '" ' + iframeAttrs +
+          ' data-layout-iframe-id="' + id + '"></iframe></div>';
+        return el;
+      }
+
+      var headings = document.querySelectorAll('#post-content h2');
+      var placed = 0;
+
+      if (headings.length >= 3) {
+        var midPoint = Math.floor(headings.length * 0.4);
+        if (midPoint < 2) midPoint = 2;
+        headings[midPoint].parentNode.insertBefore(
+          makeCTA('Getting value from this guide?',
+            'Get 5 OpenClaw playbooks delivered every Tuesday. Real automations from real owners.',
+            'inline-learn-mid'),
+          headings[midPoint]
+        );
+        placed++;
+      }
+
+      for (var i = 0; i < headings.length; i++) {
+        if (headings[i].textContent.toLowerCase().indexOf('frequently') !== -1 ||
+            headings[i].textContent.toLowerCase().indexOf('faq') !== -1) {
+          headings[i].parentNode.insertBefore(
+            makeCTA('Want more like this?',
+              'Every Tuesday we break down what owners are building with OpenClaw. Join 1,000+ operators.',
+              'inline-learn-prefaq'),
+            headings[i]
+          );
+          placed++;
+          break;
+        }
+      }
+
+      if (placed < 2 && headings.length >= 5) {
+        var latePoint = Math.floor(headings.length * 0.7);
+        headings[latePoint].parentNode.insertBefore(
+          makeCTA('Want more like this?',
+            'Every Tuesday we break down what owners are building with OpenClaw. Join 1,000+ operators.',
+            'inline-learn-late'),
+          headings[latePoint]
+        );
+      }
+
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <script>
+    (function() {
+      var faqItems = [];
+      var headings = document.querySelectorAll('.post-content h2, .post-content h3');
+      var inFaq = false;
+      for (var i = 0; i < headings.length; i++) {
+        var text = headings[i].textContent.toLowerCase();
+        if (text.indexOf('frequently asked') !== -1 || text.indexOf('faq') !== -1) {
+          inFaq = true;
+          continue;
+        }
+        if (inFaq && headings[i].tagName === 'H2') break;
+        if (inFaq) {
+          var answer = '';
+          var sibling = headings[i].nextElementSibling;
+          while (sibling && sibling.tagName !== 'H2' && sibling.tagName !== 'H3') {
+            if (sibling.textContent) answer += sibling.textContent.trim() + ' ';
+            sibling = sibling.nextElementSibling;
+          }
+          if (answer.trim()) {
+            faqItems.push({
+              "@type": "Question",
+              "name": headings[i].textContent.trim(),
+              "acceptedAnswer": { "@type": "Answer", "text": answer.trim() }
+            });
+          }
+        }
+      }
+      if (faqItems.length > 0) {
+        var script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.textContent = JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": faqItems
+        });
+        document.head.appendChild(script);
+      }
+    })();
+    </script>
+    <div class="post-footer">
+      <div class="playbook-cta" style="margin-bottom: 32px;">
+        <h3>ClawDrop. Every Tuesday.</h3>
+        <p>5 real OpenClaw builds, verified and written up with the story behind them. Plus playbooks you can steal.</p>
+        <div class="form-iframe-wrap">
+          <iframe
+            src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa"
+            style="width:100%;border:none;" scrolling="no"
+            data-layout="{'id':'INLINE'}" data-trigger-type="alwaysShow"
+            data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate"
+            data-form-name="Newsletter Signup" data-height="340"
+            data-layout-iframe-id="inline-learn-footer"
+            data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"
+          ></iframe>
+        </div>
+      </div>
+      <p style="margin-top: 24px;">Want to see what owners are building?</p>
+      <a href="/playbooks/" class="btn-cta">Browse playbooks →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators · Powered by <a href="https://openclaw.com">OpenClaw</a></p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

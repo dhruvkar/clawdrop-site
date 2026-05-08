@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Give Your AI a Second Brain That Gets Smarter Every Day ($0/Month) — ClawDrop</title>
+  <meta name="description" content="Build a personal knowledge base using Karpathy&#39;s LLM wiki method. Markdown files + Obsidian + Claude Code. Your AI remembers everything you&#39;ve ever read, saved, or learned. Zero cost, 10 minutes to set up.">
+  <meta property="og:title" content="Give Your AI a Second Brain That Gets Smarter Every Day ($0/Month) — ClawDrop">
+  <meta property="og:description" content="Build a personal knowledge base using Karpathy&#39;s LLM wiki method. Markdown files + Obsidian + Claude Code. Your AI remembers everything you&#39;ve ever read, saved, or learned. Zero cost, 10 minutes to set up.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/ai-second-brain-karpathy/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Give Your AI a Second Brain That Gets Smarter Every Day ($0/Month) — ClawDrop">
+  <meta name="twitter:description" content="Build a personal knowledge base using Karpathy&#39;s LLM wiki method. Markdown files + Obsidian + Claude Code. Your AI remembers everything you&#39;ve ever read, saved, or learned. Zero cost, 10 minutes to set up.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/ai-second-brain-karpathy/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; }
+    .logo:hover { color: var(--ink); }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 280px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">April 7, 2026</div>
+    <h1>Give Your AI a Second Brain That Gets Smarter Every Day ($0/Month)</h1>
+    <p class="post-description">Build a personal knowledge base using Karpathy&#39;s LLM wiki method. Markdown files + Obsidian + Claude Code. Your AI remembers everything you&#39;ve ever read, saved, or learned. Zero cost, 10 minutes to set up.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Beginner</strong></span>
+      <span class="meta-badge">💰 <strong>$0/month</strong></span>
+      <span class="meta-badge">⏱ <strong>10-15 minutes</strong></span>
+      <a href="https://www.youtube.com/@aiforwork_app" target="_blank" class="meta-badge">👤 <strong>Julian Oczkowski (AI for Work) ↗</strong></a>
+      <a href="https://www.youtube.com/watch?v=lnsExa1UbnM" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-obsidian"><strong>Obsidian</strong></a>: local markdown vault that stores your second brain</li>
+<li><a href="#aff-obsidian"><strong>Obsidian Web Clipper</strong></a>: browser extension for saving any webpage into the vault</li>
+<li><a href="#aff-claude-code"><strong>Claude Code</strong></a>: reads and organizes your vault, builds connections</li>
+<li><a href="#aff-openclaw"><strong>OpenClaw</strong></a>: alternative agent runtime that can access the same vault</li>
+<li><a href="#aff-github"><strong>GitHub</strong></a>: host the karpathy-llm-wiki setup repo and back up your vault</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>A personal knowledge base that makes your AI smarter every single day. Not a chatbot. Not a RAG pipeline. Just a folder of plain text files that your AI reads, organizes, and connects automatically.</p>
+<p>You clip an article about your industry. You save notes from a podcast. You drop in a competitor's pricing page. Your AI reads all of it, links related ideas together, and builds a living knowledge graph that grows over time.</p>
+<p>Next time you ask your AI to write a proposal, plan a campaign, or research a market, it doesn't start from zero. It draws on everything you've ever saved. It remembers what you've forgotten. It connects dots you didn't know existed.</p>
+<p>This is Andrej Karpathy's &quot;LLM wiki&quot; method. Karpathy is the guy who built Tesla's self-driving AI. When he shares how he organizes knowledge for AI, people pay attention. His approach went viral because it's almost stupidly simple: markdown files in a folder. No databases. No vector embeddings. No monthly subscription. Just files.</p>
+<p>The concept blew up across YouTube in April 2026, with Nate Herk's 2-minute take pulling 27,000 views and Julian Oczkowski's full tutorial hitting 3,000+ views, both within days of posting.</p>
+<h2>Why This Matters for Your Business</h2>
+<p>Every conversation you have with AI starts from scratch. You explain your business, your audience, your tone, your preferences. Every. Single. Time.</p>
+<p>It's like hiring someone new every Monday morning and spending the first hour re-training them on everything the last person knew. Except this happens dozens of times a day.</p>
+<p>A second brain fixes that permanently. Here's what changes:</p>
+<p><strong>Before (no second brain):</strong></p>
+<ul>
+<li>&quot;Write me a blog post about X&quot; and the AI produces generic content that could be for anyone</li>
+<li>You spend 30 minutes giving context before the AI can do anything useful</li>
+<li>Every session is a blank slate</li>
+</ul>
+<p><strong>After (with second brain):</strong></p>
+<ul>
+<li>&quot;Write me a blog post about X&quot; and the AI already knows your industry, your competitors, your audience, your voice, and your past content</li>
+<li>The AI references articles you saved three months ago that are suddenly relevant</li>
+<li>Every session builds on everything that came before</li>
+</ul>
+<p>The difference compounds. After a month, your AI knows more about your business than most employees. After six months, it's like having a research department that never forgets anything.</p>
+<h2>The Setup (10 Minutes, Seriously)</h2>
+<h3>What You Need</h3>
+<ul>
+<li><strong>Obsidian</strong> (free): a note-taking app that stores everything as local markdown files</li>
+<li><strong>Obsidian Web Clipper</strong> (free): a browser extension that saves any webpage into your vault</li>
+<li><strong>Claude Code</strong> (or any AI with file access): reads and organizes your vault</li>
+<li>A computer. That's it.</li>
+</ul>
+<h3>Step 1: Install Obsidian</h3>
+<p>Download Obsidian from <a href="https://obsidian.md/">obsidian.md</a>. Create a new vault. Call it whatever you want. &quot;Brain,&quot; &quot;Wiki,&quot; &quot;Knowledge.&quot; Doesn't matter.</p>
+<p>Create three folders inside:</p>
+<pre><code>/raw          ← stuff you clip from the web, unprocessed
+/organized    ← cleaned up, linked, categorized notes
+/projects     ← active work that references your knowledge
+</code></pre>
+<p>That's your entire infrastructure. Three folders.</p>
+<h3>Step 2: Install Web Clipper</h3>
+<p>Add the <a href="https://obsidian.md/clipper">Obsidian Web Clipper</a> extension to your browser. When you read something worth saving, hit the clipper button. It drops the full article into your <code>/raw</code> folder as a markdown file.</p>
+<p>Start clipping anything relevant to your work:</p>
+<ul>
+<li>Industry articles and reports</li>
+<li>Competitor websites and pricing pages</li>
+<li>Social media posts with insights</li>
+<li>Podcast summaries</li>
+<li>Customer reviews and testimonials</li>
+<li>Product documentation</li>
+<li>Anything you'd normally bookmark and forget about</li>
+</ul>
+<h3>Step 3: Let Claude Code Organize It</h3>
+<p>Open Claude Code (or your AI tool of choice) and point it at your Obsidian vault. The original tutorial uses a setup script from the <a href="https://github.com/julianoczkowski/karpathy-llm-wiki">karpathy-llm-wiki</a> repo that handles the initial configuration.</p>
+<p>Once connected, ask your AI to:</p>
+<ol>
+<li><strong>Ingest</strong> the raw folder. It reads everything you've clipped.</li>
+<li><strong>Organize</strong> the content. It moves processed notes from <code>/raw</code> to <code>/organized</code>, adding tags, summaries, and links to related notes.</li>
+<li><strong>Build connections.</strong> This is the magic. The AI finds relationships between notes you didn't see. That article about pricing strategy links to the competitor analysis you saved last week, which connects to the customer feedback about value perception.</li>
+</ol>
+<p>In Obsidian's graph view, you can literally see your knowledge base as a web of connected ideas. The more you feed it, the denser and more useful the web gets.</p>
+<h3>Step 4: Use It Every Day</h3>
+<p>The system only works if you feed it. Make it a habit:</p>
+<p><strong>Morning:</strong> Clip 2-3 articles from your industry reading. Takes 30 seconds each.</p>
+<p><strong>During work:</strong> When you research something, save the sources into your vault instead of closing the tabs.</p>
+<p><strong>End of day:</strong> Drop in any notes, meeting summaries, or ideas. Even rough bullet points are fine. The AI will clean them up.</p>
+<p><strong>When you need the AI:</strong> Just ask. &quot;What do we know about [competitor]?&quot; or &quot;Summarize everything we have on [topic].&quot; The AI searches your vault and gives you answers grounded in your own curated knowledge, not generic internet content.</p>
+<h2>Built-In Quality Control</h2>
+<p>The setup includes two features that keep your knowledge base healthy:</p>
+<p><strong>Health checks:</strong> Run a health check to find orphaned notes (not linked to anything), stale content (hasn't been referenced in months), and duplicates. Think of it as defragging your brain.</p>
+<p><strong>Lint:</strong> Like a spell-checker for your knowledge structure. Catches broken links, missing tags, and formatting issues. Keeps everything clean as the vault grows.</p>
+<p><strong>Hot cache:</strong> Frequently accessed notes stay prioritized so your AI doesn't waste time searching through thousands of files when you ask about something you reference daily.</p>
+<h2>Who This Is For</h2>
+<p>This works for basically anyone who reads, researches, or needs to stay informed for their job. But it's especially powerful for:</p>
+<p><strong>Solopreneurs and consultants:</strong> Your knowledge IS your product. A second brain means your proposals, content, and client advice are informed by every article, case study, and insight you've ever encountered.</p>
+<p><strong>Content creators:</strong> Never stare at a blank page again. Your vault is full of ideas, research, and connections waiting to be turned into content.</p>
+<p><strong>Agency owners:</strong> Build a shared vault for your team. Institutional knowledge stops walking out the door when someone leaves.</p>
+<p><strong>Sales and marketing:</strong> Every competitor mention, market trend, and customer insight lives in one place. Your pitches get sharper because they're built on accumulated intelligence.</p>
+<p><strong>Researchers and analysts:</strong> Stop re-doing research you've already done. Search your vault before you search the internet.</p>
+<h2>What Makes This Different</h2>
+<p>You might be thinking: &quot;I already have Notion / Evernote / Google Drive full of notes I never look at.&quot;</p>
+<p>The difference is the AI layer. A folder of notes is a graveyard. A folder of notes connected to an AI that reads, links, and retrieves them on demand is a living system.</p>
+<p>Traditional note-taking apps store information. This system uses information. Every note you add makes every future AI interaction better. That's the compounding effect Karpathy was going for.</p>
+<p>And because it's all local markdown files, you own everything. No vendor lock-in. No subscription. No data leaving your machine. If Obsidian disappears tomorrow, your files still work in any text editor.</p>
+<h2>Scaling Up</h2>
+<p><strong>Start small.</strong> Don't try to clip your entire browsing history on day one. Start with 5-10 articles about your core business. Let the AI organize them. See the connections. Then gradually expand.</p>
+<p><strong>Create domain vaults.</strong> If you work across multiple areas, consider separate vaults: one for your industry, one for marketing knowledge, one for client-specific research. Or use folders within a single vault. Whatever keeps things findable.</p>
+<p><strong>Set up scheduled ingestion.</strong> Once you're comfortable, have your AI run a nightly job that processes everything in <code>/raw</code>, organizes it, and sends you a summary of new connections it found. Wake up to a smarter brain every morning.</p>
+<p><strong>Share with your AI across tools.</strong> The vault is just files. Any AI tool that can read local files can access your knowledge base. Claude Code, OpenClaw agents, custom scripts. The knowledge is portable.</p>
+<h2>Gotchas and Tips</h2>
+<ul>
+<li><strong>Clip generously, organize lazily.</strong> The AI handles organization. Your job is just to feed it raw material. If you find yourself spending more than 10 seconds deciding whether to clip something, just clip it. Let the AI sort it out.</li>
+<li><strong>Don't over-structure at the start.</strong> Three folders is enough. You'll naturally develop a structure as your vault grows. Premature organization is the enemy of actually using the system.</li>
+<li><strong>The graph view is motivating.</strong> Seeing your knowledge web grow visually is surprisingly addictive. Use it as motivation to keep feeding the system.</li>
+<li><strong>Quality in, quality out.</strong> If you only clip clickbait listicles, your AI's knowledge base will be shallow. Clip substantive, high-quality sources. Your AI is only as smart as what you feed it.</li>
+<li><strong>It takes about 2 weeks to click.</strong> The first few days feel pointless because the vault is too small to be useful. Stick with it. Around the 50-note mark, the connections start getting interesting. Around 200 notes, it becomes genuinely indispensable.</li>
+<li><strong>Back up your vault.</strong> It's just a folder. Put it in Dropbox, iCloud, or a Git repo. These files are your accumulated knowledge. Treat them accordingly.</li>
+</ul>
+<hr>
+<h2>Keep Reading</h2>
+<ul>
+<li><strong><a href="/playbooks/one-person-agency/">The One-Person Agency</a></strong>: Pair your second brain with a service business and deliver agency-quality work as a solo operator.</li>
+<li><strong><a href="/playbooks/ai-marketing-team/">Build a 7-Agent Marketing Team</a></strong>: Give each of your marketing agents access to your knowledge base for smarter content and campaigns.</li>
+</ul>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators · Powered by <a href="https://openclaw.com">OpenClaw</a></p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

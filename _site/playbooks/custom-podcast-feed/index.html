@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>His AI Builds Him a 30-Minute Podcast Every Morning. From the 50 Podcasts He&#39;ll Never Have Time to Listen To. — ClawDrop</title>
+  <meta name="description" content="Ryan Eade was losing 45 minutes a morning to AI newsletters and a podcast queue he could never finish. So he built an OpenClaw agent that distills 50 podcasts and dozens of newsletters into a single 30-minute custom audio digest, every day, on a $24/month VPS. The whole thing rides on the ElevenLabs free tier. Here&#39;s the stack.">
+  <meta property="og:title" content="His AI Builds Him a 30-Minute Podcast Every Morning. From the 50 Podcasts He&#39;ll Never Have Time to Listen To. — ClawDrop">
+  <meta property="og:description" content="Ryan Eade was losing 45 minutes a morning to AI newsletters and a podcast queue he could never finish. So he built an OpenClaw agent that distills 50 podcasts and dozens of newsletters into a single 30-minute custom audio digest, every day, on a $24/month VPS. The whole thing rides on the ElevenLabs free tier. Here&#39;s the stack.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/custom-podcast-feed/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="His AI Builds Him a 30-Minute Podcast Every Morning. From the 50 Podcasts He&#39;ll Never Have Time to Listen To. — ClawDrop">
+  <meta name="twitter:description" content="Ryan Eade was losing 45 minutes a morning to AI newsletters and a podcast queue he could never finish. So he built an OpenClaw agent that distills 50 podcasts and dozens of newsletters into a single 30-minute custom audio digest, every day, on a $24/month VPS. The whole thing rides on the ElevenLabs free tier. Here&#39;s the stack.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/custom-podcast-feed/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; }
+    .logo:hover { color: var(--ink); }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 280px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">May 4, 2026</div>
+    <h1>His AI Builds Him a 30-Minute Podcast Every Morning. From the 50 Podcasts He&#39;ll Never Have Time to Listen To.</h1>
+    <p class="post-description">Ryan Eade was losing 45 minutes a morning to AI newsletters and a podcast queue he could never finish. So he built an OpenClaw agent that distills 50 podcasts and dozens of newsletters into a single 30-minute custom audio digest, every day, on a $24/month VPS. The whole thing rides on the ElevenLabs free tier. Here&#39;s the stack.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Intermediate</strong></span>
+      <span class="meta-badge">💰 <strong>$24/month VPS + $0 ElevenLabs free tier (or $5/mo for more audio)</strong></span>
+      <span class="meta-badge">⏱ <strong>A weekend to wire it, a week to tune the source list</strong></span>
+      <a href="https://www.youtube.com/watch?v=0TpDF_ihFdE" target="_blank" class="meta-badge">👤 <strong>Ryan Eade (via NC Tweener Talks) ↗</strong></a>
+      <a href="https://www.youtube.com/watch?v=0TpDF_ihFdE" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-openclaw"><strong>OpenClaw</strong></a>: agent runtime running the nightly digest skill on the VPS</li>
+<li><a href="#aff-elevenlabs"><strong>ElevenLabs</strong></a>: text-to-speech that turns the script into a 30-minute mp3</li>
+<li><a href="#aff-digitalocean"><strong>DigitalOcean</strong></a>: $24/month droplet hosting the always-on agent</li>
+<li><a href="#aff-substack"><strong>Substack</strong></a>: newsletter source via RSS</li>
+<li><a href="#aff-beehiiv"><strong>Beehiiv</strong></a>: alternative newsletter source via RSS</li>
+<li><a href="#aff-whisper"><strong>Whisper</strong></a>: transcribes podcast audio for the agent to score and digest</li>
+<li><a href="#aff-youtube"><strong>YouTube</strong></a>: channel transcripts as a source feed</li>
+<li><a href="#aff-gmail"><strong>Gmail</strong></a>: dedicated inbox for newsletters that refuse to expose RSS</li>
+<li><a href="#aff-slack"><strong>Slack</strong></a>: alternate delivery surface and per-agent channel split</li>
+<li><a href="#aff-telegram"><strong>Telegram</strong></a>: original delivery and notification surface</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>A 30-minute audio show, made fresh for you, dropped to your phone every morning before you wake up.</p>
+<p>It pulls from every podcast you wish you had time for, every Substack you skim and feel guilty about, every YouTube channel you subscribed to and stopped watching. An AI agent reads, watches, and listens to all of it overnight. It picks the parts that matter to you specifically. It writes a script in your voice. ElevenLabs turns that script into clean audio. By 6 AM you have a personalized morning show waiting.</p>
+<p>Concretely, the agent does four jobs every night. It pulls fresh content from every source you registered. It scores each item against a short taste document you wrote about what you care about. It compiles the survivors into a flowing 30-minute script with smooth transitions. It generates the audio and drops the file somewhere your phone can find it.</p>
+<p>The operator this playbook is based on, Ryan Eade, used to spend 45 minutes every morning trying to keep up with the AI cycle. He now spends zero. He listens to his own custom show during his first walk of the day. He runs the whole stack on a $24-a-month DigitalOcean droplet and the ElevenLabs free tier. No app store. No subscription to a &quot;podcast summarizer&quot; SaaS. Just his own agent, his own taste, his own voice if he wants it.</p>
+<p>You walk away with: a personal radio station tuned to exactly your interests, the end of newsletter guilt, and the strange new luxury of being caught up.</p>
+<h2>Why The Morning Reading Pile Wins</h2>
+<p>Your podcast queue is not a podcast queue. It is a debt.</p>
+<p>Every Monday a new batch of episodes drops. The AI shows alone produce 50-plus a week now. A serious operator's reading list runs another 30 newsletters, half a dozen Substacks, a YouTube subs feed that thinks you have eight free hours a day, and a Twitter list that never sleeps.</p>
+<p>You cannot listen to all of it. You cannot read all of it. But you also cannot ignore it, because your work depends on knowing what just shipped.</p>
+<p>So most mornings look like this. You wake up. You open Twitter and scroll for ten minutes. You open your inbox and skim three newsletters, half-reading. You see a podcast someone recommended and add it to a list you will not return to. You sit down to actually work and you have already burned 45 minutes and absorbed almost nothing.</p>
+<p>Ryan said it plainly. &quot;I get hundreds of podcasts and newsletters. I spend about 45 minutes in hard mornings just keeping up.&quot; That is most of an hour, every day, gone to anxious skimming.</p>
+<p>The math gets uglier when you scale it. Forty-five minutes a day is five and a half hours a week. That is most of a working day, every week, lost to the feeling of falling behind. And the worst part is you do not even retain it. You skim, panic, close the tab, repeat tomorrow.</p>
+<p>The fix is not &quot;read less.&quot; The fix is &quot;read better.&quot; You need a system that does the skimming for you, distills it down to what actually matters in your specific lanes, and gives it to you in the format you can actually consume.</p>
+<p>For Ryan, that format is audio. He walks in the morning. He drives. He cooks. Audio fits where reading does not. So he built a 30-minute show that plays during the parts of the day that were already happening anyway.</p>
+<p>The cost of zero. The output is a personal NPR. The newsletter guilt closet finally closes.</p>
+<h2>The Pattern</h2>
+<p>The whole loop runs once, overnight, while you sleep.</p>
+<pre><code>[1] PULL
+    -&gt; RSS feeds, Substack, YouTube transcripts, podcast feeds
+    -&gt; dump everything new from the last 24 hours into a buffer
+         |
+         v
+[2] FILTER
+    -&gt; read taste.md (what I care about, what I skip)
+    -&gt; score each item, drop the bottom 70%
+         |
+         v
+[3] DISTILL
+    -&gt; for each survivor, pull the one or two real ideas
+    -&gt; dedupe across sources (the same news hit five places)
+         |
+         v
+[4] SCRIPT
+    -&gt; stitch into a 30-minute flowing monologue
+    -&gt; intro, three or four segments, sign-off
+         |
+         v
+[5] VOICE
+    -&gt; ElevenLabs reads the script (free tier = 30 min/day)
+    -&gt; output a clean mp3
+         |
+         v
+[6] DELIVER
+    -&gt; drop file to phone via private podcast feed, Slack, or Drive
+    -&gt; ready before you wake up
+</code></pre>
+<p>The leverage point is step 2. Filter is where your taste lives. Get the taste doc right and the rest of the pipeline is plumbing. Get it wrong and you have a 30-minute show full of stuff you do not care about.</p>
+<h2>Step-by-Step Setup</h2>
+<h3>Step 1: Stand Up An OpenClaw VPS</h3>
+<p>You need a small always-on server. Ryan's stack runs on a $24-a-month DigitalOcean droplet. You can go cheaper. A $6 droplet works fine for one person. The $24 box gives you headroom for multiple agents.</p>
+<p>You do not run this on your laptop. The job runs at 4 AM. Your laptop is asleep at 4 AM. Pay the six bucks and stop thinking about it.</p>
+<p>Install OpenClaw on the box. Add a single cron job that fires at 4 AM your local time and runs the daily digest skill.</p>
+<p>That is the entire infrastructure. There is no Kubernetes here. There is no message queue. There is one cheap Linux box and one cron line.</p>
+<h3>Step 2: Connect Your Sources</h3>
+<p>This is the part that takes a Saturday morning. You are going to register every place your reading lives.</p>
+<p>The four source types worth wiring:</p>
+<ul>
+<li><strong>RSS and Atom feeds.</strong> Most newsletters expose one even if they do not advertise it. Substack does. Beehiiv does. Ghost does. Your agent fetches the latest items each night.</li>
+<li><strong>Podcast feeds.</strong> Every podcast has an RSS feed with audio enclosures. Your agent grabs the audio, transcribes it (Whisper or the OpenClaw audio skill), then treats the transcript like any other text source.</li>
+<li><strong>YouTube channels.</strong> YouTube auto-generates transcripts for almost every video. Your agent pulls the transcript and skips the audio download entirely. Much faster.</li>
+<li><strong>Email newsletters that refuse to expose RSS.</strong> Make a dedicated Gmail address. Subscribe with that address. Have the agent read the inbox each night and treat each email as a &quot;feed item.&quot;</li>
+</ul>
+<p>Aim for 30 to 60 sources to start. Less than 30 and your show is thin on the days when nothing happens. More than 60 and your filter has to do too much work.</p>
+<h3>Step 3: Write Your Taste Document</h3>
+<p>This is the highest-leverage 20 minutes you spend on this build. You write one short markdown file that teaches the agent what you actually care about.</p>
+<pre><code class="language-markdown"># My Taste
+
+## Topics I Care About
+- AI agent infrastructure and OpenClaw specifically
+- Voice AI (ElevenLabs, Cartesia, conversation design)
+- Founder-operator stories with real numbers
+- B2B SaaS pricing experiments
+- The economics of one-person businesses
+
+## Topics I Skip
+- LLM benchmark drama (unless a model genuinely shipped)
+- Crypto and token launches
+- Politics, sports, entertainment news
+- Generic &quot;future of work&quot; essays with no data
+- Anything that mentions &quot;synergy&quot; or &quot;leverage&quot;
+
+## What Makes Something Worth A Spot
+- Specific numbers (revenue, costs, time, tokens)
+- A real person's name attached to a real outcome
+- A pattern I have not seen elsewhere this week
+- Something I can act on in the next seven days
+
+## What Earns An Instant Cut
+- Press release reformatted as journalism
+- An idea I have already heard three times this month
+- Anything that is just a screenshot of a tweet
+- Sponsored content disguised as analysis
+
+## My Voice For The Script
+- Conversational. Two operators talking over coffee.
+- Short sentences. No corporate phrasing.
+- Lead with the surprise, then explain it.
+- Sign off the same way every day: &quot;That's your thirty. See you tomorrow.&quot;
+</code></pre>
+<p>Keep it under 600 words. Long taste docs confuse the agent. The &quot;what earns a cut&quot; section is where most operators leave the most leverage on the table. Be brutal there. The cuts matter more than the inclusions.</p>
+<h3>Step 4: Wire ElevenLabs For Voice</h3>
+<p>Sign up for ElevenLabs. The free tier gets you about 10,000 characters a day, which is roughly 30 minutes of audio at conversational pace. That is the whole budget for one daily show.</p>
+<p>Pick a voice. You have three real options:</p>
+<ul>
+<li><strong>Stock voice.</strong> Free. Sounds professional. The default. Ninety percent of people should start here.</li>
+<li><strong>Cloned voice.</strong> Five minutes of your own speech becomes a voice profile. Now the show sounds like you. Slightly uncanny on day one, completely normal by day three.</li>
+<li><strong>Cloned voice of someone you admire.</strong> Tempting. Legally fraught. Skip.</li>
+</ul>
+<p>Set the speaking pace one notch slower than default. The default ElevenLabs pace is too fast for morning listening. You want to absorb, not race.</p>
+<p>If 30 minutes is not enough, the $5 paid tier gets you about 100,000 characters a month. That is plenty for a daily 30-minute show plus weekend specials.</p>
+<h3>Step 5: Decide Your Delivery</h3>
+<p>The audio file has to land somewhere your phone will play it. Four options, in rank order of how much they actually get used:</p>
+<ul>
+<li><strong>Private podcast feed.</strong> Your agent writes an RSS feed file with one episode per day. You subscribe in your podcast app of choice (Overcast, Pocket Casts, Apple Podcasts). The show shows up like any other podcast. Best experience by a mile.</li>
+<li><strong>Slack channel.</strong> The agent drops the mp3 into a dedicated channel. You play it from the Slack app. Works, but Slack is not built for audio playback.</li>
+<li><strong>Email with attachment.</strong> Robust. Survives every other failure mode. Mediocre on phones.</li>
+<li><strong>Google Drive folder.</strong> The agent uploads the file. You open Drive on your phone and play. Works but feels janky.</li>
+</ul>
+<p>The private podcast feed is the answer. Your phone is already wired to play podcasts at 7 AM during a walk. Make your custom show fit that habit instead of fighting it.</p>
+<p>Ryan started on Telegram for delivery and outgrew it. He moved to Slack for the multi-agent setup. For pure listening, a private RSS feed beats both.</p>
+<h3>Step 6: Tune The Source List Weekly</h3>
+<p>The agent will only ever be as good as the sources you feed it. The taste doc is week one work. The source list is forever work.</p>
+<p>Every Sunday, 15 minutes:</p>
+<ol>
+<li><strong>Look at last week's seven shows.</strong> Which segments were the best? Where did the good stuff come from? Add more sources like that.</li>
+<li><strong>Cut the dead weight.</strong> Any source that has not contributed a single segment in two weeks is probably noise. Remove it.</li>
+<li><strong>Add one new source.</strong> Someone you saw recommended this week, a new newsletter you bookmarked, a podcast a friend mentioned. One per week. The list grows slowly and stays sharp.</li>
+<li><strong>Update the taste doc with one new &quot;skip.&quot;</strong> Whatever annoyed you most this week becomes a permanent rule. Make the filter sharper every week.</li>
+</ol>
+<p>Fifteen minutes a week. That is the entire ongoing cost of a show that was costing you 45 minutes a morning.</p>
+<h3>Step 7: Optional Multi-Agent Split For Different Shows</h3>
+<p>This is where Ryan's setup goes from neat to actually transformative.</p>
+<p>He does not run one agent. He runs four. Each is named after a Parks and Recreation character. Each owns a different lane.</p>
+<ul>
+<li><strong>Ron</strong> owns personal life management. Calendar, errands, household.</li>
+<li><strong>April</strong> is dev and QA. Code reviews, ticket triage, deploy babysitting.</li>
+<li><strong>Ben</strong> is research and finance. Numbers, analysis, the boring spreadsheet work.</li>
+<li><strong>Leslie</strong> is content and strategy. Writing, brand, the long-arc thinking.</li>
+</ul>
+<p>Each agent has its own Slack channel. Ryan moved from Telegram to Slack specifically because context was bleeding across topics. One channel per project gives the agent dedicated context. Slack threads keep sub-conversations contained.</p>
+<p>For the podcast specifically, you can split it the same way. One show on AI news (10 minutes). One show on customer research (10 minutes). One show on personal stuff (10 minutes). Three short shows feel different from one long show. Some people prefer it.</p>
+<p>Start with one show. Add the split only if you actually feel one show is the wrong shape. Most people do not need it.</p>
+<h2>Lanes That Work</h2>
+<p>This playbook fits anyone whose job runs on staying current and whose time runs out before the reading does.</p>
+<p><strong>Founders and solo operators in fast-moving fields.</strong> Primary audience. AI, crypto, biotech, frontier hardware. The stuff happening this week genuinely matters. Falling two weeks behind is a real problem. The 30-minute morning show keeps you tracking the pulse without burning the morning.</p>
+<p><strong>Knowledge workers in technical roles.</strong> Senior engineers, ML researchers, product folks at AI companies. You are paid in part for taste about what is happening in your field. Maintaining that taste used to require a one-hour reading habit. Now it does not.</p>
+<p><strong>Substack guilt closet sufferers.</strong> You subscribed to 40 newsletters in 2024. You read maybe three. The rest sit in your inbox accumulating shame. The agent reads them all. You hear the parts that are worth hearing. The closet closes.</p>
+<p><strong>Parents with commutes or morning chores.</strong> You have 30 minutes of windshield time or 30 minutes of dish time. You are not going to read during that window. Audio fits exactly where the gap is.</p>
+<p><strong>Investors and angels.</strong> You need to track 50 portfolio companies and 100 sectors. The morning show gives you a finger on the pulse without making you read 30 newsletters yourself.</p>
+<p>What does not work: anyone whose reading load is under five sources a day. The setup overhead exceeds the savings. You can just read your five sources.</p>
+<p>What also does not work: anyone who needs to deeply read source material. The show is a trail map, not the trail. You will still want to read the original article if something hits. The show points you to the right ones to actually open.</p>
+<h2>What Changes After Setup</h2>
+<p><strong>Day 1.</strong> You spin up the droplet, install OpenClaw, write the taste doc, and register 30 sources. You run the agent manually once to test. You get a 30-minute mp3 back. It is decent. You hear three things you did not know.</p>
+<p><strong>Day 3.</strong> The cron job has fired three times. You have listened to two of three shows. The third you skipped because you slept in. You do not feel guilty about it. There will be another one tomorrow.</p>
+<p><strong>Week 1.</strong> You have noticed the show is best on Tuesday and Wednesday because Monday's drops feed it well. You have cut four dead sources and added two new ones. You have stopped opening Twitter in the morning because you already heard everything that mattered.</p>
+<p><strong>Week 2.</strong> Someone asks you &quot;did you see what shipped from Anthropic this week?&quot; You did. You heard it on Tuesday's show. You are now ahead of people who spend an hour a morning skimming.</p>
+<p><strong>Month 1.</strong> You stop checking newsletters in your inbox during the day. You trust the morning show to surface what matters. The stack of unread Substacks shrinks because you stopped feeling guilty about them. The taste doc has been edited four times and is sharper than week one.</p>
+<p><strong>Month 3.</strong> You take a five-day trip and skip listening. You come back, listen to one episode of the daily show on day six, and feel completely caught up. The agent did the keeping-up for you. This is the moment you realize you bought your mornings back permanently.</p>
+<h2>Gotchas and Tips</h2>
+<p><strong>Source diversity beats source volume.</strong> Five great newsletters in five different lanes beats fifteen newsletters all covering AI news. Diversity is what makes the show feel like a real briefing instead of a remix of yesterday.</p>
+<p><strong>Pick a stock ElevenLabs voice for week one.</strong> Do not waste day one on voice cloning. Get the pipeline working with a default voice. Clone yourself in week three once everything else is dialed in.</p>
+<p><strong>Keep the taste doc under 600 words.</strong> Long taste docs confuse the agent and make filtering inconsistent. Short, sharp, brutal cuts list. Edit the doc every week, do not extend it.</p>
+<p><strong>When ElevenLabs runs out, fall back to a text digest.</strong> Some days you will exceed the free tier (long news days, multiple episodes). Have the agent fall back to emailing you a written digest instead of skipping the day. A 5-minute read is better than a missed show.</p>
+<p><strong>Watch the copyright line.</strong> The agent should summarize and synthesize, never narrate someone else's article verbatim. Ten percent direct quote, ninety percent your agent in your voice. That is fair use territory. Word-for-word recitation of a paywalled Substack is not.</p>
+<p><strong>Time the cron for your actual morning, not &quot;early.&quot;</strong> If your walk is at 7 AM, render at 5 AM. If your commute is at 8:30, render at 6:30. ElevenLabs takes 5-10 minutes to generate 30 minutes of audio. Build the buffer.</p>
+<p><strong>Dedupe aggressively across sources.</strong> When OpenAI ships something, every newsletter covers it that morning. Without a dedupe step, your show repeats the same news five times in 30 minutes. Tell the agent to merge overlapping items into one segment.</p>
+<p><strong>Match the script length to the audio budget, not the content volume.</strong> Some days there is six hours of source material. Resist the urge to make a longer show. Thirty minutes is a feature, not a constraint. The discipline of cutting is what makes it good.</p>
+<p><strong>Save every script as text.</strong> Audio is hard to search. The script is searchable. Six months from now you will want to look up &quot;what did the show say about that pricing experiment in May,&quot; and the saved scripts make that a one-line grep.</p>
+<p><strong>One agent, one Slack channel.</strong> If you do the multi-agent split, give each agent its own dedicated channel. Ryan's biggest insight from his Telegram-to-Slack move was that context bleed between topics is what kills agents. Hard separation, one channel per agent, is the fix.</p>
+<p><strong>Skip the audio entirely on weekends.</strong> Most operators do not want a Saturday morning show. They want to actually read this weekend. Set the cron to fire Monday through Friday only. The agent gets a break. So do you.</p>
+<p><strong>The first three shows will be mediocre.</strong> That is normal. The taste doc has not been tuned. The source list is too broad. The voice is the default. Do not bail. By show seven it will be sharp. By show fifteen it will be one of the best things on your phone.</p>
+<hr>
+<h2>Keep Reading</h2>
+<ul>
+<li><strong><a href="/playbooks/ai-second-brain/">Your AI Remembers Everything So You Don't Have To</a>.</strong> The memory layer that pairs perfectly with the morning show. Whatever the show surfaces, the second brain catches and saves for later.</li>
+<li><strong><a href="/playbooks/ai-life-os/">Build an AI Life OS That Knows Your Entire Day (Before You Do)</a>.</strong> Same operator philosophy, broader scope. Your morning show is one slice of the larger Life OS pattern.</li>
+<li><strong><a href="/playbooks/inbox-triage-agent/">He Let an AI Triage 180 Emails a Day. Here's the Stack.</a>.</strong> The other half of the morning. Triage handles the inbox while the show handles the reading queue. Together they buy back the entire first hour of your day.</li>
+</ul>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators · Powered by <a href="https://openclaw.com">OpenClaw</a></p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research Your Competitors&#39; Ads and Launch Your Own Campaign on Meta — ClawDrop</title>
+  <meta name="description" content="Four AI agents analyze competitor ads from the Meta Ad Library, plan a campaign based on your brand, create all the assets, and publish everything to your Meta Ads account. Full pipeline from research to live campaigns in draft.">
+  <meta property="og:title" content="Research Your Competitors&#39; Ads and Launch Your Own Campaign on Meta — ClawDrop">
+  <meta property="og:description" content="Four AI agents analyze competitor ads from the Meta Ad Library, plan a campaign based on your brand, create all the assets, and publish everything to your Meta Ads account. Full pipeline from research to live campaigns in draft.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/meta-ads-pipeline/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Research Your Competitors&#39; Ads and Launch Your Own Campaign on Meta — ClawDrop">
+  <meta name="twitter:description" content="Four AI agents analyze competitor ads from the Meta Ad Library, plan a campaign based on your brand, create all the assets, and publish everything to your Meta Ads account. Full pipeline from research to live campaigns in draft.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/meta-ads-pipeline/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; }
+    .logo:hover { color: var(--ink); }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 280px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">March 17, 2026</div>
+    <h1>Research Your Competitors&#39; Ads and Launch Your Own Campaign on Meta</h1>
+    <p class="post-description">Four AI agents analyze competitor ads from the Meta Ad Library, plan a campaign based on your brand, create all the assets, and publish everything to your Meta Ads account. Full pipeline from research to live campaigns in draft.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Intermediate</strong></span>
+      <span class="meta-badge">💰 <strong>$20-30 per full run (API costs)</strong></span>
+      <span class="meta-badge">⏱ <strong>2-3 hours</strong></span>
+      <span class="meta-badge">👤 <strong>9x Live</strong></span>
+      <a href="https://www.youtube.com/watch?v=7UaQB325EqU" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-openclaw"><strong>OpenClaw</strong></a>: orchestrates the four marketing agents</li>
+<li><a href="#aff-anthropic"><strong>Anthropic</strong></a>: Claude Opus runs the pipeline</li>
+<li><a href="#aff-meta-ads"><strong>Meta Ads Manager</strong></a>: destination for draft campaigns via Marketing API</li>
+<li><a href="#aff-meta-ad-library"><strong>Meta Ad Library</strong></a>: competitor research source</li>
+<li><a href="#aff-gemini"><strong>Google Gemini</strong></a>: Nano Banana Pro for image ad generation</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>A four-stage pipeline that takes you from &quot;I want to run ads&quot; to &quot;campaigns are in Meta Ads Manager ready for review.&quot; No marketing agency. No freelancer. No back-and-forth on Slack for two weeks.</p>
+<p>Here's the pipeline:</p>
+<ol>
+<li><strong>Ads Analyst</strong> picks apart your competitor's entire Meta ad strategy: every ad creative, every landing page, every angle they're running.</li>
+<li><strong>Head of Marketing</strong> crawls your own website, understands your brand and products, then writes a full campaign proposal based on the competitive intel.</li>
+<li><strong>Creative Director</strong> builds the actual assets: landing pages, image ads, carousel ads, video scripts.</li>
+<li><strong>Performance Marketer</strong> pushes everything to Meta Ads Manager as draft campaigns, targeting configured, creatives attached, ready for your review.</li>
+</ol>
+<p>One real run produced 4 campaigns, 5 single image ads, 2 carousels with 10 cards, 8 video scripts, and 2 landing pages. Total cost: under $24 on Claude Opus.</p>
+<h2>Why This Works</h2>
+<p>Running Meta Ads the normal way looks like this: you hire a freelancer or agency ($2-5K/month), wait a week for the competitive analysis, another week for the creative brief, another week for the actual assets, then go back and forth on revisions. Six weeks and $10K later, you have your first campaign.</p>
+<p>This pipeline does the same work in about an hour. Not because the AI is smarter than a good marketer. It's not. But it can visit 20 landing pages, download 50 ad creatives, and write a 30-page analysis before a human has finished their morning coffee.</p>
+<p>The output isn't meant to run untouched. Campaigns go into Meta as drafts. You review them, adjust targeting, swap out images you don't love, and record the video scripts yourself (real video outperforms AI-generated video on Meta, and the creator specifically recommends this). The AI does the 80% that's research and grunt work. You do the 20% that's judgment.</p>
+<h2>Prerequisites</h2>
+<ul>
+<li>OpenClaw with browser access (needs to visit Meta Ad Library and your website)</li>
+<li>Meta Marketing API credentials (your agent can walk you through setting this up)</li>
+<li>Gemini API key (for image generation via Nano Banana Pro)</li>
+<li>A competitor who runs Meta ads</li>
+</ul>
+<h2>How the Pipeline Works</h2>
+<h3>Stage 1: Ads Analyst</h3>
+<p>You give it a link from the Meta Ad Library for any advertiser. The agent:</p>
+<ul>
+<li>Opens the Ad Library in a real browser</li>
+<li>Scrolls through to load all ads (the library lazy-loads, so it handles pagination)</li>
+<li>Downloads every creative: images, videos, carousel cards</li>
+<li>Visits every landing page the ads link to</li>
+<li>Analyzes each ad: hook, emotional angle, scale score</li>
+<li>Analyzes each landing page: funnel flow, strengths, weaknesses</li>
+<li>Produces an HTML report grouping ads by landing page with full strategic breakdown</li>
+</ul>
+<p>The browser-based approach matters. The Meta Ad Library doesn't have a public API for this. The agent literally browses like a human, which means it works with any advertiser, any time.</p>
+<h3>Stage 2: Head of Marketing</h3>
+<p>Takes the competitive analysis and your website URL. The agent:</p>
+<ul>
+<li>Crawls your website to understand your products, messaging, and design system</li>
+<li>Extracts your brand voice, color palette, typography</li>
+<li>Writes a campaign proposal: which landing pages to build, which ad formats to use, what messaging angles to test, how to allocate budget across funnel stages</li>
+</ul>
+<p>The proposal is a real document with specifics. Landing page briefings, image ad specs, video scripts, and budget allocation. Not a vague strategy deck.</p>
+<h3>Stage 3: Creative Director</h3>
+<p>Takes the campaign proposal and produces assets:</p>
+<ul>
+<li><strong>Image ads</strong> via Nano Banana Pro (Gemini's image model). The skill includes a self-review step: after generating each image, the agent checks for hallucinated logos, wrong text, incorrect aspect ratios, and overall quality. If something's off, it simplifies the prompt and regenerates.</li>
+<li><strong>Landing pages</strong> as working HTML with your brand's design system applied.</li>
+<li><strong>Carousel ads</strong> with multiple cards, each with its own image and copy.</li>
+<li><strong>Video scripts</strong> written for 20-40 second ads with clear hooks, emotional angles, and CTAs. You record these yourself.</li>
+</ul>
+<h3>Stage 4: Performance Marketer</h3>
+<p>Takes all the assets and publishes to Meta via the Marketing API:</p>
+<ul>
+<li>Creates campaigns (one per funnel stage: top, middle, bottom)</li>
+<li>Sets up ad sets with targeting</li>
+<li>Attaches creatives to each ad</li>
+<li>Everything goes in as <strong>drafts</strong> so you can review before anything goes live</li>
+</ul>
+<h2>Setting It Up</h2>
+<p>The creator published all 16 skills as a free downloadable template. The easiest way to install:</p>
+<ol>
+<li>Download the skill files</li>
+<li>Share the folder with your agent</li>
+<li>Tell it: &quot;I'm sharing a set of skills for a marketing team. Import all of these for yourself.&quot;</li>
+<li>Your agent reads each file, sets up the skills, and walks you through any API keys it needs</li>
+</ol>
+<p>You'll need to set up Meta Marketing API credentials. This sounds intimidating, but your agent can walk you through the process step by step, including creating the app in Meta's developer portal.</p>
+<h2>What It Costs</h2>
+<p>The creator ran the full pipeline (competitor research through published campaigns) for under $24 on Claude Opus 4.6, the most expensive model available. On a cheaper model like Sonnet, it would be significantly less.</p>
+<p>Image generation via Nano Banana Pro: about 13 cents per image at 2K resolution, 24 cents at 4K. A dozen ad creatives runs about $2-3.</p>
+<p>Total for a complete campaign cycle: $20-30. Compare that to what even one day of a marketing freelancer's time costs.</p>
+<h2>What It Doesn't Do</h2>
+<ul>
+<li><strong>Record video.</strong> It writes the scripts, but the creator deliberately chose to record videos himself. Real faces perform better on Meta than AI-generated ones.</li>
+<li><strong>Optimize running campaigns.</strong> This handles the build phase. Campaign optimization (pausing underperformers, adjusting bids, scaling winners) is a separate skill the creator is planning.</li>
+<li><strong>Work on other platforms.</strong> This is Meta Ads specific. The competitive analysis could apply to Google or TikTok ads, but the publishing step is Meta only.</li>
+</ul>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators · Powered by <a href="https://openclaw.com">OpenClaw</a></p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

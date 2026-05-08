@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>ClawDrop</title>
+    <link>https://clawdrop.org</link>
+    <description>Playbooks, guides, and use cases for OpenClaw — the open-source AI agent framework.</description>
+    <language>en-us</language>
+    <atom:link href="https://clawdrop.org/feed.xml" rel="self" type="application/rss+xml"/>
+    <lastBuildDate>Wed, 06 May 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Build a Polymarket Trading Bot</title>
+      <link>https://clawdrop.org/playbooks/polymarket-trading-bot/</link>
+      <guid isPermaLink="true">https://clawdrop.org/playbooks/polymarket-trading-bot/</guid>
+      <pubDate>Tue, 17 Feb 2026 00:00:00 GMT</pubDate>
+      <description>An AI that monitors prediction markets, analyzes events, and executes trades based on your strategy while you focus on your day job.</description>
+      <category>trading</category>
+      <category>polymarket</category>
+      <category>automation</category>
+      <dc:creator>ClawDrop</dc:creator>
+    </item>
+    <item>
+      <title>Bot-to-Bot Commerce: AIs Negotiating with AIs</title>
+      <link>https://clawdrop.org/playbooks/bot-to-bot-commerce/</link>
+      <guid isPermaLink="true">https://clawdrop.org/playbooks/bot-to-bot-commerce/</guid>
+      <pubDate>Tue, 17 Feb 2026 00:00:00 GMT</pubDate>
+      <description>Multiple AI agents coordinating, negotiating, and transacting with each other in a shared environment. The future of automated business operations.</description>
+      <category>multi-agent</category>
+      <category>automation</category>
+      <category>advanced</category>
+      <dc:creator>ClawDrop</dc:creator>
+    </item>
+    <item>
+      <title>AI Launches a Token Autonomously</title>
+      <link>https://clawdrop.org/playbooks/autonomous-token-launch/</link>
+      <guid isPermaLink="true">https://clawdrop.org/playbooks/autonomous-token-launch/</guid>
+      <pubDate>Tue, 17 Feb 2026 00:00:00 GMT</pubDate>
+      <description>The Asymmetrix team gave their AI agent full autonomy to create and launch a crypto token. It did everything: branding, smart contract, liquidity, and marketing.</description>
+      <category>crypto</category>
+      <category>autonomous</category>
+      <category>advanced</category>
+      <dc:creator>ClawDrop</dc:creator>
+    </item>
+    <item>
+      <title>AI Grocery Shopping with a Virtual Credit Card</title>
+      <link>https://clawdrop.org/playbooks/ai-grocery-shopping/</link>
+      <guid isPermaLink="true">https://clawdrop.org/playbooks/ai-grocery-shopping/</guid>
+      <pubDate>Tue, 17 Feb 2026 00:00:00 GMT</pubDate>
+      <description>Your AI orders groceries online using a virtual card, handles substitutions, and keeps your fridge stocked without you lifting a finger.</description>
+      <category>shopping</category>
+      <category>home</category>
+      <category>virtual-card</category>
+      <dc:creator>ClawDrop</dc:creator>
+    </item>
+    <item>
+      <title>AI Negotiates Your Car Purchase, Saves $4,200</title>
+      <link>https://clawdrop.org/playbooks/ai-car-negotiation/</link>
+      <guid isPermaLink="true">https://clawdrop.org/playbooks/ai-car-negotiation/</guid>
+      <pubDate>Tue, 17 Feb 2026 00:00:00 GMT</pubDate>
+      <description>Your AI handles the back-and-forth with dealerships via email, knows market value, and closes a better deal than you would.</description>
+      <category>negotiation</category>
+      <category>email</category>
+      <category>money</category>
+      <dc:creator>ClawDrop</dc:creator>
+    </item>
+    <item>
+      <title>Run Your Business on AI (While Living Your Life)</title>
+      <link>https://clawdrop.org/playbooks/founder-runs-business-on-ai/</link>
+      <guid isPermaLink="true">https://clawdrop.org/playbooks/founder-runs-business-on-ai/</guid>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
+      <description>Jesse Genet runs her company on OpenClaw from a Mac Mini. Amazon orders, printing, procurement, all automated while she homeschools 4 kids.</description>
+      <category>business-ops</category>
+      <category>founder</category>
+      <category>automation</category>
+      <dc:creator>ClawDrop</dc:creator>
+    </item>
+    <item>
+      <title>The 5-Day Automation Sprint: $22K Found in Tax Deductions</title>
+      <link>https://clawdrop.org/playbooks/five-day-automation-sprint/</link>
+      <guid isPermaLink="true">https://clawdrop.org/playbooks/five-day-automation-sprint/</guid>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
+      <description>Give your AI full access to your digital life for 5 days. It found $22K in missed tax deductions, built a content pipeline, and sent daily love notes to his wife.</description>
+      <category>sprint</category>
+      <category>life-automation</category>
+      <category>money</category>
+      <dc:creator>ClawDrop</dc:creator>
+    </item>
+    <item>
+      <title>AI Negotiates Sponsorship Deals for You</title>
+      <link>https://clawdrop.org/playbooks/ai-sponsorship-negotiator/</link>
+      <guid isPermaLink="true">https://clawdrop.org/playbooks/ai-sponsorship-negotiator/</guid>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
+      <description>Your AI handles sponsor outreach, rate card discussions, and deal negotiation via email so you can focus on creating content.</description>
+      <category>sponsorship</category>
+      <category>negotiation</category>
+      <category>content-creator</category>
+      <dc:creator>ClawDrop</dc:creator>
+    </item>
+    <item>
+      <title>AI Wins Your Insurance Dispute</title>
+      <link>https://clawdrop.org/playbooks/ai-insurance-dispute/</link>
+      <guid isPermaLink="true">https://clawdrop.org/playbooks/ai-insurance-dispute/</guid>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
+      <description>Your AI drafts the appeal, cites the right policy sections, and gets a rejected claim overturned. No lawyer needed.</description>
+      <category>insurance</category>
+      <category>disputes</category>
+      <category>money</category>
+      <dc:creator>ClawDrop</dc:creator>
+    </item>
+    <item>
+      <title>Replace Your SaaS Stack With One AI Agent</title>
+      <link>https://clawdrop.org/playbooks/replace-saas-stack/</link>
+      <guid isPermaLink="true">https://clawdrop.org/playbooks/replace-saas-stack/</guid>
+      <pubDate>Tue, 03 Mar 2026 00:00:00 GMT</pubDate>
+      <description>One founder cut $500/month in SaaS fees to zero using a single OpenClaw agent on a Mac Mini. Here&#39;s how to replicate it.</description>
+      <category>business</category>
+      <category>saas-replacement</category>
+      <category>cost-savings</category>
+      <category>skills</category>
+      <dc:creator>ClawDrop</dc:creator>
+    </item>
+    <item>
+      <title>Cut Your AI Agent Costs by 97% with Multi-Model Routing</title>
+      <link>https://clawdrop.org/playbooks/multi-model-routing/</link>
+      <guid isPermaLink="true">https://clawdrop.org/playbooks/multi-model-routing/</guid>
+      <pubDate>Tue, 03 Mar 2026 00:00:00 GMT</pubDate>
+      <description>One user dropped from $90/month to $6 by routing tasks to the right model. Here&#39;s the exact setup.</description>
+      <category>optimization</category>
+      <category>cost-savings</category>
+      <category>configuration</category>
+      <category>models</category>
+      <dc:creator>ClawDrop</dc:creator>
+    </item>
+    <item>
+      <title>Set Up a 4-Agent Business Team on a Mac Mini</title>
+      <link>https://clawdrop.org/playbooks/four-agent-team/</link>
+      <guid isPermaLink="true">https://clawdrop.org/playbooks/four-agent-team/</guid>
+      <pubDate>Tue, 03 Mar 2026 00:00:00 GMT</pubDate>
+      <description>One solopreneur runs customer support, content, research, and ops with 4 AI agents on a $600 Mac Mini. Here&#39;s the architecture.</description>
+      <category>business</category>
+      <category>multi-agent</category>
+      <category>solopreneur</category>
+      <category>operations</category>
+      <dc:creator>ClawDrop</dc:creator>
+    </item>
+    <item>
+      <title>Build an Autonomous Business Bot (The Felix Method)</title>
+      <link>https://clawdrop.org/playbooks/felix-bot/</link>
+      <guid isPermaLink="true">https://clawdrop.org/playbooks/felix-bot/</guid>
+      <pubDate>Tue, 03 Mar 2026 00:00:00 GMT</pubDate>
+      <description>Give your AI agent $1,000 and a goal. Nat Eliason&#39;s bot made $14,718 in 3 weeks. Here&#39;s the exact 3-layer memory system and setup.</description>
+      <category>business</category>
+      <category>memory</category>
+      <category>multi-agent</category>
+      <category>monetization</category>
+      <dc:creator>ClawDrop</dc:creator>
+    </item>
+    <item>
+      <title>Build an AI Job Search Agent That Applies While You Sleep</title>
+      <link>https://clawdrop.org/playbooks/ai-job-search/</link>
+      <guid isPermaLink="true">https://clawdrop.org/playbooks/ai-job-search/</guid>
+      <pubDate>Tue, 03 Mar 2026 00:00:00 GMT</pubDate>
+      <description>A developer doubled his salary in 3 days by letting his AI agent apply to 100+ jobs. Here&#39;s how to build the same system.</description>
+      <category>business</category>
+      <category>job-search</category>
+      <category>automation</category>
+      <category>career</category>
+      <dc:creator>ClawDrop</dc:creator>
+    </item>
+    <item>
+      <title>Turn 1,000 WhatsApp Voice Messages Into a Searchable Knowledge Base</title>
+      <link>https://clawdrop.org/playbooks/whatsapp-voice-knowledge-base/</link>
+      <guid isPermaLink="true">https://clawdrop.org/playbooks/whatsapp-voice-knowledge-base/</guid>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 GMT</pubDate>
+      <description>Your team&#39;s best ideas are buried in voice messages. This system transcribes them, cross-references with project history, and builds a searchable archive of everything your team has ever discussed.</description>
+      <category>business</category>
+      <category>knowledge-management</category>
+      <category>whatsapp</category>
+      <category>voice</category>
+      <dc:creator>ClawDrop</dc:creator>
+    </item>
+    <item>
+      <title>This AI Trades Stocks on a Live Account While You Sleep</title>
+      <link>https://clawdrop.org/playbooks/autonomous-live-trading/</link>
+      <guid isPermaLink="true">https://clawdrop.org/playbooks/autonomous-live-trading/</guid>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 GMT</pubDate>
+      <description>An OpenClaw agent monitors markets and executes trades autonomously using heartbeats. One builder is running it on a real account right now.</description>
+      <category>finance</category>
+      <category>trading</category>
+      <category>automation</category>
+      <category>heartbeats</category>
+      <dc:creator>ClawDrop</dc:creator>
+    </item>
+    <item>
+      <title>AI Finds Leads, Builds Demo Sites, and Cold Calls Them For You</title>
+      <link>https://clawdrop.org/playbooks/ai-lead-gen-pipeline/</link>
+      <guid isPermaLink="true">https://clawdrop.org/playbooks/ai-lead-gen-pipeline/</guid>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 GMT</pubDate>
+      <description>One agency owner built a full lead gen pipeline: find prospects, research them, build custom demo sites, deploy them, create video walkthroughs, and reach out via text and phone. All automated.</description>
+      <category>business</category>
+      <category>lead-generation</category>
+      <category>sales</category>
+      <category>agency</category>
+      <dc:creator>ClawDrop</dc:creator>
+    </item>
+    <item>
+      <title>Your AI Makes Your Coffee, Orders Your Lunch, and Answers Your Phone</title>
+      <link>https://clawdrop.org/playbooks/ai-espresso-phone-agent/</link>
+      <guid isPermaLink="true">https://clawdrop.org/playbooks/ai-espresso-phone-agent/</guid>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 GMT</pubDate>
+      <description>Physical world automation is here. One builder connected OpenClaw to an espresso machine, food ordering, and a phone agent that talks to callers and relays to your AI.</description>
+      <category>physical-world</category>
+      <category>voice</category>
+      <category>smart-home</category>
+      <category>phone</category>
+      <dc:creator>ClawDrop</dc:creator>
+    </item>
+    <item>
+      <title>AI Whispers What to Say During Your Cold Calls in Real Time</title>
+      <link>https://clawdrop.org/playbooks/ai-cold-call-coach/</link>
+      <guid isPermaLink="true">https://clawdrop.org/playbooks/ai-cold-call-coach/</guid>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 GMT</pubDate>
+      <description>An AI listens to your live sales calls and gives you real-time coaching on what to say next based on how the conversation is going.</description>
+      <category>sales</category>
+      <category>voice</category>
+      <category>coaching</category>
+      <category>real-time</category>
+      <dc:creator>ClawDrop</dc:creator>
+    </item>
+    <item>
+      <title>Turn Any Windows PC Into a Web Automation Machine</title>
+      <link>https://clawdrop.org/playbooks/browser-automation-machine/</link>
+      <guid isPermaLink="true">https://clawdrop.org/playbooks/browser-automation-machine/</guid>
+      <pubDate>Mon, 16 Mar 2026 00:00:00 GMT</pubDate>
+      <description>Set up parallel browser automation on a spare PC. Your agent controls 4+ Chrome instances at once, each logged into different accounts. No code, no Selenium, no proxies.</description>
+      <category>business</category>
+      <category>automation</category>
+      <category>browser</category>
+      <category>scraping</category>
+      <dc:creator>ClawDrop</dc:creator>
+    </item>
+    <item>
+      <title>Run Your AI Assistant 24/7 for $0/Month</title>
+      <link>https://clawdrop.org/playbooks/oracle-free-tier/</link>
+      <guid isPermaLink="true">https://clawdrop.org/playbooks/oracle-free-tier/</guid>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
+      <description>Set up an always-on AI agent on Oracle Cloud&#39;s free tier. 4 CPU cores, 24GB RAM, 200GB storage. No credit card charges, no trial period, no surprise bills. Ever.</description>
+      <category>infrastructure</category>
+      <category>free</category>
+      <category>self-hosting</category>
+      <category>cloud</category>
+      <dc:creator>ClawDrop</dc:creator>
+    </item>
+    <item>
+      <title>Replace Your CRM With a Conversation</title>
+      <link>https://clawdrop.org/playbooks/nex-crm/</link>
+      <guid isPermaLink="true">https://clawdrop.org/playbooks/nex-crm/</guid>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
+      <description>Install one skill and your AI agent becomes your CRM. Contacts, deals, follow-ups, notes. All managed through chat. No dashboards to learn, no data entry, no $50/month subscription.</description>
+      <category>business</category>
+      <category>crm</category>
+      <category>sales</category>
+      <category>productivity</category>
+      <dc:creator>ClawDrop</dc:creator>
+    </item>
+    <item>
+      <title>Research Your Competitors&#39; Ads and Launch Your Own Campaign on Meta</title>
+      <link>https://clawdrop.org/playbooks/meta-ads-pipeline/</link>
+      <guid isPermaLink="true">https://clawdrop.org/playbooks/meta-ads-pipeline/</guid>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
+      <description>Four AI agents analyze competitor ads from the Meta Ad Library, plan a campaign based on your brand, create all the assets, and publish everything to your Meta Ads account. Full pipeline from research to live campaigns in draft.</description>
+      <category>marketing</category>
+      <category>meta-ads</category>
+      <category>competitor-research</category>
+      <category>advertising</category>
+      <dc:creator>ClawDrop</dc:creator>
+    </item>
+    <item>
+      <title>Automate Your Entire Amazon Merch Upload Pipeline</title>
+      <link>https://clawdrop.org/playbooks/amazon-merch-automation/</link>
+      <guid isPermaLink="true">https://clawdrop.org/playbooks/amazon-merch-automation/</guid>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
+      <description>Drop a design into a folder and walk away. Your AI agent removes the background, upscales it, repositions it to Amazon&#39;s specs, generates validated keywords, and uploads the listing. From image to live product in minutes.</description>
+      <category>e-commerce</category>
+      <category>print-on-demand</category>
+      <category>amazon</category>
+      <category>automation</category>
+      <dc:creator>ClawDrop</dc:creator>
+    </item>
+    <item>
+      <title>Your AI Remembers Everything So You Don&#39;t Have To</title>
+      <link>https://clawdrop.org/playbooks/ai-second-brain/</link>
+      <guid isPermaLink="true">https://clawdrop.org/playbooks/ai-second-brain/</guid>
+      <pubDate>Wed, 25 Mar 2026 00:00:00 GMT</pubDate>
+      <description>Text your AI anything worth remembering. A book recommendation, a business idea, a meeting note. It stores everything and builds you a searchable second brain you can query from anywhere.</description>
+      <category>productivity</category>
+      <category>memory</category>
+      <category>second-brain</category>
+      <category>knowledge-management</category>
+      <category>beginner</category>
+      <dc:creator>ClawDrop</dc:creator>
+    </item>
+    <item>
+      <title>Turn Your AI Into a Real-Time Assistant That Listens, Remembers, and Acts for $50</title>
+      <link>https://clawdrop.org/playbooks/ai-real-time-assistant/</link>
+      <guid isPermaLink="true">https://clawdrop.org/playbooks/ai-real-time-assistant/</guid>
+      <pubDate>Wed, 25 Mar 2026 00:00:00 GMT</pubDate>
+      <description>A $50 wearable captures every conversation, meeting, and idea in real time. Your OpenClaw agent turns it into tasks, follow-ups, searchable memory, and daily briefs without you touching your phone.</description>
+      <category>wearable</category>
+      <category>real-time</category>
+      <category>productivity</category>
+      <category>meetings</category>
+      <category>voice</category>
+      <dc:creator>ClawDrop</dc:creator>
+    </item>
+    <item>
+      <title>How One AI Prompt Landed 6 Paying Clients in a Week</title>
+      <link>https://clawdrop.org/playbooks/ai-postcard-lead-gen/</link>
+      <guid isPermaLink="true">https://clawdrop.org/playbooks/ai-postcard-lead-gen/</guid>
+      <pubDate>Wed, 25 Mar 2026 00:00:00 GMT</pubDate>
+      <description>An AI agent scraped 350 local businesses, built each one a custom website, mailed physical postcards with QR codes, and closed 6 monthly clients. Total AI cost: $7.</description>
+      <category>lead-generation</category>
+      <category>direct-mail</category>
+      <category>sales</category>
+      <category>local-business</category>
+      <category>postcards</category>
+      <dc:creator>ClawDrop</dc:creator>
+    </item>
+    <item>
+      <title>Find Your Next Product Idea in 15 Seconds by Scanning Reddit and X</title>
+      <link>https://clawdrop.org/playbooks/ai-market-research-bot/</link>
+      <guid isPermaLink="true">https://clawdrop.org/playbooks/ai-market-research-bot/</guid>
+      <pubDate>Wed, 25 Mar 2026 00:00:00 GMT</pubDate>
+      <description>Install one skill, type one sentence, and your AI scans 30 days of Reddit, X, and the web for what people are complaining about, what they wish existed, and where competitors are falling short.</description>
+      <category>market-research</category>
+      <category>product-ideas</category>
+      <category>reddit</category>
+      <category>twitter</category>
+      <category>entrepreneurship</category>
+      <dc:creator>ClawDrop</dc:creator>
+    </item>
+    <item>
+      <title>This AI Content Factory Writes, Researches, and Designs While You Sleep</title>
+      <link>https://clawdrop.org/playbooks/ai-content-factory/</link>
+      <guid isPermaLink="true">https://clawdrop.org/playbooks/ai-content-factory/</guid>
+      <pubDate>Wed, 25 Mar 2026 00:00:00 GMT</pubDate>
+      <description>A multi-agent system where one AI researches trending topics, another writes scripts and posts, and a third generates thumbnails. Every morning at 8am, your content pipeline delivers fresh, ready-to-publish work.</description>
+      <category>content-creation</category>
+      <category>multi-agent</category>
+      <category>social-media</category>
+      <category>automation</category>
+      <category>youtube</category>
+      <dc:creator>ClawDrop</dc:creator>
+    </item>
+    <item>
+      <title>Build an AI Agent That Finds Real Estate Deals Before Anyone Else</title>
+      <link>https://clawdrop.org/playbooks/real-estate-deal-hunter/</link>
+      <guid isPermaLink="true">https://clawdrop.org/playbooks/real-estate-deal-hunter/</guid>
+      <pubDate>Wed, 01 Apr 2026 00:00:00 GMT</pubDate>
+      <description>An AI agent that scans public records for distressed properties, calculates equity, and builds a clean lead pipeline. Replaces hours of manual searching with overnight automation.</description>
+      <category>real-estate</category>
+      <category>lead-generation</category>
+      <category>investing</category>
+      <category>data-pipeline</category>
+      <dc:creator>ClawDrop</dc:creator>
+    </item>
+    <item>
+      <title>How Much Does OpenClaw Cost? The Real Pricing Breakdown for 2026</title>
+      <link>https://clawdrop.org/learn/openclaw-cost-breakdown/</link>
+      <guid isPermaLink="true">https://clawdrop.org/learn/openclaw-cost-breakdown/</guid>
+      <pubDate>Mon, 23 Mar 2026 00:00:00 GMT</pubDate>
+      <description>OpenClaw is free to install. Running it costs $5-150/month. Here&#39;s exactly where every dollar goes, with real numbers from daily users.</description>
+      <category>learn</category>
+      <dc:creator>ClawDrop</dc:creator>
+    </item>
+    <item>
+      <title>The Best OpenClaw Skills to Install in 2026 (And What to Skip)</title>
+      <link>https://clawdrop.org/learn/best-openclaw-skills/</link>
+      <guid isPermaLink="true">https://clawdrop.org/learn/best-openclaw-skills/</guid>
+      <pubDate>Mon, 23 Mar 2026 00:00:00 GMT</pubDate>
+      <description>13,000+ skills on ClawHub. Most are junk. Here are the ones worth installing, organized by what you actually want to do.</description>
+      <category>learn</category>
+      <dc:creator>ClawDrop</dc:creator>
+    </item>
+    <item>
+      <title>OpenClaw Browser Automation: The Complete Guide to Browser Relay, Multi-Profile, and Web Scraping</title>
+      <link>https://clawdrop.org/learn/openclaw-browser-automation/</link>
+      <guid isPermaLink="true">https://clawdrop.org/learn/openclaw-browser-automation/</guid>
+      <pubDate>Tue, 31 Mar 2026 00:00:00 GMT</pubDate>
+      <description>OpenClaw can control Chrome like a human. Here&#39;s how to set up browser relay, run parallel profiles, scrape websites, and automate anything that lives in a browser.</description>
+      <category>learn</category>
+      <dc:creator>ClawDrop</dc:creator>
+    </item>
+    <item>
+      <title>How to Install OpenClaw on Windows (With Telegram, Step by Step)</title>
+      <link>https://clawdrop.org/learn/openclaw-windows-install/</link>
+      <guid isPermaLink="true">https://clawdrop.org/learn/openclaw-windows-install/</guid>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 GMT</pubDate>
+      <description>A practical walkthrough for getting OpenClaw running on Windows via WSL, hooked up to Telegram, locked down, and ready to use. Based on a live install walkthrough.</description>
+      <category>learn</category>
+      <dc:creator>ClawDrop</dc:creator>
+    </item>
+  </channel>
+</rss>

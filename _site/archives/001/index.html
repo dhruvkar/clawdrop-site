@@ -3,22 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Claw Drop #001 — Agents That Spend Money — The Claw Drop</title>
+  <title>The ClawDrop #001 — Agents That Spend Money — ClawDrop</title>
   <meta name="description" content="Build 01: The $4,200 Car Deal An OpenClaw agent that negotiates car prices autonomously. It scraped dealer inventories across the web, filled out &amp;quot;get a...">
-  <meta property="og:title" content="The Claw Drop #001 — Agents That Spend Money — The Claw Drop">
+  <meta property="og:title" content="The ClawDrop #001 — Agents That Spend Money — ClawDrop">
   <meta property="og:description" content="Build 01: The $4,200 Car Deal An OpenClaw agent that negotiates car prices autonomously. It scraped dealer inventories across the web, filled out &amp;quot;get a...">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://clawdrop.org/archives/001/">
-  <meta property="og:site_name" content="The Claw Drop">
+  <meta property="og:site_name" content="ClawDrop">
   <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="The Claw Drop #001 — Agents That Spend Money — The Claw Drop">
+  <meta name="twitter:title" content="The ClawDrop #001 — Agents That Spend Money — ClawDrop">
   <meta name="twitter:description" content="Build 01: The $4,200 Car Deal An OpenClaw agent that negotiates car prices autonomously. It scraped dealer inventories across the web, filled out &amp;quot;get a...">
   <link rel="canonical" href="https://clawdrop.org/archives/001/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -28,116 +29,108 @@
   </script>
   <style>
     :root {
-      --bg: #0a0a0f;
-      --bg-card: #12121a;
-      --bg-card-hover: #1a1a28;
-      --border: #1e1e2e;
-      --border-glow: #6c5ce7;
-      --text: #e8e6f0;
-      --text-muted: #8888a0;
-      --text-dim: #555568;
-      --accent: #6c5ce7;
-      --accent-bright: #a29bfe;
-      --accent-glow: rgba(108, 92, 231, 0.15);
-      --green: #00cec9;
-      --pink: #fd79a8;
-      --gradient: linear-gradient(135deg, #6c5ce7, #a29bfe, #fd79a8);
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Inter', -apple-system, sans-serif;
       background: var(--bg);
-      color: var(--text);
+      color: var(--ink);
       min-height: 100vh;
-      overflow-x: hidden;
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 1;
-    }
-    .orb { position: fixed; border-radius: 50%; filter: blur(120px); opacity: 0.12; pointer-events: none; z-index: 0; }
-    .orb-1 { width: 600px; height: 600px; background: var(--accent); top: -200px; left: -100px; animation: float1 20s ease-in-out infinite; }
-    .orb-2 { width: 500px; height: 500px; background: var(--pink); bottom: -150px; right: -100px; animation: float2 25s ease-in-out infinite; }
-    @keyframes float1 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(80px, 60px); } }
-    @keyframes float2 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-60px, -80px); } }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
 
-    .container { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; padding: 0 24px; }
-    .container-wide { position: relative; z-index: 2; max-width: 960px; margin: 0 auto; padding: 0 24px; }
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
 
-    nav { padding: 24px 0; border-bottom: 1px solid var(--border); margin-bottom: 0; }
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
     nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
-    .logo { font-size: 1.1rem; font-weight: 700; letter-spacing: -0.02em; display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--text); }
-    .logo-icon { font-size: 1.4rem; }
-    .logo-text { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .nav-links { display: flex; align-items: center; gap: 20px; }
-    .nav-link { font-size: 0.85rem; color: var(--text-muted); text-decoration: none; font-weight: 500; transition: color 0.2s; }
-    .nav-link:hover { color: var(--accent-bright); }
-    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; border-radius: 8px; font-size: 0.82rem; font-weight: 600; text-decoration: none; background: var(--accent); color: white; transition: all 0.2s; }
-    .nav-cta:hover { background: var(--accent-bright); }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; }
+    .logo:hover { color: var(--ink); }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
 
-    footer { padding: 40px 0; border-top: 1px solid var(--border); text-align: center; font-size: 0.82rem; color: var(--text-dim); position: relative; z-index: 2; }
-    footer a { color: var(--text-muted); text-decoration: none; }
-    footer a:hover { color: var(--accent-bright); }
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
 
     
-  .post { max-width: 680px; margin: 0 auto; padding: 60px 24px 80px; position: relative; z-index: 2; }
-  .post-back { color: var(--accent-bright); text-decoration: none; font-size: 0.85rem; font-weight: 500; display: inline-flex; align-items: center; gap: 4px; }
-  .post-back:hover { text-decoration: underline; }
-  .post-date { color: var(--text-muted); font-size: 0.82rem; margin-top: 12px; }
-  .issue-num { font-family: 'JetBrains Mono', monospace; color: var(--accent-bright); font-size: 0.8rem; }
-  .post h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.12; margin: 24px 0 12px; }
-  .post-subject { font-size: 1.05rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
-  .post-content h2 { font-size: 1.3rem; font-weight: 700; margin-top: 40px; margin-bottom: 14px; letter-spacing: -0.02em; }
-  .post-content h3 { font-size: 1.1rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; }
-  .post-content p { color: #ccc; font-size: 0.95rem; line-height: 1.85; margin-bottom: 18px; }
-  .post-content a { color: var(--accent-bright); text-decoration: none; }
-  .post-content a:hover { text-decoration: underline; }
-  .post-content ul, .post-content ol { color: #ccc; font-size: 0.95rem; line-height: 1.85; margin-bottom: 18px; padding-left: 24px; }
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .issue-num { color: var(--accent); font-size: 0.82rem; font-weight: 600; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-subject { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); font-weight: 400; }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
   .post-content li { margin-bottom: 6px; }
-  .post-content blockquote { border-left: 3px solid var(--accent-bright); padding: 14px 20px; margin: 20px 0; background: var(--bg-card); border-radius: 0 8px 8px 0; color: #bbb; font-size: 0.95rem; line-height: 1.8; }
-  .post-content code { background: var(--bg-card); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--accent-bright); }
-  .post-content pre { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 18px; overflow-x: auto; margin: 20px 0; }
-  .post-content pre code { background: none; padding: 0; font-size: 0.85rem; color: #ccc; }
-  .post-content strong { color: var(--text); }
-  .post-footer { margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--border); text-align: center; }
-  .post-footer p { color: var(--text-muted); font-size: 0.92rem; margin-bottom: 16px; }
-  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 12px 28px; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 0.95rem; transition: all 0.2s; box-shadow: 0 0 40px var(--accent-glow); }
-  .btn-cta:hover { background: var(--accent-bright); transform: translateY(-1px); }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
 
   </style>
   
 </head>
 <body>
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
-
   <nav>
     <div class="container-wide">
-      <a href="/" class="logo">
-        <span class="logo-icon">🪝</span>
-        <span class="logo-text">The Claw Drop</span>
-      </a>
+      <a href="/" class="logo">ClawDrop</a>
       <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
         <a href="/learn/" class="nav-link">Learn</a>
-        <a href="/blueprints/" class="nav-link">Blueprints</a>
-        <a href="/submit/" class="nav-cta">Submit a Build</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
       </div>
     </div>
   </nav>
 
   
   <article class="post">
-    <a href="/archives/" class="post-back">← All Archives</a>
+    <a href="/archives/" class="post-back">← All archives</a>
     <div class="post-date">
-      February 17, 2026
+      February 16, 2026
        · <span class="issue-num">Issue #1</span>
     </div>
-    <h1>The Claw Drop #001 — Agents That Spend Money</h1>
+    <h1>The ClawDrop #001 — Agents That Spend Money</h1>
     <p class="post-subject">Car negotiations, grocery runs, crypto launches, bot-to-bot commerce, and a $115K/week prediction market bot.</p>
     <div class="post-content">
       <h2>Build 01: The $4,200 Car Deal</h2>
@@ -172,7 +165,7 @@
 
     </div>
     <div class="post-footer">
-      <p>Never miss an issue. Subscribe to The Claw Drop.</p>
+      <p>Never miss an issue. Subscribe to ClawDrop.</p>
       <a href="/" class="btn-cta">Subscribe →</a>
     </div>
   </article>
@@ -180,7 +173,7 @@
 
   <footer>
     <div class="container-wide">
-      <p>© 2026 The Claw Drop · Powered by <a href="https://openclaw.com">OpenClaw</a></p>
+      <p>© 2026 ClawDrop · Practical AI for operators · Powered by <a href="https://openclaw.com">OpenClaw</a></p>
     </div>
   </footer>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
@@ -197,4 +190,3 @@
   </script>
 </body>
 </html>
-<!-- deploy test 2026-03-04T03:10:41Z -->

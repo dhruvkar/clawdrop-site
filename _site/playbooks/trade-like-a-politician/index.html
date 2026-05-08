@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your AI Now Trades Like a Congressman (And It&#39;s Beating the S&amp;P 500) — ClawDrop</title>
+  <meta name="description" content="Build an AI trading bot that monitors congressional stock disclosures and automatically copies the best-performing politicians&#39; trades. Uses Capitol Trades data, Alpaca brokerage, and Claude. Paper trade first, go live when ready.">
+  <meta property="og:title" content="Your AI Now Trades Like a Congressman (And It&#39;s Beating the S&amp;P 500) — ClawDrop">
+  <meta property="og:description" content="Build an AI trading bot that monitors congressional stock disclosures and automatically copies the best-performing politicians&#39; trades. Uses Capitol Trades data, Alpaca brokerage, and Claude. Paper trade first, go live when ready.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/trade-like-a-politician/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Your AI Now Trades Like a Congressman (And It&#39;s Beating the S&amp;P 500) — ClawDrop">
+  <meta name="twitter:description" content="Build an AI trading bot that monitors congressional stock disclosures and automatically copies the best-performing politicians&#39; trades. Uses Capitol Trades data, Alpaca brokerage, and Claude. Paper trade first, go live when ready.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/trade-like-a-politician/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; }
+    .logo:hover { color: var(--ink); }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 280px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">April 7, 2026</div>
+    <h1>Your AI Now Trades Like a Congressman (And It&#39;s Beating the S&amp;P 500)</h1>
+    <p class="post-description">Build an AI trading bot that monitors congressional stock disclosures and automatically copies the best-performing politicians&#39; trades. Uses Capitol Trades data, Alpaca brokerage, and Claude. Paper trade first, go live when ready.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Intermediate</strong></span>
+      <span class="meta-badge">💰 <strong>$0 to paper trade, $20-50/month live</strong></span>
+      <span class="meta-badge">⏱ <strong>1-2 hours</strong></span>
+      <a href="https://www.youtube.com/@SaminYasar_" target="_blank" class="meta-badge">👤 <strong>Samin Yasar ↗</strong></a>
+      <a href="https://www.youtube.com/watch?v=lH5wrfNwL3k" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-claude"><strong>Claude</strong></a>: the AI brain analyzing disclosures and deciding trades</li>
+<li><a href="#aff-claude-code"><strong>Claude Code</strong></a>: runtime for scheduled execution of the bot</li>
+<li><a href="#aff-alpaca"><strong>Alpaca</strong></a>: commission-free brokerage with API and paper trading</li>
+<li><a href="#aff-capitol-trades"><strong>Capitol Trades</strong></a>: public data source for congressional stock disclosures</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>An AI trading bot that does something most retail investors can't do manually: track what members of Congress are buying and selling, figure out which politicians have the best track record, and automatically mirror their trades in your own brokerage account.</p>
+<p>Members of Congress are required by law to disclose their stock trades within 45 days. This data is public. Sites like Capitol Trades aggregate it into a searchable database. The problem is that by the time most people find out what Nancy Pelosi or Michael McCaul bought last month, the opportunity window has shrunk. And manually checking disclosures, comparing performance, and placing trades is tedious enough that almost nobody does it consistently.</p>
+<p>An AI bot does it around the clock without getting bored.</p>
+<p>This comes from Samin Yasar's tutorial that pulled 145,000 views in two days. The video walks through three levels, from making your first AI-assisted trade all the way to a fully autonomous copy-trading system. We're focusing on the politician copy-trading angle because that's the part that makes people's jaws drop.</p>
+<h2>Why Politicians Beat the Market</h2>
+<p>This isn't conspiracy theory territory. It's public data.</p>
+<p>Members of Congress consistently outperform the stock market. Studies have shown that congressional stock portfolios beat the S&amp;P 500 by significant margins. Whether that's because of superior information access, industry briefings, or just dumb luck depends on who you ask. The point is: the data is there, it's legal to follow, and it's free.</p>
+<p>Michael McCaul, for example, has a stock portfolio that has outperformed the S&amp;P 500. When the bot in Samin's tutorial was told to find the best-performing politician to copy, it picked McCaul automatically based on historical returns.</p>
+<p>The 45-day disclosure delay means you're not front-running anything. You're following public information that's weeks old. But even delayed by 45 days, the data has shown to be profitable for certain politicians who tend to hold positions for months or longer.</p>
+<p>Is it guaranteed to make money? No. Nothing is. But it's a strategy backed by real public data, and the AI removes the one thing that kills most trading strategies: inconsistency.</p>
+<h2>The Three Levels</h2>
+<p>The original tutorial builds up gradually. You don't need to jump straight to autonomous trading.</p>
+<h3>Level 1: Your First AI Trade (15 minutes)</h3>
+<p>This is just getting the pipes connected. Claude talks to your brokerage and can execute trades on command.</p>
+<p><strong>What you need:</strong></p>
+<ul>
+<li>Claude (desktop app or Claude Code)</li>
+<li>An Alpaca brokerage account (free, takes 5 minutes to set up)</li>
+<li>Alpaca API keys (generated in your dashboard)</li>
+</ul>
+<p>Alpaca is a commission-free brokerage with a proper API. It's built for exactly this kind of automation. The key feature: it offers paper trading, which means you can run the entire system with fake money first.</p>
+<p>Once connected, you can say things like &quot;Buy 10 shares of AAPL&quot; or &quot;What's my portfolio worth?&quot; and Claude executes it through your Alpaca account. Not revolutionary on its own, but it proves the connection works.</p>
+<h3>Level 2: Automated Trading Strategies (30 minutes)</h3>
+<p>Now you give the bot a strategy and let it run without you.</p>
+<p>The tutorial demonstrates a trailing stop strategy on Tesla stock. Here's how it works in plain English:</p>
+<ol>
+<li>The bot buys Tesla at the current price</li>
+<li>It sets a &quot;trailing stop&quot; that follows the price upward</li>
+<li>If Tesla goes up 5%, the stop moves up with it, always staying a fixed percentage below the peak</li>
+<li>If Tesla drops and hits the stop, the bot sells automatically</li>
+<li>This locks in gains while limiting losses</li>
+</ol>
+<p>You can also set up &quot;ladder buys&quot; where instead of buying all at once, the bot buys in smaller chunks at different price points. This smooths out your entry price and reduces the risk of buying at the top.</p>
+<p>The bot runs on a schedule. Set it to check every hour, every 15 minutes, or whatever interval you want. Claude Code's built-in scheduling handles this.</p>
+<h3>Level 3: Copy-Trading Politicians (1 hour)</h3>
+<p>This is the one everyone came for.</p>
+<p><strong>How it works:</strong></p>
+<ol>
+<li>
+<p><strong>Data source:</strong> Capitol Trades (capitoltrades.com) aggregates congressional stock disclosure filings into a clean, searchable format. The bot connects to this data via an MCP (Model Context Protocol) integration, which lets Claude pull in external data sources.</p>
+</li>
+<li>
+<p><strong>Pick the best politician:</strong> You don't just randomly follow someone. The bot analyzes historical trading performance across all members of Congress and ranks them by returns. In the tutorial, it automatically selected Michael McCaul as the top performer.</p>
+</li>
+<li>
+<p><strong>Mirror their trades:</strong> When the bot detects a new trade from your selected politician, it places the same trade in your Alpaca account. Politician bought 500 shares of Nvidia? Your bot buys a proportional amount based on your portfolio size.</p>
+</li>
+<li>
+<p><strong>Continuous monitoring:</strong> The bot runs on a schedule, checking for new disclosures and executing trades automatically. You wake up to a notification: &quot;Mirrored McCaul's purchase of XYZ. Current portfolio value: $XX,XXX.&quot;</p>
+</li>
+</ol>
+<p><strong>The setup flow:</strong></p>
+<pre><code>CAPITOL TRADES (public data)
+    |
+    v
+CLAUDE (analyzes disclosures, picks politician, decides trades)
+    |
+    v
+ALPACA API (executes trades in your account)
+    |
+    v
+YOU (check your phone, see what happened)
+</code></pre>
+<h2>Start With Paper Trading</h2>
+<p>This cannot be stressed enough: start with paper trading.</p>
+<p>Alpaca gives you a paper trading account with fake money that behaves exactly like the real market. Same prices, same execution, same everything. Just no real dollars at risk.</p>
+<p>Run the politician copy-trading bot on paper for at least 2-4 weeks. Watch how it performs. See which trades it makes. Understand the strategy before you put real money behind it.</p>
+<p>Switching from paper to live trading is literally changing one API key. The bot code stays identical.</p>
+<h2>The Options Wheel (Bonus Level)</h2>
+<p>The tutorial goes one step further with an options strategy called &quot;the wheel.&quot; This is more advanced, but the concept is simple:</p>
+<p>Instead of just buying stocks, you sell options contracts. Think of it like being an insurance company. People pay you a premium for the right to buy or sell stock at a certain price. Most of the time, the option expires worthless and you keep the premium. When it doesn't, you end up buying stock at a discount or selling at a profit.</p>
+<p>The wheel strategy cycles between selling puts (getting paid to agree to buy stock at a lower price) and selling covered calls (getting paid to agree to sell stock you already own at a higher price). It generates income regardless of whether the market goes up or down.</p>
+<p>The AI handles the math, the timing, and the execution. You set the parameters (which stocks, how much risk, what premium targets) and let it run.</p>
+<p>This is genuinely complex stuff that most retail investors don't attempt because the manual overhead is too high. An AI bot removes that barrier entirely.</p>
+<h2>Who This Is For</h2>
+<p><strong>Side investors who don't have time to watch charts.</strong> You have a day job. You want your money working while you're working. The bot handles everything.</p>
+<p><strong>People who follow the &quot;smart money&quot; philosophy.</strong> Instead of guessing what stocks to buy, you're following people who demonstrably have an edge, whether from better information or better analysis.</p>
+<p><strong>Anyone who's tried trading and quit because of emotional decisions.</strong> The bot doesn't panic sell on red days. It doesn't FOMO buy on green days. It follows the strategy. Period.</p>
+<p><strong>Solopreneurs looking for passive income streams.</strong> Once set up, this runs in the background. The politician copy-trading strategy in particular requires almost zero maintenance because it only trades when new disclosures come in.</p>
+<h2>What This Costs</h2>
+<p><strong>Paper trading:</strong> $0. Alpaca's paper trading is free. Claude Code has a free tier. You can test the entire system without spending a dollar.</p>
+<p><strong>Live trading:</strong> The main cost is the money you invest. Alpaca charges zero commissions. Claude Code costs around $20/month on a paid plan for reliable scheduled execution. The MCP integration for Capitol Trades data is free.</p>
+<p><strong>Your time:</strong> Initial setup is 1-2 hours if you follow the tutorial step by step. Ongoing maintenance is near zero. Check in weekly to make sure everything is running.</p>
+<h2>Gotchas and Tips</h2>
+<ul>
+<li><strong>The 45-day delay is real.</strong> You're not getting insider information. You're getting delayed public disclosures. This strategy works best for politicians who hold positions for months, not day traders in Congress.</li>
+<li><strong>Not all politicians are good traders.</strong> Some members of Congress have terrible track records. The whole point of the AI is to sort the winners from the losers using data, not vibes.</li>
+<li><strong>Diversify across politicians.</strong> Don't put all your money behind one person. The bot can track multiple politicians and allocate accordingly.</li>
+<li><strong>Tax implications exist.</strong> Automated trading can generate a lot of taxable events. Talk to a tax professional, especially if you're doing options.</li>
+<li><strong>Past performance doesn't guarantee future results.</strong> The standard disclaimer exists for a reason. Congressional trading patterns could change with new regulations, political shifts, or market conditions.</li>
+<li><strong>Paper trade first.</strong> Said it before, saying it again. Run this for weeks on fake money before going live. The bot might work perfectly. It might expose a flaw in the strategy. Better to find out with paper money.</li>
+<li><strong>Keep position sizes small.</strong> When you go live, start with a fraction of your portfolio. Scale up only after you've seen consistent results over months.</li>
+<li><strong>Check the legality in your jurisdiction.</strong> Copy-trading public disclosures is legal in the US. Rules may differ elsewhere.</li>
+</ul>
+<hr>
+<h2>Keep Reading</h2>
+<ul>
+<li><strong><a href="/playbooks/polymarket-trading-bot/">Build a Polymarket Trading Bot</a></strong>: Apply the same AI trading principles to prediction markets instead of stocks.</li>
+<li><strong><a href="/playbooks/one-person-agency/">The One-Person Agency</a></strong>: Put your trading profits to work building a service business that runs on AI.</li>
+</ul>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators · Powered by <a href="https://openclaw.com">OpenClaw</a></p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

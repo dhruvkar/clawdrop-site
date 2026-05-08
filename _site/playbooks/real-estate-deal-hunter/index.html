@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build an AI Agent That Finds Real Estate Deals Before Anyone Else — ClawDrop</title>
+  <meta name="description" content="An AI agent that scans public records for distressed properties, calculates equity, and builds a clean lead pipeline. Replaces hours of manual searching with overnight automation.">
+  <meta property="og:title" content="Build an AI Agent That Finds Real Estate Deals Before Anyone Else — ClawDrop">
+  <meta property="og:description" content="An AI agent that scans public records for distressed properties, calculates equity, and builds a clean lead pipeline. Replaces hours of manual searching with overnight automation.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/real-estate-deal-hunter/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Build an AI Agent That Finds Real Estate Deals Before Anyone Else — ClawDrop">
+  <meta name="twitter:description" content="An AI agent that scans public records for distressed properties, calculates equity, and builds a clean lead pipeline. Replaces hours of manual searching with overnight automation.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/real-estate-deal-hunter/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; }
+    .logo:hover { color: var(--ink); }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 280px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">March 31, 2026</div>
+    <h1>Build an AI Agent That Finds Real Estate Deals Before Anyone Else</h1>
+    <p class="post-description">An AI agent that scans public records for distressed properties, calculates equity, and builds a clean lead pipeline. Replaces hours of manual searching with overnight automation.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Intermediate</strong></span>
+      <span class="meta-badge">💰 <strong>$20-40/month (API costs + data access)</strong></span>
+      <span class="meta-badge">⏱ <strong>A weekend to get the basics running</strong></span>
+      <span class="meta-badge">👤 <strong>u/ExactDraw837</strong></span>
+      <a href="https://www.reddit.com/r/openclaw/comments/1s9550e/anybody_using_openclaw_in_real_estate_investor" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-openclaw"><strong>OpenClaw</strong></a>: runs the scraping and analysis agents with browser relay</li>
+<li><a href="#aff-sqlite"><strong>SQLite</strong></a>: simple local database for the lead pipeline</li>
+<li><a href="#aff-postgresql"><strong>PostgreSQL</strong></a>: robust database option for storing leads</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>An AI agent that does the tedious work of finding real estate investment opportunities. It scans public records for distressed properties, calculates whether there's enough equity for a profitable deal, and organizes everything into a clean pipeline so you know exactly who to contact and why.</p>
+<p>Instead of spending hours scrolling through listings and cross-referencing county records, you check your pipeline in the morning and start making calls.</p>
+<h2>Why This Works</h2>
+<p>Real estate investing is a numbers game. For every 100 properties you look at, maybe 5 are worth pursuing. For every 5 you pursue, maybe 1 turns into a deal. The investors who win are the ones who process the most leads.</p>
+<p>The problem is that finding those leads is brutally manual. You're searching county tax records for delinquencies, checking court filings for divorces and probate, cross-referencing code violation databases, then pulling mortgage records to calculate equity. Each lead takes 15-30 minutes of research. At that pace, you might evaluate 10-15 properties a day.</p>
+<p>An AI agent does the same work overnight. Not 15 properties. Hundreds. By morning, you have a ranked list of opportunities with the research already done.</p>
+<p>The real estate investors who adopt this approach aren't competing with other investors anymore. They're competing with other investors' patience for manual research. That's a fight the agent wins every time.</p>
+<h2>How the Pipeline Works</h2>
+<p>The agent runs three stages, each one feeding the next.</p>
+<h3>Stage 1: Find Distressed Properties</h3>
+<p>The agent scans public data sources for signals that a property owner might be motivated to sell at a discount:</p>
+<p><strong>Tax delinquencies.</strong> County tax records are public in most jurisdictions. Owners who are behind on property taxes are often in financial distress and motivated to sell quickly.</p>
+<p><strong>Court filings.</strong> Divorce proceedings, probate cases, and bankruptcy filings are all public record. Each one signals a property that may need to be liquidated.</p>
+<p><strong>Code violations.</strong> City code enforcement databases show properties with unresolved violations. Owners facing mounting fines are often eager to offload the property.</p>
+<p><strong>Pre-foreclosure notices.</strong> Lis pendens filings (the first step in foreclosure) are public and indicate owners running out of options.</p>
+<p>Each data source adds a signal. Properties with multiple signals are the strongest leads.</p>
+<h3>Stage 2: Calculate the Numbers</h3>
+<p>For each distressed property, the agent pulls mortgage and valuation data to answer the key question: is there enough equity for a profitable deal?</p>
+<p><strong>Estimated market value.</strong> Using comparable sales data, tax assessments, or automated valuation models to estimate what the property is worth today.</p>
+<p><strong>Outstanding mortgage balance.</strong> Public mortgage records show the original loan amount and date. The agent estimates the current balance based on standard amortization.</p>
+<p><strong>Equity calculation.</strong> Market value minus mortgage balance equals estimated equity. Properties with high equity relative to their distress signals are the best opportunities.</p>
+<p><strong>Repair estimates.</strong> Based on the type and age of the property, code violations, and comparable renovation costs in the area, the agent estimates what it would cost to bring the property to market condition.</p>
+<p>The output: a score for each property that reflects how likely it is to be a profitable deal.</p>
+<h3>Stage 3: Build the Pipeline</h3>
+<p>The raw data is useless if it's scattered across spreadsheets and browser tabs. The agent organizes everything into a clean pipeline:</p>
+<p><strong>Ranked leads.</strong> Properties sorted by deal potential, from strongest to weakest.</p>
+<p><strong>Owner contact info.</strong> Public records usually include the property owner's name and mailing address. The agent compiles this so you can start outreach immediately.</p>
+<p><strong>Property details.</strong> Address, lot size, year built, tax assessed value, outstanding liens, code violations, everything you need to make a quick decision about whether to pursue.</p>
+<p><strong>Status tracking.</strong> As you work through the pipeline, mark leads as contacted, in negotiation, passed, or closed. The agent keeps adding new leads to the top while you work through the existing ones.</p>
+<h2>Step-by-Step Setup</h2>
+<h3>Step 1: Identify Your Data Sources</h3>
+<p>Every county and city publishes different data in different formats. Start with your target market and find:</p>
+<ol>
+<li><strong>County tax assessor website</strong> (property values, tax payment status)</li>
+<li><strong>County clerk/recorder</strong> (mortgage records, liens, deed transfers)</li>
+<li><strong>Court records portal</strong> (divorce, probate, bankruptcy filings)</li>
+<li><strong>City code enforcement</strong> (violation databases, if published online)</li>
+<li><strong>County foreclosure filings</strong> (lis pendens, notice of default)</li>
+</ol>
+<p>Some counties have all of this in one portal. Others require checking five different websites. The agent handles either situation, it just needs to know where to look.</p>
+<h3>Step 2: Build the Scraping Layer</h3>
+<p>Create an agent that can access and extract data from your identified sources. Depending on the source:</p>
+<p><strong>Structured APIs:</strong> Some counties offer data downloads or APIs. These are the easiest to work with. Set up scheduled pulls.</p>
+<p><strong>Web scraping:</strong> Most county websites require browser automation to search and extract records. OpenClaw's browser relay handles this well. Build a scraper for each data source.</p>
+<p><strong>PDF extraction:</strong> Court filings and some tax records come as PDFs. The agent can extract key fields (names, addresses, filing dates, amounts) from these documents.</p>
+<p>Start with one data source (tax delinquencies are usually the easiest to access) and get the full pipeline working before adding more.</p>
+<h3>Step 3: Set Up the Database</h3>
+<p>You need somewhere to store and query your leads. Options:</p>
+<ul>
+<li><strong>SQLite</strong> for a simple local setup</li>
+<li><strong>PostgreSQL</strong> if you want something more robust</li>
+<li><strong>A spreadsheet</strong> if you want to keep it dead simple at first</li>
+</ul>
+<p>Schema basics:</p>
+<ul>
+<li>Property address and details</li>
+<li>Owner name and contact info</li>
+<li>Distress signals (which ones triggered, dates)</li>
+<li>Financial estimates (value, mortgage, equity)</li>
+<li>Pipeline status (new, contacted, negotiating, passed, closed)</li>
+<li>Date added, date last updated</li>
+</ul>
+<h3>Step 4: Build the Analysis Agent</h3>
+<p>This is the brain of the operation. An agent that takes raw property data and produces deal scores:</p>
+<ol>
+<li>Reads new distressed properties from Stage 1</li>
+<li>Pulls valuation and mortgage data</li>
+<li>Calculates estimated equity</li>
+<li>Scores each property based on equity, number of distress signals, and location</li>
+<li>Writes scored leads to the pipeline database</li>
+</ol>
+<h3>Step 5: Set Up the Daily Cycle</h3>
+<p>Configure cron jobs to run the full pipeline overnight:</p>
+<ol>
+<li><strong>11 PM:</strong> Scraping agents check all data sources for new records</li>
+<li><strong>1 AM:</strong> Analysis agent scores all new properties</li>
+<li><strong>6 AM:</strong> Summary agent generates your morning briefing with top new leads</li>
+</ol>
+<p>You wake up to a ranked list of opportunities. No manual searching required.</p>
+<h3>Step 6: Add Outreach Support</h3>
+<p>Once the pipeline is producing leads, extend the agent to help with outreach:</p>
+<ul>
+<li><strong>Mail merge:</strong> Generate personalized letters for direct mail campaigns</li>
+<li><strong>Skip tracing:</strong> Find phone numbers and email addresses for property owners</li>
+<li><strong>Follow-up tracking:</strong> Remind you when to follow up with leads you've already contacted</li>
+<li><strong>Comparable analysis:</strong> Pull recent sales data for quick deal evaluation conversations</li>
+</ul>
+<h2>Adapting This for Other Industries</h2>
+<p>The &quot;scan public data, score opportunities, build a pipeline&quot; pattern isn't unique to real estate. The same architecture works for:</p>
+<p><strong>Insurance agencies:</strong> Scan state licensing databases for agencies with expiring licenses, no website, or outdated contact info. Score by size and tech adoption signals.</p>
+<p><strong>Small business acquisition:</strong> Monitor business filings, tax lien databases, and court records to find businesses that might be ready to sell.</p>
+<p><strong>Commercial real estate:</strong> Same distress signals but focused on commercial properties, with different valuation models.</p>
+<p><strong>Debt buying:</strong> Public court records show judgments and liens. An agent can identify portfolios worth purchasing at a discount.</p>
+<p>Any industry where public records contain signals about motivated sellers or underserved markets can use this approach.</p>
+<h2>Gotchas and Tips</h2>
+<ul>
+<li><strong>Start with one county.</strong> Get the full pipeline working in your primary market before expanding. Every county formats their data differently, and what works in one may not work in another.</li>
+<li><strong>Public records vary wildly.</strong> Some counties put everything online with clean search tools. Others require in-person visits for certain records. Know your market's data availability before investing time in automation.</li>
+<li><strong>Data freshness matters.</strong> Tax delinquency lists are usually updated monthly or quarterly. Court filings can be daily. Match your scraping frequency to how often the data actually changes.</li>
+<li><strong>Validate before you call.</strong> The agent gives you leads, not guaranteed deals. Always verify the key numbers (especially equity estimates) before making an offer. Automated valuations can be off by 10-20%.</li>
+<li><strong>Compliance is real.</strong> Some outreach methods (cold calling, texting) have legal requirements that vary by state. Make sure your outreach approach is compliant.</li>
+<li><strong>The pipeline is only as good as your follow-up.</strong> The best lead in the world is worthless if you don't call. Use the agent to find opportunities, but closing deals still requires human conversation and judgment.</li>
+</ul>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators · Powered by <a href="https://openclaw.com">OpenClaw</a></p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>
