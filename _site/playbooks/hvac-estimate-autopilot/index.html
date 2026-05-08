@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>This HVAC Guy Spent Friday Night Setting Up AI. Now His Estimates Write Themselves. — ClawDrop</title>
+  <meta name="description" content="How a non-developer HVAC sales rep connected AI to his estimating software and email. Draft estimates assembled automatically, repetitive quote questions answered on autopilot. Works for any trade or field service business with repetitive paperwork.">
+  <meta property="og:title" content="This HVAC Guy Spent Friday Night Setting Up AI. Now His Estimates Write Themselves. — ClawDrop">
+  <meta property="og:description" content="How a non-developer HVAC sales rep connected AI to his estimating software and email. Draft estimates assembled automatically, repetitive quote questions answered on autopilot. Works for any trade or field service business with repetitive paperwork.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/hvac-estimate-autopilot/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="This HVAC Guy Spent Friday Night Setting Up AI. Now His Estimates Write Themselves. — ClawDrop">
+  <meta name="twitter:description" content="How a non-developer HVAC sales rep connected AI to his estimating software and email. Draft estimates assembled automatically, repetitive quote questions answered on autopilot. Works for any trade or field service business with repetitive paperwork.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/hvac-estimate-autopilot/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; }
+    .logo:hover { color: var(--ink); }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 280px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">April 7, 2026</div>
+    <h1>This HVAC Guy Spent Friday Night Setting Up AI. Now His Estimates Write Themselves.</h1>
+    <p class="post-description">How a non-developer HVAC sales rep connected AI to his estimating software and email. Draft estimates assembled automatically, repetitive quote questions answered on autopilot. Works for any trade or field service business with repetitive paperwork.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Beginner</strong></span>
+      <span class="meta-badge">💰 <strong>$5-15/month (VPS hosting)</strong></span>
+      <span class="meta-badge">⏱ <strong>One evening</strong></span>
+      <span class="meta-badge">👤 <strong>Net_Zero_Heating_AC</strong></span>
+      <a href="https://www.reddit.com/r/OpenClawUseCases/comments/1sdj5jh/how_might_i_be_able_to_incorporate_openclaw_into/" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-openclaw"><strong>OpenClaw</strong></a>: agent runtime for estimate assembly and email handling</li>
+<li><a href="#aff-telegram"><strong>Telegram</strong></a>: send job details from the truck, approve drafts on the go</li>
+<li><a href="#aff-hostinger"><strong>Hostinger</strong></a>: VPS host for running the agent</li>
+<li><a href="#aff-digitalocean"><strong>DigitalOcean</strong></a>: alternative VPS provider</li>
+<li><a href="#aff-gmail"><strong>Gmail</strong></a>: inbox the agent monitors and drafts replies into</li>
+<li><a href="#aff-servicefusion"><strong>ServiceFusion</strong></a>: estimating software the agent connects to</li>
+<li><a href="#aff-jobber"><strong>Jobber</strong></a>: alternative estimating platform</li>
+<li><a href="#aff-housecall-pro"><strong>Housecall Pro</strong></a>: alternative estimating platform</li>
+<li><a href="#aff-servicetitan"><strong>ServiceTitan</strong></a>: alternative estimating platform</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>An AI assistant that drafts your job estimates and handles your repetitive emails while you're out on job sites. You tell it what the customer needs over Telegram from your truck. It pulls the equipment and pricing from your estimating software, assembles a professional estimate, and sends you a draft to review. Meanwhile, it's answering the common questions that pile up in your inbox all day. &quot;How much for a 3-ton unit?&quot; &quot;Do you offer financing?&quot; &quot;What's your warranty?&quot; Handled.</p>
+<p>This comes from an HVAC sales rep who set the whole thing up on a Friday night. He's not a developer. He doesn't write code. He installs air conditioners for a living. But he was tired of spending his evenings doing the same paperwork over and over, so he did something about it.</p>
+<p>The pattern works for any trade or field service business where you're building similar estimates all day: HVAC, plumbing, electrical, roofing, landscaping, painting, cleaning services, pool maintenance. If your estimates follow a template with minor variations, this is for you.</p>
+<h2>The Problem Every Tradesperson Knows</h2>
+<p>You finish a job at 5 PM. You've got four estimates to write up from today's site visits. Each one takes 20-30 minutes because you're pulling equipment from your software, looking up prices, adding labor and parts, adjusting for the specifics of each job.</p>
+<p>Most of those estimates are 80% identical. Same equipment options, same labor rates, same warranty language. The only things that change are the customer details, the specific equipment configuration, and maybe some site-specific adjustments.</p>
+<p>Then there's email. Your inbox has 15 messages and half of them are asking questions you've answered a hundred times. Pricing ranges, availability, financing options, what brands you carry. Each reply takes 3-5 minutes to write. Not because the answer is hard, but because you have to type it out nicely every single time.</p>
+<p>Add it all up and you're spending 2-3 hours every evening on work that feels like it should take 30 minutes. That's 10-15 hours a week of repetitive admin. For a sole proprietor billing $75-150/hour on actual jobs, that's $750-$2,250/week in lost revenue capacity.</p>
+<h2>How It Works</h2>
+<p>The setup has two parts: estimate assembly and email handling. You can start with one and add the other later.</p>
+<h3>Part 1: Estimate Assembly</h3>
+<p>Most cloud estimating software (ServiceFusion, Jobber, Housecall Pro, ServiceTitan) has an API or at least an integration layer. The AI connects to your estimating platform and learns your catalog: equipment models, pricing tiers, standard labor rates, parts markups, warranty terms.</p>
+<p>The workflow:</p>
+<pre><code>YOU (on job site, via Telegram):
+  &quot;3-ton Carrier heat pump, crawl space install,
+   existing ductwork looks good, need new disconnect&quot;
+        |
+        v
+AI AGENT:
+  - Pulls Carrier 3-ton heat pump from your catalog
+  - Adds standard installation labor for crawl space
+  - Adds electrical disconnect + permit
+  - Applies your markup and margin rules
+  - Formats it in your estimate template
+        |
+        v
+YOU (review on phone):
+  &quot;Looks good, bump labor up $200 for tight access&quot;
+        |
+        v
+AI AGENT:
+  - Adjusts labor line item
+  - Generates final PDF
+  - Ready to send to customer
+</code></pre>
+<p>The estimate that used to take 25 minutes now takes 2 minutes of your attention. The AI did the assembly. You did the judgment call on the tight access upcharge. That's the right split: AI handles the repetitive parts, you handle the parts that require experience.</p>
+<h3>Part 2: Email Autopilot</h3>
+<p>This is actually the easier part and where most people should start.</p>
+<p>You write out your standard answers once. Think of it as training a new office assistant:</p>
+<ul>
+<li>&quot;When someone asks about pricing, here's how we answer...&quot;</li>
+<li>&quot;When someone asks about financing, here's our response...&quot;</li>
+<li>&quot;When someone wants to schedule an estimate, here's what we say...&quot;</li>
+<li>&quot;When someone asks what brands we carry, here's the list...&quot;</li>
+</ul>
+<p>The AI monitors your inbox. When a new email matches one of these patterns, it drafts a response using your approved language, your tone, your details. It doesn't send it automatically (unless you want it to). It drafts it and pings you on Telegram: &quot;Got a pricing question from Sarah Johnson. Here's my draft response. Send it?&quot;</p>
+<p>You glance at it, tap approve, and it's gone. The 5-minute reply became a 5-second review.</p>
+<p>For the questions that don't fit a pattern, the AI flags them for your personal attention: &quot;This one looks custom. Mike is asking about a commercial install with specific requirements. You should handle this directly.&quot;</p>
+<h3>The Setup (One Evening)</h3>
+<p><strong>What you need:</strong></p>
+<ul>
+<li>A VPS (Hostinger, DigitalOcean, or similar, $5-15/month)</li>
+<li>OpenClaw installed with Telegram access</li>
+<li>Your estimating software credentials (for the API connection)</li>
+<li>Your Gmail or business email credentials</li>
+<li>One evening and some patience</li>
+</ul>
+<p><strong>Step 1: Get OpenClaw running.</strong> Install on your VPS, connect Telegram. There are one-click guides for this. The original poster did it on a Friday night with no dev background.</p>
+<p><strong>Step 2: Connect your email.</strong> Give the agent access to your Gmail or business email. Start with read-only if you're nervous about it sending things.</p>
+<p><strong>Step 3: Write your FAQ responses.</strong> Open a document and write out your standard answers to the 10-15 most common questions you get. Be specific. Include your actual prices, your actual warranty terms, your actual service area. This is the knowledge base your AI will use.</p>
+<p><strong>Step 4: Connect your estimating software.</strong> This varies by platform. If your software has an API, the AI can connect directly. If not, you can export your price list as a spreadsheet and the AI works from that. Less elegant but still saves hours.</p>
+<p><strong>Step 5: Test with real scenarios.</strong> Send yourself some test emails. Ask the AI to draft an estimate for a job you did last week. Compare the output to what you actually sent. Tweak until it matches your style.</p>
+<h2>What Changes After Setup</h2>
+<p><strong>Week 1:</strong> The email handling clicks immediately. You're approving draft responses from your truck instead of typing them out at night. Feels like having a receptionist.</p>
+<p><strong>Week 2:</strong> The estimate drafts start getting accurate. The AI has seen enough of your corrections to understand your pricing patterns and preferences.</p>
+<p><strong>Month 1:</strong> You realize you've reclaimed 10+ hours per week. You're either doing more jobs, quoting more customers, or actually taking evenings off.</p>
+<p><strong>Month 3:</strong> The AI knows your business better than a new hire would after 90 days. It knows which equipment you prefer for which situations, how you handle difficult installs, and exactly how you like your estimates formatted.</p>
+<h2>Beyond HVAC</h2>
+<p>The same pattern applies to any service business with repetitive quoting:</p>
+<p><strong>Plumbing:</strong> Water heater replacements, repipe estimates, fixture installs. Pull from your parts catalog, add labor based on job complexity, generate the quote.</p>
+<p><strong>Electrical:</strong> Panel upgrades, EV charger installs, lighting retrofits. Same equipment-plus-labor template with minor variations.</p>
+<p><strong>Roofing:</strong> Square footage calculations, material options, tear-off vs overlay pricing. The AI can even pull measurements from satellite imagery tools you're already using.</p>
+<p><strong>Landscaping:</strong> Hardscape estimates, irrigation layouts, maintenance contracts. Template-heavy work that's perfect for automation.</p>
+<p><strong>Cleaning services:</strong> Square footage pricing, frequency discounts, add-on services. Some of the most repetitive quoting in any industry.</p>
+<p><strong>General contractors:</strong> Subcontractor coordination, material takeoffs, phased billing schedules. More complex but the template structure still applies.</p>
+<p>The common thread: if you're building similar documents over and over with minor variations, the AI handles the 80% that's identical and you handle the 20% that requires your expertise.</p>
+<h2>Gotchas and Tips</h2>
+<ul>
+<li><strong>Start with email, not estimates.</strong> Email handling is simpler to set up and delivers value on day one. Get that running smoothly before tackling the estimating software integration.</li>
+<li><strong>Don't let it send emails without your approval at first.</strong> Draft mode only for at least two weeks. You need to build trust in its judgment before letting it fly solo.</li>
+<li><strong>Your FAQ document is everything.</strong> Spend real time on it. The better your initial answers, the less correction you'll do later. Update it when you get a question the AI couldn't handle.</li>
+<li><strong>Price lists change.</strong> When your supplier updates pricing, update the AI's data. Stale prices in estimates is worse than no automation at all.</li>
+<li><strong>The Telegram-from-truck workflow is key.</strong> The whole point is that you're productive while mobile. If you have to sit at a computer to use this, you've missed the benefit.</li>
+<li><strong>Customers can't tell.</strong> Your estimates still look like your estimates. Your emails still sound like you. The AI uses your templates, your tone, your language. Nobody knows or needs to know.</li>
+<li><strong>Keep the human on the big deals.</strong> Use the AI for routine residential work. For commercial contracts or large projects, do those yourself. The AI is your workhorse for volume, not your closer for whales.</li>
+</ul>
+<hr>
+<h2>Keep Reading</h2>
+<ul>
+<li><strong><a href="/playbooks/one-person-agency/">The One-Person Agency</a></strong>: The same AI-handles-production, you-handle-clients pattern applied to digital services.</li>
+<li><strong><a href="/playbooks/ai-second-brain-karpathy/">Give Your AI a Second Brain</a></strong>: Feed your AI every manual, spec sheet, and installation guide you've ever used. It gets smarter about your trade over time.</li>
+</ul>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators · Powered by <a href="https://openclaw.com">OpenClaw</a></p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

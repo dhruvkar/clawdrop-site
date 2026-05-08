@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Never Copy a Date From an Email to Your Calendar Again — ClawDrop</title>
+  <meta name="description" content="A 100-line OpenClaw skill that watches your inbox for hidden events (school newsletters, flight confirmations, meeting invites, doctor appointments) and drops them on your calendar automatically. Including the right attendees and reminders.">
+  <meta property="og:title" content="Never Copy a Date From an Email to Your Calendar Again — ClawDrop">
+  <meta property="og:description" content="A 100-line OpenClaw skill that watches your inbox for hidden events (school newsletters, flight confirmations, meeting invites, doctor appointments) and drops them on your calendar automatically. Including the right attendees and reminders.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/email-to-calendar/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Never Copy a Date From an Email to Your Calendar Again — ClawDrop">
+  <meta name="twitter:description" content="A 100-line OpenClaw skill that watches your inbox for hidden events (school newsletters, flight confirmations, meeting invites, doctor appointments) and drops them on your calendar automatically. Including the right attendees and reminders.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/email-to-calendar/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; }
+    .logo:hover { color: var(--ink); }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 280px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">April 28, 2026</div>
+    <h1>Never Copy a Date From an Email to Your Calendar Again</h1>
+    <p class="post-description">A 100-line OpenClaw skill that watches your inbox for hidden events (school newsletters, flight confirmations, meeting invites, doctor appointments) and drops them on your calendar automatically. Including the right attendees and reminders.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Set it up in an afternoon</strong></span>
+      <span class="meta-badge">💰 <strong>$0 if you already pay for Google Workspace; runs on top of any agent setup</strong></span>
+      <span class="meta-badge">⏱ <strong>30 minutes to install. A week of running before you stop noticing it&#39;s there.</strong></span>
+      <a href="https://www.clawhub.ai/tonimelisma" target="_blank" class="meta-badge">👤 <strong>Toni Melisma ↗</strong></a>
+      <a href="https://www.clawhub.ai/tonimelisma/email-to-calendar" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-openclaw"><strong>OpenClaw</strong></a>: the agent runtime that hosts the email-to-calendar skill</li>
+<li><a href="#aff-clawhub"><strong>Clawhub</strong></a>: open marketplace where the skill is published and installed from</li>
+<li><a href="#aff-gmail"><strong>Gmail</strong></a>: inbox the agent watches for hidden event details</li>
+<li><a href="#aff-google-calendar"><strong>Google Calendar</strong></a>: destination the agent creates and updates events in</li>
+<li><a href="#aff-google-workspace"><strong>Google Workspace</strong></a>: the underlying account suite that authorizes Gmail and Calendar access</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>A skill named <code>email-to-calendar</code> that sits on top of your existing OpenClaw setup, watches your Gmail inbox, finds the dates that humans bury in emails, and drops them on your Google Calendar without asking. School holidays from the PTA newsletter. Flight confirmations from airlines. Meeting invites that came as plain text instead of a proper <code>.ics</code>. Doctor appointment reminders. The kid's soccer schedule. The neighborhood association meeting. The wedding RSVP date you keep meaning to put on the calendar.</p>
+<p>You will stop copying dates from emails into your calendar. Permanently. The skill does it for you, with duplicate protection so it never books the same dinner reservation twice.</p>
+<p>The skill comes from Toni Melisma (<code>tonimelisma</code> on the OpenClaw community). He published it on Clawhub, the open marketplace where OpenClaw users share skills. You can install it with one command, and it works the same day. The original Discord post is the kind of low-key showcase that hides one of the highest leverage skills you'll add to your agent this year.</p>
+<h2>Why You Keep Doing This Manually</h2>
+<p>Stop and notice your routine when an email comes in with a date in it. You read it. You think &quot;I should put this on the calendar.&quot; You either: (a) pause, switch to your calendar, type in the event, save it, switch back; or (b) tell yourself you'll do it later and forget. The (a) version costs you 60 seconds of focused attention every time. The (b) version costs you the kid's recital.</p>
+<p>A typical busy household generates 10 to 30 of these moments a week. School newsletters with 8 dates packed into a paragraph. Flight confirmations. Hotel bookings. Reschedule notifications. Soccer-practice changes. PTA meetings. Family birthdays you swear you'll remember. Healthcare appointment reminders. Each one demanding a copy-paste-save-switch ritual.</p>
+<p>The total tax is small per item and large in aggregate. Worse, it's the kind of low-grade attentional drag that makes you feel mildly behind on your own life. You're not behind. You're paying a 5-minute-a-day tax on email-shaped infrastructure that should have been solved years ago.</p>
+<p>The reason it wasn't solved is that the parsing problem is harder than it looks. School newsletters write dates as &quot;Friday October 12th, 3:30pm in the gym.&quot; Flight confirmations write them as &quot;DEP: 14:25 SFO 12-OCT 2026.&quot; Doctor's offices write &quot;Your appointment is scheduled for Monday at 2pm, please confirm.&quot; Until LLMs got good at structured extraction, you couldn't write a regex that handled all three.</p>
+<p>You can now. And the skill is 100 lines.</p>
+<h2>The Pattern</h2>
+<p>The skill has 4 parts and you can read its whole job description in 30 seconds.</p>
+<p><strong>Part 1. Watch the inbox.</strong> The agent runs on a heartbeat (every 30-60 minutes is plenty). Each cycle, it pulls new email since last run. You can scope it to specific labels (events-only, school, family) or run it inbox-wide.</p>
+<p><strong>Part 2. Extract events.</strong> For each email, the agent asks: does this contain a date or time the human would want on a calendar? If yes, it pulls structured details: event title, date, start/end times, location if mentioned, attendees if mentioned, brief description. The LLM does the parsing; this is exactly the kind of task it's good at.</p>
+<p><strong>Part 3. Dedupe.</strong> Before creating the event, the agent checks the calendar for an existing match (same date + similar title). If it finds one, it skips. If the existing event has different details (e.g., the school moved the time), it updates instead of duplicating.</p>
+<p><strong>Part 4. Create the event.</strong> The agent calls Google Calendar to create the event with the right metadata, attendees, and notification rules. Done. Your calendar fills itself.</p>
+<p>The whole loop runs without you. You see the result in your calendar. The original email is still in your inbox in case you want to read it again.</p>
+<h2>Step-by-Step Setup</h2>
+<h3>1. Install the skill from Clawhub</h3>
+<p>Toni published the skill at <code>clawhub.ai/tonimelisma/email-to-calendar</code>. The Clawhub install pattern from your OpenClaw workspace is:</p>
+<pre><code>openclaw skill install tonimelisma/email-to-calendar
+</code></pre>
+<p>The skill drops into your <code>skills/</code> directory with a <code>SKILL.md</code> describing what it does and a small set of helper files that wire into the agent.</p>
+<h3>2. Connect Gmail and Google Calendar via gog</h3>
+<p>The skill talks to Gmail and Google Calendar through the <code>gog</code> CLI, which is the standard OpenClaw integration for Google Workspace. If you've already used gog for other skills, this step is done. If not:</p>
+<pre><code>gog auth login
+</code></pre>
+<p>You'll see a one-time browser flow to authorize Gmail read and Calendar read/write scopes. The token gets stored in your OpenClaw workspace and the skill picks it up automatically.</p>
+<h3>3. Configure scope</h3>
+<p>By default the skill scans your whole inbox. Most people want it scoped to specific labels. Edit <code>skills/email-to-calendar/config.md</code> (or the equivalent in the version you installed) and set the labels that should trigger event creation. Common scopes:</p>
+<ul>
+<li><code>school</code> (manually-tagged via Gmail filters for PTA, school, kids' activities)</li>
+<li><code>travel</code> (auto-tagged via filters for airlines, hotels, rideshare)</li>
+<li><code>events</code> (a catch-all label you triage into)</li>
+</ul>
+<p>You can also leave it inbox-wide if your inbox is already curated.</p>
+<h3>4. Add a heartbeat</h3>
+<p>Tell your OpenClaw agent to run the skill periodically. The simplest version is a cron-style entry:</p>
+<pre><code># Every 30 minutes, look for new events
+*/30 * * * *  Run skill: email-to-calendar
+</code></pre>
+<p>Or, if you use the agent's heartbeat loop, add <code>email-to-calendar</code> to the routine list. First-pass run scans the last 30 days. After that, only new mail.</p>
+<h3>5. Run it once with confirmations on</h3>
+<p>For the first 3-5 runs, set the skill to draft events instead of creating them. The agent shows you what it would create; you confirm. After 50 events, you'll know whether the parsing is reliable for your inbox. Then turn confirmations off and let it run.</p>
+<p>This shouldn't take more than a week. By the end of it, the skill is silent and your calendar is full of things you never typed.</p>
+<h2>Lanes That Work</h2>
+<p>The same machinery applies to a half-dozen adjacent jobs. Once you've gotten comfortable with the email-to-calendar version, you can replicate the pattern with minor edits.</p>
+<p><strong>Email-to-tasks.</strong> Same skeleton. Watches inbox. Extracts action items. Drops them on Todoist, Things, or your task system. &quot;Reply to landlord by Friday&quot; stops living in your head.</p>
+<p><strong>Email-to-CRM.</strong> For founders and salespeople. Watches inbox. Detects when a lead replies, when a customer flags a problem, when a champion mentions you should talk to their colleague. Pushes the right activity to the CRM.</p>
+<p><strong>Email-to-receipts.</strong> Watches inbox for receipts. Extracts vendor, amount, category, date. Pushes to a Sheets tab or your accounting system. Stop manually entering business expenses.</p>
+<p><strong>Email-to-newsletter.</strong> The reverse direction. Pulls dates from a curated set of newsletters and aggregates them into a weekly &quot;things happening in your industry&quot; briefing.</p>
+<p><strong>Slack-to-calendar / WhatsApp-to-calendar.</strong> Same skill, different inbox. Your in-laws texting &quot;we're coming for Thanksgiving on the 24th&quot; is now a calendar entry.</p>
+<p>The pattern in every case is: watch a stream of human-written messages, extract structured intent, drop it in the system that should have it.</p>
+<h2>What Changes After Setup</h2>
+<p>Within the first week, you stop noticing. That's actually the point. The dates appear on your calendar. You see them when you check. You don't remember asking for them. The &quot;I'll put it on the calendar later&quot; thought stops happening.</p>
+<p>Within the first month, your calendar becomes accurate in a way it wasn't before. The half-remembered events that used to live in your inbox are now visible alongside everything else. Conflicts surface earlier. The kid's recital and your client meeting both being on October 12th is something you discover on October 1st instead of October 11th.</p>
+<p>Within the first quarter, your relationship to email shifts. The inbox stops being a hidden TODO list. It starts being a queue of things to read or reply to. The dates and the calendar live somewhere else, automatically.</p>
+<p>For a working parent or anyone juggling multiple calendars, this is the highest-leverage hour you'll spend on personal ops this year. For an SMB owner whose inbox is also their team's coordination layer, it's even bigger.</p>
+<h2>Gotchas and Tips</h2>
+<p><strong>Run with confirmations for the first week.</strong> Always. The cost of one wrong-event-on-the-calendar is a missed meeting; the cost of a week of manual confirmations is 5 minutes a day. Pay it up front.</p>
+<p><strong>Watch the duplicate logic on the first big run.</strong> When you scan 30 days of history at install, the skill will try to back-fill events you already manually entered. Most of the time the dedupe catches it. Sometimes it doesn't (different title, same date). Spot-check the first day's output.</p>
+<p><strong>Use Gmail filters to do the labeling work.</strong> The skill is much more accurate when scoped to labels you've curated. Spending 10 minutes on filters (&quot;emails from school@districtwide.org → label:school&quot;, &quot;from any airline domain → label:travel&quot;) makes the skill 90% more reliable.</p>
+<p><strong>Don't run inbox-wide if your inbox is messy.</strong> If you have 12,000 unread newsletters, every cycle will burn API calls trying to extract events from press releases. Curate first, then run.</p>
+<p><strong>Set sensible notification rules in the skill config.</strong> Default of &quot;no notification&quot; is fine for most events. For travel, you may want &quot;1 day before&quot; + &quot;2 hours before.&quot; Set this once in the skill config so every flight confirmation gets the same treatment.</p>
+<p><strong>The skill respects existing manual events.</strong> If you typed something into your calendar by hand and the skill later sees an email about the same thing, the dedupe should leave your manual version alone. Verify this on your first inbox sweep, because Gmail's threading will surface old emails as &quot;new.&quot;</p>
+<p><strong>Decide what counts as an event.</strong> Is &quot;Sale ends Friday&quot; an event? &quot;Submission deadline next Monday&quot;? Probably not. The skill handles ambiguous cases by surfacing them in a draft state. Take 60 seconds during the first weekly review to teach the skill what your &quot;yes&quot; and &quot;no&quot; categories look like.</p>
+<p><strong>Pair this with a simple daily briefing.</strong> The email-to-calendar skill is half the workflow. The other half is a daily briefing that reads tomorrow's calendar and summarizes it. Together they replace the manual &quot;what's on for tomorrow&quot; check that most people do at 10pm the night before.</p>
+<hr>
+<h2>Keep Reading</h2>
+<ul>
+<li><strong><a href="/playbooks/inbox-triage-agent/">He Let an AI Triage 180 Emails a Day. Here's the Stack.</a></strong>: The companion playbook. Where this one extracts events, that one decides which emails deserve your attention at all.</li>
+<li><strong><a href="/playbooks/ai-life-os/">Build an AI Life OS That Knows Your Entire Day (Before You Do)</a></strong>: The wider pattern. Email-to-calendar is one of 20 plays inside a complete personal-ops system; the Life OS playbook is the system.</li>
+<li><strong><a href="/playbooks/grocery-autopilot/">Automate Grocery Shopping With a Photo of a Recipe</a></strong>: Same architecture, different domain. Photo in, structured action out, the human-in-the-loop becomes optional once it's tuned.</li>
+</ul>
+<p><strong>Want the full deep dive?</strong> Read our <a href="/learn/best-openclaw-skills/">Best OpenClaw Skills</a> guide for the foundational skill patterns this playbook depends on.</p>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators · Powered by <a href="https://openclaw.com">OpenClaw</a></p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

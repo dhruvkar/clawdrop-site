@@ -15,7 +15,7 @@ eleventyExcludeFromCollections: true
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://clawdrop.org/blueprints/</loc>
+    <loc>https://clawdrop.org/playbooks/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -32,7 +32,7 @@ eleventyExcludeFromCollections: true
     <priority>0.8</priority>
   </url>
   {%- endfor %}
-  {%- for post in collections.blueprints %}
+  {%- for post in collections.playbooks %}
   <url>
     <loc>https://clawdrop.org{{ post.url }}</loc>
     <lastmod>{{ post.date | readableDate }}</lastmod>

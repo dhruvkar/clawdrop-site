@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your AI Makes Your Coffee, Orders Your Lunch, and Answers Your Phone — ClawDrop</title>
+  <meta name="description" content="Physical world automation is here. One builder connected OpenClaw to an espresso machine, food ordering, and a phone agent that talks to callers and relays to your AI.">
+  <meta property="og:title" content="Your AI Makes Your Coffee, Orders Your Lunch, and Answers Your Phone — ClawDrop">
+  <meta property="og:description" content="Physical world automation is here. One builder connected OpenClaw to an espresso machine, food ordering, and a phone agent that talks to callers and relays to your AI.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/ai-espresso-phone-agent/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Your AI Makes Your Coffee, Orders Your Lunch, and Answers Your Phone — ClawDrop">
+  <meta name="twitter:description" content="Physical world automation is here. One builder connected OpenClaw to an espresso machine, food ordering, and a phone agent that talks to callers and relays to your AI.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/ai-espresso-phone-agent/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; }
+    .logo:hover { color: var(--ink); }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 280px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">March 9, 2026</div>
+    <h1>Your AI Makes Your Coffee, Orders Your Lunch, and Answers Your Phone</h1>
+    <p class="post-description">Physical world automation is here. One builder connected OpenClaw to an espresso machine, food ordering, and a phone agent that talks to callers and relays to your AI.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Intermediate</strong></span>
+      <span class="meta-badge">💰 <strong>$15-40/month (Vapi + API costs)</strong></span>
+      <span class="meta-badge">⏱ <strong>4-6 hours</strong></span>
+      <span class="meta-badge">👤 <strong>Alejandro (@amaza87)</strong></span>
+      <a href="https://discord.com/channels/1456350064065904867/1456609488202105005/1457627855692365835" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-openclaw"><strong>OpenClaw</strong></a>: agent brain processing all requests</li>
+<li><a href="#aff-vapi"><strong>Vapi</strong></a>: phone voice agent platform powering Clawdia</li>
+<li><a href="#aff-clawdia-bridge"><strong>Clawdia Bridge</strong></a>: open-source Node.js connector between Vapi and OpenClaw</li>
+<li><a href="#aff-home-assistant"><strong>Home Assistant</strong></a>: smart home bridge for device control</li>
+<li><a href="#aff-decent-espresso"><strong>Decent Espresso</strong></a>: espresso machine with controllable API</li>
+<li><a href="#aff-kasa"><strong>Kasa</strong></a>: smart plug option for any espresso machine</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>Three automations that bring AI out of the screen and into the physical world:</p>
+<ol>
+<li><strong>Espresso machine control:</strong> &quot;Make me a double shot&quot; and your machine starts pulling</li>
+<li><strong>Food ordering:</strong> &quot;Order my usual from the Thai place&quot; and it handles the order</li>
+<li><strong>Phone agent (Clawdia):</strong> A voice AI that answers your phone, has a conversation with the caller, and relays everything to your OpenClaw agent for action</li>
+</ol>
+<p>The phone agent is the star here. It's a bridge between the voice world and your AI brain.</p>
+<h2>Why This Works</h2>
+<p>Most AI assistants live behind a screen. You type, they type back. But the real world runs on phone calls, physical devices, and verbal requests.</p>
+<p>The leap from &quot;AI that writes emails&quot; to &quot;AI that makes my coffee and handles my phone calls&quot; is the difference between a fancy search engine and an actual assistant. When your AI can interact with the physical world and talk to humans on your behalf, it stops being a tool and starts being a team member.</p>
+<h2>Prerequisites</h2>
+<ul>
+<li>OpenClaw installed and running</li>
+<li>Vapi account (for the phone agent)</li>
+<li>Smart espresso machine with API or smart plug control</li>
+<li>Food delivery app access (or restaurant with online ordering)</li>
+<li>The <a href="https://github.com/alejandroOPI/clawdia-bridge">Clawdia Bridge</a> (open source)</li>
+</ul>
+<h2>Part 1: The Phone Agent (Clawdia)</h2>
+<p>This is the most interesting piece. Here's how it works:</p>
+<pre><code>┌──────────────┐     ┌──────────────┐     ┌──────────────┐
+│  Phone Call  │────▶│  Clawdia     │────▶│  OpenClaw    │
+│  Comes In    │     │  (Vapi)      │     │  Agent       │
+│              │     │              │     │              │
+│  &quot;Hi, is     │     │  Has a real  │     │  Processes   │
+│   Alejandro  │     │  conversation│     │  the request │
+│   there?&quot;    │     │  with caller │     │  and acts    │
+└──────────────┘     └──────────────┘     └──────┬───────┘
+                                                  │
+                                         ┌────────▼───────┐
+                                         │  Actions       │
+                                         │                │
+                                         │  - Schedule    │
+                                         │  - Message you │
+                                         │  - Look up info│
+                                         │  - Take notes  │
+                                         └────────────────┘
+</code></pre>
+<h3>Why Clawdia Instead of Calling OpenClaw Directly?</h3>
+<p>You could technically pipe a phone call straight to OpenClaw. But having a dedicated voice agent (Clawdia) as the front door is cleaner:</p>
+<ul>
+<li>Clawdia handles the social niceties (greetings, hold-on-a-moment, goodbyes)</li>
+<li>She can manage the conversation flow while waiting for OpenClaw to process</li>
+<li>If OpenClaw is thinking, the caller doesn't hear dead silence</li>
+<li>Different voice, different personality, feels more natural than a &quot;system&quot;</li>
+</ul>
+<h3>Setting Up the Bridge</h3>
+<p>The <a href="https://github.com/alejandroOPI/clawdia-bridge">Clawdia Bridge</a> connects Vapi's voice agent to your OpenClaw instance:</p>
+<ol>
+<li>Set up a Vapi agent with your preferred voice and personality</li>
+<li>Deploy the bridge (it's a lightweight Node.js server)</li>
+<li>Point Vapi's webhook to the bridge</li>
+<li>The bridge translates between Vapi's conversation format and OpenClaw's messaging</li>
+</ol>
+<p>When someone calls, Clawdia picks up, has a natural conversation, and relays the intent to OpenClaw. OpenClaw processes the request (check calendar, send a message, look up information) and sends the response back through Clawdia.</p>
+<h2>Part 2: Espresso Machine Control</h2>
+<p>The espresso setup depends on your machine, but the pattern is the same:</p>
+<p><strong>Option A: Smart machine with API</strong> (like a Decent Espresso DE1)</p>
+<ul>
+<li>Connect directly to the machine's API</li>
+<li>Start shots, adjust temperature, set profiles</li>
+<li>&quot;Make me a 18g in, 36g out, 25 second pull&quot;</li>
+</ul>
+<p><strong>Option B: Any machine with a smart plug</strong></p>
+<ul>
+<li>Use a smart plug (Kasa, Tapo, etc.) to power the machine on/off</li>
+<li>Won't control shot parameters, but can pre-heat the machine</li>
+<li>&quot;Turn on my espresso machine, I'll be down in 10 minutes&quot;</li>
+</ul>
+<p><strong>Option C: Smart home integration</strong></p>
+<ul>
+<li>Use Home Assistant as a bridge</li>
+<li>Control any device in your smart home ecosystem</li>
+<li>The espresso machine is just one endpoint</li>
+</ul>
+<p>The skill itself is straightforward: OpenClaw sends a command to the device API, the machine does its thing. The magic is in the natural language interface. You don't open an app or press buttons. You just say (or type) what you want.</p>
+<h2>Part 3: Food Ordering</h2>
+<p>Food ordering automation works through browser automation or restaurant APIs:</p>
+<ol>
+<li>Store your usual orders as presets (&quot;my usual&quot; = Pad Thai, medium spice, extra peanuts)</li>
+<li>When triggered, the agent opens the ordering platform and places the order</li>
+<li>Confirms the order details and estimated delivery time</li>
+<li>Notifies you when it's on its way</li>
+</ol>
+<p>For restaurants you order from frequently, save the full order details so &quot;order my usual from Thai Kitchen&quot; is a single command that handles everything.</p>
+<h2>Putting It All Together</h2>
+<p>The real power is chaining these together. Your morning routine could look like:</p>
+<ol>
+<li>Alarm goes off</li>
+<li>OpenClaw turns on your espresso machine to pre-heat</li>
+<li>You say &quot;good morning&quot; to your phone</li>
+<li>Clawdia gives you a briefing: calendar, weather, overnight messages</li>
+<li>By the time you're downstairs, the machine is hot</li>
+<li>&quot;Pull me a double&quot; and it starts</li>
+<li>While you drink your coffee, Clawdia handles your first two phone calls</li>
+</ol>
+<p>That's not science fiction. That's what Alejandro built. The hardware is off-the-shelf. The software is open source. The only thing you need to supply is the willingness to set it up.</p>
+<h2>Getting Started</h2>
+<p>Start with one piece, not all three:</p>
+<ol>
+<li><strong>Easiest:</strong> Smart plug control for any appliance (30 minutes to set up)</li>
+<li><strong>Medium:</strong> Food ordering for one restaurant (1-2 hours)</li>
+<li><strong>Most impactful:</strong> Clawdia phone agent (half a day, but changes everything)</li>
+</ol>
+<p>Once one works, adding the others is incremental. The pattern is always the same: give OpenClaw an API to talk to, and tell it when to use it.</p>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators · Powered by <a href="https://openclaw.com">OpenClaw</a></p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

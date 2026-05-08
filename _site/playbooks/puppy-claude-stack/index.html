@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>He Built a 5-Tool Claude Stack to Pick Out a Puppy. The Pattern Works for Anything New in Your Life. — ClawDrop</title>
+  <meta name="description" content="A creator at Blazing Zebra walked through every surface of Claude (chat, Cowork, Code, Office, Chrome, Dispatch) using one running example: adopting a new puppy. Folder scaffolding, milestone tracker app, vaccine schedule Excel, Petfinder shortlist, trainer research from his phone, all in one afternoon. The puppy is the storyline. The methodology works for any new chapter in your life: new baby, new house, new business, new health challenge.">
+  <meta property="og:title" content="He Built a 5-Tool Claude Stack to Pick Out a Puppy. The Pattern Works for Anything New in Your Life. — ClawDrop">
+  <meta property="og:description" content="A creator at Blazing Zebra walked through every surface of Claude (chat, Cowork, Code, Office, Chrome, Dispatch) using one running example: adopting a new puppy. Folder scaffolding, milestone tracker app, vaccine schedule Excel, Petfinder shortlist, trainer research from his phone, all in one afternoon. The puppy is the storyline. The methodology works for any new chapter in your life: new baby, new house, new business, new health challenge.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/puppy-claude-stack/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="He Built a 5-Tool Claude Stack to Pick Out a Puppy. The Pattern Works for Anything New in Your Life. — ClawDrop">
+  <meta name="twitter:description" content="A creator at Blazing Zebra walked through every surface of Claude (chat, Cowork, Code, Office, Chrome, Dispatch) using one running example: adopting a new puppy. Folder scaffolding, milestone tracker app, vaccine schedule Excel, Petfinder shortlist, trainer research from his phone, all in one afternoon. The puppy is the storyline. The methodology works for any new chapter in your life: new baby, new house, new business, new health challenge.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/puppy-claude-stack/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; }
+    .logo:hover { color: var(--ink); }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 280px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">May 5, 2026</div>
+    <h1>He Built a 5-Tool Claude Stack to Pick Out a Puppy. The Pattern Works for Anything New in Your Life.</h1>
+    <p class="post-description">A creator at Blazing Zebra walked through every surface of Claude (chat, Cowork, Code, Office, Chrome, Dispatch) using one running example: adopting a new puppy. Folder scaffolding, milestone tracker app, vaccine schedule Excel, Petfinder shortlist, trainer research from his phone, all in one afternoon. The puppy is the storyline. The methodology works for any new chapter in your life: new baby, new house, new business, new health challenge.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Beginner</strong></span>
+      <span class="meta-badge">💰 <strong>$20-100/month Claude subscription depending on tier</strong></span>
+      <span class="meta-badge">⏱ <strong>An afternoon for the full stack, an evening for any single piece</strong></span>
+      <a href="https://www.youtube.com/@BlazingZebra" target="_blank" class="meta-badge">👤 <strong>Blazing Zebra ↗</strong></a>
+      <a href="https://www.youtube.com/watch?v=fs8pKudeloY" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-claude"><strong>Claude</strong></a>: the umbrella product, all surfaces share one subscription</li>
+<li><a href="#aff-claude-cowork"><strong>Claude Cowork</strong></a>: the project workspace where folders and files live</li>
+<li><a href="#aff-claude-code"><strong>Claude Code</strong></a>: builds real apps in local mode from plain English</li>
+<li><a href="#aff-claude-office"><strong>Claude Office</strong></a>: Excel and PowerPoint surfaces for spreadsheets and decks</li>
+<li><a href="#aff-claude-chrome"><strong>Claude Chrome</strong></a>: browser extension that rides along on logged-in sessions</li>
+<li><a href="#aff-claude-dispatch"><strong>Claude Dispatch</strong></a>: text Claude from your phone, work runs on your desktop</li>
+<li><a href="#aff-anthropic"><strong>Anthropic</strong></a>: the company behind Claude and the model layer</li>
+<li><a href="#aff-petfinder"><strong>Petfinder</strong></a>: adoption search target for the Chrome demo</li>
+<li><a href="#aff-excel"><strong>Microsoft Excel</strong></a>: vaccine schedule output</li>
+<li><a href="#aff-powerpoint"><strong>PowerPoint</strong></a>: matching slide deck output</li>
+<li><a href="#aff-google-drive"><strong>Google Drive</strong></a>: where the spreadsheet ended up for sharing</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>The creator behind Blazing Zebra opens his video with a quiet line. He lost his little puppy not long ago, and he and his wife are getting excited about looking for a new one. Then he spends the next 30 minutes walking through every surface of Claude using that adoption as the running example.</p>
+<p>On the surface, this is a Claude product tour. Watch closer and it is something more useful: a methodology for handling any new chapter in your life using AI as a research, planning, and execution team. The puppy is the storyline. The five steps are the pattern.</p>
+<p>New baby. New house. New business launch. New diagnosis. New role at work. Same stack. Same five steps. One folder on your computer that captures everything you need to know about the new thing in your life. A research doc, a custom app, a spreadsheet, a slide deck, and a vetted list of local services that you actually use.</p>
+<p>You walk away with one folder on your computer that captures everything you need to know about the new thing in your life, plus five working artifacts (a research doc, a custom app, a spreadsheet, a slide deck, a list of vetted local services) that you actually use.</p>
+<h2>Why &quot;New Thing&quot; Research Always Goes Sideways</h2>
+<p>New things in life arrive with research debt. 50 browser tabs open across two devices. Three half-read articles. A Google Doc that goes stale by week two. A list of local providers you screenshotted on your phone and never called. By month three you have forgotten what you researched in month one, and you are starting over from a worse position because now you also feel behind.</p>
+<p>Most of us have lived this. New baby and the registry research you did at 26 weeks is useless by 38. New house and the contractor list you built last spring has phone numbers that go to voicemail. New diagnosis and the specialist names from your first appointment are buried in a thread with the receptionist. New business and the competitive research from week one is wrong by week six.</p>
+<p>The cost is not really time. It is decision fatigue and context loss. By the time you actually need the information, it is scattered across five places and none of it is current. You make the decision tired, with bad data, and then you live with it.</p>
+<p>The pattern in this playbook replaces all of that with one folder, one workspace, and a research team that picks up where you left off. You stop having to remember. The folder remembers for you.</p>
+<h2>The 5 Surfaces (Demoed on a Puppy)</h2>
+<h3>1. Chat: The Front Door</h3>
+<p>The chat is the surface you already know. Type a question, get an answer, you are done. No folder, no setup. The creator calls it &quot;the front door.&quot;</p>
+<p>For the puppy, he asks Claude to shortlist five dog breeds for an active outdoorsy couple living rurally. He uses the desktop app rather than the web because the desktop app gives him faster access to other surfaces later. He picks Opus 4.7 specifically for this question because it is a planning moment, not a quick lookup.</p>
+<p>Worth flagging: model picking matters more than most people realize. At the $20 a month tier, Sonnet is your daily driver and Opus is rationed. The creator's heuristic is to live in Sonnet by default and flip to Opus for the big planning moments. Breed shortlist is a big planning moment. Asking what time to feed a puppy at 8 weeks is not.</p>
+<p>The same surface for a new house: &quot;shortlist 5 neighborhoods for a remote-working couple with a toddler, prioritize walkability, schools above an 8 rating, under $1.2M, within 30 minutes of downtown.&quot; For a new business: &quot;shortlist 5 niches inside boutique fitness that have low competition and high willingness to pay.&quot; The shape of the prompt is the same. The constraints change.</p>
+<h3>2. Cowork: The Folder That Knows Everything</h3>
+<p>Cowork is the project workspace. It can read, write, and manipulate files on your local machine. It manages context across long projects so you do not start over every time you open a new chat.</p>
+<p>For the puppy, the creator selects an empty folder on his desktop named <code>new puppy</code>. He asks Cowork to scaffold it with everything he needs: subfolders for feeding, supplies, training, and vet, each populated with starter documentation. Two minutes later he has a real folder with real files in it. Feeding has a starter doc on puppy nutrition by age. Training has a starter doc on the first 30 days. Vet has a placeholder for the vaccine schedule.</p>
+<p>This is the unlock. From now on, every other surface reads from and writes to this folder. The chat is one-shot. Cowork is the long memory.</p>
+<p>For a new baby, the same scaffold gives you a <code>newborn-prep</code> folder with feeding, sleep, medical, and registry subfolders. For a new business, it is the founder context OS pattern: company, customers, product, finance, legal. For a new diagnosis, it is condition, medications, specialists, journal. The folder structure changes. The pattern is identical.</p>
+<p>The thing the creator emphasizes here, and that most people miss, is that <strong>the folder is the difference between this working in month 3 and not</strong>. Without the anchor, you are back to scattered tabs.</p>
+<h3>3. Code: One Prompt, One Working App</h3>
+<p>From inside the Cowork puppy folder, the creator opens Claude Code in local mode. He picks the <code>tracker app</code> subfolder and types one sentence: &quot;Build me a puppy milestone tracker with charts.&quot;</p>
+<p>Five minutes later he has a working web app. Real local database behind the scenes. Charts that update as he logs milestones. Exportable data so he can hand it to a vet. A &quot;Live Artifact&quot; share option so he can send it to friends and family without setting up hosting.</p>
+<p>Stop and feel what that means. He did not write code. He did not pick a framework. He did not configure a database. He typed a sentence and got a real, working, share-able app.</p>
+<p>For a new baby, the same prompt gives you a feeding and sleep tracker that beats most of the $9-a-month apps in the App Store. For a new business, it is a customer onboarding tracker. For a new diagnosis, a symptom journal with charts the doctor will actually look at. For a new house, a closing-cost calculator your spouse can poke at.</p>
+<p>The mental model shift is this: any time you would have downloaded an app to track something, build the app instead. The &quot;build&quot; is one sentence. The app fits your life instead of the other way around.</p>
+<h3>4. Office: Excel + Slide Deck in One Pass</h3>
+<p>Office is the Excel and PowerPoint surface. This used to be the weakest part of the Claude stack. It is now real.</p>
+<p>The creator asks Claude to build an Excel file for the vaccine schedule with multiple tabs, including a vet-questions tab. Claude produces a real <code>.xlsx</code> file with formatted columns, dates, dropdowns, and a separate tab where he can pre-write the questions he wants to ask the vet at each visit. Then he asks Claude to turn the spreadsheet into a matching slide deck for sharing with his wife. Claude produces a real <code>.pptx</code>. The numbers match. The tabs match.</p>
+<p>The integration between Excel and PowerPoint is the part that was missing six months ago. You can now move structured data from one to the other in one pass. No copy-paste. No chart re-creation. The deck reads from the spreadsheet's logic.</p>
+<p>For a new house, this is the closing-cost spreadsheet plus a slide for your co-buyer. For a new business, it is the financial model plus the investor-update template that pulls from it. For a new diagnosis, the medication schedule plus a one-page slide for the family meeting.</p>
+<p>The creator drops the file into Google Drive at the end so his wife can review it on her phone. Worth noting: he started in Office, ended in Drive. The surfaces hand off cleanly.</p>
+<h3>5. Chrome and Dispatch: Research Without Sitting at the Computer</h3>
+<p>These are two different surfaces but they solve the same problem: research that needs to happen while you are doing something else.</p>
+<p><strong>Chrome</strong> is the side panel extension. It rides along in your already-logged-in browser session. The creator points it at Petfinder and asks it to shortlist medium-energy Labrador retrievers within 50 miles. Because it is logged in as him, it can see the same listings he would see, including the saved searches and account-specific filters. It returns a summary of each candidate with the shelter, the distance, and a one-paragraph readout.</p>
+<p>He says this saved him hours of manual scrolling. With Opus 4.7 driving, the shortlist was good enough that he flagged three to call. Worth flagging: this is what the Chrome extension is for. Logged-in tasks. Petfinder, Zillow, GreatSchools, your bank, your insurance portal. Anything that requires &quot;I have an account here.&quot;</p>
+<p><strong>Dispatch</strong> is the surface most people have never tried. The creator texts Claude from his phone while he is out walking: &quot;Research puppy trainers in my area based on reviews, compile a Word doc on my desktop with top recommendations and next steps.&quot; The agent runs the work on his desktop while he is anywhere with internet, then emails or texts the doc back when done.</p>
+<p>This is Anthropic's safe-and-manageable answer to OpenClaw's autonomy. Your computer does the work. You do your life. The two stay synced through your phone.</p>
+<p>For a new baby, this combo finds 5 daycare options near your house and texts back the call list while you are at the pediatrician. For a new house, it pulls 3 contractor bids while you are at work. For a new role at work, it summarizes the latest internal docs while you are commuting.</p>
+<p>The creator also mentions the surface he is <em>not</em> demoing: Computer Use. He flags it as around 70% reliable today and says, &quot;the people who learn to use it now will have a real advantage when it gets to 110%.&quot; Worth knowing it exists. Not worth putting it in the critical path of anything that matters.</p>
+<h2>What Makes This Pattern Work</h2>
+<p><strong>One folder is the anchor.</strong> Cowork holds the context. Every other surface reads from and writes to it. Without this anchor, you are back to scattered tabs and stale Google Docs. The folder is what makes the system survive month 3, when you stop remembering what you researched in month 1.</p>
+<p><strong>The right surface for the job.</strong> Do not try to do everything in chat. Excel goes to Office. Apps go to Code. Logged-in browser tasks go to Chrome. Phone-while-out-of-the-house tasks go to Dispatch. The chat is for thinking out loud, not for doing the work. Most people get trapped in chat because it is the surface they discovered first.</p>
+<p><strong>Skills before scheduled tasks.</strong> Once a workflow works manually, turn it into a reusable skill. Then, and only then, automate it via scheduled task. The creator is blunt about this: &quot;Don't try to create a scheduled task before you've worked through it manually. Been there, done that.&quot; Skipping the skill step gets you brittle automations that break the second the world changes slightly.</p>
+<p><strong>Memory is where the wheels come off.</strong> Claude stores memories in many places. Project memory, account memory, the new &quot;auto dream&quot; memory that surfaces patterns across your sessions. Knowing where each lives, and where each can go stale, is, in the creator's words, &quot;the number one way to get AI to produce the results you want.&quot; If a session is producing weird results, the answer is almost always memory drift. Start a new session.</p>
+<h2>The Setup</h2>
+<ol>
+<li>
+<p><strong>Create one folder for the new chapter.</strong> Name it after the actual thing: <code>new puppy</code>, <code>kitchen remodel</code>, <code>baby due october</code>, <code>crohns workup</code>. This folder is the anchor for everything else. Pick a name your future self will recognize at a glance.</p>
+</li>
+<li>
+<p><strong>Open Cowork in that folder. Ask it to scaffold.</strong> One prompt: &quot;Set up this folder for [the thing], with subfolders and starter docs for the things I will need to track.&quot; Liam Ottley calls this the Context OS step in his AIOS playbook. The same pattern works at family scale, not just business scale.</p>
+</li>
+<li>
+<p><strong>Ask Chat for an opinion before you commit.</strong> Breed shortlist, neighborhood shortlist, daycare shortlist, specialist shortlist. Pick Opus 4.7 if you have access. Sonnet otherwise. Save the answer as a markdown file inside your scaffold folder so it survives the chat session.</p>
+</li>
+<li>
+<p><strong>Build one custom app in Code.</strong> Local mode, plain English, working in five minutes. Not every chapter needs an app, but most do. The Petfinder researcher does not need one. The milestone tracker does. So does the symptom journal. So does the closing-cost calculator. So does the feeding and sleep log.</p>
+</li>
+<li>
+<p><strong>Push the messy data into Office.</strong> Excel for the schedule, PowerPoint for the share with a co-decision-maker (spouse, family, partner, advisor). Drop the result into Google Drive so the other person can read it on their phone.</p>
+</li>
+<li>
+<p><strong>Wire your phone in via Dispatch.</strong> When you are at the park or in the car and you remember a question, text Claude. The work happens on your desktop while you live your life. The doc lands in your inbox. You read it that evening.</p>
+</li>
+</ol>
+<h2>Lanes That Work</h2>
+<p><strong>New baby.</strong> Feeding tracker app, sleep schedule spreadsheet, daycare shortlist via Chrome, pediatrician research via Dispatch. Hospital bag checklist as a Cowork doc. Registry research as a chat. The folder lives for two years and saves you in week 6 when you have not slept.</p>
+<p><strong>New house.</strong> Neighborhood shortlist, closing-cost calculator app, contractor research, school zone lookup, mortgage rate spreadsheet. Chrome rides along on Zillow and Redfin. Dispatch handles &quot;find me 3 inspectors with reviews above 4.5&quot; while you are at work.</p>
+<p><strong>New business.</strong> Founder context OS folder, lead tracker app, market research spreadsheet, competitor shortlist. Chrome handles LinkedIn and Crunchbase. Dispatch researches potential customers while you are running the business. Office produces the investor update.</p>
+<p><strong>New diagnosis.</strong> Symptom tracker app, medication schedule spreadsheet, specialist shortlist, peer-support research. The folder organizes appointments, lab results, questions for each visit. Worth saying clearly: Claude is not a doctor. Use it for organizing and shortlisting, not diagnosis.</p>
+<p><strong>New role at work.</strong> First-90-day folder, stakeholder map spreadsheet, decision tracker app, internal research. Chrome reads your company wiki while you are logged in. Dispatch summarizes Slack threads while you are in meetings. The deck for your 30-day check-in writes itself from the folder.</p>
+<p><strong>New hobby.</strong> Equipment shortlist, learning roadmap, local class research, progress tracker app. Lower stakes, but the same pattern is the difference between picking it up for real and quitting in week three because the gear research never ended.</p>
+<h2>What Changes After Setup</h2>
+<p><strong>Day 1.</strong> You spend an afternoon with the stack. You get one folder, one scaffold, one shortlist, one custom app, one spreadsheet, one slide. You text Claude one question from your phone before bed. You go to sleep feeling weirdly organized.</p>
+<p><strong>Week 1.</strong> You stop opening browser tabs and never closing them. Every research thread now has a home. The puppy tracker has 14 logged events. Your wife has actually opened the slide deck twice. You used Dispatch from the grocery store to add &quot;ask vet about giardia screening&quot; to the vet-questions tab.</p>
+<p><strong>Month 1.</strong> You are three vet visits in. The folder has grown. The vaccine schedule is half checked off. The trainer shortlist Claude built from your phone gave you a name you actually hired. You have stopped doing manual Petfinder scrolling because the Chrome agent runs it weekly.</p>
+<p><strong>Month 3.</strong> The puppy is home. You barely think about the folder anymore, but it is doing work in the background. The milestone tracker is the most-used app on your laptop. When a friend asks you for puppy advice, you send them the slide deck and they ask you who built it. You realize the methodology, not the puppy, is the thing you built.</p>
+<p>The same arc plays out for every other lane. New baby, the folder is your sanity at week 6. New house, the folder is what survives the move. New business, the folder is the founder context OS that every contractor and hire reads to get up to speed.</p>
+<h2>Gotchas and Tips</h2>
+<p><strong>Don't try to do everything in chat.</strong> The folder is the difference between this working in month 3 and not. If you skip Cowork and live in chat, you are rebuilding context every week.</p>
+<p><strong>Pick the right model for the surface.</strong> Opus for planning, Sonnet for the daily, Haiku for the format conversions. At the $20 tier, Opus is rationed, so use it intentionally on the planning moments and live in Sonnet the rest of the time.</p>
+<p><strong>Run the workflow manually before you turn it into a skill, and skill it before you schedule it.</strong> Skipping steps gets you brittle automation. The creator's exact framing: been there, done that. Believe him.</p>
+<p><strong>Don't sleep on the Chrome extension.</strong> The logged-in session is what makes Petfinder, Zillow, GreatSchools, and any other &quot;I have an account here&quot; tool actually useful. This is the surface most people have never opened, and it is one of the highest-leverage ones.</p>
+<p><strong>Dispatch is the unlock for new parents and anyone whose life happens away from a desk.</strong> If you are in the car, at the park, in a hospital waiting room, on a job site: Dispatch is how Claude works for you anyway. Most people have never tried it. Try it.</p>
+<p><strong>Memory is the silent killer.</strong> Start a new session if results get weird. Don't fight a session past 30% of the context window. The new &quot;auto dream&quot; memory feature helps, but understanding where memories live is what separates good results from bad ones.</p>
+<p><strong>Live Artifacts is great for sharing the puppy tracker with the kids or the closing-cost calculator with your spouse.</strong> Don't share business artifacts this way without checking the privacy settings. The default is generous on purpose; that is fine for a puppy app, not fine for revenue numbers.</p>
+<p><strong>Computer Use is at 70%.</strong> Don't put it in the critical path of anything important. But do start practicing on low-stakes tasks now so you are ready when it gets to 100%. The people who wait until it is &quot;done&quot; will be six months behind.</p>
+<p><strong>If your new chapter is medical, Claude is not a doctor.</strong> Use it for organizing and shortlisting, not for diagnosis. The folder, the symptom tracker, the medication schedule: yes. The treatment plan: no. Bring the artifacts to the appointment, not the verdict.</p>
+<p><strong>The puppy folder generalizes.</strong> Same exact pattern, different folder name. Treat this playbook as a template, not a one-off. Build it once, run it for every new chapter for the rest of your life.</p>
+<hr>
+<h2>Keep Reading</h2>
+<ul>
+<li><strong><a href="/playbooks/aios-wrap-your-business/">6 Non-Technical Founders Wrapped Their Businesses in Claude Code in 8 Hours. Here's What They Built.</a></strong>: The business-scale version of the Cowork scaffold, taught by Liam Ottley to founders with no engineering background.</li>
+<li><strong><a href="/playbooks/ai-life-os/">Build an AI Life OS That Knows Your Entire Day (Before You Do)</a></strong>: The personal-life version of the same idea. Take the puppy folder, expand it to your whole life.</li>
+<li><strong><a href="/playbooks/g-bot-home-brain/">He Gave His Home a Brain. 50 Days Later, His AI Wakes Him Up, Cleans His House, and Judges His Sleep.</a></strong>: What happens when you push the methodology even further into your physical environment, not just your folder structure.</li>
+</ul>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators · Powered by <a href="https://openclaw.com">OpenClaw</a></p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

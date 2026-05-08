@@ -1,58 +1,65 @@
 {% extends "base.njk" %}
 
 {% block styles %}
-  .post { max-width: 720px; margin: 0 auto; padding: 60px 24px 80px; position: relative; z-index: 2; }
-  .post-back { color: var(--accent-bright); text-decoration: none; font-size: 0.85rem; font-weight: 500; display: inline-flex; align-items: center; gap: 4px; }
-  .post-back:hover { text-decoration: underline; }
-  .post-date { color: var(--text-muted); font-size: 0.82rem; margin-top: 12px; }
-  .post h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.12; margin: 24px 0 12px; }
-  .post-description { font-size: 1.05rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 24px; }
-  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
-  .meta-badge { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; padding: 6px 12px; border-radius: 8px; background: var(--bg-card); border: 1px solid var(--border); color: var(--text-muted); }
-  .meta-badge strong { color: var(--accent-bright); }
-  .post-content h2 { font-size: 1.3rem; font-weight: 700; margin-top: 40px; margin-bottom: 14px; letter-spacing: -0.02em; }
-  .post-content h3 { font-size: 1.1rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; }
-  .post-content p { color: #ccc; font-size: 0.95rem; line-height: 1.85; margin-bottom: 18px; }
-  .post-content a { color: var(--accent-bright); text-decoration: none; }
-  .post-content a:hover { text-decoration: underline; }
-  .post-content ul, .post-content ol { color: #ccc; font-size: 0.95rem; line-height: 1.85; margin-bottom: 18px; padding-left: 24px; }
+  .post { max-width: 760px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
   .post-content li { margin-bottom: 6px; }
-  .post-content blockquote { border-left: 3px solid var(--accent-bright); padding: 14px 20px; margin: 20px 0; background: var(--bg-card); border-radius: 0 8px 8px 0; color: #bbb; font-size: 0.95rem; line-height: 1.8; }
-  .post-content img { max-width: 100%; border-radius: 8px; margin: 20px 0; border: 1px solid var(--border); }
-  .post-content code { background: var(--bg-card); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--accent-bright); }
-  .post-content pre { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 18px; overflow-x: auto; margin: 20px 0; }
-  .post-content pre code { background: none; padding: 0; font-size: 0.85rem; color: #ccc; }
-  .post-content strong { color: var(--text); }
-  .post-content table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9rem; }
-  .post-content th { text-align: left; padding: 10px 14px; background: var(--bg-card); border: 1px solid var(--border); color: var(--accent-bright); font-weight: 600; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.04em; }
-  .post-content td { padding: 10px 14px; border: 1px solid var(--border); color: #ccc; }
-  .post-content tr:hover td { background: var(--bg-card); }
-  .toc { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px 28px; margin-bottom: 32px; }
-  .toc-title { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim); margin-bottom: 12px; font-weight: 600; }
-  .toc ol { padding-left: 20px; margin: 0; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .toc { background: var(--paper); border: 1px solid var(--rule); border-radius: 12px; padding: 22px 26px; margin-bottom: 32px; }
+  .toc-title { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); margin-bottom: 12px; font-weight: 600; }
+  .toc ol { padding-left: 20px; margin: 0; color: var(--ink); }
   .toc li { margin-bottom: 6px; }
-  .toc a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; }
-  .toc a:hover { color: var(--accent-bright); }
-  .updated-badge { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--green); background: rgba(0, 206, 201, 0.1); padding: 4px 10px; border-radius: 6px; display: inline-block; margin-bottom: 16px; }
-  .blueprint-cta { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 32px 28px; margin: 40px 0; position: relative; overflow: hidden; text-align: center; }
-  .blueprint-cta::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--gradient); opacity: 0.5; }
-  .blueprint-cta h3 { font-size: 1.15rem; font-weight: 700; margin: 0 0 6px; color: var(--text); }
-  .blueprint-cta p { font-size: 0.88rem; color: var(--text-muted); margin: 0 0 16px; }
-  .blueprint-cta .form-iframe-wrap { height: 240px; overflow: hidden; border-radius: 12px; }
-  .blueprint-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
-  .post-footer { margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--border); text-align: center; }
-  .post-footer p { color: var(--text-muted); font-size: 0.92rem; margin-bottom: 16px; }
-  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 12px 28px; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 0.95rem; transition: all 0.2s; box-shadow: 0 0 40px var(--accent-glow); }
-  .btn-cta:hover { background: var(--accent-bright); transform: translateY(-1px); }
-  .related-blueprints { margin: 40px 0; }
-  .related-blueprints h3 { font-size: 1rem; font-weight: 700; margin-bottom: 16px; color: var(--text); }
-  .related-card { display: block; text-decoration: none; color: inherit; padding: 16px 20px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg-card); margin-bottom: 10px; transition: all 0.3s ease; }
-  .related-card:hover { border-color: var(--border-glow); background: var(--bg-card-hover); transform: translateY(-2px); }
-  .related-card .rc-title { font-size: 0.92rem; font-weight: 600; }
-  .related-card .rc-desc { font-size: 0.8rem; color: var(--text-muted); margin-top: 4px; }
+  .toc a { color: var(--ink-soft); text-decoration: none; font-size: 0.92rem; }
+  .toc a:hover { color: var(--accent); }
+
+  .updated-badge { font-size: 0.74rem; color: var(--accent); background: var(--accent-soft); padding: 4px 10px; border-radius: 100px; display: inline-block; margin-bottom: 16px; font-weight: 600; }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 280px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  .related-playbooks { margin: 40px 0; }
+  .related-playbooks h3 { font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 600; margin-bottom: 16px; color: var(--ink); }
+  .related-card { display: block; text-decoration: none; color: inherit; padding: 16px 20px; border-radius: 12px; border: 1px solid var(--rule); background: var(--paper); margin-bottom: 10px; transition: all 0.2s; }
+  .related-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 6px 16px rgba(21, 36, 61, 0.05); }
+  .related-card .rc-title { font-size: 0.95rem; font-weight: 600; color: var(--ink); }
+  .related-card .rc-desc { font-size: 0.82rem; color: var(--ink-soft); margin-top: 4px; }
+
   .faq-item { margin-bottom: 24px; }
-  .faq-item h3 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; color: var(--text); }
-  .faq-item p { color: #ccc; font-size: 0.92rem; line-height: 1.8; }
+  .faq-item h3 { font-family: 'Fraunces', serif; font-size: 1.05rem; font-weight: 600; margin-bottom: 6px; color: var(--ink); }
+  .faq-item p { color: var(--ink); font-size: 0.95rem; line-height: 1.75; }
 {% endblock %}
 
 {% block head %}
@@ -66,12 +73,12 @@
     {% if lastUpdated %}"dateModified": "{{ lastUpdated }}",{% endif %}
     "author": {
       "@type": "Organization",
-      "name": "The Claw Drop",
+      "name": "ClawDrop",
       "url": "https://clawdrop.org"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "The Claw Drop",
+      "name": "ClawDrop",
       "url": "https://clawdrop.org"
     },
     "mainEntityOfPage": {
@@ -89,12 +96,12 @@
     <div class="post-date" itemprop="datePublished">{{ date | readableDate }}</div>
     <h1 itemprop="headline">{{ title }}</h1>
     {% if description %}<p class="post-description" itemprop="description">{{ description }}</p>{% endif %}
-    <meta itemprop="author" content="The Claw Drop">
+    <meta itemprop="author" content="ClawDrop">
     <div class="post-meta-grid">
       {% if readTime %}<span class="meta-badge">📖 <strong>{{ readTime }}</strong></span>{% endif %}
       {% if audience %}<span class="meta-badge">👤 <strong>{{ audience }}</strong></span>{% endif %}
     </div>
-    <div class="post-content" itemprop="articleBody">
+    <div class="post-content" id="post-content" itemprop="articleBody">
       {{ content | safe }}
     </div>
     <script>
@@ -108,7 +115,7 @@
 
       function makeCTA(headline, subtitle, id) {
         var el = document.createElement('div');
-        el.className = 'blueprint-cta';
+        el.className = 'playbook-cta';
         el.innerHTML = '<h3>' + headline + '</h3>' +
           '<p>' + subtitle + '</p>' +
           '<div class="form-iframe-wrap">' +
@@ -120,26 +127,24 @@
       var headings = document.querySelectorAll('#post-content h2');
       var placed = 0;
 
-      // CTA 1: After ~40% of the article
       if (headings.length >= 3) {
         var midPoint = Math.floor(headings.length * 0.4);
         if (midPoint < 2) midPoint = 2;
         headings[midPoint].parentNode.insertBefore(
           makeCTA('Getting value from this guide?',
-            'Get 5 OpenClaw builds delivered every Tuesday. Real automations, real blueprints.',
+            'Get 5 OpenClaw playbooks delivered every Tuesday. Real automations from real owners.',
             'inline-learn-mid'),
           headings[midPoint]
         );
         placed++;
       }
 
-      // CTA 2: Before the FAQ section (look for "Frequently Asked" heading)
       for (var i = 0; i < headings.length; i++) {
         if (headings[i].textContent.toLowerCase().indexOf('frequently') !== -1 ||
             headings[i].textContent.toLowerCase().indexOf('faq') !== -1) {
           headings[i].parentNode.insertBefore(
             makeCTA('Want more like this?',
-              'Every Tuesday we break down what people are building with OpenClaw. Join 1,000+ builders.',
+              'Every Tuesday we break down what owners are building with OpenClaw. Join 1,000+ operators.',
               'inline-learn-prefaq'),
             headings[i]
           );
@@ -148,12 +153,11 @@
         }
       }
 
-      // CTA 1 fallback: if no FAQ found and only 1 placed, put one at ~70%
       if (placed < 2 && headings.length >= 5) {
         var latePoint = Math.floor(headings.length * 0.7);
         headings[latePoint].parentNode.insertBefore(
           makeCTA('Want more like this?',
-            'Every Tuesday we break down what people are building with OpenClaw. Join 1,000+ builders.',
+            'Every Tuesday we break down what owners are building with OpenClaw. Join 1,000+ operators.',
             'inline-learn-late'),
           headings[latePoint]
         );
@@ -165,7 +169,6 @@
     })();
     </script>
     <script>
-    // Auto-generate FAQPage schema from FAQ section
     (function() {
       var faqItems = [];
       var headings = document.querySelectorAll('.post-content h2, .post-content h3');
@@ -206,9 +209,9 @@
     })();
     </script>
     <div class="post-footer">
-      <div class="blueprint-cta" style="margin-bottom: 32px;">
-        <h3>The Claw Drop. Every Tuesday.</h3>
-        <p>5 real OpenClaw builds, verified and written up with the story behind them. Plus blueprints you can steal.</p>
+      <div class="playbook-cta" style="margin-bottom: 32px;">
+        <h3>ClawDrop. Every Tuesday.</h3>
+        <p>5 real OpenClaw builds, verified and written up with the story behind them. Plus playbooks you can steal.</p>
         <div class="form-iframe-wrap">
           <iframe
             src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa"
@@ -221,8 +224,8 @@
           ></iframe>
         </div>
       </div>
-      <p style="margin-top: 24px;">Want to see what people are building?</p>
-      <a href="/blueprints/" class="btn-cta">Browse Blueprints →</a>
+      <p style="margin-top: 24px;">Want to see what owners are building?</p>
+      <a href="/playbooks/" class="btn-cta">Browse playbooks →</a>
     </div>
   </article>
 {% endblock %}

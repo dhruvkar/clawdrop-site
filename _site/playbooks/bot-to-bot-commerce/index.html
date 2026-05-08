@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bot-to-Bot Commerce: AIs Negotiating with AIs — ClawDrop</title>
+  <meta name="description" content="Multiple AI agents coordinating, negotiating, and transacting with each other in a shared environment. The future of automated business operations.">
+  <meta property="og:title" content="Bot-to-Bot Commerce: AIs Negotiating with AIs — ClawDrop">
+  <meta property="og:description" content="Multiple AI agents coordinating, negotiating, and transacting with each other in a shared environment. The future of automated business operations.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/bot-to-bot-commerce/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Bot-to-Bot Commerce: AIs Negotiating with AIs — ClawDrop">
+  <meta name="twitter:description" content="Multiple AI agents coordinating, negotiating, and transacting with each other in a shared environment. The future of automated business operations.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/bot-to-bot-commerce/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; }
+    .logo:hover { color: var(--ink); }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 280px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">February 16, 2026</div>
+    <h1>Bot-to-Bot Commerce: AIs Negotiating with AIs</h1>
+    <p class="post-description">Multiple AI agents coordinating, negotiating, and transacting with each other in a shared environment. The future of automated business operations.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Advanced</strong></span>
+      <span class="meta-badge">💰 <strong>Free</strong></span>
+      <span class="meta-badge">⏱ <strong>2+ hours</strong></span>
+      <span class="meta-badge">👤 <strong>codexGW</strong></span>
+      <a href="https://github.com/openclaw/openclaw/issues/15760" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-openclaw"><strong>OpenClaw</strong></a>: multi-session host running the cooperating agents</li>
+<li><a href="#aff-telegram"><strong>Telegram</strong></a>: shared group as the inter-agent message bus</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>A multi-agent setup where your AI agents communicate, negotiate, and coordinate with each other. Think of it as building a team of specialists that work together without you playing middleman.</p>
+<h2>Why This Matters</h2>
+<p>One AI agent is useful. Multiple agents that can talk to each other? That's a business.</p>
+<ul>
+<li><strong>Purchasing agent</strong> finds the best deal and sends it to the <strong>finance agent</strong> for approval</li>
+<li><strong>Content agent</strong> writes a post and the <strong>scheduling agent</strong> picks the optimal time to publish</li>
+<li><strong>Sales agent</strong> qualifies a lead and hands it to the <strong>onboarding agent</strong></li>
+</ul>
+<p>Each agent is simple. Together, they run operations.</p>
+<h2>The Concept</h2>
+<p>Most AI setups are hub-and-spoke: you talk to the AI, the AI does a thing, reports back. Bot-to-bot commerce is peer-to-peer: agents talk to each other, make decisions, and only escalate to you when needed.</p>
+<h3>Example: Automated Vendor Management</h3>
+<ol>
+<li><strong>Inventory Agent</strong> notices you're low on supplies</li>
+<li>It messages the <strong>Procurement Agent</strong>: &quot;Need 500 units of X&quot;</li>
+<li>Procurement Agent emails 3 vendors for quotes</li>
+<li>Quotes come in. Procurement Agent picks the best one (or negotiates)</li>
+<li>It messages the <strong>Finance Agent</strong>: &quot;Best quote is $2,400 from Vendor B&quot;</li>
+<li>Finance Agent checks the budget, approves, and triggers payment</li>
+<li>You get a notification: &quot;Ordered 500 units of X for $2,400. Delivery Thursday.&quot;</li>
+</ol>
+<p>You didn't do anything. Six steps happened autonomously.</p>
+<h2>Prerequisites</h2>
+<ul>
+<li>OpenClaw running with multi-session support</li>
+<li>At least 2 agent configurations</li>
+<li>A shared communication channel (Telegram group, internal message bus, etc.)</li>
+</ul>
+<h2>Step 1: Define Your Agent Roles</h2>
+<p>Keep each agent focused on one job:</p>
+<ul>
+<li><strong>Agent A</strong>: Monitors inventory/triggers</li>
+<li><strong>Agent B</strong>: Handles procurement/vendor comms</li>
+<li><strong>Agent C</strong>: Manages budget/approvals</li>
+</ul>
+<p>Simple roles, clear boundaries.</p>
+<h2>Step 2: Set Up Communication</h2>
+<p>Agents need a way to talk. Options:</p>
+<ul>
+<li><strong>Shared Telegram group</strong>: Each agent has its own bot token, all in one group</li>
+<li><strong>Internal sessions</strong>: OpenClaw's session-to-session messaging</li>
+<li><strong>File-based</strong>: Agents read/write to shared files (simple but effective)</li>
+</ul>
+<h2>Step 3: Define the Protocol</h2>
+<p>Agents need shared rules:</p>
+<ul>
+<li>How to request something (&quot;REQUEST: need 500 units of X by Friday&quot;)</li>
+<li>How to respond (&quot;APPROVED&quot;, &quot;DENIED: over budget&quot;, &quot;COUNTER: can do 400 units&quot;)</li>
+<li>How to escalate (&quot;ESCALATE: need human decision on...&quot;)</li>
+<li>When to notify you vs. handle autonomously</li>
+</ul>
+<h2>Step 4: Set Guardrails</h2>
+<p>This is critical. Multi-agent systems can amplify mistakes fast.</p>
+<ul>
+<li><strong>Spending limits</strong> per agent and per transaction</li>
+<li><strong>Approval thresholds</strong>: anything over $X requires human sign-off</li>
+<li><strong>Circuit breakers</strong>: if errors spike, everything pauses</li>
+<li><strong>Audit logs</strong>: every inter-agent message is logged</li>
+</ul>
+<h2>Step 5: Start Small, Scale Up</h2>
+<p>Don't build a 10-agent system on day one. Start with 2 agents doing one workflow. Get that solid. Then add a third. Then a fourth.</p>
+<h2>Real-World Applications</h2>
+<ul>
+<li><strong>E-commerce</strong>: Inventory agent + pricing agent + marketing agent</li>
+<li><strong>Content business</strong>: Writer agent + editor agent + publisher agent</li>
+<li><strong>Services</strong>: Lead qualifier + proposal writer + scheduler</li>
+<li><strong>Operations</strong>: Monitor + responder + reporter</li>
+</ul>
+<h2>Tips</h2>
+<ul>
+<li><strong>Keep it observable</strong>: You should be able to see every message between agents</li>
+<li><strong>Fail gracefully</strong>: If one agent goes down, others should wait, not crash</li>
+<li><strong>Test with mock data first</strong>: Let agents negotiate over fake scenarios before real ones</li>
+<li><strong>Version your protocols</strong>: As you change how agents communicate, track the changes</li>
+</ul>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators · Powered by <a href="https://openclaw.com">OpenClaw</a></p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

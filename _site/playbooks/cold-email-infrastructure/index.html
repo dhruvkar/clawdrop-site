@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Cold Email Infrastructure Is Why Nobody Replies (Not Your Copy) — ClawDrop</title>
+  <meta name="description" content="The domains, mailboxes, DNS, and warmup rules that keep your sender reputation alive. The infrastructure piece nobody writes about but everyone needs.">
+  <meta property="og:title" content="Your Cold Email Infrastructure Is Why Nobody Replies (Not Your Copy) — ClawDrop">
+  <meta property="og:description" content="The domains, mailboxes, DNS, and warmup rules that keep your sender reputation alive. The infrastructure piece nobody writes about but everyone needs.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/cold-email-infrastructure/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Your Cold Email Infrastructure Is Why Nobody Replies (Not Your Copy) — ClawDrop">
+  <meta name="twitter:description" content="The domains, mailboxes, DNS, and warmup rules that keep your sender reputation alive. The infrastructure piece nobody writes about but everyone needs.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/cold-email-infrastructure/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; }
+    .logo:hover { color: var(--ink); }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 280px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">April 14, 2026</div>
+    <h1>Your Cold Email Infrastructure Is Why Nobody Replies (Not Your Copy)</h1>
+    <p class="post-description">The domains, mailboxes, DNS, and warmup rules that keep your sender reputation alive. The infrastructure piece nobody writes about but everyone needs.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Intermediate</strong></span>
+      <span class="meta-badge">💰 <strong>$100-300/month (Maildoso or InboxKit + domains)</strong></span>
+      <span class="meta-badge">⏱ <strong>An afternoon to set up, 14+ days to warm up before sending</strong></span>
+      <span class="meta-badge">👤 <strong>Clawdrop</strong></span>
+      <a href="https://clawdrop.org" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-inboxkit"><strong>InboxKit</strong></a>: auto-configures domains, mailboxes, DNS, and warmup</li>
+<li><a href="#aff-maildoso"><strong>Maildoso</strong></a>: alternative platform handling the same infrastructure layer</li>
+<li><a href="#aff-manyreach"><strong>Manyreach</strong></a>: sequencer that receives the warmed mailboxes</li>
+<li><a href="#aff-smartlead"><strong>SmartLead</strong></a>: alternative campaign sequencer</li>
+<li><a href="#aff-instantly"><strong>Instantly</strong></a>: alternative sequencer plus its own infra add-on</li>
+<li><a href="#aff-glockapps"><strong>Glockapps</strong></a>: standalone inbox placement testing</li>
+<li><a href="#aff-gmail"><strong>Gmail</strong></a>: primary inbox provider whose deliverability you're optimizing for</li>
+<li><a href="#aff-outlook"><strong>Outlook</strong></a>: secondary inbox provider on the placement-test target list</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>A cold email sending stack that actually reaches inboxes. Secondary domains that aren't your main business domain, 3-4 mailboxes per domain with real-sounding names, auto-configured DNS records, a 14-day warmup period, and a rotation strategy that keeps every mailbox under 20 sends a day.</p>
+<p>The output is an infrastructure layer that sits between your list and your sequencer, quietly doing the work nobody talks about, so that when you hit send on 500 emails nothing lands in spam.</p>
+<p>This is the exact stack we run at Clawdrop for our own outbound and what the Navreo methodology teaches. We'll walk through it using Maildoso and <a href="/go/inboxkit">InboxKit</a> as the reference tools because they handle the painful parts (DNS configuration, warmup pool management, CSV export to sequencers) automatically. You can swap them for Instantly, SmartLead's infra add-on, or a hand-rolled setup. The pipeline is the playbook, not the tools.</p>
+<p>By the end of this guide you'll know how to go from &quot;I want to send 500 cold emails a day&quot; to &quot;here are 25 mailboxes across 8 domains, warmed up, ready, and wired into my sequencer,&quot; without burning your primary domain.</p>
+<h2>Why Your Cold Email Copy Doesn't Matter Yet</h2>
+<p>Most founders spend their entire cold email budget on the wrong thing. They hire a copywriter. They A/B test subject lines. They iterate on offers. And they wonder why nothing converts.</p>
+<p>The answer is almost always infrastructure. If your emails don't land in the primary inbox, nothing after that matters. Your subject line doesn't get read. Your opener doesn't get seen. Your offer doesn't get considered. The recipient never knows you sent anything.</p>
+<p>In April 2024, Google and Microsoft rolled out major deliverability updates that quietly destroyed cold outreach campaigns industry-wide. What used to work stopped working overnight. The people who survived were the ones who had infrastructure right. The people who got burned were the ones sending from their main domain with 8 mailboxes and no warmup.</p>
+<p>Here's the core rule, and it's the one nobody wants to hear: <strong>never send cold emails from your primary domain.</strong> If your primary domain gets flagged, every single email from your organization starts landing in spam. Your sales outreach, your customer support replies, your automated receipts, your team's personal inboxes. All of it. You won't notice for a week. Then you'll wonder why nobody's responding to anything you send, including the emails that had nothing to do with cold outreach.</p>
+<p>We've seen this happen to otherwise-smart founders at least half a dozen times. Every single time it takes 6 to 12 weeks to fully recover. Every single time they say the same thing: &quot;I wish I'd taken the infrastructure piece seriously from the start.&quot;</p>
+<p>The other mistake is skipping warmup. A fresh mailbox has zero reputation. If you send 50 cold emails on day 1, Gmail and Outlook assume you're a spammer and route you to spam permanently. You can fix a cold list in a week. You can't fix a burned domain in a week.</p>
+<p>The math is brutal but simple. Pay $100-300 a month for proper infrastructure, or save that money and lose every cold email campaign you ever run. Pick one.</p>
+<h2>The Pattern</h2>
+<p>The whole thing is 6 layers stacked on top of each other.</p>
+<pre><code>PRIMARY BUSINESS DOMAIN (never used for cold)
+        |
+        v
+SECONDARY SENDING DOMAINS (8-10)
+        |
+        v
+MAILBOXES (3-4 per domain, real names)
+        |
+        v
+DNS RECORDS (SPF, DKIM, DMARC, auto-configured)
+        |
+        v
+WARMUP POOL (14+ days)
+        |
+        v
+SEQUENCER (receives the mailboxes via CSV or API)
+</code></pre>
+<p>Top of the stack is sacred (your main domain). Middle of the stack is working infrastructure (secondary domains and mailboxes). Bottom of the stack is where campaigns actually run (sequencer). Everything above the sequencer has to be built and warmed up before the sequencer is allowed to touch any of it.</p>
+<h2>Step-by-Step Setup</h2>
+<h3>Step 1: Accept That Your Primary Domain Is Off-Limits</h3>
+<p>This is the first and most important decision. Your main domain (the one you use for everything else) is out of the picture. Forever.</p>
+<p>If you're currently sending cold emails from <code>yourcompany.com</code>, stop today. Every future cold email send needs to come from a domain that is not your primary domain. If your primary gets flagged, your entire business email infrastructure dies, and that takes weeks to recover from.</p>
+<p>Write this down: <strong>cold outbound uses dedicated sending domains, and nothing else.</strong></p>
+<h3>Step 2: Buy Secondary Sending Domains</h3>
+<p>You need domains that look like your brand but aren't your brand. The usual pattern is variations on your main name.</p>
+<p>If your primary domain is <code>acme.com</code>, good sending domains look like:</p>
+<ul>
+<li><code>acme-team.com</code></li>
+<li><code>tryacme.com</code></li>
+<li><code>acme-agency.com</code></li>
+<li><code>acme.us</code></li>
+<li><code>acme-hq.com</code></li>
+<li><code>getacme.com</code></li>
+<li><code>acmeai.com</code></li>
+<li><code>hello-acme.com</code></li>
+</ul>
+<p>The rules for picking them:</p>
+<ul>
+<li>Keep them recognizable to your brand so the recipient recognizes you</li>
+<li>Vary the TLD (mix <code>.com</code>, <code>.io</code>, <code>.us</code>, <code>.co</code>)</li>
+<li>Set each domain to <strong>redirect to your primary site</strong> so anyone who clicks through still lands on your real homepage</li>
+<li>Avoid domains that are obviously spammy (no numbers, no weird hyphens, no 4-character random strings)</li>
+</ul>
+<p>How many you need depends on your volume target. The Navreo starter setup is 10 domains with 40 mailboxes, which supports about 8,000 unique contacts per month with a 2-step sequence. Smaller volumes need fewer. Larger volumes scale the same ratio: 4 mailboxes per domain, 20 sends per day per mailbox.</p>
+<p>Tools like Maildoso and InboxKit will register domains for you in-app. The alternative is buying them manually from a registrar and configuring DNS by hand, which used to take an entire day and was riddled with errors. Let a tool handle it.</p>
+<h3>Step 3: Create Mailboxes (Real Names, Not Info@)</h3>
+<p>Each sending domain gets 3-4 mailboxes. No more. More than 4 mailboxes on one domain starts looking suspicious to inbox providers.</p>
+<p>The mailboxes need to have <strong>real-sounding names</strong>, not generic ones. <code>john@acme-team.com</code> is fine. <code>alex.smith@acme-team.com</code> is fine. <code>a.smith@acme-team.com</code> is fine. <code>info@acme-team.com</code> is dead on arrival. Generic role addresses get filtered to spam by corporate mail servers automatically. Use first names, last names, combinations of initials. Make it look like a real human's work email.</p>
+<p>Spread the same name variations across all your domains so your sender identities look consistent. If you use Alex Smith as a sender on <code>acme-team.com</code>, also run Alex Smith on <code>tryacme.com</code> and <code>acme.us</code>. That way you can rotate sends across domains without inventing new personas.</p>
+<p>Example layout for 3 domains, 4 mailboxes each:</p>
+<pre><code>acme-team.com     → alex@, a.smith@, alex.smith@, asmith@
+tryacme.com       → alex@, a.smith@, alex.smith@, asmith@
+acme.us           → alex@, a.smith@, alex.smith@, asmith@
+</code></pre>
+<p>That's 12 mailboxes, all representing the same human, spread across 3 domains. Your sequencer will rotate sends through them automatically.</p>
+<h3>Step 4: Let the Tool Handle DNS (SPF, DKIM, DMARC)</h3>
+<p>Three DNS records have to exist on every sending domain, or your mail goes to spam immediately.</p>
+<p><strong>SPF</strong> tells receiving servers which mail servers are allowed to send email on your domain's behalf.</p>
+<p><strong>DKIM</strong> adds a digital signature to every email you send, proving the message wasn't tampered with in transit.</p>
+<p><strong>DMARC</strong> tells receiving servers what to do when SPF or DKIM fails. Usually some variation of &quot;quarantine it&quot; or &quot;reject it outright.&quot;</p>
+<p>These sound simple. They are. The problem is that a single typo in the TXT record, a missing selector, or an incorrect <code>v=spf1</code> syntax will silently break your deliverability with no visible error. People lose days to this. We lost days to this back before we used a tool.</p>
+<p>Maildoso and <a href="/go/inboxkit">InboxKit</a> auto-configure all three records when you register a domain in their platform. This is the single biggest reason we use them. The 4 minutes you spend clicking through the setup flow saves 4 hours of debugging TXT records later. If you insist on doing this manually, expect to redo it twice before it works, and test each domain with a tool like <code>mail-tester.com</code> before trusting it.</p>
+<h3>Step 5: Warm Up for at Least 14 Days</h3>
+<p>This is the step most first-timers skip. Do not skip it.</p>
+<p>A fresh mailbox has zero reputation with Gmail, Outlook, and every major inbox provider. If you send 50 cold emails on day 1 from a cold mailbox, they all go to spam. The mailbox gets flagged. The domain starts to smell. Within a week you've burned the whole setup.</p>
+<p>Warmup fixes this. Your mailboxes join a <strong>warmup pool</strong>, which is a network of other mailboxes owned by other users doing the same thing. The warmup tool sends emails between pool members automatically. Those emails get opened, replied to, marked as important, and occasionally moved out of spam if they land there. All of this generates the kind of positive signals that make inbox providers decide your mailbox is run by a real human with real correspondence.</p>
+<p>The minimum warmup period is <strong>14 days</strong>. We run 21 days when we're not in a rush. Going live before day 14 is the fastest way to burn brand new infrastructure.</p>
+<p>During warmup, <strong>do not send any real campaigns</strong>. Not even &quot;just a few.&quot; The entire point is that inbox providers are watching your mailbox's behavior and using the first 2 weeks to decide if you're legitimate. If you mix in cold sends during warmup, you poison the signal and the warmup process fails.</p>
+<p>Maildoso and InboxKit handle warmup automatically. You enable it once per mailbox and the platform runs it in the background. You check the deliverability score dashboard after day 14 and decide whether each mailbox is ready.</p>
+<h3>Step 6: Inbox Placement Testing</h3>
+<p>Before you trust a warmed-up mailbox, run an inbox placement test. This is a tool that sends a real email from your mailbox to a pool of test inboxes across Gmail, Outlook, Yahoo, and smaller providers, then reports where the email landed: primary inbox, promotions tab, spam folder, or bounced entirely.</p>
+<p>If your mailbox is landing in the primary Gmail inbox at 90%+ and the primary Outlook inbox at 80%+, you're ready. If Gmail is showing you at 40% primary, something is off. Maybe your SPF record has a typo. Maybe your domain age is too young. Maybe your warmup was cut short. Figure it out before you send real campaigns.</p>
+<p>InboxKit has inbox placement testing built into its dashboard. Maildoso has similar. If you're using a different stack, tools like Glockapps and EmailDelivery.guru do the same thing as a standalone service.</p>
+<p>Test every mailbox once after warmup, then re-test every 2-3 weeks during active sending. If a mailbox starts drifting from 90% primary down to 50% primary, pause it and investigate before the problem compounds.</p>
+<h3>Step 7: Export to Your Sequencer</h3>
+<p>Once your mailboxes are warmed and their placement scores look good, export them to your campaign sequencer. Manyreach and SmartLead are the two we trust. Instantly works too. Pick one and commit.</p>
+<p>The export is usually a CSV with columns for SMTP server, port, username, password, IMAP server, and first/last name for personalization. Maildoso and InboxKit both generate this CSV on demand. Some of them have direct API integrations with the major sequencers.</p>
+<p>Once the mailboxes are in the sequencer, they become <strong>senders</strong> in sequencer language. When you launch a campaign, the sequencer rotates sends across all attached senders automatically. You don't have to manually assign recipients to specific mailboxes. The sequencer does it.</p>
+<h3>Step 8: Set Volume Limits Per Mailbox</h3>
+<p><strong>The single most important number in this entire pipeline: 20 emails per mailbox per day.</strong> Ever.</p>
+<p>Not 25. Not 30 on a slow week. Not 50 on the one day you want to test a bigger push. 20. No exceptions.</p>
+<p>Going above 20 per mailbox is the fastest way we've ever seen to burn a domain. Inbox providers treat per-mailbox volume as a signal of automation. Real humans don't send 60 cold emails a day from their personal work email. If you do, you look like a bot, and you get filtered.</p>
+<p>Stay under 20 per mailbox and scale by adding more mailboxes instead. If you need 800 sends a day, that's 40 mailboxes, which is roughly 10 domains with 4 mailboxes each. If you need 1,600 sends a day, double it. The ratio holds.</p>
+<p>Most sequencers let you set a hard daily cap per sender. Set it to 20. Verify it's set. Check it again next week. This is the guardrail that keeps your entire setup alive.</p>
+<h2>Lanes That Work</h2>
+<p>This stack fits anyone running cold outbound at small to medium scale.</p>
+<p><strong>Solopreneurs and consultants</strong> sending 100-500 cold emails a day. Starter package is overkill for this volume, but the discipline is the same. Use 3-5 domains, 12-20 mailboxes, and run rotation.</p>
+<p><strong>Agencies</strong> sending on behalf of clients. Each client gets their own infrastructure workspace so sending domains and mailboxes don't cross-contaminate. If one client's campaign tanks deliverability, it shouldn't take down the other clients' sending.</p>
+<p><strong>B2B founders</strong> doing founder-led outbound. The Navreo starter pack (10 domains, 40 mailboxes, 800 sends per day) is the most common starting point. Enough volume to matter, small enough to actually manage.</p>
+<p><strong>Anyone scaling past 1,000 sends per day.</strong> At this scale you need 50+ mailboxes across 12+ domains, with active rotation and weekly deliverability monitoring. <a href="/go/inboxkit">InboxKit's API</a> becomes important here because you'll be provisioning and retiring mailboxes programmatically.</p>
+<p>What doesn't work: trying to send massive volume from a single domain with 30 mailboxes. That's what gets you burned. The whole point of this architecture is to distribute risk across domains so one bad week doesn't kill everything.</p>
+<h2>What Changes After Setup</h2>
+<p>Before you have infrastructure dialed in, cold email feels like gambling. You send 500 emails, you get 4 replies, you tell yourself the copy was the problem, you rewrite the copy, you send 500 more, you get 2 replies, you blame the list, you buy a new list, you send 500 more, you get 0 replies. Something is broken but you can't point to it.</p>
+<p>After you have infrastructure dialed in, the feedback loop becomes clean. Your bounce rate is under 2%. Your delivery rate is above 97%. Your reply rate is 3-5% on a reasonable list. When reply rates drop, you know it's the copy or the list, because the infrastructure hasn't changed. When reply rates climb, you know what caused it, because you can trace the change back to a specific adjustment. The variable that used to dominate every outcome is now held constant in the background.</p>
+<p>Your weekly cadence looks like this:</p>
+<p><strong>Monday.</strong> Check deliverability scores in Maildoso or InboxKit for every active mailbox. Flag any that drifted below 85%. Pause them until you figure out why.</p>
+<p><strong>Tuesday.</strong> Launch new campaigns from the sequencer against your fresh list.</p>
+<p><strong>Wednesday/Thursday.</strong> Monitor per-mailbox bounce rate and reply rate live. If any mailbox is bouncing above 3%, pause it.</p>
+<p><strong>Friday.</strong> Review placement test results from any mailboxes you retested that week. Retire mailboxes that drifted. Provision replacements if needed.</p>
+<p>The total time investment is about 2 hours a week once the stack is built. The first build takes an afternoon to configure and 14 days to warm up. After that, you're maintaining, not building.</p>
+<h2>Gotchas and Tips</h2>
+<p><strong>The &quot;it worked for me&quot; temptation.</strong> People post on Twitter that they sent 10,000 cold emails from their primary domain and booked 40 meetings. Ignore them. Survivorship bias. The 200 people who tried the same thing and burned their primary domain aren't posting about it.</p>
+<p><strong>Domain age matters.</strong> A domain you registered this morning is less trustworthy than a domain that's 6 months old. Some tools let you buy &quot;aged&quot; domains specifically for cold outreach. If you're in a hurry, consider this. If you're not, buy domains now and let them sit for 30 days before you even start warmup.</p>
+<p><strong>Redirect every sending domain to your real site.</strong> If a recipient types your sending domain into a browser, they should land somewhere that looks real. A dead domain with a parked-page placeholder screams &quot;spammer.&quot; A redirect to your main site screams &quot;real company with a marketing team.&quot;</p>
+<p><strong>Match sender names to mailbox aliases.</strong> If the mailbox is <code>alex.smith@acme-team.com</code>, the sender name in your sequencer should say &quot;Alex Smith.&quot; Mismatches (mailbox says Alex, sender display says John) get flagged.</p>
+<p><strong>Never mix warmup and campaigns on the same mailbox simultaneously.</strong> Some tools let you run warmup in the background while you send real campaigns. Don't. Warmup generates a specific kind of signal. Campaign traffic generates a different kind. Mixing them confuses the reputation algorithm and costs you deliverability.</p>
+<p><strong>Retire mailboxes after 6 months, even if they're still performing.</strong> This is insurance. Old mailboxes accumulate small reputation hits even when they're healthy, and the cost of rotating them is much lower than the cost of recovering from a slow reputation death.</p>
+<p><strong>Keep one &quot;safe&quot; mailbox you never push to the limit.</strong> If all your mailboxes are running at 20 sends per day, you have zero slack. Keep one per domain set to 5-10 sends per day as a reserve. If a mailbox bounces unexpectedly, you can scale the safe one up while you investigate.</p>
+<p><strong>Run a monthly inbox placement test on every active mailbox.</strong> This catches drift before it becomes a crisis. A mailbox drifting from 90% to 70% primary placement is an early warning. Catching it at 70% is recoverable. Catching it at 40% usually isn't.</p>
+<p><strong>Don't skip warmup because you're impatient.</strong> This is the step everyone knows about and everyone tries to cheat on. The cost of cheating is burned infrastructure and 6 weeks of rebuilding. The cost of waiting is 14 days. Wait.</p>
+<hr>
+<h2>Keep Reading</h2>
+<ul>
+<li><strong><a href="/playbooks/cold-email-list-pipeline/">Stop Buying Cold Email Lists. Build One That Actually Books Meetings.</a></strong>: The list side of the stack. Pair it with this infrastructure guide for the full outbound setup.</li>
+<li><strong><a href="/playbooks/one-person-agency/">The One-Person Agency: Charge Agency Rates as a Solo Operator</a></strong>: Once your outbound machine is live, this is the delivery engine that handles the inbound meetings it generates.</li>
+<li><strong><a href="/playbooks/daily-content-machine/">Post on X and LinkedIn Every Day Without Being a 'Content Person'</a></strong>: The inbound-side complement. Warm your audience with content so the cold email isn't quite so cold.</li>
+</ul>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators · Powered by <a href="https://openclaw.com">OpenClaw</a></p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

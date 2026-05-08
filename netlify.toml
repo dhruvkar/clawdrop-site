@@ -2,6 +2,23 @@
   command = "npx @11ty/eleventy"
   publish = "_site"
 
+# Legacy /blueprints/ → /playbooks/ (renamed Apr 2026)
+[[redirects]]
+  from = "/blueprints"
+  to = "/playbooks/"
+  status = 301
+
+[[redirects]]
+  from = "/blueprints/"
+  to = "/playbooks/"
+  status = 301
+
+[[redirects]]
+  from = "/blueprints/*"
+  to = "/playbooks/:splat"
+  status = 301
+
+# Legacy /showcase/ → /archives/
 [[redirects]]
   from = "/showcase/issues/001"
   to = "/archives/001/"

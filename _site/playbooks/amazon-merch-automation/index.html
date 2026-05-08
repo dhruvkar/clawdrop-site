@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automate Your Entire Amazon Merch Upload Pipeline — ClawDrop</title>
+  <meta name="description" content="Drop a design into a folder and walk away. Your AI agent removes the background, upscales it, repositions it to Amazon&#39;s specs, generates validated keywords, and uploads the listing. From image to live product in minutes.">
+  <meta property="og:title" content="Automate Your Entire Amazon Merch Upload Pipeline — ClawDrop">
+  <meta property="og:description" content="Drop a design into a folder and walk away. Your AI agent removes the background, upscales it, repositions it to Amazon&#39;s specs, generates validated keywords, and uploads the listing. From image to live product in minutes.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/amazon-merch-automation/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Automate Your Entire Amazon Merch Upload Pipeline — ClawDrop">
+  <meta name="twitter:description" content="Drop a design into a folder and walk away. Your AI agent removes the background, upscales it, repositions it to Amazon&#39;s specs, generates validated keywords, and uploads the listing. From image to live product in minutes.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/amazon-merch-automation/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; }
+    .logo:hover { color: var(--ink); }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 280px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">March 17, 2026</div>
+    <h1>Automate Your Entire Amazon Merch Upload Pipeline</h1>
+    <p class="post-description">Drop a design into a folder and walk away. Your AI agent removes the background, upscales it, repositions it to Amazon&#39;s specs, generates validated keywords, and uploads the listing. From image to live product in minutes.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Intermediate</strong></span>
+      <span class="meta-badge">💰 <strong>$5-20/month (image processing APIs)</strong></span>
+      <span class="meta-badge">⏱ <strong>4-6 hours (first time teaching the agent)</strong></span>
+      <span class="meta-badge">👤 <strong>Jose (OscilLabs / iScaleLabs)</strong></span>
+      <a href="https://www.youtube.com/watch?v=Yc1zQ10HwS0" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-openclaw"><strong>OpenClaw</strong></a>: runs the upload pipeline with browser automation</li>
+<li><a href="#aff-amazon-merch"><strong>Amazon Merch on Demand</strong></a>: print-on-demand store the agent uploads to</li>
+<li><a href="#aff-pixelcut"><strong>PixelCut</strong></a>: background removal and image upscaling</li>
+<li><a href="#aff-dropbox"><strong>Dropbox</strong></a>: folder sync entry point for new designs</li>
+<li><a href="#aff-chatgpt"><strong>ChatGPT</strong></a>: generates designs that drop into the watch folder</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>A system where you drop a design image into a folder and your AI agent handles everything else: analyzes the image, removes the background if needed, upscales to the right resolution, repositions and pads to Amazon's 4500x5400 pixel spec, generates a listing with validated keywords, picks the right colors, and uploads the whole thing to Amazon Merch on Demand. No clicking through forms. No copy-pasting keywords. No manual uploads.</p>
+<p>The creator has been in print-on-demand for 9 years. He built this in one week with OpenClaw and said it solved a problem he'd been fighting for nearly a decade: the soul-crushing repetition of processing and uploading designs one by one.</p>
+<h2>Why This Works</h2>
+<p>If you sell on Amazon Merch, you know the drill. For every single design, you need to:</p>
+<ol>
+<li>Remove the background (if it has one)</li>
+<li>Upscale to at least 4500x5400 pixels</li>
+<li>Reposition and pad the design so it sits right on the shirt</li>
+<li>Go to Amazon's upload page</li>
+<li>Pick a product type</li>
+<li>Upload the image</li>
+<li>Write a title with keywords</li>
+<li>Write bullet points</li>
+<li>Write a description</li>
+<li>Pick colors (different designs work on different shirt colors)</li>
+<li>Set the price</li>
+<li>Submit</li>
+</ol>
+<p>That's 12 steps. Per design. If you upload 5 designs a day, that's 60 clicks and form fills, and half of them are mindless repetition. Multiply that by 365 days and you understand why every serious Merch seller has either burned out or built janky automation that breaks every time Amazon changes a button.</p>
+<p>This agent doesn't just automate the clicks. It makes decisions. A 1000-pixel image needs 4x upscaling. A 2000-pixel image only needs 2x. A design with a white background needs background removal. A transparent PNG doesn't. A summer beach design goes on light colors. A neon skull goes on black. The agent figures this out by analyzing each image before processing it.</p>
+<h2>Prerequisites</h2>
+<ul>
+<li>OpenClaw with browser automation (needs to control Chrome on your PC)</li>
+<li>A Windows PC or Mac where you do your Merch uploads</li>
+<li>An Amazon Merch on Demand account</li>
+<li>Background removal + upscaling service (PixelCut, or any equivalent)</li>
+<li>Patience for the initial teaching phase</li>
+</ul>
+<h2>How It Works</h2>
+<h3>The Folder Watch</h3>
+<p>Everything starts with a folder on your computer. The agent monitors it. The moment a new image appears, the pipeline kicks off.</p>
+<p>This means you can feed it from anywhere. Sitting at your desk? Drag and drop. On your phone at a coffee shop? Save an image to your Dropbox folder, it syncs to your PC, and the agent picks it up. Generate something in ChatGPT? Save it to the folder. The entry point is always the same.</p>
+<h3>Smart Image Analysis</h3>
+<p>Before doing anything, the agent looks at the image and makes decisions:</p>
+<ul>
+<li><strong>4500x5400 already?</strong> Skip straight to listing creation.</li>
+<li><strong>3600x3600?</strong> No upscaling needed, just reposition to 4500x5400.</li>
+<li><strong>1000px wide?</strong> Needs 4x upscale to clear the 3000px minimum.</li>
+<li><strong>2000px wide?</strong> Only 2x upscale, don't go to 8000px unnecessarily.</li>
+<li><strong>Has a background?</strong> Route through background removal first.</li>
+<li><strong>Already transparent?</strong> Skip removal, go straight to upscaling.</li>
+</ul>
+<p>This isn't a rigid script that runs the same steps every time. The agent adapts to each image.</p>
+<h3>Background Removal + Upscaling</h3>
+<p>The agent opens PixelCut (or whatever service you configure) in the browser, uploads the image, removes the background, then upscales it by the right multiplier. It downloads the result and moves to the next step.</p>
+<h3>Repositioning</h3>
+<p>Amazon wants exactly 4500x5400 pixels. Most designs aren't that ratio. The agent opens a repositioning tool (the creator built his own called ReadyPixl, but any image editor works), trims excess, centers the design, adds padding so it's not jammed against the edges, and exports at the correct dimensions.</p>
+<h3>Keyword Generation + Validation</h3>
+<p>This is where the AI really shines. The agent:</p>
+<ol>
+<li>Analyzes the image to understand what it depicts</li>
+<li>Generates relevant keywords</li>
+<li>Goes to Amazon.com and types each keyword into the search bar</li>
+<li>Checks if the keyword appears in Amazon's autosuggest (e.g., &quot;rock music shirt&quot; shows up when you type it)</li>
+<li>Only uses keywords that Amazon validates</li>
+</ol>
+<p>The creator showed his results: 17 out of 18 keywords validated. No random, AI-hallucinated keywords that nobody searches for. Every keyword in the listing is something real shoppers actually type.</p>
+<h3>Color Selection</h3>
+<p>Not every design works on every shirt color. The agent analyzes the image's color palette and picks complementary colors. A bright, colorful design might go on white, heather grey, and navy. A dark design goes on black and charcoal. This replaces the manual step of clicking through 15+ color options for each listing.</p>
+<h3>Upload</h3>
+<p>The agent navigates Amazon's Merch upload page, fills in every field (product type, title, bullets, description, colors, price), uploads the processed image, and submits. If the listing needs review, it leaves it in draft and moves to the next image.</p>
+<h2>The Teaching Phase</h2>
+<p>Here's the part most automation videos skip: the setup took hours, not minutes.</p>
+<p>The creator walked his agent through every element on every page. &quot;Can you see this button?&quot; &quot;Yeah, I see a button that says this.&quot; &quot;Press it.&quot; And when it worked: &quot;Log it. This is what that button does. This is why we use it.&quot;</p>
+<p>Page by page, field by field, the agent learned what every element means. Not just where to click, but why. It knows that color selection matters because not every design works on every color. It knows that keyword validation matters because random keywords don't drive sales. It understands the business logic, not just the button locations.</p>
+<p>This takes 4-6 hours the first time. After that, the agent handles everything. And if Amazon changes their upload page, the agent notices, adapts, logs the change, and keeps going.</p>
+<h2>Smart Scheduling</h2>
+<p>The system handles upload limits intelligently. Amazon limits how many designs you can upload per day. The agent:</p>
+<ul>
+<li>Knows your daily upload limit</li>
+<li>Spreads uploads evenly throughout the day (e.g., 5 uploads between 6am and 10pm)</li>
+<li>Leaves slots open for trend designs you want to rush</li>
+<li>Queues seasonal designs with deadlines (&quot;upload these Valentine's designs by October at the latest&quot;)</li>
+<li>Prioritizes anything you flag as a &quot;trend&quot; over the regular queue</li>
+</ul>
+<p>You could dump a thousand designs into the folder and let the agent work through them over weeks, intelligently spacing them out and respecting Amazon's limits.</p>
+<h2>What It Replaced</h2>
+<p>The creator cancelled his Flying Upload subscription (a paid Merch automation tool) because this does everything it did, plus the intelligent decision-making that no pre-built tool offers. Custom logic, adaptive behavior, and the ability to add new capabilities just by talking to it.</p>
+<h2>What's Next</h2>
+<p>The creator is planning to add AI image generation to the front of the pipeline. Show the agent what top-selling designs look like, teach it to prompt an image generator, and feed the results directly into the upload pipeline. Full loop: trend detection, design generation, processing, and upload. All from one conversation.</p>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators · Powered by <a href="https://openclaw.com">OpenClaw</a></p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

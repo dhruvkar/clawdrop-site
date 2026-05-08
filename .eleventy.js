@@ -7,9 +7,9 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("robots.txt");
   eleventyConfig.addPassthroughCopy("llms.txt");
 
-  // Blueprints collection
-  eleventyConfig.addCollection("blueprints", function(collectionApi) {
-    return collectionApi.getFilteredByGlob("blueprints/posts/*.md")
+  // Playbooks collection
+  eleventyConfig.addCollection("playbooks", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("playbooks/posts/*.md")
       .filter(post => !post.data.draft)
       .sort((a, b) => b.date - a.date);
   });

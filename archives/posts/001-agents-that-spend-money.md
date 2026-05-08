@@ -1,6 +1,6 @@
 ---
 layout: archive.njk
-title: "The Claw Drop #001 — Agents That Spend Money"
+title: "The ClawDrop #001 — Agents That Spend Money"
 date: 2026-02-17
 subject: "Car negotiations, grocery runs, crypto launches, bot-to-bot commerce, and a $115K/week prediction market bot."
 issueNumber: 1

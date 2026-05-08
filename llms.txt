@@ -1,6 +1,6 @@
-# The Claw Drop — clawdrop.org
+# ClawDrop — clawdrop.org
 
-> Weekly newsletter and guide site about OpenClaw use cases, tutorials, and blueprints for business owners and solopreneurs.
+> Weekly newsletter and guide site about OpenClaw use cases, tutorials, and playbooks for business owners and operators.
 
 ## Guides
 
@@ -8,14 +8,14 @@
 - [Best OpenClaw Skills to Install](https://clawdrop.org/learn/best-openclaw-skills/): Curated skill recommendations organized by use case. What to install, what to skip.
 - [OpenClaw Browser Automation](https://clawdrop.org/learn/openclaw-browser-automation/): Complete guide to browser relay, multi-profile setup, web scraping, and remote browser control.
 
-## Blueprints
+## Playbooks
 
-Step-by-step guides showing real OpenClaw builds you can replicate: https://clawdrop.org/blueprints/
+Step-by-step guides showing real OpenClaw builds you can replicate: https://clawdrop.org/playbooks/
 
 ## Newsletter
 
-The Claw Drop delivers 5 real OpenClaw builds every Tuesday. Subscribe at https://clawdrop.org/
+ClawDrop delivers 5 real OpenClaw builds every Tuesday. Subscribe at https://clawdrop.org/
 
 ## About
 
-The Claw Drop is run by people who use OpenClaw every day. Content is based on real community builds, not marketing copy.
+ClawDrop is run by people who use OpenClaw every day. Content is based on real community builds, not marketing copy.

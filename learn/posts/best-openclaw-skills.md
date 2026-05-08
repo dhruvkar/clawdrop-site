@@ -63,7 +63,7 @@ This is the backbone of "OpenClaw as a personal assistant." Morning briefings pu
 
 **Setup:** Requires OAuth setup with a Google account. The `gog` CLI handles auth. Takes about 10 minutes.
 
-**Good for:** Anyone using Google Workspace. Replaces the need for separate email, calendar, and task manager tools. See our blueprint on [replacing your SaaS stack](/blueprints/replace-saas-stack/) for a real example.
+**Good for:** Anyone using Google Workspace. Replaces the need for separate email, calendar, and task manager tools. See our playbook on [replacing your SaaS stack](/playbooks/replace-saas-stack/) for a real example.
 
 ### Weather
 
@@ -123,7 +123,7 @@ A CLI email client that works over IMAP/SMTP. Read, search, compose, reply, forw
 
 Spawns sub-agents for coding tasks. Your OpenClaw can delegate code generation, debugging, and file editing to specialized coding sessions. This is how people build apps from their phone via Telegram.
 
-**Good for:** Developers. See our blueprint on [building a four-agent team](/blueprints/four-agent-team/) for an advanced multi-agent coding setup.
+**Good for:** Developers. See our playbook on [building a four-agent team](/playbooks/four-agent-team/) for an advanced multi-agent coding setup.
 
 ### Cron / Scheduled Tasks
 
@@ -135,7 +135,7 @@ Not technically a skill, but it's the most underleveraged feature in OpenClaw. S
 /cron add "morning-briefing" --schedule "0 6 * * *" --task "Check calendar, email, weather. Send me a morning briefing."
 ```
 
-**Good for:** Anyone who wants OpenClaw to be proactive instead of reactive. See our blueprint on [the 5-day automation sprint](/blueprints/five-day-automation-sprint/) where scheduled tasks found $22K in missed tax deductions.
+**Good for:** Anyone who wants OpenClaw to be proactive instead of reactive. See our playbook on [the 5-day automation sprint](/playbooks/five-day-automation-sprint/) where scheduled tasks found $22K in missed tax deductions.
 
 ## Research & Data
 
@@ -159,7 +159,7 @@ Web scraping and content extraction. Firecrawl goes beyond basic page fetching. 
 
 Anti-bot bypass for sites that block normal requests (Cloudflare, CAPTCHAs). When regular web fetch fails, Scrapfly gets through.
 
-**Good for:** Scraping protected sites, data pipelines, lead generation. See our blueprint on [AI lead generation](/blueprints/ai-lead-gen-pipeline/) for a production example.
+**Good for:** Scraping protected sites, data pipelines, lead generation. See our playbook on [AI lead generation](/playbooks/ai-lead-gen-pipeline/) for a production example.
 
 ## Creative & Media
 
@@ -207,7 +207,7 @@ Not a ClawHub skill but OpenClaw's built-in browser control. Navigate pages, fil
 
 **This is one of OpenClaw's most powerful features** and one of the most searched topics (1,000-10,000 searches/month for "openclaw browser relay"). We have a dedicated guide coming on this.
 
-**Good for:** Form automation, social media management, web scraping, testing. See our blueprint on [browser automation](/blueprints/browser-automation-machine/) for a deep dive.
+**Good for:** Form automation, social media management, web scraping, testing. See our playbook on [browser automation](/playbooks/browser-automation-machine/) for a deep dive.
 
 ## Home & IoT
 
@@ -229,7 +229,7 @@ Control Sonos or BluOS speakers. Play music, adjust volume, group rooms. "Play j
 
 ### Anything crypto/trading related
 
-886 crypto skills were filtered out of the VoltAgent awesome list for good reason. Many are poorly maintained, and autonomous trading agents can lose real money. If you want to experiment, see our blueprint on [autonomous live trading](/blueprints/autonomous-live-trading/) and understand the risks first.
+886 crypto skills were filtered out of the VoltAgent awesome list for good reason. Many are poorly maintained, and autonomous trading agents can lose real money. If you want to experiment, see our playbook on [autonomous live trading](/playbooks/autonomous-live-trading/) and understand the risks first.
 
 ### Skills requesting broad file system access
 
@@ -255,7 +255,7 @@ Browser Relay + Image Generation + TTS + Firecrawl + Google Workspace
 
 **The Business Automation Stack:**
 Google Workspace + Himalaya + Browser Relay + Firecrawl + Cron
-→ Lead research, email outreach, CRM updates, scheduled reports. See our blueprint on [running a business on AI](/blueprints/founder-runs-business-on-ai/).
+→ Lead research, email outreach, CRM updates, scheduled reports. See our playbook on [running a business on AI](/playbooks/founder-runs-business-on-ai/).
 
 **The Smart Home Stack:**
 OpenHue + Sonos/BluOS + Weather + Cron + Telegram

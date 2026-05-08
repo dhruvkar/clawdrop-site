@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>This Accountant Trained Her AI to Close the Books Every Month — ClawDrop</title>
+  <meta name="description" content="A working CPA wired her AI agent into the QuickBooks Online API. Six weeks of training and her monthly close is now 90% one-shot. By the second pass, it catches errors her staff missed.">
+  <meta property="og:title" content="This Accountant Trained Her AI to Close the Books Every Month — ClawDrop">
+  <meta property="og:description" content="A working CPA wired her AI agent into the QuickBooks Online API. Six weeks of training and her monthly close is now 90% one-shot. By the second pass, it catches errors her staff missed.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/cpa-quickbooks-monthly-close/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="This Accountant Trained Her AI to Close the Books Every Month — ClawDrop">
+  <meta name="twitter:description" content="A working CPA wired her AI agent into the QuickBooks Online API. Six weeks of training and her monthly close is now 90% one-shot. By the second pass, it catches errors her staff missed.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/cpa-quickbooks-monthly-close/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; }
+    .logo:hover { color: var(--ink); }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 280px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">April 28, 2026</div>
+    <h1>This Accountant Trained Her AI to Close the Books Every Month</h1>
+    <p class="post-description">A working CPA wired her AI agent into the QuickBooks Online API. Six weeks of training and her monthly close is now 90% one-shot. By the second pass, it catches errors her staff missed.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Intermediate</strong></span>
+      <span class="meta-badge">💰 <strong>~$50/mo (QBO subscription you already pay for plus agent API costs)</strong></span>
+      <span class="meta-badge">⏱ <strong>Six weeks of training to reach 90% accuracy. One weekend to wire up the API.</strong></span>
+      <a href="https://discord.com/users/allthesauce" target="_blank" class="meta-badge">👤 <strong>.allthesauce ↗</strong></a>
+      <a href="https://discord.com/channels/1456350064065904867/1456609488202105005/1498615662979842158" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-openclaw"><strong>OpenClaw</strong></a>: the agent runtime with the wiki-memory architecture that makes the close repeatable</li>
+<li><a href="#aff-claude-code"><strong>Claude Code</strong></a>: alternative agent harness for the same skill pattern</li>
+<li><a href="#aff-quickbooks"><strong>QuickBooks Online</strong></a>: the books the agent reads from and posts journal entries into via the public REST API</li>
+<li><a href="#aff-anthropic"><strong>Anthropic</strong></a>: model provider behind the agent's reasoning per close</li>
+<li><a href="#aff-xero"><strong>Xero</strong></a>: alternative accounting platform with an equivalent API</li>
+<li><a href="#aff-salesforce"><strong>Salesforce</strong></a>: example CRM in the same &quot;find the API, agent on top&quot; pattern</li>
+<li><a href="#aff-hubspot"><strong>HubSpot</strong></a>: same pattern, different vertical SaaS</li>
+<li><a href="#aff-gohighlevel"><strong>GoHighLevel</strong></a>: same pattern for service-business CRMs</li>
+<li><a href="#aff-stripe"><strong>Stripe</strong></a>: example payments API the same recipe applies to</li>
+<li><a href="#aff-shopify"><strong>Shopify</strong></a>: example commerce API the same recipe applies to</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>A monthly-close machine that lives inside your accounting practice. You connect your AI agent directly to the QuickBooks Online API, train it on your client's books for one to two hours, and then watch it close out the next month at roughly 90% accuracy on its first try. By the second close, it's practically perfect, and it catches discrepancies your staff missed.</p>
+<p>The output is a CPA practice that runs leaner. The agent does not replace you. It replaces the part-time bookkeeper, the junior accountant, or the stack of manual steps that stretch your monthly close from one day to three. It also catches mistakes. The original builder of this setup, a working accountant who goes by .allthesauce, said it explicitly: &quot;It catches things that my staff and I don't catch.&quot;</p>
+<p>This is an accounting-specific build. It is also one of the cleanest examples of the broader pattern that's about to reshape every vertical small business: take the SaaS you already pay for, find its API, and put an AI agent on top of it.</p>
+<h2>The Story</h2>
+<p>A CPA jumped into the OpenClaw community channel and casually dropped this:</p>
+<blockquote>
+<p>Accountant here, been training my lobster to help close out financials on a monthly basis. I have it wired directly into the QBO API. It's taken about a month and half to train but it has gotten very smart and with the wiki memory architecture it doesn't seem to forget much.</p>
+</blockquote>
+<p>She'd been at it for six weeks. The agent had read her books, learned her conventions, learned the quirks of her specific clients, and absorbed the implicit rules she normally holds in her head. Then she put it to work.</p>
+<blockquote>
+<p>After doing a very deep dive on a book set with it once for about 2 hours it can one-shot closes at about 90% accuracy. By the second close it's almost perfect.</p>
+</blockquote>
+<p>Read that again. Two hours of training. Ninety percent first-pass accuracy on a complete monthly close. By the second close, it does what her senior staff used to do, faster.</p>
+<p>And then the kicker:</p>
+<blockquote>
+<p>It catches things that my staff and I don't catch.</p>
+</blockquote>
+<p>That sentence is why every accounting practice in the country should be paying attention. The agent is not replacing humans. It is augmenting humans by doing the part of the close that depends on perfect attention, every single time, without fatigue. Your senior accountants get to focus on what humans are good at: judgment calls, client relationships, advisory work, complex transactions. The grindy part of the close, the part that drains a Tuesday and a Wednesday every month, lives somewhere else now.</p>
+<h2>Why Monthly Close Is the Perfect First AI Job</h2>
+<p>Most CPA firms have not tried this yet. They've used AI to draft client emails, summarize meetings, and maybe build a chatbot for the website. None of those touch the actual books, because the books feel sacred. The numbers have to be exact. The exposure to client trust is too high.</p>
+<p>But monthly close is the ideal first AI job inside an accounting practice. Here's why.</p>
+<p>It's repetitive. The same checklist, every month, for every client, with minor variations. That's exactly what AI agents are good at. Repetitive procedures with clear success criteria.</p>
+<p>It's documented. You already have a monthly-close checklist somewhere. If you don't, your senior accountants do, in their heads. Either way, the rules are knowable.</p>
+<p>It's verifiable. When the agent finishes, you can spot-check its work in seconds. The reconciliation either balances or it doesn't. The journal entries either match the source documents or they don't. Unlike a client email or a tax-strategy memo, you don't need a senior to read it carefully. You need a senior to scan it and confirm.</p>
+<p>And finally, it's a place where attention beats expertise. Most close errors are not because someone didn't know the right entry. They're because somebody got tired at 4pm on the third Tuesday of the month and missed a transaction. AI does not get tired. The kind of slow, thorough, &quot;did we account for this credit card refund from the 14th?&quot; review that a human does grudgingly is exactly the kind of thing an AI does cheerfully forever.</p>
+<p>Once you've automated monthly close, the rest of the practice opens up. Quarterly tax estimates, year-end prep, sales tax reconciliations, 1099 prep. Same pattern, same machinery, different checklists.</p>
+<h2>The Pattern</h2>
+<p>The pattern has 4 parts, and you can adapt every step to a different industry by swapping the API and the checklist.</p>
+<h3>1. Find the API</h3>
+<p>QuickBooks Online has a public REST API. So does Xero, FreshBooks, NetSuite, Wave, and most other accounting tools. So does Salesforce, HubSpot, GoHighLevel, ServiceTitan, Mindbody, Square, Shopify, Stripe, and almost every modern SaaS your practice already touches.</p>
+<p>The first move is finding the API key in the tool you're already paying for. For QBO, that's at developer.intuit.com, where you create an app and get OAuth credentials. The setup is finicky on the first try and trivial on the second. Plan a Saturday morning and a coffee.</p>
+<h3>2. Connect Your Agent</h3>
+<p>Once you have the API credentials, the agent connects via a simple custom skill. In OpenClaw or Claude Code, this is a markdown file that tells the agent what tool it has access to and how to call it. You're not writing software in a real sense. You're writing a recipe.</p>
+<p>For QBO, the recipe looks like: &quot;When the user asks you to do anything related to bookkeeping, you have access to these endpoints. Here's the auth header. Here's how to query an account. Here's how to post a journal entry.&quot; Once the agent has the recipe, it can read books, post entries, run reports, and reconcile accounts.</p>
+<h3>3. Train It on a Real Client</h3>
+<p>This is where most practices will give up too early. The agent is not going to be good on day one. It's going to take six weeks to get to where .allthesauce got. The reason is not that the AI is dumb. The reason is that your books have nuance, your clients have quirks, and your firm has conventions that nobody has ever written down.</p>
+<p>Pick a single client to start. Ideally one whose books are clean and whose quirks are well-understood. Then sit with the agent for two hours and walk it through a complete close, talking out loud as you go. &quot;We always categorize this kind of transaction this way. This vendor uses different invoice formats every quarter, here's how we handle it. This client always forgets to mark personal expenses, watch for these patterns.&quot;</p>
+<p>Every observation gets captured. The agent's memory layer (the wiki-memory architecture in OpenClaw, or whatever your stack uses) writes it down permanently. The next time the agent runs the close for this client, it remembers.</p>
+<h3>4. Run, Verify, Promote</h3>
+<p>The first close is the test. Run the full procedure. Then sit with the output for an hour and verify it line by line. Anything the agent got wrong, you log as a correction. Anything it got right that's non-obvious, you log as a confirmation.</p>
+<p>After two or three closes, the agent is right almost all the time. The corrections taper off. The confirmations stop being needed. The agent has internalized your firm's standards and your client's specifics.</p>
+<p>Then you scale. Same machinery, second client. The training time drops dramatically because the agent already knows your firm's conventions. Now it only needs to learn the new client. By the fifth client, you're spinning up a new close in 20 minutes.</p>
+<h2>The Cost Math</h2>
+<p>Most CPA practices have a labor cost on monthly close that they don't measure carefully. A quick estimate: if you have 30 small-business clients on monthly close, and each one takes 4 hours of senior time at $60/hr loaded cost, you're spending $7,200 a month, or about $86,000 a year, just on monthly close.</p>
+<p>The agent's API cost for the same workload is roughly $40 to $80 a month, depending on the complexity of the books. The QBO subscription is whatever you're already paying. The hardware is a laptop you already own.</p>
+<p>Your senior staff doesn't disappear. They become reviewers and judgment-callers. They check the agent's work, handle the edge cases, and use the freed time to do client advisory, business development, or tax-strategy work that bills at much higher rates. The economics shift from &quot;we have to grow headcount to grow revenue&quot; to &quot;we can scale without hiring.&quot;</p>
+<p>This is what every advisory firm has been promising for a decade. The difference is that the technology now actually works.</p>
+<h2>Who Should Steal This Idea</h2>
+<p>This pattern works for any practice that has a recurring procedural task tied to a SaaS tool with an API. Some specifically:</p>
+<p>A solo CPA running 10 to 50 small-business clients on monthly close. Highest immediate ROI.</p>
+<p>A bookkeeping firm that lives inside QBO or Xero all day. Same pattern, different starting point.</p>
+<p>A tax-prep practice with 200 to 1,000 clients during season. Year-end prep is the same pattern as monthly close, just bigger.</p>
+<p>A real estate or insurance broker with recurring data entry into a CRM. Different SaaS, same pattern.</p>
+<p>A dental or medical practice with recurring billing reconciliation in a practice-management system. Different vertical, same pattern.</p>
+<p>Any service business where someone in your office spends 4 to 20 hours a week doing data entry into a SaaS tool you already pay for. The pattern is the same. Find the API, write the recipe, train the agent, run the close.</p>
+<h2>Gotchas and Tips</h2>
+<p><strong>Start with one client, not ten.</strong> The temptation to roll this out across the practice immediately is dangerous. The agent's quality is measured by how well it handles your specific clients. Train it on one until you're confident, then scale. The lessons from the first client transfer to the second far more than the lessons from running ten badly.</p>
+<p><strong>Treat the training session as a real meeting.</strong> Two hours, no interruptions, your full attention. This is the highest-leverage two hours you'll spend in the practice this year. Don't multitask, don't take calls. Talk through the close like you're explaining it to a brand-new staff member who has never seen books before.</p>
+<p><strong>Log every quirk.</strong> The first time the agent makes a mistake, your instinct will be to correct it and move on. Don't. Write it down. The pattern that costs you 30 seconds today will cost you 30 minutes a month if it recurs and you have to keep correcting.</p>
+<p><strong>Cap the agent's permissions.</strong> Give it read access to everything and write access to nothing for the first three closes. You want to see it produce the answers without letting it touch the books. Once you trust the output, give it scoped write access (e.g., it can post journal entries to a draft batch you review, not directly to live books).</p>
+<p><strong>Keep a &quot;client conventions&quot; file per client.</strong> This is the wiki-memory layer. One markdown file per client, listing the categorizations, vendors, exceptions, and judgment calls specific to them. The agent reads this before every close. When you sell the practice or onboard a new associate, this file is the institutional knowledge the practice used to lose.</p>
+<p><strong>Run the close on a Friday, not a Monday.</strong> The agent is most efficient when you can review the output the same day. Friday lets you catch issues, log corrections, and start fresh on Monday. Monday closes drag because mid-week interruptions break your verification flow.</p>
+<p><strong>Communicate with the client.</strong> Some clients will ask if you've offshored their books or if &quot;the AI&quot; is doing their work. Get ahead of that conversation. The honest answer: AI is doing the rote part, you and your staff are doing the judgment part, and your fee is the same or lower because you're more efficient. Most clients will be fine with that. The ones who aren't were not your best fit clients anyway.</p>
+<hr>
+<h2>Keep Reading</h2>
+<ul>
+<li><strong><a href="/playbooks/five-day-automation-sprint/">The 5-Day Automation Sprint: $22K Found in Tax Deductions</a></strong>: The other side of the same coin. Where the QBO close playbook catches errors in the books, this one finds the deductions hiding inside them.</li>
+<li><strong><a href="/playbooks/founder-runs-business-on-ai/">Run Your Business on AI (While Living Your Life)</a></strong>: The bigger picture for any small-practice owner. What it looks like when AI handles the operational core and you handle the client work.</li>
+<li><strong><a href="/playbooks/nex-crm/">Replace Your CRM With a Conversation</a></strong>: Same pattern, different SaaS. Take the tool you already pay for, find its API, put an AI agent on top, run the practice from one place.</li>
+</ul>
+<p><strong>Want the full deep dive?</strong> Read our <a href="/learn/best-openclaw-skills/">Best OpenClaw Skills</a> guide for the foundational skill patterns this playbook depends on.</p>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators · Powered by <a href="https://openclaw.com">OpenClaw</a></p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

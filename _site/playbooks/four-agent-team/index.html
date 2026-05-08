@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Set Up a 4-Agent Business Team on a Mac Mini — ClawDrop</title>
+  <meta name="description" content="One solopreneur runs customer support, content, research, and ops with 4 AI agents on a $600 Mac Mini. Here&#39;s the architecture.">
+  <meta property="og:title" content="Set Up a 4-Agent Business Team on a Mac Mini — ClawDrop">
+  <meta property="og:description" content="One solopreneur runs customer support, content, research, and ops with 4 AI agents on a $600 Mac Mini. Here&#39;s the architecture.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/four-agent-team/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Set Up a 4-Agent Business Team on a Mac Mini — ClawDrop">
+  <meta name="twitter:description" content="One solopreneur runs customer support, content, research, and ops with 4 AI agents on a $600 Mac Mini. Here&#39;s the architecture.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/four-agent-team/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; }
+    .logo:hover { color: var(--ink); }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 280px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">March 2, 2026</div>
+    <h1>Set Up a 4-Agent Business Team on a Mac Mini</h1>
+    <p class="post-description">One solopreneur runs customer support, content, research, and ops with 4 AI agents on a $600 Mac Mini. Here&#39;s the architecture.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Intermediate</strong></span>
+      <span class="meta-badge">💰 <strong>$20-60/month (API costs)</strong></span>
+      <span class="meta-badge">⏱ <strong>3-4 hours</strong></span>
+      <span class="meta-badge">👤 <strong>YouTube creator</strong></span>
+      <a href="https://www.youtube.com/watch?v=bzWI3Dil9Ig" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-openclaw"><strong>OpenClaw</strong></a>: orchestrates the four agents</li>
+<li><a href="#aff-anthropic"><strong>Anthropic</strong></a>: Claude API as the brain</li>
+<li><a href="#aff-mac-mini"><strong>Mac mini</strong></a>: always-on hardware host</li>
+<li><a href="#aff-telegram"><strong>Telegram</strong></a>: operator interface to all four agents</li>
+<li><a href="#aff-gmail"><strong>Gmail</strong></a>: support inbox monitoring</li>
+<li><a href="#aff-x"><strong>X</strong></a>: content posting target</li>
+<li><a href="#aff-linkedin"><strong>LinkedIn</strong></a>: second content posting target</li>
+<li><a href="#aff-google-calendar"><strong>Google Calendar</strong></a>: ops agent calendar source</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>Four specialized AI agents, each owning a business function: customer support, content creation, research, and operations. All running 24/7 on a Mac Mini or VPS, managed through Telegram.</p>
+<h2>Why It Works</h2>
+<p>Context-switching kills productivity. When one agent does everything, it loses focus. When four agents each own a department, they stay sharp. You manage them like a team lead: check in, review output, make decisions.</p>
+<p><strong>Results:</strong> No more juggling 12 browser tabs. Each agent stays in its lane. You focus on closing deals and making decisions.</p>
+<h2>Prerequisites</h2>
+<ul>
+<li>OpenClaw installed on Mac Mini or VPS ($24/month for a decent VPS)</li>
+<li>Claude API key</li>
+<li>Telegram (for agent communication)</li>
+<li>Access to your business tools (email, social accounts, analytics)</li>
+</ul>
+<h2>Architecture</h2>
+<pre><code>                    ┌──────────────┐
+                    │   YOU (CEO)   │
+                    │  (Telegram)   │
+                    └──────┬───────┘
+                           │
+              ┌────────────┼────────────┐
+              │            │            │
+     ┌────────▼───┐ ┌──────▼─────┐ ┌───▼────────┐
+     │  Agent 1    │ │  Agent 2   │ │  Agent 3   │
+     │  SUPPORT    │ │  CONTENT   │ │  RESEARCH  │
+     │             │ │            │ │            │
+     │ • Monitor   │ │ • Draft    │ │ • Competitors│
+     │   channels  │ │   posts    │ │ • Trends   │
+     │ • Draft     │ │ • Schedule │ │ • Markets  │
+     │   replies   │ │ • Engage   │ │ • Opps     │
+     │ • Escalate  │ │ • Repurpose│ │ • Reports  │
+     └─────────────┘ └────────────┘ └────────────┘
+                           │
+                    ┌──────▼───────┐
+                    │   Agent 4    │
+                    │    OPS       │
+                    │              │
+                    │ • Daily brief│
+                    │ • Task track │
+                    │ • Calendar   │
+                    │ • Reporting  │
+                    └──────────────┘
+</code></pre>
+<h2>Step-by-Step Setup</h2>
+<h3>Step 1: Customer Support</h3>
+<p><strong>Purpose:</strong> Monitor incoming messages, draft responses, escalate when needed.</p>
+<p><strong>Setup:</strong></p>
+<ol>
+<li>Connect your email inbox (Gmail API or IMAP)</li>
+<li>Connect any chat channels (Intercom, live chat, social DMs)</li>
+<li>Create a knowledge base document:</li>
+</ol>
+<pre><code class="language-markdown"># Support Knowledge Base
+
+## Product
+- What it does: [one paragraph]
+- Pricing: [plans and prices]
+- Free trial: [details]
+
+## Common Questions
+Q: How do I cancel?
+A: Go to Settings &gt; Billing &gt; Cancel. Refund within 30 days.
+
+Q: Do you integrate with X?
+A: Yes/No. [details]
+
+Q: My account is locked
+A: [troubleshooting steps]
+
+## Escalation Rules
+- Billing disputes over $100 → escalate immediately
+- Feature requests → log in feature-requests.md, reply with acknowledgment
+- Angry customers → draft response, don't send, flag for review
+- Bugs → create issue, notify dev, reply with ETA
+</code></pre>
+<p><strong>Cron:</strong> Check for new messages every 5-15 minutes.</p>
+<p><strong>Output:</strong> Drafts go to your Telegram for approval (or auto-send for common questions after you've built confidence).</p>
+<h3>Step 2: Content</h3>
+<p><strong>Purpose:</strong> Create, schedule, and manage content across platforms.</p>
+<p><strong>Setup:</strong></p>
+<ol>
+<li>Define your content pillars (3-5 topics you always write about)</li>
+<li>Connect posting tools (X API, LinkedIn, browser automation)</li>
+<li>Create a voice guide:</li>
+</ol>
+<pre><code class="language-markdown"># Content Voice Guide
+
+## Tone
+- Direct, no fluff
+- Share real numbers and results
+- Conversational, not corporate
+
+## Content Types
+- Build-in-public updates (what I shipped today)
+- Lessons learned (what went wrong and why)
+- Industry takes (opinions on trends)
+- How-tos (step-by-step tutorials)
+
+## Rules
+- No em dashes
+- No &quot;I'd be happy to&quot; or &quot;Great question!&quot;
+- Max 280 chars for X, longer for LinkedIn
+- Always include a specific number or result
+- Post 2-3x per day on X, 1x per day on LinkedIn
+</code></pre>
+<p><strong>Cron:</strong> Draft posts hourly during work hours. You pick and approve.</p>
+<h3>Step 3: Research</h3>
+<p><strong>Purpose:</strong> Keep you informed about competitors, market trends, and opportunities.</p>
+<p><strong>Setup:</strong></p>
+<ol>
+<li>Create a competitor watch list</li>
+<li>Set up monitoring sources (RSS feeds, Google Alerts, social mentions)</li>
+<li>Define what you care about:</li>
+</ol>
+<pre><code class="language-markdown"># Research Brief
+
+## Competitors to Monitor
+- Competitor A: [website, X handle, product updates page]
+- Competitor B: [same]
+- Competitor C: [same]
+
+## Signals I Care About
+- New product launches or features
+- Pricing changes
+- Funding announcements
+- Key hire announcements
+- Customer complaints (Reddit, G2, Twitter)
+
+## Opportunities to Scan
+- New markets entering my space
+- Partnership possibilities
+- Content gaps I could fill
+- Customer segments competitors ignore
+</code></pre>
+<p><strong>Cron:</strong> Daily research digest. Weekly deep-dive report.</p>
+<h3>Step 4: Operations</h3>
+<p><strong>Purpose:</strong> The glue. Daily briefings, task tracking, calendar management, and cross-agent coordination.</p>
+<p><strong>Setup:</strong></p>
+<ol>
+<li>Connect calendar (Google Calendar API)</li>
+<li>Set up task tracking (markdown file, SQLite, or Turso)</li>
+<li>Create the daily briefing template:</li>
+</ol>
+<pre><code class="language-markdown"># Daily Briefing Template
+
+## Today's Calendar
+[list events with times]
+
+## Priority Tasks
+1. [most important thing]
+2. [second]
+3. [third]
+
+## Support Summary (from Agent 1)
+- X new tickets, Y resolved, Z escalated
+
+## Content Performance (from Agent 2)
+- Best post: [which one, engagement]
+- Scheduled today: [what's going out]
+
+## Research Highlights (from Agent 3)
+- [anything notable from overnight scan]
+
+## Revenue
+- Yesterday: $X
+- MTD: $Y
+- Trend: up/down/flat
+</code></pre>
+<p><strong>Cron:</strong> Morning briefing at 6 AM. Evening accountability check at 9 PM.</p>
+<h3>Step 5: Inter-Agent Communication</h3>
+<p>The agents need to share information. Three approaches:</p>
+<ol>
+<li><strong>Shared files:</strong> All agents read/write to a common <code>status/</code> directory</li>
+<li><strong>Database:</strong> SQLite or Turso DB that all agents query</li>
+<li><strong>Main agent coordination:</strong> Agent 4 (Ops) reads outputs from agents 1-3 and synthesizes</li>
+</ol>
+<p>Start with shared files. Move to a database when it gets complex.</p>
+<h2>Customization Ideas</h2>
+<ul>
+<li><strong>Agency owner:</strong> Replace research agent with a client management agent</li>
+<li><strong>E-commerce:</strong> Replace content agent with an inventory/pricing agent</li>
+<li><strong>Consultant:</strong> Add a proposal-writing agent</li>
+<li><strong>SaaS founder:</strong> Add a churn-detection agent that monitors usage patterns</li>
+</ul>
+<h2>Gotchas &amp; Tips</h2>
+<ul>
+<li><strong>Start with 2 agents, not 4.</strong> Get support + ops working first. Add content and research once the basics are solid.</li>
+<li><strong>Set clear boundaries.</strong> Each agent should know exactly what's its job and what's not. Overlap causes confusion.</li>
+<li><strong>Token costs add up with 4 agents.</strong> Use multi-model routing (see our other playbook) to keep costs under control.</li>
+<li><strong>The Mac Mini advantage:</strong> Always on, no monthly hosting fees after the $600 purchase. But a $24/month VPS works identically.</li>
+<li><strong>Review cycles matter.</strong> Don't let agents auto-send everything. Start with drafts, build trust, then gradually automate more.</li>
+</ul>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators · Powered by <a href="https://openclaw.com">OpenClaw</a></p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

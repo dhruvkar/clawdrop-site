@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Finds Leads, Builds Demo Sites, and Cold Calls Them For You — ClawDrop</title>
+  <meta name="description" content="One agency owner built a full lead gen pipeline: find prospects, research them, build custom demo sites, deploy them, create video walkthroughs, and reach out via text and phone. All automated.">
+  <meta property="og:title" content="AI Finds Leads, Builds Demo Sites, and Cold Calls Them For You — ClawDrop">
+  <meta property="og:description" content="One agency owner built a full lead gen pipeline: find prospects, research them, build custom demo sites, deploy them, create video walkthroughs, and reach out via text and phone. All automated.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/ai-lead-gen-pipeline/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="AI Finds Leads, Builds Demo Sites, and Cold Calls Them For You — ClawDrop">
+  <meta name="twitter:description" content="One agency owner built a full lead gen pipeline: find prospects, research them, build custom demo sites, deploy them, create video walkthroughs, and reach out via text and phone. All automated.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/ai-lead-gen-pipeline/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; }
+    .logo:hover { color: var(--ink); }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 280px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">March 9, 2026</div>
+    <h1>AI Finds Leads, Builds Demo Sites, and Cold Calls Them For You</h1>
+    <p class="post-description">One agency owner built a full lead gen pipeline: find prospects, research them, build custom demo sites, deploy them, create video walkthroughs, and reach out via text and phone. All automated.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Advanced</strong></span>
+      <span class="meta-badge">💰 <strong>$50-100/month (hosting + API + phone)</strong></span>
+      <span class="meta-badge">⏱ <strong>1-2 weeks</strong></span>
+      <span class="meta-badge">👤 <strong>Jonah (@jonahships)</strong></span>
+      <a href="https://discord.com/channels/1456350064065904867/1456609488202105005/1464459295138644173" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-openclaw"><strong>OpenClaw</strong></a>: orchestrator running the full pipeline</li>
+<li><a href="#aff-anthropic"><strong>Anthropic</strong></a>: Claude API powering agent reasoning</li>
+<li><a href="#aff-github"><strong>GitHub</strong></a>: version control for generated demo sites</li>
+<li><a href="#aff-coolify"><strong>Coolify</strong></a>: self-hosted deployment platform for demos</li>
+<li><a href="#aff-vercel"><strong>Vercel</strong></a>: alternative hosting target for demo sites</li>
+<li><a href="#aff-netlify"><strong>Netlify</strong></a>: alternative hosting target for demo sites</li>
+<li><a href="#aff-google-voice"><strong>Google Voice</strong></a>: texting channel for outreach</li>
+<li><a href="#aff-twilio"><strong>Twilio</strong></a>: SMS alternative for outreach</li>
+<li><a href="#aff-vapi"><strong>Vapi</strong></a>: phone agent for cold calls</li>
+<li><a href="#aff-bland"><strong>Bland</strong></a>: alternative phone agent platform</li>
+<li><a href="#aff-remotion"><strong>Remotion</strong></a>: React video framework for demo walkthroughs</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>A complete lead generation machine that runs on autopilot. Your AI agent finds potential clients, researches their business, builds a custom demo website showing what you could do for them, deploys it live, creates a video walkthrough of the demo, and reaches out via text and phone. That's not one automation. That's an entire sales team.</p>
+<h2>Why This Works</h2>
+<p>Cold outreach has a conversion problem. Generic emails get ignored. &quot;Hey {first_name}, I noticed your {company} could use...&quot; gets deleted before the second sentence.</p>
+<p>But imagine receiving a text that says: &quot;Hey, I built a demo of what your website could look like. Here's the link, and here's a 2-minute video walkthrough.&quot; That's not cold outreach anymore. That's proof of work. It shows you understand their business and you've already started solving their problem.</p>
+<p>The trick is that building custom demos for every lead doesn't scale if a human does it. But an AI can research a business, generate a tailored site, deploy it, and record a walkthrough in minutes.</p>
+<h2>Prerequisites</h2>
+<ul>
+<li>OpenClaw installed and running</li>
+<li>GitHub account (for deploying demo sites)</li>
+<li>Coolify or similar self-hosting platform (Vercel, Netlify work too)</li>
+<li>Google Voice or Twilio account (for texting leads)</li>
+<li>A phone agent setup (Vapi, Bland, or similar) for cold calls</li>
+<li>Remotion installed (for generating demo videos)</li>
+</ul>
+<h2>Architecture</h2>
+<pre><code>┌──────────────┐     ┌──────────────┐     ┌──────────────┐
+│  Lead Finder │────▶│  Researcher  │────▶│  Site Builder │
+│              │     │              │     │              │
+│  - Google    │     │  - Website   │     │  - Custom    │
+│  - LinkedIn  │     │  - Social    │     │    landing   │
+│  - Yelp      │     │  - Reviews   │     │    page      │
+│  - Directories│    │  - Pain pts  │     │  - Their     │
+│              │     │              │     │    branding   │
+└──────────────┘     └──────────────┘     └──────┬───────┘
+                                                  │
+                     ┌──────────────┐     ┌───────▼──────┐
+                     │  Outreach    │◀────│  Deployer    │
+                     │              │     │              │
+                     │  - Text msg  │     │  - GitHub    │
+                     │  - Phone call│     │  - Coolify   │
+                     │  - Email     │     │  - Live URL  │
+                     │              │     │  - Video     │
+                     └──────────────┘     └──────────────┘
+</code></pre>
+<h2>Step 1: Define Your Ideal Client</h2>
+<p>Before the AI can find leads, it needs to know who you're looking for:</p>
+<pre><code class="language-markdown">## Target Client Profile
+- Industry: Local service businesses (plumbers, dentists, landscapers)
+- Location: [Your target metro area]
+- Signs they need help:
+  - No website or a bad one
+  - Few/no Google reviews
+  - Not running ads
+  - Competitors outranking them
+- Revenue: $500K-5M (big enough to pay, small enough to need you)
+</code></pre>
+<h2>Step 2: Automated Lead Research</h2>
+<p>Once the agent finds a prospect, it digs in:</p>
+<ul>
+<li>Pull their current website (if they have one) and analyze it</li>
+<li>Check their Google Business profile, reviews, and rating</li>
+<li>Look at their social media presence</li>
+<li>Identify their top 3 competitors and what they're doing better</li>
+<li>Note specific pain points the demo should address</li>
+</ul>
+<p>This research becomes the foundation for a demo that actually resonates. &quot;I noticed your competitor Johnson Plumbing has 200+ Google reviews while you have 12. Here's how we'd fix that.&quot;</p>
+<h2>Step 3: Generate Custom Demo Sites</h2>
+<p>This is the showstopper. The AI takes the research and builds a landing page tailored to that specific business:</p>
+<ul>
+<li>Uses their business name, colors, and industry</li>
+<li>Addresses the specific gaps found in research</li>
+<li>Shows &quot;before/after&quot; of their online presence</li>
+<li>Includes a clear CTA (&quot;Want this for your business? Let's talk.&quot;)</li>
+</ul>
+<p>Push to GitHub, deploy via Coolify, and you have a live URL in minutes.</p>
+<h2>Step 4: Create Video Walkthroughs</h2>
+<p>Using Remotion (a React-based video framework), the agent generates a short video walking through the demo site. This isn't a screen recording. It's a produced video with:</p>
+<ul>
+<li>Narration explaining what was built and why</li>
+<li>Callouts highlighting key improvements</li>
+<li>A personal touch that makes it feel custom (because it is)</li>
+</ul>
+<h2>Step 5: Multi-Channel Outreach</h2>
+<p>Now the agent reaches out with something real to show:</p>
+<p><strong>Text (Google Voice):</strong> Short, casual, with the demo link. &quot;Hey [Name], I put together a quick demo for [Business]. Take a look: [URL]&quot;</p>
+<p><strong>Phone (AI voice agent):</strong> A phone agent calls the lead, introduces the service, and references the demo site. If they're interested, it books a meeting on your calendar.</p>
+<p><strong>Email:</strong> Longer-form follow-up with the video walkthrough embedded.</p>
+<p>The key: every touchpoint references the custom demo. It's not generic outreach. It's &quot;I already did work for you, for free.&quot;</p>
+<h2>Step 6: Track and Iterate</h2>
+<p>Log every lead, every outreach attempt, and every response. The agent should track:</p>
+<ul>
+<li>How many leads found per day</li>
+<li>Demo sites built and deployed</li>
+<li>Outreach sent (text, call, email)</li>
+<li>Response rates by channel</li>
+<li>Meetings booked</li>
+<li>Deals closed</li>
+</ul>
+<p>Use this data to refine your targeting. If dentists respond at 3x the rate of plumbers, focus on dentists.</p>
+<h2>What Makes This Different</h2>
+<p>Most AI automation demos show one step: &quot;Look, it can send emails!&quot; This is the full pipeline. Finding leads, researching them, building something custom, deploying it, and reaching out across multiple channels. Each step feeds the next.</p>
+<p>The person who built this (Jonah) is running it for his own agency. It's not a concept. It's his actual sales process, running on real prospects, closing real deals.</p>
+<h2>Cost Breakdown</h2>
+<ul>
+<li><strong>OpenClaw + Claude API:</strong> ~$20-40/month depending on volume</li>
+<li><strong>Coolify hosting:</strong> ~$10-20/month for a VPS</li>
+<li><strong>Google Voice:</strong> Free (or Twilio at ~$0.01/text)</li>
+<li><strong>Phone agent (Vapi/Bland):</strong> ~$0.10-0.15/minute</li>
+<li><strong>Remotion:</strong> Free (open source)</li>
+<li><strong>Total:</strong> Roughly $50-100/month for a system that replaces a full-time SDR</li>
+</ul>
+<p>Compare that to hiring a sales rep at $4-5K/month who sends generic emails all day.</p>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators · Powered by <a href="https://openclaw.com">OpenClaw</a></p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

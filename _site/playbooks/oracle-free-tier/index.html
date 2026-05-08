@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Run Your AI Assistant 24/7 for $0/Month — ClawDrop</title>
+  <meta name="description" content="Set up an always-on AI agent on Oracle Cloud&#39;s free tier. 4 CPU cores, 24GB RAM, 200GB storage. No credit card charges, no trial period, no surprise bills. Ever.">
+  <meta property="og:title" content="Run Your AI Assistant 24/7 for $0/Month — ClawDrop">
+  <meta property="og:description" content="Set up an always-on AI agent on Oracle Cloud&#39;s free tier. 4 CPU cores, 24GB RAM, 200GB storage. No credit card charges, no trial period, no surprise bills. Ever.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/oracle-free-tier/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Run Your AI Assistant 24/7 for $0/Month — ClawDrop">
+  <meta name="twitter:description" content="Set up an always-on AI agent on Oracle Cloud&#39;s free tier. 4 CPU cores, 24GB RAM, 200GB storage. No credit card charges, no trial period, no surprise bills. Ever.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/oracle-free-tier/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; }
+    .logo:hover { color: var(--ink); }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 280px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">March 17, 2026</div>
+    <h1>Run Your AI Assistant 24/7 for $0/Month</h1>
+    <p class="post-description">Set up an always-on AI agent on Oracle Cloud&#39;s free tier. 4 CPU cores, 24GB RAM, 200GB storage. No credit card charges, no trial period, no surprise bills. Ever.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Beginner</strong></span>
+      <span class="meta-badge">💰 <strong>$0/month (forever)</strong></span>
+      <span class="meta-badge">⏱ <strong>30-45 minutes</strong></span>
+      <span class="meta-badge">👤 <strong>OpenClaw Community</strong></span>
+      <a href="https://docs.openclaw.ai/platforms/oracle" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-oracle-cloud"><strong>Oracle Cloud</strong></a>: Always Free ARM VM hosting</li>
+<li><a href="#aff-openclaw"><strong>OpenClaw</strong></a>: agent installed on the VM</li>
+<li><a href="#aff-tailscale"><strong>Tailscale</strong></a>: private network access to the gateway</li>
+<li><a href="#aff-anthropic"><strong>Anthropic</strong></a>: default Claude provider for the agent</li>
+<li><a href="#aff-openai"><strong>OpenAI</strong></a>: alternative provider option</li>
+<li><a href="#aff-gemini"><strong>Google Gemini</strong></a>: alternative provider option</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>An AI agent that runs 24/7 on a cloud server you never pay for. Not a 30-day trial. Not a &quot;free tier that quietly starts billing you.&quot; Oracle's Always Free ARM tier gives you a real server with 4 CPU cores, 24GB of RAM, and 200GB of storage, permanently, no credit card charges.</p>
+<p>Your agent stays on while you sleep. It checks your email at 6am, pulls your calendar at 7, and sends you a morning briefing before you've had coffee. It monitors your inbox all day. It runs your automations overnight. And the hosting bill is exactly zero.</p>
+<h2>Why This Works</h2>
+<p>Most people run OpenClaw on their laptop. Works great until you close the lid. Then your agent goes dark. No morning briefings. No background monitoring. No overnight automations. You open your laptop the next morning and your agent missed 12 hours of being useful.</p>
+<p>The obvious fix is a cloud server, but that means $5-20/month for a VPS. Not a lot of money, but it's another subscription. Another thing to manage. Another bill.</p>
+<p>Oracle's free tier is genuinely free. They make their money on enterprise customers spending millions. The free tier is marketing. That's it. They give you a server that would cost $30-50/month anywhere else, and they eat the cost because they're hoping you'll eventually become a big customer. You probably won't. But the server keeps running anyway.</p>
+<h2>Prerequisites</h2>
+<ul>
+<li>An Oracle Cloud account (free signup at <a href="https://www.oracle.com/cloud/free/">oracle.com/cloud/free</a>)</li>
+<li>A Tailscale account (free at <a href="https://tailscale.com">tailscale.com</a>)</li>
+<li>30 minutes and a cup of coffee</li>
+</ul>
+<p><strong>Heads up:</strong> Oracle's free tier signup can be finicky. Some regions run out of capacity. If instance creation fails, try a different availability domain or wait a few hours. The community has a <a href="https://gist.github.com/rssnyder/51e3cfedd730e7dd5f4a816143b25dbd">signup guide</a> for common issues.</p>
+<h2>Step 1: Create Your Server</h2>
+<p>Log into <a href="https://cloud.oracle.com/">Oracle Cloud Console</a> and go to Compute, then Instances, then Create Instance.</p>
+<p>Configure it like this:</p>
+<ul>
+<li><strong>Name:</strong> openclaw</li>
+<li><strong>Image:</strong> Ubuntu 24.04 (aarch64)</li>
+<li><strong>Shape:</strong> VM.Standard.A1.Flex (Ampere ARM)</li>
+<li><strong>OCPUs:</strong> 2 (you get up to 4 for free)</li>
+<li><strong>Memory:</strong> 12GB (you get up to 24GB for free)</li>
+<li><strong>Boot volume:</strong> 50GB (you get up to 200GB for free)</li>
+<li><strong>SSH key:</strong> Add your public key</li>
+</ul>
+<p>Click Create and note the public IP address.</p>
+<p>You're leaving half the resources unused on purpose. That gives you room to run other things later, like a local AI model, a database, or a second agent.</p>
+<h2>Step 2: Initial Setup</h2>
+<p>SSH into your new server and get it ready:</p>
+<pre><code class="language-bash">ssh ubuntu@YOUR_PUBLIC_IP
+
+# Update everything
+sudo apt update &amp;&amp; sudo apt upgrade -y
+sudo apt install -y build-essential
+
+# Set a hostname
+sudo hostnamectl set-hostname openclaw
+
+# Keep services running after you disconnect
+sudo loginctl enable-linger ubuntu
+</code></pre>
+<h2>Step 3: Install Tailscale</h2>
+<p>Tailscale creates a private network between your devices. Your server gets a permanent address that works from anywhere, no need to remember IP addresses or open firewall ports.</p>
+<pre><code class="language-bash">curl -fsSL https://tailscale.com/install.sh | sh
+sudo tailscale up --ssh --hostname=openclaw
+</code></pre>
+<p>From now on, connect via <code>ssh ubuntu@openclaw</code> from any device on your Tailscale network.</p>
+<h2>Step 4: Install OpenClaw</h2>
+<pre><code class="language-bash">curl -fsSL https://openclaw.ai/install.sh | bash
+source ~/.bashrc
+</code></pre>
+<p>When it asks &quot;How do you want to hatch your bot?&quot;, select &quot;Do this later.&quot; We'll configure it properly.</p>
+<h2>Step 5: Configure the Gateway</h2>
+<p>Lock it down so only you can access it, then expose it securely through Tailscale:</p>
+<pre><code class="language-bash"># Keep gateway private on the VM
+openclaw config set gateway.bind loopback
+
+# Require a token to access
+openclaw config set gateway.auth.mode token
+openclaw doctor --generate-gateway-token
+
+# Expose via Tailscale (encrypted, only your devices)
+openclaw config set gateway.tailscale.mode serve
+</code></pre>
+<p>Save the gateway token somewhere safe. You'll need it to connect your phone, laptop, or any messaging app.</p>
+<h2>Step 6: Connect Your AI Provider</h2>
+<p>You need a brain for your agent. Add your API key:</p>
+<pre><code class="language-bash">openclaw config set ai.provider anthropic
+openclaw config set ai.apiKey sk-ant-your-key-here
+</code></pre>
+<p>Or use OpenAI, Gemini, or any provider you prefer. OpenClaw supports them all.</p>
+<h2>Step 7: Start It Up</h2>
+<pre><code class="language-bash">openclaw gateway start
+</code></pre>
+<p>That's it. Your agent is running. Access the dashboard at <code>https://openclaw.your-tailnet-name.ts.net</code> from any device on your Tailscale network.</p>
+<h2>What You Get</h2>
+<p>For $0/month, you now have:</p>
+<ul>
+<li><strong>24/7 uptime.</strong> Your agent never sleeps, even when you close your laptop.</li>
+<li><strong>4 CPU cores and 24GB RAM.</strong> More than enough for OpenClaw plus local tools, scripts, and automations.</li>
+<li><strong>200GB storage.</strong> Room for files, databases, logs, and anything your agent creates.</li>
+<li><strong>Secure access from anywhere.</strong> Tailscale means no exposed ports, no VPN configs, no firewall headaches.</li>
+<li><strong>No billing surprises.</strong> Oracle's free tier is free. Period. No gotcha after 12 months.</li>
+</ul>
+<h2>ARM Gotcha</h2>
+<p>One thing to know: this is an ARM server, not x86. Almost everything works, but occasionally you'll hit a tool or binary that's x86-only. When that happens, check if there's an ARM build or use the <code>build-essential</code> package to compile from source. In practice, this rarely comes up with OpenClaw.</p>
+<h2>The Math</h2>
+<p>Running this same setup elsewhere:</p>
+<table>
+<thead>
+<tr>
+<th>Provider</th>
+<th>Comparable specs</th>
+<th>Monthly cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Oracle Free</td>
+<td>2 OCPU, 12GB RAM</td>
+<td>$0</td>
+</tr>
+<tr>
+<td>Hetzner CX22</td>
+<td>2 vCPU, 4GB RAM</td>
+<td>~$4</td>
+</tr>
+<tr>
+<td>DigitalOcean</td>
+<td>2 vCPU, 4GB RAM</td>
+<td>$24</td>
+</tr>
+<tr>
+<td>AWS Lightsail</td>
+<td>2 vCPU, 4GB RAM</td>
+<td>$20</td>
+</tr>
+</tbody>
+</table>
+<p>Over a year, you save $48-288 compared to paid alternatives. And you get 3x the RAM.</p>
+<h2>What People Build on This</h2>
+<p>Once your agent is always on, things click. People set up morning briefings that land before their alarm goes off. Overnight inbox monitoring that triages email while they sleep. Automated social media posting on a schedule. Background web monitoring for competitor changes, stock alerts, or news tracking.</p>
+<p>The server just sits there, running, costing nothing, doing work.</p>
+<hr>
+<p><strong>Want the full cost picture?</strong> Our <a href="/learn/openclaw-cost-breakdown/">OpenClaw Pricing Guide</a> breaks down every dollar: hosting, AI models, and what real users spend from $0 to $150/month.</p>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators · Powered by <a href="https://openclaw.com">OpenClaw</a></p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>
