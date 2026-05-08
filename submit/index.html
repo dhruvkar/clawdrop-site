@@ -38,7 +38,8 @@
 
         nav { padding: 22px 0; border-bottom: 1px solid var(--rule); }
         nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
-        .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; }
+        .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+        .logo-img { width: 32px; height: 32px; border-radius: 7px; display: block; flex-shrink: 0; }
         .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
         .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; }
         .nav-link:hover { color: var(--accent); }
@@ -72,7 +73,7 @@
 <body>
     <nav>
         <div class="container-wide">
-            <a href="/" class="logo">ClawDrop</a>
+            <a href="/" class="logo"><img src="/assets/clawdrop-logo.png" alt="ClawDrop" class="logo-img">ClawDrop</a>
             <div class="nav-links">
                 <a href="/playbooks/" class="nav-link">Playbooks</a>
                 <a href="/learn/" class="nav-link">Learn</a>
