@@ -131,8 +131,6 @@ The same pattern works for any solo operator or micro-team where the principal i
 
 **Solo consultants.** Same role, same problem.
 
-**Real estate agents.** Already covered in [a separate playbook](/playbooks/realtor-voice-agent/) — voice-first version of the same idea.
-
 **Solo therapists / coaches / lawyers.** Scheduling, intake forms, reschedule requests, follow-up emails. Everything that's not the billable hour.
 
 **Designers and creative agencies under 5 people.** The owner ends up doing all the client communication. This offloads it.
@@ -158,5 +156,5 @@ The common thread: anyone whose job is part billable work, part client babysitti
 ## Keep Reading
 
 - **[Two Prompts and Your HubSpot Just Replaced Your Enrichment Tool](/playbooks/hubspot-research-agent/)**: For when you've graduated from solo to running a small sales motion in HubSpot.
-- **[The Realtor Who Runs Their Whole Day By Voice From the Driver's Seat](/playbooks/realtor-voice-agent/)**: Same principal-is-the-bottleneck problem, voice-first version.
+- **[The Used Car Lot That Out-Sources a 4-Person Buying Team With One Agent](/playbooks/used-car-lot-sourcing-scout/)**: Same principal-is-the-bottleneck problem, sourcing side instead of client side.
 - **[The Five-Day Automation Sprint: $22K Found in Tax Deductions](/playbooks/five-day-automation-sprint/)**: For the half of your admin that lives in money flows instead of client emails.

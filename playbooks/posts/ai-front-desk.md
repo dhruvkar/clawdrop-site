@@ -215,7 +215,7 @@ The same four-piece stack works for:
 
 **Local retail with phone orders.** Customer questions, order status, returns.
 
-**Brokerages and agencies** (real estate, insurance, mortgage). [Realtor-specific version](/playbooks/realtor-voice-agent/).
+**Brokerages and agencies** (real estate, insurance, mortgage). Same playbook, swap in the vertical-specific FAQ and routing rules.
 
 The common thread: any business where (a) you have a phone, (b) people sometimes call after hours, and (c) you have repeatable answers to common questions. That's most SMBs.
 
