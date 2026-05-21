@@ -8,7 +8,7 @@ cost: "$50-150/month (database access + API costs)"
 timeToSetup: "A focused week to get the first usable list"
 originalSource: "https://www.youtube.com/watch?v=p8Jr2rVBVXs"
 originalAuthor: "Moran Pober (acquisitions.com)"
-issueNumber: 2
+issueNumber: 14
 permalink: /playbooks/buying-a-business-with-ai/
 tags:
   - business-acquisition

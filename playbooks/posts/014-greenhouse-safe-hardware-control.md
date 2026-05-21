@@ -8,7 +8,7 @@ cost: "$30-80 one-time hardware + $0-20/month if using local models"
 timeToSetup: "2-3 weekends for the basic loop"
 originalSource: "https://old.reddit.com/r/openclaw/comments/1t8tm7k/real_openclaw_use_case_greenhouse_planner_with/"
 originalAuthor: "u/jvallery (Verdify)"
-issueNumber: 2
+issueNumber: 14
 permalink: /playbooks/greenhouse-ai-with-safety-rails/
 tags:
   - hardware-control

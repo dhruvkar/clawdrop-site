@@ -8,7 +8,7 @@ cost: "$10-30 per site (API + image generation credits)"
 timeToSetup: "An afternoon for the first one, an hour for every site after"
 originalSource: "https://www.youtube.com/watch?v=1prtPthgkXg"
 originalAuthor: "AI Boost Lab"
-issueNumber: 2
+issueNumber: 14
 permalink: /playbooks/stop-paying-for-custom-websites/
 tags:
   - web-design
