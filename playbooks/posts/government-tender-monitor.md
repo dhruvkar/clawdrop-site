@@ -103,4 +103,4 @@ After this stack, the watching is constant and nearly free, the filter is exactl
 ## Keep Reading
 
 - **[Get 5 Sales-Ready Leads in Your Inbox Every Morning. Without a Lead List.](/playbooks/signal-based-daily-leads/)**: the same watch-and-alert pattern, pointed at private-sector buying signals.
-- **[Reach People the Week They Come Into Money](/playbooks/newly-liquid-lead-finder/)**: another public-record signal that almost nobody is working.
+- **[The €200 AI Voice Agent That Called 3,000 Businesses in a Weekend](/playbooks/guinndex-voice-agent/)**: once a contract is worth chasing, this is the agent that works the phone outreach.

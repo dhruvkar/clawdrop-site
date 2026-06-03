@@ -49,6 +49,17 @@
   to = "/admin/"
   status = 301
 
+# Unpublished: SEC Form 144 deep-dive folded into the signal-based-leads playbook
+[[redirects]]
+  from = "/playbooks/newly-liquid-lead-finder"
+  to = "/playbooks/signal-based-daily-leads/"
+  status = 301
+
+[[redirects]]
+  from = "/playbooks/newly-liquid-lead-finder/"
+  to = "/playbooks/signal-based-daily-leads/"
+  status = 301
+
 # Affiliate redirects
 [[redirects]]
   from = "/go/inboxkit"
