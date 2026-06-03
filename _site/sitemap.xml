@@ -57,7 +57,19 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://clawdrop.org/playbooks/instagram-carousel-autopublisher/</loc>
+    <lastmod>June 2, 2026</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://clawdrop.org/playbooks/invisible-in-chatgpt/</loc>
+    <lastmod>June 2, 2026</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clawdrop.org/playbooks/whatsapp-appointment-faq-agent/</loc>
     <lastmod>June 2, 2026</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
