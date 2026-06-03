@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Two Prompts and Your HubSpot Just Replaced Your Enrichment Tool — ClawDrop</title>
+  <meta name="description" content="A HubSpot operator wired Claude into the official connector. Now every contact gets researched, enriched, and personalized for outbound automatically. No Apollo, no Clearbit, no SDR doing copy-paste. Two prompts, four custom properties, one Sequence.">
+  <meta property="og:title" content="Two Prompts and Your HubSpot Just Replaced Your Enrichment Tool — ClawDrop">
+  <meta property="og:description" content="A HubSpot operator wired Claude into the official connector. Now every contact gets researched, enriched, and personalized for outbound automatically. No Apollo, no Clearbit, no SDR doing copy-paste. Two prompts, four custom properties, one Sequence.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/hubspot-research-agent/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Two Prompts and Your HubSpot Just Replaced Your Enrichment Tool — ClawDrop">
+  <meta name="twitter:description" content="A HubSpot operator wired Claude into the official connector. Now every contact gets researched, enriched, and personalized for outbound automatically. No Apollo, no Clearbit, no SDR doing copy-paste. Two prompts, four custom properties, one Sequence.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/hubspot-research-agent/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+    .logo:hover { color: var(--ink); }
+    .logo-img { width: 32px; height: 32px; border-radius: 7px; display: block; flex-shrink: 0; }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 380px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo"><img src="/assets/clawdrop-logo.png" alt="ClawDrop" class="logo-img">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">May 12, 2026</div>
+    <h1>Two Prompts and Your HubSpot Just Replaced Your Enrichment Tool</h1>
+    <p class="post-description">A HubSpot operator wired Claude into the official connector. Now every contact gets researched, enriched, and personalized for outbound automatically. No Apollo, no Clearbit, no SDR doing copy-paste. Two prompts, four custom properties, one Sequence.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Beginner</strong></span>
+      <span class="meta-badge">💰 <strong>$20/month (Claude Pro)</strong></span>
+      <span class="meta-badge">⏱ <strong>An afternoon</strong></span>
+      <span class="meta-badge">👤 <strong>Greg the HubSpot Guy</strong></span>
+      <a href="https://www.youtube.com/watch?v=dLtZBvoVci4" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-claude"><strong>Claude</strong></a>: the AI doing the research and writing. Pro or Team plan to use the HubSpot connector.</li>
+<li><a href="#aff-hubspot"><strong>HubSpot</strong></a>: the CRM you already pay for. Connector is free.</li>
+<li><a href="#aff-gmail"><strong>Gmail</strong></a> or <a href="#aff-outlook"><strong>Outlook</strong></a>: the inbox HubSpot Sequences send from. No changes needed.</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>An automated research and personalization layer that sits between &quot;list pulled from a HubSpot segment&quot; and &quot;first-touch email goes out.&quot; You define four custom contact properties. Claude pulls a segment of contacts. For each one, it researches the company across Google, LinkedIn, and the open web. It writes structured findings back into HubSpot. Your existing Sequence sends an email using those findings as personalization tokens. Every email is fully personalized. You wrote one template.</p>
+<p>This comes from a HubSpot consultant who built it for his own outbound. No code. No paid enrichment tool. No Zapier middleware. Just the official HubSpot connector for Claude and two prompts.</p>
+<p>The pattern is the important part. Outbound is the most visual demo of it, but the same agent works for account research, customer success briefings, and inbound lead enrichment.</p>
+<h2>The Problem Every RevOps Lead Has Been Solving Wrong</h2>
+<p>You have HubSpot. You have a list. Your reps still can't outbound at any real volume.</p>
+<p>Here's why. Before an SDR can send a personalized cold email, somebody has to do the research. Open LinkedIn. Read the company website. Check the press page. Scan their job board for hiring signals. Pull the company size and industry. Paraphrase all of it into a custom intro line that doesn't sound like spam.</p>
+<p>That work takes a real SDR five to ten minutes per contact. On a list of 200, that's a full day burned before anyone hits send. Most teams paper over this by buying Apollo or Clearbit or Lusha for $300-500/month per seat. Those tools give you firmographic data. They don't give you the &quot;noticed your team is hiring three account executives this quarter&quot; insight that makes an email actually get answered.</p>
+<p>So you pay $500/month for half the work, and your SDR still spends the other half on research. Then their personalized email goes into a sequence, gets a 2% reply rate, and your VP Sales asks why pipeline is light.</p>
+<p>The bracketed step in your funnel is the bottleneck:</p>
+<pre><code>ICP defined → list from HubSpot segment → [research + personalize] → Sequence → replies → SQL → AE
+</code></pre>
+<p>That's where Claude lives in this build. The whole bracketed step.</p>
+<h2>How It Works</h2>
+<p>The setup has two prompts and four custom HubSpot properties. That's it.</p>
+<h3>Step 1: The Four Custom Properties</h3>
+<p>In HubSpot, you create four contact properties. The video uses these (yours should map to what you actually want in your outbound):</p>
+<ul>
+<li><code>recent_initiatives</code> — what the company is publicly working on</li>
+<li><code>pain_signal_icp</code> — the trigger event that suggests they need what you sell</li>
+<li><code>icebreaker_noticed</code> — a specific observation worth opening the email with</li>
+<li><code>pitch_angle</code> — your one-sentence positioning written specifically for them</li>
+</ul>
+<p>These are text fields. Claude will fill them in. Your existing Sequence template will reference them as personalization tokens.</p>
+<h3>Step 2: The Email Template</h3>
+<p>Build one template in your HubSpot Sequence using those four tokens:</p>
+<pre><code>Hi ,
+
+Noticed .
+
+I'm reaching out because  —
+that's exactly what we help with.
+
+
+
+Worth a 15-minute call to see if it's a fit?
+</code></pre>
+<p>Every contact gets the same shape. Every contact gets a unique fill-in.</p>
+<h3>Step 3: Prompt One — Generate the Template Logic</h3>
+<p>The first prompt teaches Claude what good fills look like for your business. You give it your ICP, your pitch, three or four example contacts you've personalized by hand. Claude learns your voice and the kind of detail you want.</p>
+<h3>Step 4: Prompt Two — Bulk Enrich</h3>
+<p>The second prompt is the one you run repeatedly:</p>
+<pre><code>Pull the contact list from HubSpot segment &quot;Q2 Outbound — Series B SaaS&quot;.
+For each contact, research the company across Google, LinkedIn, and the open web.
+Fill in recent_initiatives, pain_signal_icp, icebreaker_noticed, and pitch_angle
+based on the framework we established.
+Write the results back to HubSpot.
+</code></pre>
+<p>Claude uses the official HubSpot connector to read the segment, does the research, and writes the four properties back into each contact record. You watch the contact list fill in.</p>
+<p>Then you turn on the Sequence. Done.</p>
+<h3>The Setup (One Afternoon)</h3>
+<p><strong>What you need:</strong></p>
+<ul>
+<li>A Claude Pro or Team subscription with the HubSpot connector enabled</li>
+<li>Admin access to your HubSpot portal</li>
+<li>A defined segment of contacts you want to outbound</li>
+<li>Your standard outbound template structure</li>
+</ul>
+<p><strong>Step 1: Turn on the HubSpot connector inside Claude.</strong> This is in the connector marketplace. It takes about two minutes. You authenticate through HubSpot's OAuth.</p>
+<p><strong>Step 2: Create the four custom properties.</strong> Settings → Properties → Contact Properties → Create. Use text fields. Name them whatever maps to your outbound style.</p>
+<p><strong>Step 3: Build the Sequence template.</strong> Use the four custom property tokens. Test it with a fake contact you fill in by hand.</p>
+<p><strong>Step 4: Run prompt one on a single test contact.</strong> Verify the fills look like emails you'd actually send. If they sound robotic, adjust the prompt.</p>
+<p><strong>Step 5: Run prompt two on a small segment first.</strong> Twenty contacts. Spot check the output. Adjust until the quality is consistent.</p>
+<p><strong>Step 6: Scale up.</strong> Once it's clean, run it on full segments. Enable the Sequence to send.</p>
+<h2>What Changes After Setup</h2>
+<p><strong>Week 1:</strong> The first segment runs in minutes instead of a full SDR-day. You spot-check the output and realize the personalization is sharper than what your team was writing manually, because Claude actually reads everything instead of skimming.</p>
+<p><strong>Week 2:</strong> You shut off Apollo or Clearbit. The HubSpot agent is doing the enrichment job those tools were doing, with sharper personalization on top. That's $300-500/month back per seat.</p>
+<p><strong>Month 1:</strong> Your SDRs shift to reply handling and call booking. The research-and-write step that used to eat half their day is gone. You either double the volume of outbound, or you trim the team and run leaner.</p>
+<p><strong>Month 3:</strong> You're running the same pattern for inbound. Every form submit triggers a Claude research pass. Sales gets a fully enriched contact record before they pick up the phone for the first call. Your AE intro calls sound informed because the AE is informed.</p>
+<h2>Where This Sits in Your Funnel</h2>
+<p>The whole point of this build is the placement. It plugs into the exact stage of B2B outbound that's most expensive per unit of value: contact-level research and personalization.</p>
+<p>Before:</p>
+<pre><code>List → SDR opens LinkedIn for each contact (10 min)
+     → SDR writes custom intro line (5 min)
+     → SDR pastes into HubSpot template (1 min)
+     → Email sends
+</code></pre>
+<p>After:</p>
+<pre><code>List → Claude researches and fills 4 properties (~30 sec per contact, batch)
+     → HubSpot Sequence template uses the properties
+     → Email sends
+</code></pre>
+<p>The SDR's role doesn't go away. It moves to the work that actually closes deals: reply handling, qualifying, calls booked, demos run. The research-and-write step that was eating 60% of their time is gone.</p>
+<h2>Beyond Outbound</h2>
+<p>Greg's video calls this out specifically. The same pattern works for:</p>
+<p><strong>Account research before a sales call.</strong> Point Claude at the prospect's HubSpot record plus their company's public moves over the last 90 days. Get a pre-call brief that's actually useful instead of a stale firmographic dump.</p>
+<p><strong>Customer success QBRs.</strong> Before a quarterly business review, point Claude at the customer's HubSpot record plus their public news. Auto-build the &quot;what changed&quot; section of the QBR deck. Your CSM walks into the meeting with sharper context than the customer's own staff.</p>
+<p><strong>Inbound lead enrichment on form submit.</strong> Every time a lead submits a form, Claude triggers a research pass. By the time the AE picks up the phone, the contact record has firmographics, recent initiatives, a buying signal, and a positioning angle. The AE sounds like a strategic advisor on the first call.</p>
+<p>The common thread: anywhere you're using HubSpot data to drive a human conversation, this layer makes the conversation better.</p>
+<h2>Gotchas and Tips</h2>
+<ul>
+<li><strong>Don't auto-send. Draft first.</strong> Run the agent in a mode where it fills properties but you still review the Sequence enrollment manually for the first two weeks. Build trust before scaling.</li>
+<li><strong>Your four properties are the whole game.</strong> Spend time on these. They are the difference between personalization that feels like a friend wrote it and personalization that feels like Mad Libs.</li>
+<li><strong>Match the prompt to your industry voice.</strong> If you sell to enterprise CIOs, the icebreaker should sound like enterprise CIOs talk. If you sell to plumbers, the icebreaker should sound like a plumber wrote it. The agent is only as good as the voice you give it.</li>
+<li><strong>Don't run on cold lists you bought.</strong> Garbage in, garbage out. Run this on lists you built yourself or pulled from accounts that match your ICP.</li>
+<li><strong>HubSpot connector is the unlock.</strong> Other CRMs are catching up but the HubSpot integration is the smoothest right now. If you're on Pipedrive or Salesforce, the same pattern works but you'll need a middleware step until those connectors mature.</li>
+<li><strong>Cost ceiling is your Claude usage, not your enrichment bill.</strong> Most teams running this at scale see Claude costs of $30-100/month replace $500+/month enrichment subscriptions. That math doesn't include the SDR time you reclaim.</li>
+<li><strong>The pattern beats the tool.</strong> The framework here is segment-pull → research → write structured data back. Whatever your CRM is, that pattern works. Build it on the tool you already use.</li>
+</ul>
+<hr>
+<h2>Keep Reading</h2>
+<ul>
+<li><strong><a href="/playbooks/cold-email-list-pipeline/">Stop Buying Cold Email Lists. Build One That Actually Books Meetings.</a></strong>: Once your enrichment is automated, here's how to build the list that goes into it.</li>
+<li><strong><a href="/playbooks/linkedin-outreach-while-you-sleep/">100 Personalized LinkedIn DMs. Sent Overnight. Zero Copy-Paste.</a></strong>: The same personalization-at-scale pattern, applied to LinkedIn instead of HubSpot.</li>
+<li><strong><a href="/playbooks/nex-crm/">Replace Your CRM With a Conversation</a></strong>: If you're earlier than HubSpot, the lighter-weight version of building a CRM-as-AI from the ground up.</li>
+</ul>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators</p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

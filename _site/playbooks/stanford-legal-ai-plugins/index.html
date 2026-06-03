@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stanford Built 12 AI Plugins for Lawyers. Here&#39;s How Your Firm Gets the Same Edge. — ClawDrop</title>
+  <meta name="description" content="Stanford Law shipped a 12-pack of practice-area Claude Code plugins covering M&amp;A diligence, privacy, employment, and more. Here&#39;s why solo practices and small firms have the most to gain, and how to build the same stack.">
+  <meta property="og:title" content="Stanford Built 12 AI Plugins for Lawyers. Here&#39;s How Your Firm Gets the Same Edge. — ClawDrop">
+  <meta property="og:description" content="Stanford Law shipped a 12-pack of practice-area Claude Code plugins covering M&amp;A diligence, privacy, employment, and more. Here&#39;s why solo practices and small firms have the most to gain, and how to build the same stack.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/stanford-legal-ai-plugins/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Stanford Built 12 AI Plugins for Lawyers. Here&#39;s How Your Firm Gets the Same Edge. — ClawDrop">
+  <meta name="twitter:description" content="Stanford Law shipped a 12-pack of practice-area Claude Code plugins covering M&amp;A diligence, privacy, employment, and more. Here&#39;s why solo practices and small firms have the most to gain, and how to build the same stack.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/stanford-legal-ai-plugins/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+    .logo:hover { color: var(--ink); }
+    .logo-img { width: 32px; height: 32px; border-radius: 7px; display: block; flex-shrink: 0; }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 380px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo"><img src="/assets/clawdrop-logo.png" alt="ClawDrop" class="logo-img">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">May 26, 2026</div>
+    <h1>Stanford Built 12 AI Plugins for Lawyers. Here&#39;s How Your Firm Gets the Same Edge.</h1>
+    <p class="post-description">Stanford Law shipped a 12-pack of practice-area Claude Code plugins covering M&amp;A diligence, privacy, employment, and more. Here&#39;s why solo practices and small firms have the most to gain, and how to build the same stack.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Intermediate</strong></span>
+      <span class="meta-badge">💰 <strong>$20-100/month per plugin in use</strong></span>
+      <span class="meta-badge">⏱ <strong>One weekend per practice area</strong></span>
+      <span class="meta-badge">👤 <strong>Stanford Law School</strong></span>
+      <a href="https://www.youtube.com/watch?v=_ig8ihUKyOk" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-claude-code"><strong>Claude Code</strong></a>: the host for the plugin layer and the chat interface for working with each plugin</li>
+<li><a href="#aff-openclaw"><strong>OpenClaw</strong></a>: can run the same plugins inside a self-hosted agent</li>
+<li><a href="#aff-anthropic"><strong>Anthropic</strong></a>: Claude API powering the plugin logic</li>
+<li><a href="#aff-notion"><strong>Notion</strong></a>: one place to keep matter notes that the plugins can reference</li>
+<li><a href="#aff-clio"><strong>Clio</strong></a>: practice management system most plugins can read from and write to</li>
+<li><a href="#aff-imanage"><strong>iManage</strong></a>: document management system for firms that have one</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>A pack of practice-area AI plugins that each act like a junior associate trained in one specific area of law. Each plugin lives inside Claude Code (or any OpenClaw setup) and handles the recurring research, drafting, and review tasks for one practice area.</p>
+<p>Stanford released 12 of them in May. The areas, paraphrased from the public release:</p>
+<ol>
+<li>M&amp;A due diligence</li>
+<li>Privacy and data protection</li>
+<li>Employment law</li>
+<li>Real estate</li>
+<li>Intellectual property</li>
+<li>Securities and corporate finance</li>
+<li>Tax</li>
+<li>Litigation discovery</li>
+<li>Bankruptcy and restructuring</li>
+<li>Antitrust</li>
+<li>Family law</li>
+<li>Estate planning</li>
+</ol>
+<p>Each plugin is not a general assistant. It is a specialist. The M&amp;A plugin knows the standard reps and warranties, the deal-stage checklist, the diligence categories, and the common pitfalls. The privacy plugin knows GDPR, CCPA, HIPAA, and the cross-border data flows. The employment plugin knows ADA, FMLA, FLSA, state-by-state non-compete rules.</p>
+<p>The pack is publicly visible. The pattern is reproducible. The question for your firm is which three or four matter most to your practice, and whether you build them this quarter or watch a competitor do it.</p>
+<h2>Why This Works</h2>
+<p>Big law has been throwing money at AI for two years. The headline projects all look the same: a &quot;firm-wide AI platform&quot; with a $300K vendor contract, a steering committee, a 12-month rollout, and a final product that's basically Word with a chat bubble.</p>
+<p>Stanford did the opposite. They built <strong>practice-area plugins</strong>, not a firm-wide platform. Each plugin is small, specific, and tunable. A senior partner in one practice area can adjust their plugin without breaking anyone else's. The plugins ship as code, version-controlled, reviewable.</p>
+<p>For a solo lawyer or a 5-30 person firm, this is the unlock. You do not need a firm-wide platform. You do not need a vendor contract. You need three or four plugins, tuned to the work that actually pays your bills, and a workflow that uses them every day.</p>
+<p>The economics are not subtle. A first-year associate at a regional firm bills out at $300-500/hour. A specialist plugin runs the same routine work for cents. The plugin does not replace the associate. The plugin replaces the <em>first 70% of the work</em> the associate would have done before a partner reviewed it. The associate then spends their hours on the 30% that needs judgment.</p>
+<h2>What's Actually In a Plugin</h2>
+<p>Each Stanford plugin has roughly the same shape. Pull it apart and the structure is:</p>
+<ul>
+<li><strong>A knowledge base</strong> of the practice area. Statutes, case law summaries, regulatory guidance, secondary sources. The plugin loads this as context every time it's invoked.</li>
+<li><strong>A set of checklists.</strong> The diligence categories for M&amp;A. The privacy compliance questions. The employment law screen. Reusable prompts that the lawyer triggers with one command.</li>
+<li><strong>A drafting library.</strong> Boilerplate clauses, standard agreements, motion templates, retainer letters. The plugin generates first drafts and the lawyer reviews.</li>
+<li><strong>Tool access.</strong> The plugin can read the firm's document management system, pull a specific case file from the practice management tool, or search Westlaw if the firm has an account.</li>
+<li><strong>A skills layer.</strong> Specific reusable tasks: redline this agreement against the standard, summarize this deposition transcript, generate a discovery request based on the case theory.</li>
+</ul>
+<p>The genius of the plugin architecture is that none of this requires a vendor. It is all definitions in markdown and code, sitting in a repo your firm controls. You can version it. You can audit it. You can fork it.</p>
+<h2>How to Build Your Own (Pattern from Stanford's Release)</h2>
+<h3>Step 1: Pick One Practice Area</h3>
+<p>If your firm does seven things, pick the <em>one</em> where you do the most repeat work. For most small firms that's one of:</p>
+<ul>
+<li>Employment law (the volume work is mostly handbooks, separation agreements, and unemployment responses).</li>
+<li>Estate planning (the volume work is wills, trusts, and powers of attorney with predictable variations).</li>
+<li>Real estate (the volume work is residential closings, leases, and standard purchase agreements).</li>
+<li>Family law (the volume work is divorce filings, custody motions, and discovery).</li>
+</ul>
+<p>Pick the one where you bill the most hours. The plugin pays for itself fastest in the area you do most.</p>
+<h3>Step 2: Inventory the Recurring Tasks</h3>
+<p>For the practice area you picked, write down every task you do more than once a month. For estate planning, that might be:</p>
+<ul>
+<li>Intake interview and conflict check</li>
+<li>First draft of a will from intake notes</li>
+<li>First draft of a revocable trust from intake notes</li>
+<li>First draft of a power of attorney</li>
+<li>Healthcare directive draft</li>
+<li>Cover letter and execution instructions</li>
+<li>Annual review checklist for existing clients</li>
+</ul>
+<p>Each task becomes one capability of the plugin.</p>
+<h3>Step 3: Capture the Practice Knowledge</h3>
+<p>Before you write a single prompt, gather the inputs:</p>
+<ul>
+<li><strong>Statutes.</strong> The state-specific code sections that govern your practice. PDF or URL.</li>
+<li><strong>Standard forms.</strong> Your firm's templated documents, the ones you start every matter from.</li>
+<li><strong>Checklists.</strong> The mental checklists you've built over years. Get them out of your head and into a document.</li>
+<li><strong>Common pitfalls.</strong> The mistakes you've seen junior associates make. The edge cases that bite people.</li>
+</ul>
+<p>These become the knowledge base the plugin loads as context. Quality of inputs determines quality of output. If your standard will is great, the plugin's first draft will be great. If your standard will is sloppy, the plugin will produce sloppy first drafts faster than ever.</p>
+<h3>Step 4: Write the Plugin Definition</h3>
+<p>A plugin is a folder. Inside the folder:</p>
+<ul>
+<li>A <code>plugin.md</code> file that describes the plugin's purpose, its capabilities, and the rules it must follow.</li>
+<li>A <code>knowledge/</code> directory with the statutes, forms, and checklists from Step 3.</li>
+<li>A <code>skills/</code> directory with one file per recurring task. Each skill is a prompt template plus the tools it can use.</li>
+<li>A <code>safety.md</code> file with the hard rules. <em>Never give legal advice to a non-client. Always flag jurisdictional uncertainty. Always recommend human review on first-time matters.</em></li>
+</ul>
+<p>Claude Code loads the plugin folder when you invoke it. OpenClaw runs the same definitions in a self-hosted setup.</p>
+<h3>Step 5: Run It on a Closed Matter</h3>
+<p>Before you point it at a live matter, run it on a matter you closed six months ago. Ask the plugin to draft the will. Compare what it produces to the final document your firm actually signed. Note every place the plugin got it wrong.</p>
+<p>The first run is 60-70% there. The second run, after you've tuned the prompts, is 80-85% there. The third run, with the knowledge base properly indexed, is 90-95%. That is your operating quality. The plugin is now ready for live matters where the lawyer reviews every output.</p>
+<h3>Step 6: Lock the Safety Rails</h3>
+<p>For legal work specifically, the safety rules matter more than the productivity gains. Hard rules to encode:</p>
+<ul>
+<li>The plugin never sends output directly to a client. Every output is reviewed by the lawyer.</li>
+<li>The plugin always flags when a matter has jurisdictional questions outside its training.</li>
+<li>The plugin never makes confident claims about case law without citing the case and verifying the citation.</li>
+<li>The plugin escalates to the lawyer when a fact pattern is novel or the client's situation is unusual.</li>
+</ul>
+<p>These are non-negotiable for the same reason the bar makes you supervise paralegals. The plugin is a paralegal that never sleeps. Supervise it like one.</p>
+<h3>Step 7: Train Your Team to Invoke It</h3>
+<p>If the plugin is on every associate's machine but nobody actually uses it, the project failed. Two things drive adoption:</p>
+<ul>
+<li><strong>One-keystroke invocation.</strong> The plugin should be in the firm's standard Claude Code setup so any associate can call it without configuration.</li>
+<li><strong>A weekly internal review.</strong> Once a week, the team picks one output the plugin produced and walks through it together. What was good? What was off? What would the lawyer have done differently? The plugin gets better. The team gets sharper.</li>
+</ul>
+<p>After three or four weeks, the plugin becomes the default starting point for every matter in that practice area. After three months, your associates won't remember how they used to start a matter without it.</p>
+<h2>Adapting This for Other Professional Service Practices</h2>
+<p>The plugin architecture is not legal-specific. The pattern applies to any practice where:</p>
+<ul>
+<li>The work is repeatable in shape but unique in detail</li>
+<li>A knowledge base of statutes, codes, or standards governs the work</li>
+<li>A senior practitioner reviews the work of a junior practitioner</li>
+</ul>
+<p><strong>Accounting firms.</strong> Plugins per service line: tax prep, audit, advisory, bookkeeping. Each plugin knows the relevant code, the standard checklists, the firm's working papers format.</p>
+<p><strong>Architecture and engineering firms.</strong> Plugins per discipline: structural, mechanical, electrical, code compliance. Each plugin knows the building codes, the firm's drawing standards, the typical review checklist.</p>
+<p><strong>Financial planning practices.</strong> Plugins per service line: retirement planning, estate planning, business owner exit planning. Each plugin knows the relevant tax code, the firm's planning checklist, the standard deliverables.</p>
+<p><strong>Insurance brokerages.</strong> Plugins per coverage area: property, casualty, life, health, employee benefits. Each plugin knows the policy forms, the underwriting questions, the standard renewal checklist.</p>
+<p><strong>Medical and dental practices.</strong> Plugins per specialty area: insurance coding, prior authorization, post-op instructions, treatment planning. Each one tuned to the specific clinical workflow.</p>
+<p>The throughline is specialist knowledge plus repeatable tasks. Wherever that combination exists, the plugin pattern beats the platform pattern.</p>
+<h2>Gotchas and Tips</h2>
+<ul>
+<li><strong>Do not start with M&amp;A or litigation.</strong> The Stanford pack includes these because Stanford has the M&amp;A and litigation faculty to oversee them. For a small firm, the high-value first plugin is the volume practice area, not the prestige practice area.</li>
+<li><strong>The knowledge base ages.</strong> Statutes change. Case law evolves. Set a quarterly calendar reminder to refresh the plugin's knowledge base. A stale plugin is worse than no plugin.</li>
+<li><strong>Cite everything.</strong> Configure the plugin to cite its source for every legal claim it makes. A plugin that asserts a rule without a citation is a malpractice complaint waiting to happen.</li>
+<li><strong>Audit the model's confidence.</strong> Newer Claude models will tell you they're uncertain. Tune the plugin to surface those moments to the lawyer rather than papering over them.</li>
+<li><strong>Conflict checks are not optional.</strong> Wire the plugin to run a conflict check against the firm's client list before it starts work on a new matter. The plugin should refuse to proceed if a conflict is detected.</li>
+<li><strong>Talk to your malpractice carrier.</strong> Some carriers want to know if you're using AI on client work. Most policies are silent on the question. Get clarity before you have a problem.</li>
+</ul>
+<h2>What This Replaces</h2>
+<p>Before this stack:</p>
+<ul>
+<li><strong>First-year associate salary:</strong> $90K-200K depending on market, billed at $300-500/hour</li>
+<li><strong>Paralegal salary:</strong> $50K-80K, billed at $150-250/hour</li>
+<li><strong>Per-matter intake time:</strong> 2-4 hours of attorney time before drafting starts</li>
+<li><strong>First-draft turnaround:</strong> 4-8 hours for a standard will, longer for complex documents</li>
+</ul>
+<p>After this stack:</p>
+<ul>
+<li><strong>Per-matter intake time:</strong> 30 minutes of attorney review of plugin output</li>
+<li><strong>First-draft turnaround:</strong> 15-20 minutes for the plugin to produce, 30 minutes for attorney review</li>
+<li><strong>Effective practice area capacity:</strong> roughly doubles without adding headcount</li>
+</ul>
+<p>For a solo or small firm, this is the difference between turning down work and taking it. The Stanford pack is the public proof that the architecture works at the top of the profession. Your firm's job is to ship the small-firm version before another small firm in your market does.</p>
+<hr>
+<h2>Keep Reading</h2>
+<ul>
+<li><strong><a href="/playbooks/buying-a-business-with-ai/">How an AI Helps You Buy a Business (Without a $50K Broker)</a></strong>: The buyer's-side companion. Same plugin pattern applied to deal sourcing and diligence instead of legal practice.</li>
+<li><strong><a href="/playbooks/cpa-quickbooks-monthly-close/">This Accountant Trained Her AI to Close the Books Every Month</a></strong>: The accounting parallel. A specialist practitioner builds a plugin for one recurring task and turns it into a moat.</li>
+<li><strong><a href="/playbooks/ai-front-desk/">The Four-Piece AI Front Desk Every SMB Should Have Running by Friday</a></strong>: For the client-facing layer most professional services firms also need. Stack it alongside the practice-area plugins for a complete operating system.</li>
+</ul>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators</p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

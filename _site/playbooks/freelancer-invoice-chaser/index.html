@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>He Lost a Client to a Missed Follow-Up Email. Then He Stopped Doing Follow-Ups. — ClawDrop</title>
+  <meta name="description" content="A freelancer gave Claude access to Gmail and told it nothing should sit unanswered for more than 48 hours. Six weeks later, he hasn&#39;t missed a single follow-up and reclaimed his Sundays. The pattern works for any solo operator drowning in the admin half of the job.">
+  <meta property="og:title" content="He Lost a Client to a Missed Follow-Up Email. Then He Stopped Doing Follow-Ups. — ClawDrop">
+  <meta property="og:description" content="A freelancer gave Claude access to Gmail and told it nothing should sit unanswered for more than 48 hours. Six weeks later, he hasn&#39;t missed a single follow-up and reclaimed his Sundays. The pattern works for any solo operator drowning in the admin half of the job.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/freelancer-invoice-chaser/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="He Lost a Client to a Missed Follow-Up Email. Then He Stopped Doing Follow-Ups. — ClawDrop">
+  <meta name="twitter:description" content="A freelancer gave Claude access to Gmail and told it nothing should sit unanswered for more than 48 hours. Six weeks later, he hasn&#39;t missed a single follow-up and reclaimed his Sundays. The pattern works for any solo operator drowning in the admin half of the job.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/freelancer-invoice-chaser/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+    .logo:hover { color: var(--ink); }
+    .logo-img { width: 32px; height: 32px; border-radius: 7px; display: block; flex-shrink: 0; }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 380px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo"><img src="/assets/clawdrop-logo.png" alt="ClawDrop" class="logo-img">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">May 12, 2026</div>
+    <h1>He Lost a Client to a Missed Follow-Up Email. Then He Stopped Doing Follow-Ups.</h1>
+    <p class="post-description">A freelancer gave Claude access to Gmail and told it nothing should sit unanswered for more than 48 hours. Six weeks later, he hasn&#39;t missed a single follow-up and reclaimed his Sundays. The pattern works for any solo operator drowning in the admin half of the job.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Beginner</strong></span>
+      <span class="meta-badge">💰 <strong>$20/month (Claude or OpenClaw subscription)</strong></span>
+      <span class="meta-badge">⏱ <strong>An afternoon, with a week of correction</strong></span>
+      <span class="meta-badge">👤 <strong>u/ParsnipSure5095</strong></span>
+      <a href="https://old.reddit.com/r/youngentrepreneur/comments/1sxqemw/running_an_openclaw_ai_agent_changed_how_i_manage/" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-openclaw"><strong>OpenClaw</strong></a>: the always-on agent that watches your inbox and runs follow-ups.</li>
+<li><a href="#aff-gmail"><strong>Gmail</strong></a>: the inbox the agent monitors and drafts replies into. Outlook works the same way.</li>
+<li><a href="#aff-telegram"><strong>Telegram</strong></a>: how the agent pings you with what it's about to send. Approve from your phone.</li>
+<li><a href="#aff-calendly"><strong>Calendly</strong></a>: for the booking step, if your follow-ups end in a call.</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>An always-on agent that runs the non-billable half of freelancing. It watches your inbox, chases overdue invoices, remembers what you promised to which client, preps you for upcoming calls, and answers the questions you've already answered a hundred times.</p>
+<p>You set the rule once: nothing sits unanswered for more than 48 hours. The agent enforces it. You stop carrying client follow-ups in your head. You stop spending Sunday evenings catching up on the week's admin.</p>
+<p>This comes from a real freelancer who lost a client because a follow-up email got buried under everything else. By the time he saw it, the client had hired somebody else. He set up OpenClaw on a Friday. Six weeks later he hasn't missed a single follow-up.</p>
+<h2>The Problem Every Freelancer Lives With</h2>
+<p>The taboo part of freelancing nobody talks about: how much time goes into everything that isn't the work.</p>
+<p>Following up on an invoice that's three weeks overdue. Tracking what you promised to which client in which Slack message. Prepping for a call you have in an hour with a client whose last email was 12 days ago and you can't remember the context. Answering the same five questions over and over because your clients don't read the proposal.</p>
+<p>You build a system to manage it. A Notion database. Calendar reminders. A spreadsheet of active clients. You spend a Sunday building it, you maintain it for three weeks, and then a deadline week happens and the system goes stale and things start falling through.</p>
+<p>You lose one client to a missed follow-up. You promise yourself you'll be better at this. You go build a new system.</p>
+<p>This is the workflow the reddit poster called out. He lost a client to a buried follow-up email. He decided to actually set up OpenClaw instead of leaving it open in a tab he never used. Six weeks in, the problem is gone.</p>
+<h2>How It Works</h2>
+<p>The setup is small. The discipline is in the rules you give the agent, not the configuration.</p>
+<h3>The Core Loop</h3>
+<pre><code>NEW EMAIL ARRIVES
+  |
+  v
+AGENT READS IT
+  - Is this from an active client?
+  - Is this a question I've answered before? → draft using the standard answer
+  - Is this an invoice acknowledgment? → mark invoice paid, send thank-you
+  - Is this a new request? → flag for me with context
+  - Is this 48+ hours old without a reply? → escalate
+  |
+  v
+AGENT PINGS ME ON TELEGRAM
+  &quot;Sarah just asked when she'll get the deliverable.
+  Last commitment to her was Wed. Draft reply ready. Send?&quot;
+  |
+  v
+I APPROVE, OR EDIT, OR HANDLE MANUALLY
+</code></pre>
+<h3>The Rules You Set</h3>
+<p>The freelancer's original setup, paraphrased from his post:</p>
+<ol>
+<li><strong>Define active clients.</strong> Tell the agent which 5-10 clients are currently active. Everyone else is archive.</li>
+<li><strong>48-hour rule.</strong> Nothing from an active client sits unanswered for more than 48 hours. Period. If the agent can't draft a reply, it escalates to you with full context.</li>
+<li><strong>Promise tracking.</strong> Every time you promise a client something in writing, the agent extracts it. &quot;Deliverable by Wednesday.&quot; &quot;Will send pricing by EOW.&quot; &quot;Following up on the contract Monday.&quot; The agent remembers and tracks the deadline.</li>
+<li><strong>FAQ patterns.</strong> Write out your answers to the questions you get over and over. &quot;When will I receive the final files?&quot; &quot;Do you offer revisions?&quot; &quot;What's your turnaround?&quot; The agent uses your language.</li>
+<li><strong>Invoice follow-up cadence.</strong> 7 days overdue: friendly nudge. 14 days: firm follow-up. 21 days: escalation draft for you to review.</li>
+</ol>
+<h3>The Setup (One Afternoon)</h3>
+<p><strong>What you need:</strong></p>
+<ul>
+<li>OpenClaw running (managed or self-hosted)</li>
+<li>Gmail or Outlook OAuth access for the agent</li>
+<li>Telegram set up so the agent can ping you</li>
+<li>A document with your standard answers to common client questions</li>
+<li>A list of your currently-active clients</li>
+</ul>
+<p><strong>Step 1: Spin up OpenClaw with Telegram and Gmail access.</strong> Read-only on the inbox to start, with draft permissions.</p>
+<p><strong>Step 2: Write your client roster.</strong> Just a list. Names, current project context, active or paused.</p>
+<p><strong>Step 3: Write your FAQ doc.</strong> Twenty common questions and how you answer them. Be specific. Include actual prices, actual timelines, actual revision policies.</p>
+<p><strong>Step 4: Set the 48-hour rule.</strong> Tell the agent explicitly: &quot;If any email from an active client has gone 48 hours without a reply from me, escalate it. Even if you're not sure what to draft.&quot;</p>
+<p><strong>Step 5: Run in draft-only mode for a week.</strong> Every action the agent wants to take, it asks you first on Telegram. You approve, edit, or override. The agent learns your voice.</p>
+<p><strong>Step 6: Loosen permissions.</strong> After two weeks of clean output, let it auto-send the simple stuff: FAQ replies, invoice acknowledgments, scheduling confirmations. Keep the judgment calls in your queue.</p>
+<h2>What Changes After Setup</h2>
+<p><strong>Week 1:</strong> You spend the week correcting the agent. It drafts replies that are 90% right and 10% wrong. You fix them. You watch its judgment get sharper.</p>
+<p><strong>Week 2:</strong> The agent starts catching things you'd have missed. &quot;Mike's invoice from 19 days ago hasn't been paid. Send the follow-up?&quot; &quot;Jordan asked about timeline three days ago. You haven't replied. Here's my draft.&quot;</p>
+<p><strong>Month 1:</strong> You stop carrying client follow-ups in your head. The mental tax of &quot;did I email Sarah back yet?&quot; drops to zero. You sleep better.</p>
+<p><strong>Month 2:</strong> Your invoice collections accelerate. Clients who used to take 30 days now pay in 18 because the polite nudges go out on time, every time, regardless of how busy you are.</p>
+<p><strong>Month 6:</strong> You realize you haven't lost a single client to slow response. You take on one more retainer than you used to be able to handle because the admin layer is no longer the bottleneck.</p>
+<h2>The Numbers Worth Caring About</h2>
+<p><strong>Time reclaimed:</strong> Average freelancer spends 6-10 hours/week on admin (invoicing, follow-ups, scheduling, FAQ replies). This build cuts that by 70-80%. That's 4-8 hours/week. At $75-150/hour billable time, that's $300-1,200/week in capacity you didn't have.</p>
+<p><strong>Sunday evenings:</strong> Specifically. Get them back. Every freelancer reading this knows what that's worth.</p>
+<p><strong>Client retention:</strong> The poster's framing was right. Most freelancer churn isn't quality, it's response time. Closing the response-time gap closes the churn gap.</p>
+<p><strong>Cost:</strong> $20/month for the subscription. Probably less than the Notion + Calendly + reminder app stack you're already paying for.</p>
+<h2>Beyond Freelancing</h2>
+<p>The same pattern works for any solo operator or micro-team where the principal is the bottleneck:</p>
+<p><strong>Solo consultants.</strong> Same role, same problem.</p>
+<p><strong>Solo therapists / coaches / lawyers.</strong> Scheduling, intake forms, reschedule requests, follow-up emails. Everything that's not the billable hour.</p>
+<p><strong>Designers and creative agencies under 5 people.</strong> The owner ends up doing all the client communication. This offloads it.</p>
+<p><strong>Bookkeepers and CPAs.</strong> Client check-ins, document chase emails, monthly close prep. Same pattern.</p>
+<p><strong>Sales reps with named accounts.</strong> Account follow-ups, meeting prep, internal handoff notes.</p>
+<p>The common thread: anyone whose job is part billable work, part client babysitting. The agent runs the babysitting half.</p>
+<h2>Gotchas and Tips</h2>
+<ul>
+<li><strong>Draft-only for the first week. Always.</strong> Don't let the agent send unsupervised until you've watched it for a week. Your voice matters, your client relationships matter, and the agent will get one or two early replies subtly wrong in ways that can ding you.</li>
+<li><strong>Your FAQ doc is the asset.</strong> Spend real time on it. The better your initial answers, the less correction you'll do later. Update it whenever you get a question the agent didn't know.</li>
+<li><strong>Define &quot;active client&quot; sharply.</strong> The agent should NOT be sending replies to old leads, prospects who ghosted, or one-off contractors. Be explicit.</li>
+<li><strong>Tell it your tone.</strong> &quot;Replies should sound like me. Conversational, warm, slightly informal. Never use the word 'circle back.' Sign every email 'Talk soon, [name].'&quot; Specifics matter.</li>
+<li><strong>The 48-hour rule is the magic.</strong> Don't drop it. The whole value is that nothing slips. If you let it slip to 72 or 96 hours, the discipline erodes and you're back to where you started.</li>
+<li><strong>Don't automate invoicing collections too aggressively.</strong> The 7/14/21 day cadence works because each step is firmer than the last. Don't skip to firm-tone too fast — that's how relationships get damaged.</li>
+<li><strong>Review the weekly digest.</strong> Once a week, look at everything the agent did. Catch drift early. It's a 10-minute review that compounds.</li>
+</ul>
+<hr>
+<h2>Keep Reading</h2>
+<ul>
+<li><strong><a href="/playbooks/hubspot-research-agent/">Two Prompts and Your HubSpot Just Replaced Your Enrichment Tool</a></strong>: For when you've graduated from solo to running a small sales motion in HubSpot.</li>
+<li><strong><a href="/playbooks/used-car-lot-sourcing-scout/">The Used Car Lot That Out-Sources a 4-Person Buying Team With One Agent</a></strong>: Same principal-is-the-bottleneck problem, sourcing side instead of client side.</li>
+<li><strong><a href="/playbooks/five-day-automation-sprint/">The Five-Day Automation Sprint: $22K Found in Tax Deductions</a></strong>: For the half of your admin that lives in money flows instead of client emails.</li>
+</ul>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators</p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

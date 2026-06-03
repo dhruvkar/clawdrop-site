@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>He Replaced His Endurance Coach With an AI. It Adjusts His Training Plan in Real Time. — ClawDrop</title>
+  <meta name="description" content="James Eastwood built Coach Cadence on OpenClaw. It reads sports science literature, watches his intervals.icu data, and rewrites his weekly training plan as life happens. Here&#39;s the architecture that makes AI safe to put in charge of your body.">
+  <meta property="og:title" content="He Replaced His Endurance Coach With an AI. It Adjusts His Training Plan in Real Time. — ClawDrop">
+  <meta property="og:description" content="James Eastwood built Coach Cadence on OpenClaw. It reads sports science literature, watches his intervals.icu data, and rewrites his weekly training plan as life happens. Here&#39;s the architecture that makes AI safe to put in charge of your body.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/ai-endurance-coach-cadence/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="He Replaced His Endurance Coach With an AI. It Adjusts His Training Plan in Real Time. — ClawDrop">
+  <meta name="twitter:description" content="James Eastwood built Coach Cadence on OpenClaw. It reads sports science literature, watches his intervals.icu data, and rewrites his weekly training plan as life happens. Here&#39;s the architecture that makes AI safe to put in charge of your body.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/ai-endurance-coach-cadence/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+    .logo:hover { color: var(--ink); }
+    .logo-img { width: 32px; height: 32px; border-radius: 7px; display: block; flex-shrink: 0; }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 380px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo"><img src="/assets/clawdrop-logo.png" alt="ClawDrop" class="logo-img">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">May 26, 2026</div>
+    <h1>He Replaced His Endurance Coach With an AI. It Adjusts His Training Plan in Real Time.</h1>
+    <p class="post-description">James Eastwood built Coach Cadence on OpenClaw. It reads sports science literature, watches his intervals.icu data, and rewrites his weekly training plan as life happens. Here&#39;s the architecture that makes AI safe to put in charge of your body.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Advanced</strong></span>
+      <span class="meta-badge">💰 <strong>$0-30/month (intervals.icu free tier + OpenClaw + Claude API)</strong></span>
+      <span class="meta-badge">⏱ <strong>A weekend for the basic loop, ongoing tuning</strong></span>
+      <span class="meta-badge">👤 <strong>James Eastwood</strong></span>
+      <a href="https://discord.com/channels/1456350064065904867/1456609488202105005/1470145036275421423" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-openclaw"><strong>OpenClaw</strong></a>: hosts the agent, the engine, and the safety rules</li>
+<li><a href="#aff-anthropic"><strong>Claude</strong></a>: the brain that interacts with the user and proposes plan changes</li>
+<li><a href="#aff-intervalsicu"><strong>intervals.icu</strong></a>: training platform that ingests Garmin, Strava, Wahoo, and structured workouts</li>
+<li><a href="#aff-garmin"><strong>Garmin Connect</strong></a>: the wearable layer that feeds intervals.icu the daily data</li>
+<li><a href="#aff-strava"><strong>Strava</strong></a>: alternative wearable feed if you don't use Garmin</li>
+<li><a href="#aff-telegram"><strong>Telegram</strong></a>: the daily check-in interface the coach uses to talk to you</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>A personal AI coach that does what a good endurance coach actually does. Reads your daily data. Adjusts the week's training plan when life changes. Tells you to back off when you need to. Talks to you like a coach, not like an app.</p>
+<p>James Eastwood (who runs Coach Cadence on OpenClaw as part of a small fleet of personal agents) built the version we're looking at here. The fleet, in his words: a PA that runs his other bots and admin, a trader for his investments, an endurance coach (Coach Cadence), a home assistant, and a Catalan teacher.</p>
+<p>Coach Cadence is the one that earned the most love in his showcase. The reason: it does the boring middle work that a $200/month human coach does, without the scheduling friction, the texting back-and-forth, and the wait time between adjustments.</p>
+<p>The architecture is the part that matters more than the use case. James called out the hardest part himself: getting the balance right between agent autonomy and an engine that prevents hallucinations. That's the lesson worth keeping, whether you're using it for endurance training, strength programming, marathon prep, or anything else where wrong-in-confident-tone could hurt you.</p>
+<h2>Why This Works</h2>
+<p>Endurance training is a data-rich, advice-poor problem. You have:</p>
+<ul>
+<li>A wearable that captures sleep, HRV, resting heart rate, training load, and recovery score every day.</li>
+<li>A workout history with every interval, every climb, every recovery week.</li>
+<li>A goal somewhere on the calendar (a half-marathon, a century ride, a triathlon).</li>
+<li>A life that keeps disrupting the plan (work travel, sickness, family, weather).</li>
+</ul>
+<p>What you don't have: someone who watches all of it daily and adjusts. Most amateur athletes get advice from a generic plan they bought on a PDF, a coach they check in with weekly (if they have a coach at all), or a community on Strava that's louder than it is helpful. The data is great. The advice loop is broken.</p>
+<p>A well-built AI coach closes the loop. It reads the data every morning. It sees that you slept five hours and your HRV is in the basement. It moves your hard Tuesday session to Wednesday. It tells you why. You go run an easy thirty minutes instead of trying to hit intervals.</p>
+<p>What makes the OpenClaw version different from a generic LLM is the engine layer. The agent is not freelancing. It is proposing changes against a structured training plan, and a deterministic engine validates each proposed change against the science before it tells you to do anything.</p>
+<h2>The Architecture That Makes It Safe</h2>
+<p>This is the core lesson from Coach Cadence and the part worth stealing for any &quot;AI in charge of something physical&quot; build.</p>
+<h3>Layer 1: The Engine</h3>
+<p>The engine is a deterministic system that knows the rules of endurance training. Not an LLM. Real code that encodes:</p>
+<ul>
+<li><strong>Training stress balance.</strong> The relationship between fatigue (accumulated load) and freshness (recent recovery). If your fatigue is too high, the engine refuses to schedule another hard day.</li>
+<li><strong>Polarized intensity distribution.</strong> Most aerobic training should be easy. The engine enforces the 80/20 (or 70/20/10) rule for the week's prescribed work.</li>
+<li><strong>Periodization phases.</strong> Base, build, peak, taper. The engine knows where you are in the macrocycle and what types of work belong in that phase.</li>
+<li><strong>Recovery requirements.</strong> Hard days need easy days. The engine enforces a minimum recovery before the next high-intensity session.</li>
+<li><strong>Goal-specific volume.</strong> Your weekly volume target depends on your race goal. The engine knows the typical training volumes for a 5K vs. a marathon vs. an Ironman.</li>
+</ul>
+<p>The engine is the bottom layer. It is deterministic. It does not hallucinate. It says yes or no to any proposed plan change.</p>
+<h3>Layer 2: The Agent</h3>
+<p>The agent (Claude through OpenClaw) is the conversational and proposal layer. It does the things engines are bad at:</p>
+<ul>
+<li>Reads the raw daily wellness data and notices the qualitative shift (&quot;you've reported elevated stress three days in a row&quot;).</li>
+<li>Generates a proposed adjustment to the week's plan in natural language.</li>
+<li>Talks to you like a coach. Asks how you feel. Listens to your context.</li>
+<li>Translates &quot;I'm slammed at work this week&quot; into &quot;let's drop Thursday's tempo run and move the long run to Saturday morning.&quot;</li>
+</ul>
+<p>The agent never writes directly to the training plan. Every change it proposes goes through the engine.</p>
+<h3>Layer 3: The Validator</h3>
+<p>When the agent proposes a change, the engine validates:</p>
+<ul>
+<li>Does this change maintain the right intensity distribution for the week?</li>
+<li>Does this change leave enough recovery before the next hard session?</li>
+<li>Does this change keep weekly volume within the acceptable range for the current phase?</li>
+<li>Does this change align with the goal on the calendar?</li>
+</ul>
+<p>If the proposed change passes, the engine writes it to the plan. If it fails, the engine sends the failure back to the agent with the reason. The agent tries again with the new constraint information. This is the loop James called out as the hardest part: agent autonomy bounded by an engine that prevents hallucinations.</p>
+<h3>Layer 4: The Memory</h3>
+<p>Per-athlete memory the agent loads every time it talks to you:</p>
+<ul>
+<li>Your stated goals (current and longer-term).</li>
+<li>Your training history and PRs.</li>
+<li>Your typical response patterns (some athletes recover fast, some slow; the agent learns yours).</li>
+<li>Your stated preferences (you hate intervals on Wednesdays, you ride outside if the weather is decent, you race in the morning).</li>
+<li>Your hard rules (don't ride more than two days in a row, always rest on Mondays).</li>
+</ul>
+<p>The memory makes the coach feel like a coach who knows you. Without it, every conversation starts from scratch and the advice feels generic.</p>
+<h2>How to Build the Same Pattern (Adapted)</h2>
+<p>You don't have to ship Coach Cadence. The pattern works for any health-data domain. Here's how to build your own.</p>
+<h3>Step 1: Pick the Data Sources</h3>
+<p>For endurance training:</p>
+<ul>
+<li><strong>Wearable data</strong> via Garmin Connect, Whoop, Oura, or Strava.</li>
+<li><strong>Structured training data</strong> via intervals.icu (which can read most wearables and write structured workouts back).</li>
+<li><strong>Subjective data</strong> via a daily morning question: how do you feel, on a 1-5 scale.</li>
+</ul>
+<p>For strength training, you'd swap intervals.icu for Hevy or a similar log. For running, you might use Stryd plus a GPS watch. The data sources change; the pattern doesn't.</p>
+<h3>Step 2: Build the Engine</h3>
+<p>This is the part that takes the most time and the part where most &quot;AI coach&quot; projects fail. The engine is real software that encodes the rules of your sport.</p>
+<p>For endurance, start with:</p>
+<ul>
+<li>A library that can compute training stress balance (TSB) from your data.</li>
+<li>A periodization framework (a few hundred lines of code that knows the phases and the volume targets).</li>
+<li>A validator that takes a proposed week and returns &quot;valid&quot; or &quot;invalid + reason.&quot;</li>
+</ul>
+<p>There are open-source endurance training libraries you can borrow from. Don't write this from scratch unless you're an exercise physiologist.</p>
+<h3>Step 3: Wire the Agent</h3>
+<p>The OpenClaw agent layer has three jobs:</p>
+<ul>
+<li><strong>Daily check-in.</strong> Reads the morning wellness data, asks you the subjective question, drafts the day's plan summary.</li>
+<li><strong>Plan adjustment.</strong> When you tell it something has changed (work travel, sickness, soreness), it proposes a change and runs it through the engine.</li>
+<li><strong>Weekly review.</strong> At the end of each week, it summarizes what happened, what worked, and what to adjust for next week.</li>
+</ul>
+<p>The agent's tool layer includes:</p>
+<ul>
+<li>Read the wellness data file.</li>
+<li>Read the current training plan.</li>
+<li>Propose a plan change (sends to the engine for validation).</li>
+<li>Write to the conversation log.</li>
+</ul>
+<h3>Step 4: Encode the Hard Rules</h3>
+<p>Before you let the agent run live, write the hard rules:</p>
+<ul>
+<li>The agent never schedules two consecutive hard days.</li>
+<li>The agent never increases weekly volume by more than 10%.</li>
+<li>The agent always defers to your stated preferences in memory.</li>
+<li>The agent always escalates to &quot;talk to your real coach&quot; when an injury or persistent illness is involved.</li>
+<li>The agent never claims medical expertise.</li>
+</ul>
+<p>These are in the system prompt and in the engine's validation rules. Either layer alone is not safe enough.</p>
+<h3>Step 5: Run It on Past Data</h3>
+<p>Before you let it manage your training going forward, replay it on the last 60-90 days of your data. Read what the agent would have proposed on each day. Compare it to what you actually did. Where the agent would have been wrong, dig into why. Tune the engine, tune the agent prompt, run it again.</p>
+<h3>Step 6: Live for One Microcycle, in Advisory Mode</h3>
+<p>The first week of live operation, the agent only proposes. It does not write to your training plan. You review every proposal and execute or override.</p>
+<p>After a week of advisory mode, you have a feel for how often the agent is right vs. wrong. Tune until the agent is right 90%+ of the time on simple decisions.</p>
+<h3>Step 7: Hand Over the Steering Wheel</h3>
+<p>Once the agent is reliably right on simple decisions, let it write to the plan automatically. You still review the week's plan on Sunday night, but the daily adjustments run automatically.</p>
+<p>The override switch is always available. You can revert any plan change with one message. The agent learns from your overrides over time.</p>
+<h2>Adapting This for Other Health Domains</h2>
+<p>The same pattern works wherever you have:</p>
+<ul>
+<li>Daily quantitative data from a wearable or app</li>
+<li>A goal on a horizon</li>
+<li>A set of rules that govern how to move from where you are to where you want to be</li>
+<li>A history of decisions you've made and how they turned out</li>
+</ul>
+<p><strong>Strength and hypertrophy programming.</strong> Engine encodes progressive overload, deload weeks, and exercise sequencing. Agent reads your daily readiness and adjusts the day's lifts.</p>
+<p><strong>Marathon training.</strong> Engine encodes the specific demands of marathon prep. Agent reads sleep, soreness, and your subjective fatigue.</p>
+<p><strong>Triathlon prep.</strong> Engine handles the multi-sport balance across swim, bike, and run. Agent adjusts the week when one sport is more taxed than the others.</p>
+<p><strong>Weight management.</strong> Engine encodes caloric balance and the trade-offs between aggressive and sustainable deficits. Agent reads your daily weight, your tracked food, and your activity, and adjusts the calorie target for the week.</p>
+<p><strong>Recovery from injury or illness.</strong> Engine knows the safe return-to-training progression. Agent reads your daily indicators (pain scale, fatigue, energy) and either advances or holds the plan.</p>
+<p><strong>Sleep optimization.</strong> Engine encodes the inputs that drive sleep quality (light exposure, caffeine timing, training timing, evening routine). Agent reads last night's sleep and proposes one targeted change for tonight.</p>
+<p>The architecture is the same every time. Engine. Agent. Validator. Memory. The domain rules change. The shape doesn't.</p>
+<h2>Gotchas and Tips</h2>
+<ul>
+<li><strong>The engine is the moat.</strong> &quot;AI coach&quot; demos that don't have an engine fall apart on contact with reality. If you have a few hundred dollars and an LLM, you can build the agent layer in an afternoon. The engine takes a weekend or more.</li>
+<li><strong>Don't trust the LLM to do math.</strong> Volume calculations, stress balance, intensity zones — these all go through real code. The LLM proposes; the engine computes.</li>
+<li><strong>The escape hatch matters.</strong> Your agent should always be able to say &quot;this is outside my training. Talk to a real coach or a doctor.&quot; Build that path in from day one.</li>
+<li><strong>Wearable data is messy.</strong> Your Garmin will report your sleep wrong sometimes. Your Whoop will misread your HRV occasionally. The engine should be tolerant of one bad data point and skeptical of three in a row.</li>
+<li><strong>Privacy.</strong> This data is intimate. Keep the data on your own server or in a managed store you control. Don't ship it to a vendor.</li>
+<li><strong>Don't try to coach your spouse.</strong> This is a tool you build for yourself, on yourself, with your data. The minute you try to scale it to another person, the personalization breaks. If you want to coach others, you're building a product, not a personal agent.</li>
+</ul>
+<h2>What This Replaces</h2>
+<p>Before this stack:</p>
+<ul>
+<li><strong>Human endurance coach:</strong> $200-400/month for elite-level coaching</li>
+<li><strong>Generic plan from a coach or app:</strong> $30-100/month with no daily adjustment</li>
+<li><strong>Self-coaching:</strong> free, but you guess at the adjustments and you get them wrong</li>
+<li><strong>Subjective decision quality:</strong> moderate; you skip workouts you should do, do workouts you should skip</li>
+</ul>
+<p>After this stack:</p>
+<ul>
+<li><strong>OpenClaw + Claude API:</strong> $20-40/month</li>
+<li><strong>intervals.icu paid tier (optional):</strong> $0-9/month</li>
+<li><strong>Wearable subscription you already pay:</strong> unchanged</li>
+<li><strong>Subjective decision quality:</strong> high; the agent watches the data you can't see</li>
+</ul>
+<p>For a serious amateur athlete, the cost of bad training decisions is real. Missed races, injuries, plateaus, burnout. A 24/7 coach that reads your data and adjusts your plan is the highest-leverage personal AI build a fitness-minded person can run.</p>
+<p>It is also one of the cleanest demonstrations of the broader pattern: AI is at its best when it watches a stream of data you generate, and proposes changes against an engine that knows the rules. Endurance training is one example. The same pattern is going to remake personal finance, nutrition, sleep, and a dozen other slices of life where data flows but advice doesn't.</p>
+<p>James shipped Coach Cadence as one of five personal agents he runs. The longer-term story is the fleet, not the single agent. Coaches, advisors, assistants, tutors — each one a specialist that watches your data, makes proposals against a real engine, and only does what it's allowed to do.</p>
+<p>This is what &quot;AI runs my life&quot; actually looks like when it's done well. Not one giant assistant that does everything badly. Small, specialist agents that each do one thing inside a rule system that keeps them safe.</p>
+<hr>
+<h2>Keep Reading</h2>
+<ul>
+<li><strong><a href="/playbooks/g-bot-home-brain/">He Gave His Home a Brain. 50 Days Later, His AI Wakes Him Up, Cleans His House, and Judges His Sleep.</a></strong>: The same fleet-of-personal-agents pattern applied to the home environment instead of training. Pair the two for an &quot;agents watching all your inputs&quot; lifestyle.</li>
+<li><strong><a href="/playbooks/ai-life-os/">Build an AI Life OS That Knows Your Entire Day (Before You Do)</a></strong>: The personal operating system that orchestrates all your daily-running agents. Coach Cadence is one of the specialists; the Life OS is the layer that ties them together.</li>
+<li><strong><a href="/playbooks/ai-second-brain/">Give Your AI a Second Brain That Gets Smarter Every Day ($0/Month)</a></strong>: The memory layer that makes any personal agent feel like it knows you. Required reading before you build any agent that's supposed to remember things across sessions.</li>
+</ul>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators</p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

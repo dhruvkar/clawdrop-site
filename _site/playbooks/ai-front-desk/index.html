@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Four-Piece AI Front Desk Every SMB Should Have Running by Friday — ClawDrop</title>
+  <meta name="description" content="Phone agent that answers 24/7. Website chatbot that captures every lead. Automation that follows up while you sleep. Booking flow that fills your calendar. The four-piece stack that turns any service business into a 24-hour operation for $20-50/month.">
+  <meta property="og:title" content="The Four-Piece AI Front Desk Every SMB Should Have Running by Friday — ClawDrop">
+  <meta property="og:description" content="Phone agent that answers 24/7. Website chatbot that captures every lead. Automation that follows up while you sleep. Booking flow that fills your calendar. The four-piece stack that turns any service business into a 24-hour operation for $20-50/month.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/ai-front-desk/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="The Four-Piece AI Front Desk Every SMB Should Have Running by Friday — ClawDrop">
+  <meta name="twitter:description" content="Phone agent that answers 24/7. Website chatbot that captures every lead. Automation that follows up while you sleep. Booking flow that fills your calendar. The four-piece stack that turns any service business into a 24-hour operation for $20-50/month.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/ai-front-desk/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+    .logo:hover { color: var(--ink); }
+    .logo-img { width: 32px; height: 32px; border-radius: 7px; display: block; flex-shrink: 0; }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 380px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo"><img src="/assets/clawdrop-logo.png" alt="ClawDrop" class="logo-img">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">May 12, 2026</div>
+    <h1>The Four-Piece AI Front Desk Every SMB Should Have Running by Friday</h1>
+    <p class="post-description">Phone agent that answers 24/7. Website chatbot that captures every lead. Automation that follows up while you sleep. Booking flow that fills your calendar. The four-piece stack that turns any service business into a 24-hour operation for $20-50/month.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Beginner</strong></span>
+      <span class="meta-badge">💰 <strong>$20-50/month (Claude + Vapi or similar voice provider)</strong></span>
+      <span class="meta-badge">⏱ <strong>An afternoon for the basics, a week to tune</strong></span>
+      <span class="meta-badge">👤 <strong>openclawautomates (Bluesky)</strong></span>
+      <a href="https://bsky.app/profile/openclawautomates.bsky.social/post/3mko7yieuts2o" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-openclaw"><strong>OpenClaw</strong></a>: the orchestrator. Holds the rules, the routing logic, the memory of every conversation.</li>
+<li><a href="#aff-vapi"><strong>Vapi</strong></a> or <a href="#aff-bland"><strong>Bland</strong></a>: the voice layer. Real phone number, real voice, sub-second latency.</li>
+<li><a href="#aff-twilio"><strong>Twilio</strong></a>: alternative phone infrastructure. Bring your existing business line.</li>
+<li><a href="#aff-gohighlevel"><strong>GoHighLevel</strong></a>: the lead capture and follow-up automation stack many SMBs already use.</li>
+<li><a href="#aff-calendly"><strong>Calendly</strong></a>: the booking layer. The agent fills it.</li>
+<li><a href="#aff-telegram"><strong>Telegram</strong></a>: how the owner gets pinged for the few decisions the agent can't make alone.</li>
+<li><a href="#aff-gmail"><strong>Gmail</strong></a> or <a href="#aff-outlook"><strong>Outlook</strong></a>: inbox channel.</li>
+<li><a href="#aff-claude"><strong>Claude</strong></a>: the model doing the actual conversation.</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>A four-piece front-desk stack any service business can stand up in an afternoon:</p>
+<ol>
+<li><strong>The phone agent.</strong> A real phone number that gets answered in two rings, 24 hours a day. Speaks naturally. Knows your hours, your services, your prices. Takes messages, books appointments, and texts you about anything it can't handle.</li>
+<li><strong>The website chatbot.</strong> A widget on your site that greets visitors, answers common questions, and captures contact info before they bounce.</li>
+<li><strong>The follow-up automation.</strong> Every captured lead gets followed up with within minutes, then again the next day, then a week later. Three touches before a human ever has to think about it.</li>
+<li><strong>The booking flow.</strong> The agent fills your calendar directly. No back-and-forth. No phone tag. No &quot;what times work for you?&quot;</li>
+</ol>
+<p>This is the &quot;if you only build one thing this quarter, build this&quot; build for any SMB owner. It's been the default modern front-desk for a year and most operators still don't have it.</p>
+<h2>The Problem Every Service Business Has at 6:43 PM</h2>
+<p>You closed at 5. Sarah called at 6:43 because she got home from work, finally had a minute to deal with that thing, and remembered your business card. She called. She got voicemail. She googled &quot;[your category] near me&quot; while she had her phone out. She clicked the first ad. She booked with them.</p>
+<p>You didn't lose the lead because she didn't want you. You lost it because the call didn't get answered.</p>
+<p>Now imagine she went to your website at 6:43 instead. No chatbot. She read three pages. She filled out a contact form. Your CRM emailed her a &quot;thanks, we'll be in touch within 24 hours.&quot; She didn't see that email until 11pm. By then she'd already called your competitor.</p>
+<p>Now imagine she did get a call back. From you. At 9:14 the next morning. The first thing she said was &quot;hi, sorry, I already booked with someone else.&quot;</p>
+<p>This is happening every day at your business. Every after-hours call is a coin flip you keep losing. Every contact form is a delay against your win rate. Most owners' bottleneck isn't lead gen. It's response time on the leads they're already getting.</p>
+<p>The four-piece front desk closes all of it.</p>
+<h2>How It Works</h2>
+<p>Each piece is a small build. They share a common brain (the agent) and a common data layer (your CRM or a simple sheet).</p>
+<h3>Piece 1: The Phone Agent</h3>
+<p>A real phone number (or your existing business line) routed through Vapi or Bland. Calls hit a voice agent backed by Claude. The agent:</p>
+<ul>
+<li>Greets the caller using your business name in your tone</li>
+<li>Knows your hours, services, pricing, and service area</li>
+<li>Can take a message, book an appointment, transfer to your cell, or text you the call summary</li>
+<li>Hands off cleanly to a human when the caller asks for one</li>
+</ul>
+<p>What it says when somebody calls at 6:43:</p>
+<blockquote>
+<p>&quot;Hi, thanks for calling [Business]. I'm an AI assistant. I can answer questions, schedule a quote, or take a message for the team. What can I help you with?&quot;</p>
+</blockquote>
+<p>Sarah books an appointment for Saturday. By 6:45 she's on your calendar. You wake up Monday morning to a confirmed booking and a recording of the call.</p>
+<h3>Piece 2: The Website Chatbot</h3>
+<p>A small widget embedded on your site. Pops up after 8 seconds. Says:</p>
+<blockquote>
+<p>&quot;Hi! Anything I can help you find?&quot;</p>
+</blockquote>
+<p>Connected to the same agent brain as the phone agent. Same rules, same hours, same prices. Difference: it captures email and phone as part of the conversation, not at the end.</p>
+<p>Standard flow:</p>
+<pre><code>Visitor: I'm looking for [your service]
+Agent:   Got it. Are you trying to do this for residential or commercial?
+Visitor: Residential.
+Agent:   Perfect. We can usually quote that within 24 hours.
+         What's the best email to send a quote to?
+Visitor: sarah@example.com
+Agent:   And phone, in case I need to clarify anything?
+Visitor: (sends)
+Agent:   Got it. I'll have the team prep a quote and we'll be in touch by tomorrow.
+         Want me to also book a 15-minute call to walk through it?
+</code></pre>
+<p>Lead captured. Lead qualified. Call optionally booked. Three minutes.</p>
+<h3>Piece 3: The Follow-Up Automation</h3>
+<p>The boring piece, where most of the money actually comes from.</p>
+<p>Every lead that comes in through the phone agent, chatbot, or your contact form gets entered into a follow-up sequence:</p>
+<ul>
+<li><strong>Minute 5</strong>: Text confirming receipt. &quot;Hi Sarah, [name] from [Business]. Got your inquiry. We'll have a quote tomorrow. Anything urgent in the meantime?&quot;</li>
+<li><strong>Hour 2</strong>: If Sarah replied to the text, the agent or you continues the conversation. If not, nothing.</li>
+<li><strong>Day 1</strong>: Email with the quote. Personalized using whatever the agent collected.</li>
+<li><strong>Day 3</strong>: Text follow-up if there's no reply. &quot;Hey Sarah, just checking — did you get the quote?&quot;</li>
+<li><strong>Day 7</strong>: Final follow-up with a soft pivot. &quot;Hey Sarah, totally understand if timing's not right. We're booking out two weeks, so if you want to lock something in, let me know.&quot;</li>
+</ul>
+<p>You set the cadence once. The agent runs it for every lead. Forever.</p>
+<h3>Piece 4: The Booking Flow</h3>
+<p>The agent has access to your Calendly (or whatever booking tool you use). When a caller or visitor wants to book, the agent doesn't say &quot;let me check our schedule.&quot; It books directly.</p>
+<pre><code>Visitor: Can I get a quote?
+Agent:   Yes — I can either send one over email tomorrow or set up a quick call
+         today. What works?
+Visitor: Today would be great.
+Agent:   I have 2:30 or 4:00. Both 15 minutes.
+Visitor: 4:00.
+Agent:   Done. You're on the calendar for 4:00, calling [your number].
+         I'll send a confirmation to your email.
+</code></pre>
+<p>No &quot;let me get back to you.&quot; No &quot;what times work for you?&quot; Just booked.</p>
+<h3>The Setup (One Afternoon for the Basics)</h3>
+<p><strong>What you need:</strong></p>
+<ul>
+<li>OpenClaw running (managed install if you're not technical)</li>
+<li>Claude Pro or Max subscription</li>
+<li>A Vapi or Bland account ($15-30/month depending on call volume)</li>
+<li>Your Calendly or other booking tool</li>
+<li>A document with your business basics: hours, services, pricing, service area, FAQ</li>
+<li>30 minutes of you recording yourself answering common questions, for tone calibration</li>
+</ul>
+<p><strong>Step 1: Write the brain.</strong> A single document with your business facts. Hours. Services. Pricing (or &quot;starting at&quot; prices if you don't want exact). Service area. Your top 20 FAQs and the answers. The agent reads from this.</p>
+<p><strong>Step 2: Spin up the voice agent.</strong> Vapi or Bland with a Claude backend. Give it your business document. Test it by calling yourself. Iterate on the tone until it sounds like a member of your team.</p>
+<p><strong>Step 3: Drop the chatbot on your site.</strong> Most of these tools give you a one-line embed code. Same brain, web channel.</p>
+<p><strong>Step 4: Wire up the follow-up cadence.</strong> GoHighLevel is the popular SMB stack for this; you can also build it in OpenClaw directly with Telegram and SMTP. Five-touch sequence, branching on reply.</p>
+<p><strong>Step 5: Connect the booking layer.</strong> Calendly works. The agent gets read access to your availability and write access to book.</p>
+<p><strong>Step 6: Run for a week with you reviewing every call and chat.</strong> Listen to recordings. Read transcripts. Catch the places the agent fumbled. Refine the business document. After a week, it's reliable enough to leave on autopilot.</p>
+<h2>What Changes After Setup</h2>
+<p><strong>Day 1:</strong> Your first after-hours call gets answered. It feels weird. You listen to the recording in the morning.</p>
+<p><strong>Week 1:</strong> You realize you've captured 3-5 leads you would have lost to voicemail. One of them was a real job. The build paid for itself in week one.</p>
+<p><strong>Month 1:</strong> Your contact-form-to-customer conversion goes up because every lead gets the 5-minute response that closes most jobs. Your weekend off-hours leads stop disappearing.</p>
+<p><strong>Month 3:</strong> You no longer reach for your phone every time it buzzes. The agent handles 80% of inquiries cleanly. The 20% it escalates are the actual judgment calls — and you handle those better because the agent has already collected the context.</p>
+<p><strong>Month 6:</strong> You start looking at the call recordings less. The trust is built. You hire one fewer office person than you would have, or you redirect that budget to growth.</p>
+<h2>Where This Sits in Your Operation</h2>
+<p>Most SMB owners think of the front desk as a person. This rebuilds it as a system:</p>
+<pre><code>Caller / Visitor / Form fill
+        |
+        v
+The Agent (knows everything about your business)
+   - Knows your hours / services / pricing
+   - Can book directly into your calendar
+   - Can take a message
+   - Can hand off to a human
+        |
+        v
+Lead captured in CRM
+        |
+        v
+Follow-up sequence (5 touches over 7 days)
+        |
+        v
+Closed deal OR cleanly archived
+</code></pre>
+<p>The owner becomes the closer, not the receptionist. That's the unlock.</p>
+<h2>The Numbers Worth Caring About</h2>
+<p><strong>Lead capture:</strong> Service businesses typically lose 30-50% of inbound calls to voicemail or unanswered ringing. Recovering even half of that is usually 5-10 jobs/month.</p>
+<p><strong>Response time:</strong> Closing the response-time gap from &quot;tomorrow morning&quot; to &quot;5 minutes&quot; typically doubles lead-to-customer conversion. This is one of the best-studied numbers in SMB sales.</p>
+<p><strong>Cost:</strong> $20-50/month all-in. A part-time receptionist runs $1,500-3,000/month for 20-40 hours/week of coverage.</p>
+<p><strong>Coverage:</strong> Receptionist works 9-5. This works 24/7/365. Most of your missed calls are after hours and on weekends.</p>
+<h2>Beyond Service Businesses</h2>
+<p>The same four-piece stack works for:</p>
+<p><strong>Local trades</strong> (HVAC, plumbing, electrical, roofing, cleaning, landscaping). <a href="/playbooks/hvac-estimate-autopilot/">Trades-specific version here</a>.</p>
+<p><strong>Medical and dental practices.</strong> Insurance and scheduling questions, intake forms, appointment reminders, no-show recovery.</p>
+<p><strong>Professional services</strong> (law firms, accounting, consulting). Intake call screening, scheduling discovery calls, FAQ replies.</p>
+<p><strong>Restaurants and QSR.</strong> <a href="/playbooks/qsr-shift-coach/">Restaurant-specific patterns here</a>.</p>
+<p><strong>Local retail with phone orders.</strong> Customer questions, order status, returns.</p>
+<p><strong>Brokerages and agencies</strong> (real estate, insurance, mortgage). Same playbook, swap in the vertical-specific FAQ and routing rules.</p>
+<p>The common thread: any business where (a) you have a phone, (b) people sometimes call after hours, and (c) you have repeatable answers to common questions. That's most SMBs.</p>
+<h2>Gotchas and Tips</h2>
+<ul>
+<li><strong>Tell people they're talking to AI.</strong> Most states require disclosure, and people are mostly fine with it as long as it's upfront. &quot;Hi, thanks for calling [Business]. I'm an AI assistant — I can answer questions, schedule a quote, or take a message.&quot;</li>
+<li><strong>The first 90 seconds is everything.</strong> Spend real time on the greeting and the first turn. That's where callers decide whether to engage or hang up.</li>
+<li><strong>Don't bury the human option.</strong> Always offer &quot;would you like me to text the team to call you back?&quot; if the agent can't handle something. Don't trap callers.</li>
+<li><strong>Your FAQ doc is the asset.</strong> Same lesson as every other agent build. Invest in this document. Update it weekly. Every time the agent fumbles a question, add the right answer to the doc.</li>
+<li><strong>Don't auto-book without confirmation.</strong> The agent should always read back the appointment details and confirm before locking the slot. Wrong-time bookings damage trust faster than missed calls.</li>
+<li><strong>Watch the recordings the first month.</strong> Every single one. You'll catch tone issues, factual errors, and edge cases your FAQ didn't cover. Month two you can drop to spot-checks.</li>
+<li><strong>Phone agent first, chatbot second.</strong> Phone is where the highest-intent leads come from. Chatbot is icing. Build the phone agent right before you add channels.</li>
+<li><strong>Don't try to replace your closer.</strong> The agent captures, qualifies, books. The human still closes the deal. That handoff is the whole architecture.</li>
+</ul>
+<hr>
+<h2>Keep Reading</h2>
+<ul>
+<li><strong><a href="/playbooks/hvac-estimate-autopilot/">This HVAC Guy Spent Friday Night Setting Up AI. Now His Estimates Write Themselves.</a></strong>: For trades businesses, the estimate side that pairs with the front desk side.</li>
+<li><strong><a href="/playbooks/life-insurance-2-minute-follow-up/">His Life Insurance Agency Texts and Calls New Leads in 2 Minutes. Automatically.</a></strong>: The hyper-fast follow-up pattern, applied to a specific vertical.</li>
+<li><strong><a href="/playbooks/ai-espresso-phone-agent/">Your AI Makes Your Coffee, Orders Your Lunch, and Answers Your Phone</a></strong>: The deeper-dive build on the phone-agent piece, with technical specifics.</li>
+</ul>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators</p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Send Your AI Agent Into the Meeting While You Skip It — ClawDrop</title>
+  <meta name="description" content="A new wave of OpenClaw builds put AI agents in your Zoom, Google Meet, and Teams calls as real participants. They speak, they share screens, they remember. Here&#39;s the architecture and the businesses that should be using it first.">
+  <meta property="og:title" content="Send Your AI Agent Into the Meeting While You Skip It — ClawDrop">
+  <meta property="og:description" content="A new wave of OpenClaw builds put AI agents in your Zoom, Google Meet, and Teams calls as real participants. They speak, they share screens, they remember. Here&#39;s the architecture and the businesses that should be using it first.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/ai-agent-in-the-meeting/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Send Your AI Agent Into the Meeting While You Skip It — ClawDrop">
+  <meta name="twitter:description" content="A new wave of OpenClaw builds put AI agents in your Zoom, Google Meet, and Teams calls as real participants. They speak, they share screens, they remember. Here&#39;s the architecture and the businesses that should be using it first.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/ai-agent-in-the-meeting/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+    .logo:hover { color: var(--ink); }
+    .logo-img { width: 32px; height: 32px; border-radius: 7px; display: block; flex-shrink: 0; }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 380px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo"><img src="/assets/clawdrop-logo.png" alt="ClawDrop" class="logo-img">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">May 26, 2026</div>
+    <h1>Send Your AI Agent Into the Meeting While You Skip It</h1>
+    <p class="post-description">A new wave of OpenClaw builds put AI agents in your Zoom, Google Meet, and Teams calls as real participants. They speak, they share screens, they remember. Here&#39;s the architecture and the businesses that should be using it first.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Intermediate</strong></span>
+      <span class="meta-badge">💰 <strong>$30-150/month (voice provider + meeting API + Claude API)</strong></span>
+      <span class="meta-badge">⏱ <strong>1-2 evenings for a minimal agent, a weekend for the polished version</strong></span>
+      <span class="meta-badge">👤 <strong>u/WorthAdvertising9305</strong></span>
+      <a href="https://old.reddit.com/r/openclaw/comments/1tl5r11/send_claws_into_google_meet_teams_zoom_with_voice/" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-openclaw"><strong>OpenClaw</strong></a>: orchestrates the agent's behavior, memory, and tool use</li>
+<li><a href="#aff-anthropic"><strong>Claude</strong></a>: the brain that decides what to say and when to share</li>
+<li><a href="#aff-retell"><strong>Retell</strong></a>: voice layer that handles real-time speech in and out</li>
+<li><a href="#aff-elevenlabs"><strong>ElevenLabs</strong></a>: alternative voice provider with custom voice cloning</li>
+<li><a href="#aff-recall"><strong>Recall.ai</strong></a>: bot infrastructure that joins Zoom, Meet, and Teams calls</li>
+<li><a href="#aff-tavus"><strong>Tavus</strong></a>: optional video avatar layer so the agent has a face on screen</li>
+<li><a href="#aff-fathom"><strong>Fathom</strong></a>: captures the recording for after-the-meeting memory</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>An AI agent that joins your meetings as an actual participant. Not a note-taking bot in the corner. An active member of the call that:</p>
+<ol>
+<li><strong>Speaks with a real voice</strong> in real time, with sub-second latency.</li>
+<li><strong>Shares its screen</strong> when it needs to show a document, a dashboard, or a deck.</li>
+<li><strong>Reads the room</strong> via the transcript stream and decides when to interject.</li>
+<li><strong>Remembers everything</strong> from prior calls with the same people, the same accounts, the same deals.</li>
+<li><strong>Hands off cleanly</strong> when a human needs to take over.</li>
+</ol>
+<p>If you have ever wished you could clone yourself for the 12 standing meetings on your calendar that don't need you specifically, this is what that looks like in 2026.</p>
+<h2>Why This Works</h2>
+<p>Most companies still treat AI as a layer that runs <em>around</em> the meeting. The bot transcribes. The summarizer summarizes. The CRM updater updates. Everyone agrees that's useful. Nobody questions that the meeting itself was still a meeting with humans on both sides.</p>
+<p>The new wave breaks that assumption. The agent is <em>in</em> the meeting. Once you accept that, a lot of standing calls stop needing you:</p>
+<ul>
+<li>The weekly status check with a client where 80% of the time is them telling you their week and you nodding.</li>
+<li>The internal sync where two teams report metrics back and forth.</li>
+<li>The vendor demo where a salesperson walks through the same deck for the fifth time.</li>
+<li>The customer success check-in where the playbook is literally a checklist.</li>
+</ul>
+<p>A real human still needs to be on calls where stakes are high, trust matters, or the conversation could go anywhere. But for the 60-70% of standing meetings that are predictable, the agent is the better fit. It is on time, it is consistent, it remembers, and it never has a bad week.</p>
+<h2>How the Architecture Works</h2>
+<p>The build has four moving parts. Each one is a separate service that does one thing well.</p>
+<h3>Layer 1: The Meeting Bridge</h3>
+<p>The agent has to actually join the call. There are two paths:</p>
+<ul>
+<li><strong>Bot infrastructure</strong> like Recall.ai. The bot joins Zoom, Meet, or Teams the same way a human attendee does. It receives audio and video streams. It can send audio back and share a screen. One API, all three major meeting platforms.</li>
+<li><strong>Native SDKs</strong> like Zoom's Video SDK or Teams' Communication Services. More work to build, but lower per-minute cost at scale.</li>
+</ul>
+<p>For the first version, use Recall.ai or a similar bot platform. Trade the cost for the simplicity.</p>
+<h3>Layer 2: The Voice Loop</h3>
+<p>Speech in, speech out. Three pieces:</p>
+<ul>
+<li><strong>Speech-to-text</strong> turns the room's audio into a transcript stream the agent can read. Deepgram, AssemblyAI, or Whisper.</li>
+<li><strong>The agent itself</strong> is OpenClaw running a Claude model that watches the transcript and decides what to say. The decision logic is the part you actually tune.</li>
+<li><strong>Text-to-speech</strong> turns the agent's response into audio. Retell handles the whole loop with low latency. ElevenLabs lets you clone a specific voice if you want the agent to sound like a particular human.</li>
+</ul>
+<p>The trick is the response decision. Most &quot;AI in meetings&quot; demos fall apart because the agent talks too much or interrupts at the wrong time. The fix is a turn-taking layer: a small classifier that watches the transcript stream and only fires the response generator when the room has stopped speaking <em>and</em> the conversation context calls for input from the agent.</p>
+<h3>Layer 3: The Screen Share</h3>
+<p>This is the part that separates the demo from the product. When the agent says <em>&quot;let me pull up the latest numbers,&quot;</em> it actually shares a screen with the numbers. Two ways to do this:</p>
+<ul>
+<li><strong>Pre-rendered.</strong> The agent has a library of dashboards, decks, and documents indexed by topic. When it decides to share, it picks the right one from the library.</li>
+<li><strong>Generated on the fly.</strong> The agent uses tools (a SQL query, an API call, a Notion page lookup) to fetch the data, renders it into a quick view, and shares that. Slower, but the content is always live.</li>
+</ul>
+<p>For meetings where the content is the same every week (the standing client report, the team metrics review), pre-rendered is fine. For meetings where the conversation could go anywhere, on-the-fly is the only option.</p>
+<h3>Layer 4: Memory</h3>
+<p>The agent has to remember the last seven calls with this person, what was promised, what was blocked, and what the next steps are. Two stores:</p>
+<ul>
+<li><strong>Per-account memory</strong> for everything tied to a specific customer or deal. Stored as structured records you can query.</li>
+<li><strong>General agent memory</strong> for everything else: house rules, your business's tone of voice, the language you use for specific concepts, the things you have agreed never to do.</li>
+</ul>
+<p>The memory layer is what separates a useful agent from a parlor trick. Without it, every call starts from scratch and the human on the other side immediately notices. With it, the agent picks up exactly where the last call ended, including the things you forgot.</p>
+<h2>Step-by-Step Setup</h2>
+<h3>Step 1: Pick the Meeting Type to Replace First</h3>
+<p>Don't try to send the agent into your most important call. Start with one of the standing meetings that drains time without producing much:</p>
+<ul>
+<li>The weekly account check-in with a long-tenured client.</li>
+<li>The internal cross-functional sync that reports the same dashboard every week.</li>
+<li>The vendor walkthrough you sit through for the third time this quarter.</li>
+</ul>
+<p>Whichever you pick, write down what <em>actually has to happen</em> on that call. Most of the time the answer is a small list: confirm status on 5 items, share next week's plan, take any new requests. That list becomes the agent's script.</p>
+<h3>Step 2: Set Up the Meeting Bridge</h3>
+<p>Sign up for Recall.ai. Their starter plan covers a few hundred bot-minutes per month. Get the API key. Test that you can spin up a bot that joins a meeting you scheduled.</p>
+<p>The bot's identity matters. Give it a name that signals what it is. Something like <em>&quot;Apollo, Acme Account Manager (AI)&quot;</em> is better than <em>&quot;Notetaker.&quot;</em> People accept an AI participant when they know it's an AI. They feel deceived when they realize halfway through that the helpful manager was a bot.</p>
+<h3>Step 3: Build the Voice Loop</h3>
+<p>Start with Retell. It handles the speech-to-text, the response generator, and the text-to-speech in one platform. You wire OpenClaw in as the response engine and Retell handles everything else.</p>
+<p>Tune two things:</p>
+<ul>
+<li><strong>The turn-taking timeout.</strong> How long the agent waits after the room goes silent before it speaks. Start at 800ms. Adjust based on the meeting culture (some teams pause more, some less).</li>
+<li><strong>The interjection threshold.</strong> How confident the agent has to be that input is wanted before it speaks unprompted. Start high. You'd rather it stays quiet than blurts.</li>
+</ul>
+<h3>Step 4: Index the Pre-Rendered Content</h3>
+<p>Whatever the agent will need to share on screen, index it now. For a weekly account check-in, that might be:</p>
+<ul>
+<li>The dashboard with this client's account health metrics.</li>
+<li>The current sprint plan with progress against deliverables.</li>
+<li>The list of open action items from the last call.</li>
+<li>The roadmap slide for the next quarter.</li>
+</ul>
+<p>Each one is a static URL or a deck slide. The agent's tool layer can fetch any of them by name.</p>
+<h3>Step 5: Wire the Memory Layer</h3>
+<p>After every meeting the agent attends, write three things into memory for the next call:</p>
+<ul>
+<li><strong>What was discussed</strong>, summarized into 5-10 bullets.</li>
+<li><strong>What was committed</strong>, as a structured list of action items with owners and dates.</li>
+<li><strong>What changed in the room's sentiment</strong>, if anything. (Were they frustrated? Excited? Cautious?)</li>
+</ul>
+<p>The Fathom transcript is your input source. A small OpenClaw skill reads the transcript after every meeting and updates the per-account memory. The next time the agent joins a call with this account, it pulls those three things into its context.</p>
+<h3>Step 6: Set Hard Limits</h3>
+<p>Before you let the agent loose, write down the things it must never do:</p>
+<ul>
+<li>Never make a financial commitment.</li>
+<li>Never agree to a new contract term.</li>
+<li>Never speak for a specific human team member.</li>
+<li>Never share content from a different client account.</li>
+<li>Always escalate to a human when the conversation moves outside the script.</li>
+</ul>
+<p>These become hardcoded rules in the agent's system prompt and in the tool layer. The agent should not even have access to tools that could violate the rules.</p>
+<h3>Step 7: Run One Real Call, Watch the Whole Thing</h3>
+<p>The first live call, you sit on it as a silent observer. Watch what the agent does well. Watch what it does poorly. Watch the human reactions on the other side. Most of the polish work happens in this step. Plan for 2-3 hours of cleanup after the first real call.</p>
+<h3>Step 8: Scale to the Calendar Slowly</h3>
+<p>Once the first meeting type runs cleanly for a few weeks, move the agent into the next meeting type. Each meeting type needs its own script, its own pre-rendered content library, and its own hard limits. Don't try to make one generic agent that does everything. Make a small fleet of specialized agents, one per meeting pattern.</p>
+<h2>Adapting This for Your Business</h2>
+<p>The pattern shows up wherever someone runs a high volume of similar meetings.</p>
+<p><strong>Customer success teams.</strong> The agent joins recurring check-ins with low-tier accounts. Surfaces upsell signals, flags churn risk, schedules the human CSM in when something needs real attention.</p>
+<p><strong>Agencies and consultancies.</strong> The agent joins weekly project status calls with established clients. Reports on the sprint, asks the four standard questions, captures requests. The senior consultant joins only the calls that escalate.</p>
+<p><strong>Sales teams.</strong> The agent runs early discovery calls where the script is well-known. Qualifies the prospect against the ICP, asks the standard questions, books the next call with a human AE if the lead is hot.</p>
+<p><strong>Recruiters.</strong> The agent runs initial screening calls with candidates. Walks through the role, asks the screening questions, captures the candidate's background. The human recruiter joins only the candidates who pass screening.</p>
+<p><strong>Property managers.</strong> The agent runs tenant check-in calls. Asks about maintenance issues, captures requests, walks through any open work orders. The property manager handles the calls that escalate.</p>
+<p><strong>Vendors and suppliers.</strong> The agent runs the quarterly business review with smaller customer accounts. Walks through usage stats, identifies expansion opportunities, schedules the AE for any account that's a fit.</p>
+<p>The common thread is volume. If you have one weekly meeting of this type, the agent isn't worth building. If you have twenty, the agent saves a full FTE.</p>
+<h2>Gotchas and Tips</h2>
+<ul>
+<li><strong>Disclose the bot is an AI.</strong> People react badly to discovering mid-call that the helpful participant was an AI. Front-load the disclosure in the calendar invite, in the bot's name, and in the agent's opening line. Honest about it from the start, people accept it surprisingly well.</li>
+<li><strong>Two-party consent states.</strong> If anyone on the call is in a two-party consent state (California, Florida, Illinois, and others), you need explicit consent to record. Recall and Fathom handle the disclosure language; the responsibility is still yours. Talk to a lawyer about your specific situation.</li>
+<li><strong>The agent's voice matters more than you think.</strong> A robotic voice signals &quot;automated thing you can ignore.&quot; A natural-sounding voice signals &quot;actual participant, listen up.&quot; Spend the money on the better voice provider.</li>
+<li><strong>Pre-rendered content beats generated content for now.</strong> The latency on generating fresh visuals in real time is still rough. For most standing meetings, the same handful of dashboards and slides covers everything.</li>
+<li><strong>Don't put the agent in any meeting that could go anywhere.</strong> Discovery calls with hot prospects, customer escalations, internal HR conversations, and anything that involves a hard decision are still human-only. The agent works because the meeting type is predictable. If the meeting could go anywhere, the agent is going to embarrass you.</li>
+<li><strong>Cost discipline.</strong> A bot-minute on Recall plus a voice-minute on Retell plus the Claude API time adds up. A 60-minute call with the agent costs roughly $4-8 right now. Per-call that's nothing. Across hundreds of calls a month, watch the bill.</li>
+</ul>
+<h2>What This Replaces</h2>
+<p>Before this stack:</p>
+<ul>
+<li><strong>Junior CSM time on low-tier accounts:</strong> $40-80/hour, 4-8 hours per CSM per week on standing calls</li>
+<li><strong>Note-taker SaaS:</strong> $25-50/user/month</li>
+<li><strong>CRM admin after every call:</strong> 15-20 minutes per call</li>
+</ul>
+<p>After this stack:</p>
+<ul>
+<li><strong>Recall.ai bot-minutes:</strong> $0.02-0.04 per minute</li>
+<li><strong>Voice provider:</strong> $0.10-0.40 per minute depending on quality</li>
+<li><strong>Claude API:</strong> $0.05-0.20 per call typically</li>
+<li><strong>Total per 60-minute call:</strong> $4-8, all-in</li>
+</ul>
+<p>For an agency or CSM team running 100+ standing calls a month, the math is roughly a $40K-80K/year FTE swap for $400-800/month in stack costs. The remaining human time goes to the calls that actually need a human.</p>
+<p>This is the part of the AI shift that most operators are sleeping on. Not &quot;AI helps your team work faster.&quot; AI <em>is</em> one of your team members, sitting in the same meetings, doing the same work, while your humans do the work where humans are still better.</p>
+<hr>
+<h2>Keep Reading</h2>
+<ul>
+<li><strong><a href="/playbooks/meeting-memory-fathom/">Your Meetings Are Now a Searchable Knowledge Base (Fathom + Claude)</a></strong>: The post-meeting memory layer this build relies on. Fathom captures, Claude recalls, Workflows acts. Pair it with this playbook for the full before-during-after of every meeting.</li>
+<li><strong><a href="/playbooks/ai-cold-call-coach/">AI Whispers What to Say During Your Cold Calls in Real Time</a></strong>: A lighter version of the same pattern. The agent does not join the call but coaches the human in real time via the screen. Right for stakes-heavy calls where you want a human voice plus AI memory.</li>
+<li><strong><a href="/playbooks/life-insurance-2-minute-follow-up/">His Life Insurance Agency Texts and Calls New Leads in 2 Minutes. Automatically.</a></strong>: The companion piece for voice-first lead handling. Different surface (outbound phone) but the same idea: low-stakes, high-volume conversation handled by an agent with the human stepping in only when it matters.</li>
+</ul>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators</p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Let an AI Run Your Equipment Without Letting It Break Anything — ClawDrop</title>
+  <meta name="description" content="A father-son build that runs a real greenhouse with AI. The architecture they used (AI proposes, dispatcher reviews, hardware executes) is the safe way to let agents control physical things in any business.">
+  <meta property="og:title" content="Let an AI Run Your Equipment Without Letting It Break Anything — ClawDrop">
+  <meta property="og:description" content="A father-son build that runs a real greenhouse with AI. The architecture they used (AI proposes, dispatcher reviews, hardware executes) is the safe way to let agents control physical things in any business.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/greenhouse-ai-with-safety-rails/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Let an AI Run Your Equipment Without Letting It Break Anything — ClawDrop">
+  <meta name="twitter:description" content="A father-son build that runs a real greenhouse with AI. The architecture they used (AI proposes, dispatcher reviews, hardware executes) is the safe way to let agents control physical things in any business.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/greenhouse-ai-with-safety-rails/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+    .logo:hover { color: var(--ink); }
+    .logo-img { width: 32px; height: 32px; border-radius: 7px; display: block; flex-shrink: 0; }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 380px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo"><img src="/assets/clawdrop-logo.png" alt="ClawDrop" class="logo-img">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">May 19, 2026</div>
+    <h1>Let an AI Run Your Equipment Without Letting It Break Anything</h1>
+    <p class="post-description">A father-son build that runs a real greenhouse with AI. The architecture they used (AI proposes, dispatcher reviews, hardware executes) is the safe way to let agents control physical things in any business.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Advanced</strong></span>
+      <span class="meta-badge">💰 <strong>$30-80 one-time hardware + $0-20/month if using local models</strong></span>
+      <span class="meta-badge">⏱ <strong>2-3 weekends for the basic loop</strong></span>
+      <span class="meta-badge">👤 <strong>u/jvallery (Verdify)</strong></span>
+      <a href="https://old.reddit.com/r/openclaw/comments/1t8tm7k/real_openclaw_use_case_greenhouse_planner_with/" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-openclaw"><strong>OpenClaw</strong></a>: runs the planning loop that proposes equipment changes</li>
+<li><a href="#aff-gemma"><strong>Gemma</strong></a>: small local model the planner uses, runs offline</li>
+<li><a href="#aff-esp32"><strong>ESP32</strong></a>: the cheap microcontroller chip that actually controls the relays</li>
+<li><a href="#aff-raspberry-pi"><strong>Raspberry Pi</strong></a>: hosts the dispatcher and the planning loop</li>
+<li><a href="#aff-home-assistant"><strong>Home Assistant</strong></a>: optional dashboard for telemetry and overrides</li>
+<li><a href="#aff-github"><strong>GitHub</strong></a>: version control for the planning logic and safety rules</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>An AI that runs the physical side of your business. Adjusts the temperature in your grow operation. Schedules the ovens in your bakery. Cycles the pumps in your brewery. Rotates the routes for your cleaning crew.</p>
+<p>But here's the part most &quot;AI runs your business&quot; stories skip. <strong>The AI doesn't touch the equipment directly.</strong> Instead, three layers do the work together. The AI proposes a change. A small dispatcher checks the proposal against your safety rules. Only then does a cheap microcontroller flip the actual switch.</p>
+<p>The result is something you can sleep at night with. An AI smart enough to plan ahead, paired with a system dumb enough that it can't do anything dangerous.</p>
+<h2>Why This Works</h2>
+<p>Every small business owner who has thought about putting AI in charge of physical equipment has had the same fear. What happens when the AI gets it wrong? It tells the oven to run all night. It tells the pumps to dry-cycle. It tells the heater to hit 200°F on a 40°F day.</p>
+<p>The fear is rational. Large language models hallucinate. They get confused. They sometimes confidently say things that are wrong. You do not want a confused AI in charge of equipment that can hurt people or destroy inventory.</p>
+<p>The fix is not &quot;trust the AI harder.&quot; The fix is to build a system where the AI can only suggest, and dumber, more predictable code makes the final call.</p>
+<p>That's what <code>/u/jvallery</code> and his son built for their greenhouse. The AI plans. A small piece of code checks the plan against hard limits. The microcontroller, which knows nothing about AI at all, executes only the part that passes the check. The AI cannot ever directly turn on a heater.</p>
+<p>This pattern is not specific to greenhouses. It's the right pattern for any business where an AI making a bad call costs you real money.</p>
+<h2>How the Three Layers Work</h2>
+<p>The whole system is three pieces that talk to each other in a strict order.</p>
+<h3>Layer 1: The AI Planner</h3>
+<p>OpenClaw runs a planning loop. Every few minutes, it looks at:</p>
+<ul>
+<li><strong>Telemetry</strong> from the sensors (current temperature, humidity, soil moisture).</li>
+<li><strong>Plant requirements</strong> for whatever you're growing (target temperature bands, watering schedule, light needs).</li>
+<li><strong>Weather forecasts</strong> pulled from a free API.</li>
+<li><strong>Equipment limits</strong> (maximum heater wattage, maximum pump runtime per hour).</li>
+<li><strong>Recent scorecards</strong> (did yesterday's plan keep things in the target band, or did the temperature spike?).</li>
+</ul>
+<p>The planner thinks through what to change and writes a <strong>proposal</strong>. Something like: &quot;Run the south heater at 60% for 20 minutes, then turn it off until 4 AM.&quot;</p>
+<p>It writes the proposal to a file. It does not touch any hardware.</p>
+<h3>Layer 2: The Dispatcher</h3>
+<p>A small, simple program (a few hundred lines, no AI involved) reads the proposal and checks it against your hard rules:</p>
+<ul>
+<li>Is the requested heater wattage below the safety ceiling?</li>
+<li>Is the requested runtime below the per-hour maximum?</li>
+<li>Is the proposed action consistent with the current sensor readings (no &quot;turn on heater when temperature is already 90°F&quot; mistakes)?</li>
+<li>Has the planner asked for the same action too many times in a row (a stuck-loop check)?</li>
+</ul>
+<p>If any rule fails, the dispatcher rejects or <strong>clamps</strong> the proposal. &quot;Heater at 60% for 20 minutes&quot; might become &quot;heater at 50% for 15 minutes&quot; because the safety ceiling is lower than what the planner asked for.</p>
+<p>The dispatcher writes the cleared, clamped instruction to the next layer.</p>
+<h3>Layer 3: The Hardware</h3>
+<p>An ESP32 microcontroller, sitting on the equipment itself, watches for instructions from the dispatcher. It does exactly what it's told and nothing else. It cannot make decisions. It cannot interpret. It cannot connect to the internet on its own.</p>
+<p>The ESP32 firmware also has its own ultimate safety limits baked in. Even if the dispatcher told it to run the heater at 100%, the firmware would refuse if the local thermal sensor read above its hard ceiling.</p>
+<p>Three layers. Three checks. The AI never directly controls anything.</p>
+<h2>Step-by-Step Setup</h2>
+<h3>Step 1: Inventory Your Equipment</h3>
+<p>Start with what you already have. Walk through your business and list every piece of equipment that has an on/off (or analog) control that someone currently checks or adjusts manually.</p>
+<p>Greenhouse: heaters, fans, water pumps, lights, vents.
+Bakery: ovens, proofers, mixers.
+Brewery: temperature jackets, pumps, valves.
+Cleaning service: this lives entirely in software, but the same pattern still works for scheduling decisions.</p>
+<p>For each item, write down:</p>
+<ul>
+<li>The hard safe maximum (the value at which damage starts).</li>
+<li>The desired operating range.</li>
+<li>How fast a bad value would cause real harm. (Heaters fail fast. Lighting schedules fail slow.)</li>
+</ul>
+<h3>Step 2: Sensors First</h3>
+<p>Before any AI runs anything, you need eyes. Buy basic sensors for whatever your equipment affects:</p>
+<ul>
+<li>Temperature: $10–$30 sensors that talk to an ESP32.</li>
+<li>Humidity: usually combined with temperature sensors.</li>
+<li>Flow / pressure: for water or air systems.</li>
+<li>Soil moisture, if relevant.</li>
+</ul>
+<p>Wire the sensors into a Raspberry Pi or a small server that publishes the readings somewhere your planner can read them. Home Assistant is a good free dashboard for this.</p>
+<h3>Step 3: Write the Safety Rules File</h3>
+<p>Before the AI sees the system, write a plain-text file of your hard rules. Examples:</p>
+<ul>
+<li><code>heater_max_watts: 1200</code></li>
+<li><code>heater_max_runtime_per_hour_minutes: 35</code></li>
+<li><code>temperature_ceiling_F: 105</code></li>
+<li><code>pump_minimum_off_seconds: 60</code></li>
+<li><code>lights_off_window: 22:00-05:00</code></li>
+</ul>
+<p>These rules become the dispatcher's checklist. They are non-negotiable. The AI cannot override them. You should be able to read the file in 30 seconds and know what the system will never let happen.</p>
+<h3>Step 4: Build the Dispatcher</h3>
+<p>Write a small program (the Verdify reference uses Python) that does exactly four things:</p>
+<ol>
+<li>Reads the planner's proposal file.</li>
+<li>Reads the safety rules file.</li>
+<li>Checks every value in the proposal against every rule. Rejects or clamps as needed.</li>
+<li>Writes the approved instruction to a queue the ESP32 watches.</li>
+</ol>
+<p>This piece is short and <strong>boring on purpose</strong>. It must be easy to read and impossible to confuse. No AI in this layer.</p>
+<h3>Step 5: Flash the ESP32</h3>
+<p>The ESP32 firmware should:</p>
+<ol>
+<li>Connect to your local network (and only your local network — no cloud).</li>
+<li>Listen for instructions from the dispatcher.</li>
+<li>Apply its own local safety check.</li>
+<li>Drive the relay or motor.</li>
+</ol>
+<p>Most ESP32 boards run for years without intervention. Once flashed, this layer is the most reliable piece of the whole system.</p>
+<h3>Step 6: Wire the Planner</h3>
+<p>Now the AI. Set up OpenClaw with a planning skill that:</p>
+<ol>
+<li>Reads current sensor data every few minutes.</li>
+<li>Reads recent scorecards (how well it kept things in the target band yesterday).</li>
+<li>Writes a proposal to the dispatcher's input file.</li>
+</ol>
+<p>You can run this on a Raspberry Pi alongside the dispatcher. The Verdify build uses a local Gemma model on the same hardware, so the planner runs offline and costs nothing per call.</p>
+<h3>Step 7: Run a Week Without Power</h3>
+<p>The most important test. <strong>Disconnect the AI planner entirely.</strong> The dispatcher and the ESP32 should be able to run on a fallback schedule for a week without anyone touching anything. If the system can't survive without its AI brain, the safety design is wrong.</p>
+<p>Once you've proven it can run dumb, plug the AI back in and watch the scorecards improve.</p>
+<h2>Adapting This for Other Businesses</h2>
+<p>The &quot;AI proposes, dispatcher reviews, hardware executes&quot; pattern works for almost any small business with physical operations.</p>
+<p><strong>Restaurants and bakeries.</strong> AI plans the prep schedule (which ovens get pre-heated when, which batches get pulled). The dispatcher caps maximum runtimes and refuses any plan that would leave the oven empty for more than X minutes at temperature. The hardware just turns elements on and off.</p>
+<p><strong>Self-storage and warehouses.</strong> AI plans climate control room-by-room based on what's stored. The dispatcher caps total HVAC draw and prevents conflicting commands. Hardware drives the dampers.</p>
+<p><strong>Cleaning services.</strong> No physical hardware, but the same logic applies to route scheduling. AI proposes tomorrow's schedule. The dispatcher checks it against driver hours, supply inventory, and customer-side rules (&quot;no Mondays for this client&quot;). The dispatcher publishes the approved schedule.</p>
+<p><strong>Small grow operations and breweries.</strong> Direct application of the original. Temperature, humidity, lighting, flow.</p>
+<p><strong>HVAC service.</strong> AI predicts which units are likely to fail this week based on telemetry. The dispatcher decides which calls actually get routed to a technician. Hardware on the customer site stays simple.</p>
+<p>The lesson generalizes: <strong>wherever an AI mistake costs real money, the AI should never be the last layer.</strong></p>
+<h2>Gotchas and Tips</h2>
+<ul>
+<li><strong>Write the safety rules before the planner.</strong> It is tempting to start with the AI. Don't. The dispatcher's rule file is the hardest, most consequential file in the whole project. Get it right first.</li>
+<li><strong>Local models are fine.</strong> The Verdify build runs entirely on a Raspberry Pi with a local Gemma model. You don't need cloud Claude for planning. Saves money and means the system keeps working when the internet drops.</li>
+<li><strong>Score every plan.</strong> Every time the planner proposes something and the system executes it, write down what happened (did temperature stay in band, was the dispatcher's clamp engaged, did the hardware refuse). Over time these scorecards make the AI better. Without them you can't tell if it's improving.</li>
+<li><strong>The fallback schedule is the real product.</strong> A simple time-based schedule (heater on at these hours, off at these hours) is what runs when the AI fails. Make sure that fallback is good enough on its own. Anything the AI adds is a bonus.</li>
+<li><strong>Don't connect the ESP32 to the internet.</strong> Keep the hardware layer offline. Only the dispatcher talks to the hardware. Only the planner talks to the dispatcher. Each layer trusts only the one above it.</li>
+<li><strong>Hard-code the absolute maximums.</strong> Don't put your &quot;this would damage equipment&quot; ceilings in a config file the AI can read. Put them in the firmware itself. The AI should not even know they exist.</li>
+</ul>
+<h2>See It Live</h2>
+<p>The Verdify build has a public evidence page showing actual greenhouse runs, including the times when the dispatcher clamped a planner proposal and prevented overshoot: <a href="https://verdify.ai/evidence">verdify.ai/evidence</a>. The safety architecture is documented at <a href="https://verdify.ai/reference/safety">verdify.ai/reference/safety</a>, and the full source is on <a href="https://github.com/jrvallery/verdify">GitHub</a>.</p>
+<hr>
+<h2>Keep Reading</h2>
+<ul>
+<li><strong><a href="/playbooks/g-bot-home-brain/">He Gave His Home a Brain. 50 Days Later, His AI Wakes Him Up, Cleans His House, and Judges His Sleep.</a></strong>: The home-automation cousin of the greenhouse build. Same idea (agent controls physical things in your daily life) without the dispatcher safety pattern, which is exactly why the contrast is useful.</li>
+<li><strong><a href="/playbooks/ai-espresso-phone-agent/">Your AI Makes Your Coffee, Orders Your Lunch, and Answers Your Phone</a></strong>: Agent-controlled hardware applied to a single small business (a one-machine coffee shop). The same &quot;AI doesn't touch the equipment directly&quot; question shows up here in miniature.</li>
+<li><strong><a href="/playbooks/cua-driver/">Your AI Can Now Run Your Mac in the Background. Without Stealing Your Mouse.</a></strong>: Different domain (software, not hardware) but the same lesson. Give the AI a sandbox it can't escape from, and you get the productivity without the panic.</li>
+</ul>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators</p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

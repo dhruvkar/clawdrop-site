@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Meetings Are Now a Searchable Knowledge Base (Fathom + Claude) — ClawDrop</title>
+  <meta name="description" content="Fathom records every meeting. Claude reads the whole archive on demand. Fathom Workflows pushes the right pieces into your CRM, your inbox, and your Slack. Three pieces, one operating system for everything ever said in a meeting at your company.">
+  <meta property="og:title" content="Your Meetings Are Now a Searchable Knowledge Base (Fathom + Claude) — ClawDrop">
+  <meta property="og:description" content="Fathom records every meeting. Claude reads the whole archive on demand. Fathom Workflows pushes the right pieces into your CRM, your inbox, and your Slack. Three pieces, one operating system for everything ever said in a meeting at your company.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/meeting-memory-fathom/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Your Meetings Are Now a Searchable Knowledge Base (Fathom + Claude) — ClawDrop">
+  <meta name="twitter:description" content="Fathom records every meeting. Claude reads the whole archive on demand. Fathom Workflows pushes the right pieces into your CRM, your inbox, and your Slack. Three pieces, one operating system for everything ever said in a meeting at your company.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/meeting-memory-fathom/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+    .logo:hover { color: var(--ink); }
+    .logo-img { width: 32px; height: 32px; border-radius: 7px; display: block; flex-shrink: 0; }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 380px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo"><img src="/assets/clawdrop-logo.png" alt="ClawDrop" class="logo-img">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">May 19, 2026</div>
+    <h1>Your Meetings Are Now a Searchable Knowledge Base (Fathom + Claude)</h1>
+    <p class="post-description">Fathom records every meeting. Claude reads the whole archive on demand. Fathom Workflows pushes the right pieces into your CRM, your inbox, and your Slack. Three pieces, one operating system for everything ever said in a meeting at your company.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Beginner-Intermediate</strong></span>
+      <span class="meta-badge">💰 <strong>$30-50/month (Fathom paid plan + Claude API)</strong></span>
+      <span class="meta-badge">⏱ <strong>An afternoon for the recordings + MCP, a few hours per workflow</strong></span>
+      <span class="meta-badge">👤 <strong>u/Interesting-Post4178 (the pain) + Fathom (the answer)</strong></span>
+      <a href="https://old.reddit.com/r/openclaw/comments/1tgrx6m/what_if_your_openclaw_could_just_sit_in_on_your/" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-fathom"><strong>Fathom</strong></a>: records every Zoom, Google Meet, and Teams call, generates transcript + summary + action items</li>
+<li><a href="#aff-claude-code"><strong>Claude Code</strong></a>: the chat interface where you ask questions across your whole meeting library</li>
+<li><a href="#aff-anthropic"><strong>Anthropic</strong></a>: Claude API powering the queries</li>
+<li><a href="#aff-hubspot"><strong>HubSpot</strong></a>: one destination for the post-meeting Workflow actions</li>
+<li><a href="#aff-salesforce"><strong>Salesforce</strong></a>: alternative CRM destination</li>
+<li><a href="#aff-zapier"><strong>Zapier</strong></a>: connects Fathom to any tool that isn't in the native integrations list</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>Three connected pieces that turn every conversation your team has into structured, searchable, actionable data:</p>
+<ol>
+<li><strong>Fathom records every meeting.</strong> Zoom, Google Meet, Microsoft Teams, phone calls, even in-person. Transcript, summary, action items, the whole thing.</li>
+<li><strong>Claude reads the entire archive.</strong> Through Fathom's MCP integration, you can ask Claude things like <em>&quot;what did Sarah agree to in our March demo?&quot;</em> or <em>&quot;what objections came up the last five times we pitched the enterprise tier?&quot;</em> It answers from the meetings themselves, not from your memory.</li>
+<li><strong>Fathom Workflows handles the after-the-meeting work.</strong> Every recording triggers automatic actions: pain points written to the CRM, follow-up email drafts in your inbox, deal-blocker flags posted to Slack. You finish a call and the busywork is already done.</li>
+</ol>
+<p>The combination is the part nobody else covers. Most companies have Fathom (or Otter, or Gong). They use it as a note-taker. That's like buying a Bloomberg terminal and only using the news ticker.</p>
+<h2>Why This Works</h2>
+<p>The most expensive part of every sales call, customer success conversation, and prospect interview is not the call. It's everything that has to happen afterward:</p>
+<ul>
+<li>Writing the summary</li>
+<li>Updating the CRM with the new info</li>
+<li>Drafting the follow-up email</li>
+<li>Logging the action items</li>
+<li>Telling the team what's blocking the deal</li>
+<li>And, six months later, trying to remember what the customer said the first time you talked</li>
+</ul>
+<p>The math on this is brutal. A sales rep doing five calls a day spends 30–45 minutes per call on the after-work. That's three hours every day. Fifteen hours every week. <strong>Three quarters of a work day per week, per rep, lost to post-meeting admin.</strong></p>
+<p>Fathom alone solves the &quot;writing the summary&quot; part. That's roughly 10 minutes of the 30. The other 20 minutes — the CRM update, the email, the Slack message, the recall six months later — has historically required either a human or a sprawling Zapier mess.</p>
+<p>The fix is the three-piece stack. Fathom captures. Claude recalls. Workflows acts. Each one is a single SaaS subscription. None of them require code.</p>
+<h2>How the Three Layers Work</h2>
+<h3>Layer 1: Fathom Captures Everything</h3>
+<p>Fathom is a meeting recorder. You install it once and it auto-joins every call you have, in the background, without needing to invite a bot to the meeting. For every call it produces:</p>
+<ul>
+<li><strong>Full transcript</strong>, timestamped.</li>
+<li><strong>AI summary</strong> in whatever template you pick (sales call, customer success check-in, all-hands, hiring loop, etc.).</li>
+<li><strong>Action items</strong>, automatically extracted.</li>
+<li><strong>Highlights</strong>, with deep links to the exact moment in the recording.</li>
+<li><strong>CRM-ready fields</strong>, like next steps, pain points, competitors mentioned, budget signals.</li>
+</ul>
+<p>Every meeting goes into your library forever. Searchable by keyword, attendee, date, deal, or custom tag.</p>
+<h3>Layer 2: Claude Reads the Whole Library</h3>
+<p>Fathom's MCP server (announced October 2025) is what makes the library queryable from Claude. Once it's connected, Claude has access to:</p>
+<ul>
+<li>The list of every meeting you've ever had.</li>
+<li>The transcript of any meeting you ask for.</li>
+<li>The summary, action items, and highlights.</li>
+<li>Search across the entire library by keyword, person, or topic.</li>
+<li>Identity lookups (who is this person on the call, how many times have we talked to them).</li>
+</ul>
+<p>This is the part that's underused. Most Fathom customers ask their notes &quot;what happened <em>yesterday</em>.&quot; With the MCP connected, you can ask <strong>what happened across every meeting you've ever recorded</strong>:</p>
+<ul>
+<li><em>&quot;Pull the last three meetings we had with anyone at Acme Corp and summarize the through-line.&quot;</em></li>
+<li><em>&quot;Which deal calls in the last 60 days had the strongest expansion signals?&quot;</em></li>
+<li><em>&quot;Find every time a prospect said 'too expensive' and group the responses by industry.&quot;</em></li>
+<li><em>&quot;What did I commit to with Brian on March 14th?&quot;</em></li>
+</ul>
+<p>Claude answers from the actual transcripts, not your memory.</p>
+<h3>Layer 3: Fathom Workflows Does the Work</h3>
+<p>A <strong>Workflow</strong> in Fathom is &quot;when this happens in a meeting, do that automatically.&quot; It's the after-the-call automation layer. Every workflow has a trigger and one or more actions:</p>
+<p><strong>Triggers:</strong></p>
+<ul>
+<li>A new recording is processed (the standard one — fires once per meeting).</li>
+<li>A specific action item is detected.</li>
+<li>A meeting matches a tag, attendee, or template.</li>
+</ul>
+<p><strong>Actions (built-in):</strong></p>
+<ul>
+<li>Push to HubSpot, Salesforce, Pipedrive, Close, or any major CRM.</li>
+<li>Send specific summary sections (pain points, next steps, decision-makers) to specific CRM fields.</li>
+<li>Update deal stages or contact properties.</li>
+<li>Create Asana tasks from action items.</li>
+<li>Post to a Slack channel with a summary and a deep link to the moment that matters.</li>
+<li>Trigger a Zapier or n8n flow for anything else.</li>
+</ul>
+<p>A real workflow looks like this. <em>Trigger:</em> a new sales call. <em>Actions:</em> write the pain points to the HubSpot deal's &quot;Pain Points&quot; field, write the budget signal to &quot;Budget Stage,&quot; post the action items to #sales-deals in Slack, draft the follow-up email in Gmail and stage it for review. Total human work after the call: zero, until you open Gmail to review and send the email.</p>
+<h2>Step-by-Step Setup</h2>
+<h3>Step 1: Connect Fathom to Your Calendar</h3>
+<p>Install Fathom. Connect your work calendar (Google Workspace or Microsoft 365). Fathom now sees every meeting on your calendar and joins each one in the background. You can set rules for which meetings get recorded (internal only, external only, specific contacts, specific calendars).</p>
+<p>There's no bot in the meeting — Fathom records via the meeting platform's native API, not by sitting in the call as an invisible attendee. Cleaner experience for everyone on the call.</p>
+<h3>Step 2: Pick Your Summary Templates</h3>
+<p>Fathom lets you choose or build the summary template per meeting type. Start with the built-in ones:</p>
+<ul>
+<li><strong>Sales call</strong> — extracts pain, budget, timeline, decision-makers, next steps, competitors.</li>
+<li><strong>Customer success</strong> — extracts blockers, expansion signals, sentiment, risks.</li>
+<li><strong>Hiring interview</strong> — extracts strengths, concerns, role fit, follow-up questions.</li>
+<li><strong>Internal meeting</strong> — extracts decisions, action items, owners.</li>
+</ul>
+<p>Fathom auto-routes meetings to the right template based on calendar metadata.</p>
+<h3>Step 3: Wire the Fathom MCP into Claude</h3>
+<p>Fathom has a hosted MCP server at <code>https://api.fathom.ai/mcp</code>. To connect Claude Code:</p>
+<ol>
+<li>Run <code>claude mcp add fathom https://api.fathom.ai/mcp</code> (or the equivalent for Claude Desktop).</li>
+<li>The first time you query it, Claude opens a browser tab for OAuth. Sign in with your Fathom account.</li>
+<li>Verify the connection by asking Claude <em>&quot;how many meetings did I have last week?&quot;</em></li>
+</ol>
+<p>Now Claude can list, search, and read any meeting in your library. The whole archive is one conversation away.</p>
+<h3>Step 4: Build Your First Workflow</h3>
+<p>In Fathom, go to Workflows. The first one to build is the sales-call automation. Configure:</p>
+<ul>
+<li><strong>Trigger:</strong> new recording, where the meeting template is &quot;Sales Call.&quot;</li>
+<li><strong>Action 1:</strong> push the &quot;pain points&quot; field of the summary into the corresponding HubSpot deal field.</li>
+<li><strong>Action 2:</strong> push &quot;decision-makers&quot; into the HubSpot contact records as a custom property.</li>
+<li><strong>Action 3:</strong> post the AI summary + action items to a Slack channel like <code>#sales-debrief</code>.</li>
+<li><strong>Action 4:</strong> trigger a Zapier flow that drafts a follow-up email in Gmail using a template you've stored.</li>
+</ul>
+<p>Test it on one real sales call before turning it on for all of them. Verify every field landed in the right place.</p>
+<h3>Step 5: Add Workflows for Each Meeting Type</h3>
+<p>Once the sales-call workflow is solid, build the next ones:</p>
+<ul>
+<li><strong>Customer success</strong> workflow → updates the customer's account health score in your CRM, flags churn signals to a dedicated Slack channel.</li>
+<li><strong>Hiring interviews</strong> workflow → writes structured candidate notes into your ATS, schedules the next round if signals were strong.</li>
+<li><strong>All-hands</strong> workflow → posts the decisions log to a Notion page.</li>
+</ul>
+<p>The pattern is the same every time. New recording → extract structured fields → push to the right destinations.</p>
+<h3>Step 6: Use Claude for the Long-Tail Questions</h3>
+<p>The workflows handle the <em>predictable</em> post-meeting work. Claude handles the <em>unpredictable</em> questions:</p>
+<ul>
+<li><em>&quot;Did anyone on the Acme team ever bring up SOC 2 in any call we've had?&quot;</em></li>
+<li><em>&quot;What was Brian's stated timeline in our March meeting and how does it compare to what he said in May?&quot;</em></li>
+<li><em>&quot;Pull every customer success call from the last quarter where the customer mentioned a competitor by name, and group them.&quot;</em></li>
+</ul>
+<p>These are the questions that don't fit a templated workflow. Claude reads across the library and answers in seconds.</p>
+<h3>Step 7: Train the Team on the Question Habits</h3>
+<p>The hardest part of this whole setup is not technical. It's behavioral. Most people will keep using Fathom only to summarize the call they just had. Getting your team to ask <em>&quot;what does the meeting library say about this&quot;</em> before every customer touchpoint is the actual leverage.</p>
+<p>Two things help:</p>
+<ol>
+<li><strong>A shared prompts collection.</strong> Fathom lets you save and share canned prompts. Save the ones that work for your team: <em>&quot;Top 5 objections this quarter,&quot; &quot;All-time mentions of <competitor>,&quot; &quot;Customers who churned and what they said in their last call.&quot;</em> Make them one-click for everyone.</li>
+<li><strong>A weekly meeting-library digest.</strong> A small workflow that, every Friday, asks Claude to summarize the week's meetings across the team and posts to a Slack channel. Reading the digest gets people in the habit of querying the library.</li>
+</ol>
+<h2>Adapting This for Other Conversation-Driven Businesses</h2>
+<p>The same three-layer stack works for any business where conversations are the unit of value.</p>
+<p><strong>Consulting firms.</strong> Every discovery call gets summarized into a structured intake doc and pushed to the project management tool. Claude becomes the institutional memory across decades of client engagements.</p>
+<p><strong>Recruiters and search firms.</strong> Every candidate call gets pushed into the ATS with structured fields. Claude searches across years of candidate conversations to surface re-engagement opportunities.</p>
+<p><strong>Customer support teams.</strong> Every support call gets a workflow that updates the ticket, tags the product feature, and posts a deep link to the bug if one was reported. Claude finds repeating issues across calls.</p>
+<p><strong>Medical and legal practices.</strong> Every consult gets summarized into the relevant case file (with HIPAA-compliant tooling). Claude searches across the practice's history for similar prior cases.</p>
+<p><strong>Real estate agents.</strong> Every showing call gets logged into the CRM with the buyer's stated must-haves and dealbreakers. Claude finds the right inventory match against years of buyer conversations.</p>
+<p>Wherever your business runs on conversations, this stack turns those conversations into data you can search and act on.</p>
+<h2>Gotchas and Tips</h2>
+<ul>
+<li><strong>Pay for the team plan.</strong> Fathom's free plan caps recordings and doesn't expose the Workflow features or the MCP. If you're more than one person, the team plan is the entry point. Roughly $19-32/user/month depending on the tier.</li>
+<li><strong>Get permission to record.</strong> Some U.S. states are two-party consent. Most other jurisdictions vary. Fathom plays a brief disclosure at the start of recordings on most platforms, but the responsibility for compliance is yours. Talk to a lawyer about your specific situation.</li>
+<li><strong>Templates matter more than people expect.</strong> The built-in templates are good, but a custom template tuned for <em>your</em> sales motion (your specific competitors, your specific pricing tiers, your specific objection categories) will produce dramatically better Workflow output. Spend an hour tuning the template before you build the workflows.</li>
+<li><strong>Don't push everything to the CRM.</strong> It is tempting to write every summary section into a custom CRM field. Don't. CRMs get unusable when there are 80 fields per record. Pick the 3-5 that actually drive your team's behavior and push only those.</li>
+<li><strong>Tag obsessively for the first month.</strong> The MCP queries are only as good as the meeting metadata. Tag every meeting with the customer name, the deal stage, the meeting purpose. After a month, your library is queryable by every dimension you care about. After three months, it's a competitive advantage.</li>
+<li><strong>Review the workflow output the first week.</strong> Workflows can write incorrect data to your CRM if the template extracts something wrong. For the first week of every new workflow, manually review every record it touches. Trust the system after you've watched it work.</li>
+<li><strong>The MCP is beta.</strong> Fathom's MCP integration is still in beta as of this writing. Expect occasional rough edges (rate limits, slow first responses). The product is rapidly improving.</li>
+</ul>
+<h2>What This Replaces</h2>
+<p>Before this stack:</p>
+<ul>
+<li><strong>Note-taker:</strong> $15-25/user/month (Otter, Fellow, Granola)</li>
+<li><strong>Sales-call analytics:</strong> $80-150/user/month (Gong, Chorus)</li>
+<li><strong>Manual after-call admin:</strong> 3 hours/day, per rep</li>
+<li><strong>The &quot;where did I see that?&quot; tax:</strong> unmeasured but enormous</li>
+</ul>
+<p>After this stack:</p>
+<ul>
+<li><strong>Fathom team plan:</strong> $19-32/user/month</li>
+<li><strong>Claude usage:</strong> $5-20/user/month depending on query volume</li>
+<li><strong>After-call admin:</strong> workflow-handled</li>
+<li><strong>The library is your second brain:</strong> queryable forever</li>
+</ul>
+<p>One vendor. One conversation. Every meeting your business has ever had, awake and useful.</p>
+<hr>
+<h2>Keep Reading</h2>
+<ul>
+<li><strong><a href="/playbooks/hubspot-research-agent/">Two Prompts and Your HubSpot Just Replaced Your Enrichment Tool</a></strong>: The sibling for the CRM-research side. Together these two playbooks cover the full &quot;before the call, during the call, after the call&quot; loop.</li>
+<li><strong><a href="/playbooks/ai-cold-call-coach/">AI Whispers What to Say During Your Cold Calls in Real Time</a></strong>: Before-the-call and during-the-call coaching. Pair it with Fathom for after-the-call automation and you've covered the whole conversation surface.</li>
+<li><strong><a href="/playbooks/ai-second-brain/">Give Your AI a Second Brain That Gets Smarter Every Day ($0/Month)</a></strong>: Generic second-brain version. This Fathom playbook is the meeting-specific specialization — for businesses that run on conversations, this is the better starting point.</li>
+</ul>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators</p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

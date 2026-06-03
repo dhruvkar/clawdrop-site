@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build Your Own Bloomberg Terminal with Obsidian and Claude — ClawDrop</title>
+  <meta name="description" content="An equity analyst who ran $60M in a direct-stock portfolio rebuilt his research stack on Obsidian plus Claude. Every article, earnings call, and market thread he&#39;s ever read is now one chat query away. The setup replaces the $24K/year Bloomberg seat for independent analysts.">
+  <meta property="og:title" content="Build Your Own Bloomberg Terminal with Obsidian and Claude — ClawDrop">
+  <meta property="og:description" content="An equity analyst who ran $60M in a direct-stock portfolio rebuilt his research stack on Obsidian plus Claude. Every article, earnings call, and market thread he&#39;s ever read is now one chat query away. The setup replaces the $24K/year Bloomberg seat for independent analysts.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/investment-research-with-obsidian/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Build Your Own Bloomberg Terminal with Obsidian and Claude — ClawDrop">
+  <meta name="twitter:description" content="An equity analyst who ran $60M in a direct-stock portfolio rebuilt his research stack on Obsidian plus Claude. Every article, earnings call, and market thread he&#39;s ever read is now one chat query away. The setup replaces the $24K/year Bloomberg seat for independent analysts.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/investment-research-with-obsidian/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+    .logo:hover { color: var(--ink); }
+    .logo-img { width: 32px; height: 32px; border-radius: 7px; display: block; flex-shrink: 0; }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 380px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo"><img src="/assets/clawdrop-logo.png" alt="ClawDrop" class="logo-img">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">May 19, 2026</div>
+    <h1>Build Your Own Bloomberg Terminal with Obsidian and Claude</h1>
+    <p class="post-description">An equity analyst who ran $60M in a direct-stock portfolio rebuilt his research stack on Obsidian plus Claude. Every article, earnings call, and market thread he&#39;s ever read is now one chat query away. The setup replaces the $24K/year Bloomberg seat for independent analysts.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Beginner-Intermediate</strong></span>
+      <span class="meta-badge">💰 <strong>$10-30/month (Obsidian Sync optional, Claude API for queries)</strong></span>
+      <span class="meta-badge">⏱ <strong>An afternoon for the vault + MCP, a few weeks to populate it with research that matters</strong></span>
+      <span class="meta-badge">👤 <strong>Shubham (Alpha with AI)</strong></span>
+      <a href="https://www.youtube.com/watch?v=-PuIwRbZ0n8" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-obsidian"><strong>Obsidian</strong></a>: the local-first markdown vault that holds every note, article, and transcript</li>
+<li><a href="#aff-mcpvault"><strong>MCPVault</strong></a>: open-source MCP server that gives Claude structured, frontmatter-aware access to your Obsidian vault</li>
+<li><a href="#aff-claude-code"><strong>Claude Code</strong></a>: the chat interface where you query the entire research library</li>
+<li><a href="#aff-anthropic"><strong>Anthropic</strong></a>: Claude API powering the queries</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>A research stack that turns every article you've ever read, every earnings call you've taken notes on, every sell-side report you've annotated, every conversation with a fellow investor, into <strong>one queryable knowledge base</strong> that Claude reads on demand.</p>
+<p>Three pieces wired together:</p>
+<ol>
+<li><strong>Obsidian</strong> holds everything you've ever read or written about the markets, locally, in plain markdown files you own forever.</li>
+<li><strong>MCPVault</strong> is a small piece of free software that makes the vault readable by Claude.</li>
+<li><strong>Claude Code</strong> is the chat where you ask questions that span years of your research.</li>
+</ol>
+<p>Sample queries the setup lets you answer in 5 seconds instead of an afternoon:</p>
+<ul>
+<li><em>&quot;Pull everything I've written about supply-chain risk at AAPL in the last three years.&quot;</em></li>
+<li><em>&quot;What did management say about pricing power in the last four MSFT earnings calls?&quot;</em></li>
+<li><em>&quot;Find every time I flagged a stock as overvalued and then it doubled. What did I miss?&quot;</em></li>
+<li><em>&quot;Give me the bear case across my notes on NVDA, plus every counter-argument I logged.&quot;</em></li>
+<li><em>&quot;Which of my long ideas from 2024 are still active and which did I quietly drop?&quot;</em></li>
+</ul>
+<p>This is what a Bloomberg seat costs $24,000 a year to give you, except yours is built on your own thinking.</p>
+<h2>Why This Works</h2>
+<p>The hard part of being a good investor is not reading. It is <em>remembering what you read</em>, six months later, when it matters.</p>
+<p>Every analyst has the same workflow problem. You spend hours reading a 10-K, take notes in Notion. You watch an earnings call, drop highlights into a Google Doc. You exchange a thoughtful email with a friend about a position, the email is forgotten in your inbox forever. You annotate a sell-side PDF that lives in your downloads folder until your laptop dies.</p>
+<p>By the time the position matters — when the stock drops, when an earnings event approaches, when a competitor's news hits the tape — the research is <em>somewhere</em>. You just cannot find it. You re-read the 10-K. You re-watch the earnings call. The work compounds slowly because every retrieval is starting from scratch.</p>
+<p>The fix is two parts. <strong>One</strong>, get every piece of your research into one local, durable, plain-text vault. Obsidian is the right answer here because the files are yours forever, the format will outlive any subscription, and the tagging is rich. <strong>Two</strong>, put an AI on top of the vault that can read across years of notes in seconds.</p>
+<p>That second part is what changed in the last twelve months. Claude with an MCP connection to Obsidian doesn't just search the vault — it <em>reads</em> it, synthesizes across notes, and gives you the through-line.</p>
+<p>An analyst who builds this stack is not just faster. They are working with leverage their younger self did not have. Every note from five years ago is still alive. The mistakes are catalogued. The good calls are documented. The themes the analyst saw before anyone else are searchable by the analyst who saw them.</p>
+<p>This is what compounding research actually means.</p>
+<h2>How the Three Pieces Fit Together</h2>
+<h3>Layer 1: Obsidian as the Vault</h3>
+<p>Obsidian is a free local-first markdown editor. Every note is a plain <code>.md</code> text file in a folder on your machine. No cloud lock-in. No SaaS that can change pricing on you. No vendor that can delete your archive.</p>
+<p>You organize your vault into folders that match how you think about the market. A reasonable starting structure:</p>
+<pre><code>/Vault/
+  /Companies/
+    AAPL.md
+    MSFT.md
+    NVDA.md
+  /Themes/
+    AI infrastructure.md
+    EV adoption.md
+    Healthcare cost compression.md
+  /Earnings/
+    2026/Q1/AAPL Q1 2026 notes.md
+  /Reading/
+    2026-05-15 Stratechery on TSMC.md
+    2026-05-12 Damodaran NVDA valuation.md
+  /Conversations/
+    2026-05-10 lunch with Vikram (oil thesis).md
+</code></pre>
+<p>The folders matter less than the <strong>frontmatter</strong> on each note. Frontmatter is the small block of metadata at the top of every markdown file:</p>
+<pre><code class="language-yaml">---
+ticker: AAPL
+event: earnings
+date: 2026-04-25
+sentiment: bullish
+themes: [pricing-power, services-mix, gross-margin]
+sources: [10-Q, earnings-call]
+---
+</code></pre>
+<p>This metadata is what makes the vault queryable. Every note is tagged. Tags are searchable. The AI can filter on them.</p>
+<h3>Layer 2: MCPVault Reads the Vault</h3>
+<p>MCPVault is a free open-source MCP server. You install it once. It runs on your machine alongside Obsidian. It exposes a small set of tools that let Claude:</p>
+<ul>
+<li>Read any note by path.</li>
+<li>Search across all notes by keyword.</li>
+<li>Filter notes by frontmatter (e.g. <em>&quot;every note where ticker is AAPL&quot;</em>).</li>
+<li>Read all notes that link to a specific note (Obsidian's backlink graph).</li>
+<li>Write new notes back into the vault when you want Claude to capture a synthesis.</li>
+</ul>
+<p>The point is structured access. A plain &quot;read files&quot; tool would dump 47 raw markdown files into Claude's context and burn through tokens. MCPVault parses the frontmatter, returns structured records, and only sends the parts of notes that match the query. The token efficiency is the difference between this being usable and being unusable.</p>
+<h3>Layer 3: Claude Code on Top</h3>
+<p>Claude Code is the chat interface where you do the work. With the MCP connection live, every question you ask is grounded in your actual vault.</p>
+<p>The way a session looks:</p>
+<ul>
+<li><em>&quot;NVDA reports tomorrow. Pull my last three notes on the stock and summarize what I'm watching for.&quot;</em> Claude reads the three latest dated notes tagged <code>ticker: NVDA</code>, summarizes them, and gives you a focused pre-earnings briefing.</li>
+<li><em>&quot;During the call, I'll be watching for commentary on data-center growth, gross-margin, and inventory. Set up a template.&quot;</em> Claude generates a markdown template in your vault for the live notes.</li>
+<li><em>&quot;Here are my live notes from the call.&quot;</em> You paste them into the template. Claude reads them, compares against the prior three notes, flags what changed.</li>
+<li><em>&quot;Write a synthesis note for the vault.&quot;</em> Claude writes a new file into <code>Earnings/2026/Q2/NVDA Q2 2026.md</code> with proper frontmatter, links to the prior notes, and tags the themes you flagged.</li>
+</ul>
+<p>The whole loop runs inside a single chat. The vault gets richer with every cycle.</p>
+<h2>Step-by-Step Setup</h2>
+<h3>Step 1: Install Obsidian and Create the Vault</h3>
+<p>Obsidian is free for personal use. Download it. Create a new vault — call it whatever you want (<code>Research</code>, <code>Markets</code>, <code>Investing</code>). Save the vault folder somewhere durable (a local SSD is fine; iCloud Drive or Dropbox work for cross-device sync but are slower).</p>
+<p>Pick a folder structure that matches your thinking. The structure above (Companies / Themes / Earnings / Reading / Conversations) is a reasonable starting point. Don't overthink it. Folders are easy to refactor later because Obsidian rewrites every cross-link automatically.</p>
+<h3>Step 2: Establish Your Frontmatter Schema</h3>
+<p>This is the most important decision in the entire setup. Spend an hour deciding what every note will be tagged with. A starting schema:</p>
+<ul>
+<li><code>ticker</code>: the primary stock symbol the note is about (or <code>null</code> for theme notes).</li>
+<li><code>tickers</code>: a list of secondary tickers mentioned.</li>
+<li><code>event</code>: what kind of note this is — <code>earnings</code>, <code>10K</code>, <code>news</code>, <code>conversation</code>, <code>note</code>, <code>synthesis</code>.</li>
+<li><code>date</code>: ISO date.</li>
+<li><code>sentiment</code>: your current view — <code>bullish</code>, <code>bearish</code>, <code>neutral</code>, <code>watching</code>.</li>
+<li><code>themes</code>: a list of macro or industry themes the note touches.</li>
+<li><code>sources</code>: where the information came from.</li>
+</ul>
+<p>Save a markdown template in Obsidian's <code>Templates/</code> folder with this frontmatter block at the top. Now every new note starts with the schema in place.</p>
+<h3>Step 3: Backfill Two Years of Notes</h3>
+<p>The setup is only useful if the vault is populated. Plan a weekend to migrate two years of past research into the vault. Order of priority:</p>
+<ol>
+<li><strong>Your current portfolio.</strong> Every position you hold today, with the most recent thesis note for each.</li>
+<li><strong>Earnings notes for your portfolio companies.</strong> At least the last four quarters per name.</li>
+<li><strong>Themes you actively track.</strong> One note per theme, with frontmatter and links to the relevant tickers.</li>
+<li><strong>Any conversation or sell-side report that materially shaped a position.</strong></li>
+</ol>
+<p>Don't try to backfill <em>everything</em>. The vault gets useful at maybe 50-100 notes. It gets powerful at 300+. Backfill the parts that matter, and let the rest accumulate organically going forward.</p>
+<h3>Step 4: Install MCPVault</h3>
+<p>MCPVault is on GitHub at <code>bitbonsai/mcpvault</code>. Installation is a one-line command in your terminal:</p>
+<pre><code>npx -y mcpvault@latest --vault /path/to/your/Obsidian/vault
+</code></pre>
+<p>This starts a local MCP server that watches your vault and exposes it to any MCP-compatible client.</p>
+<h3>Step 5: Wire Claude Code to MCPVault</h3>
+<p>In Claude Code (or Claude Desktop), add the MCP connection:</p>
+<pre><code>claude mcp add mcpvault npx -y mcpvault@latest --vault /path/to/your/vault
+</code></pre>
+<p>The first time you query the MCP, Claude verifies the connection and reads the vault index. Test by asking <em>&quot;how many notes do I have tagged ticker: AAPL?&quot;</em>. If it answers with a real number, you're wired.</p>
+<h3>Step 6: Build Your First Workflow</h3>
+<p>Pick one stock you cover. Run the full loop on it:</p>
+<ol>
+<li><em>&quot;Summarize my current view on $TICKER from the most recent notes in the vault.&quot;</em></li>
+<li><em>&quot;What's been the consistent bull case across my notes? What's been the bear case? Which side has more recent data?&quot;</em></li>
+<li><em>&quot;What did I get right in my $TICKER notes from 2024? What did I get wrong? What was I uncertain about that has since been resolved?&quot;</em></li>
+</ol>
+<p>These three questions, asked of your own historical thinking, will produce something you have never had before — a structured view of how your investment process actually performs.</p>
+<h3>Step 7: The Daily and Quarterly Cycle</h3>
+<p>Build the habit. Two cadences:</p>
+<p><strong>Daily</strong> (15-30 min before market open or after close): drop notes from anything you read that day into the vault. Use the template. Tag aggressively. Don't write essays — even three bullet points per article is enough as long as the frontmatter is right.</p>
+<p><strong>Quarterly</strong> (a half-day at the start of each earnings season): run the full Claude-assisted review on each name in your portfolio. Pre-earnings synthesis. Live notes during the call. Post-call comparison. Synthesis note written back to the vault.</p>
+<p>After four quarters of this, the vault becomes your research moat.</p>
+<h2>Adapting This for Other Information-Heavy Work</h2>
+<p>The Obsidian + MCPVault + Claude stack works for anyone whose job is to read, remember, and decide.</p>
+<p><strong>Corporate strategy.</strong> Replace tickers with competitors. Replace earnings with product launches and press cycles. The same pattern produces a competitive intelligence library that compounds.</p>
+<p><strong>Venture capital.</strong> Tag notes by company, sector, stage, and thesis. Every deal memo, every conversation with a founder, every back-channel reference, lives in the vault. The fund's institutional memory becomes queryable.</p>
+<p><strong>Legal practice.</strong> Replace tickers with case names. Replace earnings with hearings and filings. A litigator's case archive becomes searchable by argument, judge, opposing counsel, and precedent.</p>
+<p><strong>Medical practice.</strong> Replace tickers with patient cases (with HIPAA-compliant local-only storage). Themes become symptoms and treatments. The vault becomes a clinical reasoning aide.</p>
+<p><strong>Journalism and investigative research.</strong> Sources, dates, quotes, documents — all tagged. A reporter's notebook that the reporter can actually query years later.</p>
+<p><strong>Academic research.</strong> Papers, citations, hypotheses, results. The vault becomes the literature review that updates itself as you read.</p>
+<p>The pattern: <em>one local plain-text vault, rich frontmatter, AI on top.</em> The output is the same across every domain. Your past thinking becomes available to your future self.</p>
+<h2>Gotchas and Tips</h2>
+<ul>
+<li><strong>The vault is only as good as the frontmatter.</strong> Notes without frontmatter are invisible to the AI's filtering. The discipline of tagging every note is the price of admission. Build it as a habit from day one.</li>
+<li><strong>Don't paste raw earnings transcripts into the vault.</strong> Transcripts are 30-60 pages each. They will bloat your vault and burn Claude's tokens. Instead, paste your <em>notes on</em> the transcript, with a link to where the raw transcript lives (a separate transcripts folder, or a service like Quartr).</li>
+<li><strong>Use links liberally.</strong> Obsidian's <code>[[double-bracket]]</code> syntax creates links between notes. Every note about an earnings call should link to the company's main note. Every theme note should link to the relevant tickers. The link graph is what MCPVault uses to find related notes.</li>
+<li><strong>Sentiment tags are for <em>you</em>, not for the AI.</strong> Claude won't trade on the <code>sentiment: bullish</code> tag. You will, when you look back at how often your <code>bullish</code> calls actually worked.</li>
+<li><strong>Back up the vault.</strong> It's plain text in a folder. Push it to a private GitHub repo with daily commits. Versioned forever, recoverable from any machine, costs zero.</li>
+<li><strong>Resist the urge to put it in the cloud.</strong> Obsidian Sync ($10/month) is the simplest cross-device option. Self-hosted Syncthing is free and works well. Putting your research vault in a generic cloud (Dropbox, iCloud Drive) works but adds latency and occasional sync conflicts.</li>
+<li><strong>The first month feels like overhead.</strong> Tagging discipline is annoying when the vault is small and the queries are not yet useful. Push through it. Month two is when the magic shows up.</li>
+<li><strong>Keep the vault private.</strong> This is your edge. It is also full of opinions about public companies that you do not want public. Local-only by default. Personal GitHub repo if you back up. Never push to a public repo.</li>
+</ul>
+<h2>What This Replaces</h2>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Old cost</th>
+<th>What it did</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bloomberg Terminal</td>
+<td>~$24,000/year</td>
+<td>Real-time data and historical research</td>
+</tr>
+<tr>
+<td>FactSet</td>
+<td>$10,000+/year</td>
+<td>Estimates and screening</td>
+</tr>
+<tr>
+<td>Sentieo</td>
+<td>$5,000+/year</td>
+<td>Earnings transcripts and sell-side research</td>
+</tr>
+<tr>
+<td>Junior analyst</td>
+<td>$60-80K/year</td>
+<td>Synthesis and research compilation</td>
+</tr>
+<tr>
+<td>Your scattered notes</td>
+<td>unmeasured</td>
+<td>The work you've already done, mostly lost</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>What replaces it</th>
+<th>New cost</th>
+<th>What you get</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Obsidian + MCPVault + Claude</td>
+<td>$10-30/month</td>
+<td>A queryable research vault that compounds forever</td>
+</tr>
+<tr>
+<td>Quartr (transcripts)</td>
+<td>$50-100/month optional</td>
+<td>Earnings transcripts (still useful for raw data)</td>
+</tr>
+<tr>
+<td>Your own time, structured</td>
+<td>same as before</td>
+<td>But now the time has leverage</td>
+</tr>
+</tbody>
+</table>
+<p>The Bloomberg seat is still better at one thing: real-time market data and screening. If you need that, keep it (or use a cheaper substitute like Koyfin at $30/month). What you do not need to pay $24K/year for anymore is <em>somewhere to put your research</em>. That problem is solved.</p>
+<hr>
+<h2>Keep Reading</h2>
+<ul>
+<li><strong><a href="/playbooks/meeting-memory-fathom/">Your Meetings Are Now a Searchable Knowledge Base (Fathom + Claude)</a></strong>: The conversation-side companion. Fathom captures every investor meeting, management call, and team discussion. Wired with the Obsidian vault, your entire information surface — what you read, what you heard — is queryable from one chat.</li>
+<li><strong><a href="/playbooks/ai-second-brain/">Give Your AI a Second Brain That Gets Smarter Every Day ($0/Month)</a></strong>: The general version of this playbook for non-finance use cases. Same architecture, different content.</li>
+<li><strong><a href="/playbooks/buying-a-business-with-ai/">How an AI Helps You Buy a Business (Without a $50K Broker)</a></strong>: The acquisition-research sibling. Different vertical, same disciplined-research compounding pattern.</li>
+</ul>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators</p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

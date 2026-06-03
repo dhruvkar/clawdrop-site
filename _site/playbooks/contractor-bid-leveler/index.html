@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>He Gave Claude 3 Contractor Bids. It Found $1.4M Worth of Scope Gaps. — ClawDrop</title>
+  <meta name="description" content="A multifamily developer dropped three GC bid packages into a folder and ran one prompt. Claude built a 4-tab Excel workbook with leveled comparison, scope gap matrix, unbalanced line items, and risk-weighted recommendation. Found exclusions worth seven figures.">
+  <meta property="og:title" content="He Gave Claude 3 Contractor Bids. It Found $1.4M Worth of Scope Gaps. — ClawDrop">
+  <meta property="og:description" content="A multifamily developer dropped three GC bid packages into a folder and ran one prompt. Claude built a 4-tab Excel workbook with leveled comparison, scope gap matrix, unbalanced line items, and risk-weighted recommendation. Found exclusions worth seven figures.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/contractor-bid-leveler/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="He Gave Claude 3 Contractor Bids. It Found $1.4M Worth of Scope Gaps. — ClawDrop">
+  <meta name="twitter:description" content="A multifamily developer dropped three GC bid packages into a folder and ran one prompt. Claude built a 4-tab Excel workbook with leveled comparison, scope gap matrix, unbalanced line items, and risk-weighted recommendation. Found exclusions worth seven figures.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/contractor-bid-leveler/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+    .logo:hover { color: var(--ink); }
+    .logo-img { width: 32px; height: 32px; border-radius: 7px; display: block; flex-shrink: 0; }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 380px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo"><img src="/assets/clawdrop-logo.png" alt="ClawDrop" class="logo-img">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">May 12, 2026</div>
+    <h1>He Gave Claude 3 Contractor Bids. It Found $1.4M Worth of Scope Gaps.</h1>
+    <p class="post-description">A multifamily developer dropped three GC bid packages into a folder and ran one prompt. Claude built a 4-tab Excel workbook with leveled comparison, scope gap matrix, unbalanced line items, and risk-weighted recommendation. Found exclusions worth seven figures.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Beginner</strong></span>
+      <span class="meta-badge">💰 <strong>$20/month (Claude Pro or Max)</strong></span>
+      <span class="meta-badge">⏱ <strong>An afternoon for the first run, 15 minutes after</strong></span>
+      <span class="meta-badge">👤 <strong>AI for CRE</strong></span>
+      <a href="https://www.youtube.com/watch?v=CPvVsieoooE" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-claude-code"><strong>Claude Code</strong></a>: the desktop app version of Claude. Gets folder access, reads PDFs natively. Opus 4.7 is the model used.</li>
+<li><a href="#aff-claude"><strong>Claude</strong></a>: the underlying model. A Pro or Max subscription covers it.</li>
+<li><a href="#aff-excel"><strong>Excel</strong></a>: the output format. Claude generates a four-tab workbook plus a recommendation memo.</li>
+<li><a href="#aff-google-drive"><strong>Google Drive</strong></a>: alternative for storing the bid packages and sharing the output.</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>A pre-award bid review system that takes three to six contractor bid packages (PDFs) and produces a four-tab Excel workbook plus a written recommendation memo. The workbook tells you which bidder to award, which scope gaps to clarify before signing, and which line items are so unbalanced that they should worry you.</p>
+<p>The work that used to take a week of nights cross-referencing line items in Excel happens in about ten minutes. The catches are sharper than what most humans find because Claude actually reads every page of every document instead of skimming.</p>
+<p>This comes from a CRE professional who leveled real GC bids on a 79-unit multifamily project. The findings he walked away with included scope exclusions worth seven figures on a $25M project. Caught pre-award.</p>
+<h2>The Problem Every Developer and Owner's Rep Has Lived</h2>
+<p>You issued an RFP. Three GCs responded. Three proposals, three schedules of values, all in different formats. None of them are comparable to each other and that's the point.</p>
+<p>Bid A excluded low voltage entirely. It's in their exclusions list, page 8, paragraph 3. You didn't see it.</p>
+<p>Bid B carries Division 28 (security and fire alarm) as an allowance only. Everyone else priced it firm. The headline number looks the same; the actual risk profile is wildly different.</p>
+<p>Bid C left exterior improvements off entirely. They told you in the cover letter that they &quot;assumed exterior is by others.&quot; You read the cover letter at 11pm. You missed it.</p>
+<p>Bid B's drywall line is 300% over the median. They padded it because they think you'll fight harder on the framing line. You don't know that yet.</p>
+<p>You spend the next week building an Excel sheet to compare them. You miss two of these things. You award the lowest bid because the owner is pushing for the lowest cost. Three months later, you're processing change orders for the exclusions you missed. The &quot;cheapest&quot; bid ends up being the most expensive.</p>
+<p>Every developer, owner's rep, and project manager has lived this. Scope gaps always come back to bite. Catching them on the front end is where the real money is.</p>
+<h2>How It Works</h2>
+<p>The whole setup is one folder, one prompt, one Claude Code session. The output is a workbook your owner can sign off on.</p>
+<h3>The Inputs</h3>
+<p>You drop the bid packages into a folder on your desktop. For each GC, that's typically:</p>
+<ul>
+<li>The proposal (cover letter, narrative, exclusions, qualifications)</li>
+<li>The schedule of values (the line-item pricing breakdown)</li>
+</ul>
+<p>For three bidders, that's six PDFs. Optionally include the construction drawings. The video author skipped the plans and called it out as the one thing he'd do differently — including them makes the scope-gap matrix dramatically more accurate.</p>
+<h3>The Prompt</h3>
+<p>Open Claude Code (desktop app). Give it access to the folder. Paste a prompt with this structure:</p>
+<pre><code>You are an experienced owner's rep and construction cost manager helping me
+level three GC bids for [project name].
+
+Project context:
+- [Location, type, scale, structural system]
+- [Number of units, square footage, stories]
+- [Any relevant context that affects scope]
+
+I have three bid packages in the folder. For each contractor, there is a
+proposal and a schedule of values.
+
+Build me a single Excel workbook with four tabs:
+
+  Tab 1: Leveled bid comparison
+    - Side-by-side line items normalized to a common breakdown
+    - Subtotals by CSI division or trade
+    - Total normalized for P&amp;P bonds, contingency, and missing scope
+
+  Tab 2: Scope gap matrix
+    - Every scope item listed once
+    - For each bidder: included / excluded / allowance only / unclear
+    - Flag any item where bidders disagree
+
+  Tab 3: Unbalanced line items
+    - Identify line items where one bidder is significantly above or
+      below the median of the others
+    - Flag anything more than 100% over or under the median
+
+  Tab 4: Risk-weighted recommendation
+    - Rank the bidders by total apples-to-apples cost
+    - Adjust for the risk score of their exclusions and unbalanced items
+    - Recommend a winner and explain why
+
+Then produce a written recommendation memo I can give my owner.
+</code></pre>
+<p>That's the whole prompt. Claude reads all six PDFs and builds the workbook.</p>
+<h3>What It Caught on a Real Project</h3>
+<p>The video author ran this on &quot;The Vermont&quot; — a 79-unit multifamily at 1247 N Vermont Ave, Los Angeles. Type III wood frame over Type I concrete podium, five stories. Three GC bids from real firms.</p>
+<p>Claude's findings:</p>
+<ul>
+<li><strong>Bidder A</strong> excluded low voltage entirely (caught in the exclusions list)</li>
+<li><strong>Bidder B</strong> carried Division 28 as allowance only, not firm pricing</li>
+<li><strong>Bidder C</strong> left exterior improvements out completely</li>
+<li><strong>One bidder</strong> was 300% over the median on a single line item</li>
+</ul>
+<p>Once Claude normalized for performance and payment bonds, contingency reserves, and the missing scope, the apples-to-apples spread between bidders went from a misleading $25-28M range to a real $5.4M difference.</p>
+<p>The recommendation: do not award to the cheapest headline bidder. Their bid was structurally unbalanced. Award to the middle bidder, the one whose number was higher but whose scope was complete.</p>
+<p>The owner saved seven figures by not awarding the bid the spreadsheet said to.</p>
+<h3>The Setup (One Afternoon)</h3>
+<p><strong>What you need:</strong></p>
+<ul>
+<li>Claude Pro or Max subscription (the desktop app runs Claude Code)</li>
+<li>The bid packages from your most recent project (or current one)</li>
+<li>A clean folder on your desktop</li>
+<li>An afternoon for the first run</li>
+</ul>
+<p><strong>Step 1: Install Claude Code (desktop app).</strong> This is the version with folder access. Sign in with your Claude account.</p>
+<p><strong>Step 2: Gather your bid packages.</strong> Drop them in a folder. Name files clearly: <code>BidderA-Proposal.pdf</code>, <code>BidderA-SOV.pdf</code>, etc. Optionally include the construction drawings.</p>
+<p><strong>Step 3: Give Claude Code folder access.</strong> In the desktop app, click &quot;Open Folder&quot; and select the folder.</p>
+<p><strong>Step 4: Run the prompt above.</strong> Adapt the project context section to your actual project. Be specific about structural system and scope.</p>
+<p><strong>Step 5: Review the output.</strong> Claude generates the Excel workbook. Open it. Sanity check against the actual bids. Look for places where Claude made assumptions that don't match how you'd categorize things.</p>
+<p><strong>Step 6: Iterate the prompt.</strong> Add things you want it to weight more heavily. &quot;Always include a tab on schedule risk.&quot; &quot;Flag any allowance items over $50K.&quot; Your prompt gets sharper with use.</p>
+<h2>What Changes After Setup</h2>
+<p><strong>First run:</strong> You spend an afternoon learning the workflow. Output is 80% useful, 20% needs tweaking. You walk into your bid leveling meeting with a real recommendation memo.</p>
+<p><strong>Second project:</strong> You reuse the prompt. Output is 95% there on the first try. The afternoon becomes 30 minutes.</p>
+<p><strong>Three projects in:</strong> This becomes your standard pre-award procedure. Every project gets a Claude bid review before the owner signs anything. The owner's rep role doesn't go away — your judgment is still required — but the cross-referencing work that consumed weeks is now an hour.</p>
+<p><strong>One year in:</strong> You've caught scope gaps on every project that paid back the entire Claude subscription many times over. Your owner trusts the workflow and is asking why other developers in their portfolio aren't doing this.</p>
+<h2>Where This Sits in Your Workflow</h2>
+<p>Before:</p>
+<pre><code>RFP issued → bids received → [1-2 weeks of manual cross-referencing] →
+bid leveling meeting → award decision
+</code></pre>
+<p>After:</p>
+<pre><code>RFP issued → bids received → [10 min Claude run + 30 min review] →
+bid leveling meeting with finished memo → award decision
+</code></pre>
+<p>The bracketed step is where this build lives. It doesn't change the judgment work. It eliminates the clerical work that was crowding out the judgment.</p>
+<h2>The Numbers Worth Caring About</h2>
+<p><strong>Scope gaps caught pre-award routinely save $200K-$1M+ per project.</strong> On the example project, the catches were worth over $1.4M.</p>
+<p><strong>Time saved:</strong> A bid leveling exercise on a $25M project typically eats 40-80 hours of an owner's rep or PM's time. This drops it to 4-8 hours including review.</p>
+<p><strong>Cost:</strong> $20/month for the Claude subscription. That's the entire infrastructure.</p>
+<p><strong>ROI:</strong> Pays for itself approximately 5,000x over on the first catch.</p>
+<h2>Beyond Multifamily</h2>
+<p>The exact same pattern works anywhere multiple parties bid on the same scope:</p>
+<p><strong>GCs leveling sub bids.</strong> You're a general contractor with three electrical sub bids. Same workflow, same prompt structure. The scope gaps are different but the pattern is identical.</p>
+<p><strong>Homeowners leveling ADU or renovation bids.</strong> Three contractors bid on your ADU. You're not a construction professional, you don't know what to look for. Claude flags the exclusions and unbalanced items that would otherwise cost you mid-project.</p>
+<p><strong>Commercial tenant improvement.</strong> Multiple GC bids on a TI buildout. Same exercise.</p>
+<p><strong>Vendor RFP responses.</strong> Software vendors, equipment suppliers, anyone responding to an RFP with line-item pricing. The matrix structure transfers.</p>
+<p><strong>Government procurement.</strong> Public sector RFPs are notorious for incomparable response formats. This is the exact tool for them.</p>
+<p>The common thread: anywhere you have three or more parties bidding on the same scope in different formats, this normalizes them.</p>
+<h2>Gotchas and Tips</h2>
+<ul>
+<li><strong>Include the construction drawings.</strong> The video author's biggest regret was skipping the plans. With plans included, the scope-gap matrix gets dramatically more accurate. Claude can cross-reference what's drawn versus what's priced.</li>
+<li><strong>Be specific in your project context.</strong> &quot;Five-story Type III over Type I podium with concrete shear walls&quot; gives Claude the structural context to spot when a framing bid is missing the seismic detailing. Vague context produces vague output.</li>
+<li><strong>The first run is calibration. Don't ship it raw.</strong> Always have an experienced owner's rep or PM eyeball the output before showing the owner. Claude is sharp but not infallible.</li>
+<li><strong>Watch for assumptions Claude makes.</strong> If a bidder is silent on something, Claude has to assume. Sometimes it assumes included, sometimes excluded. Verify against the actual bid language.</li>
+<li><strong>Don't substitute this for the bid leveling meeting.</strong> Run this before the meeting. The meeting is where the GCs answer clarifying questions and you renegotiate. The workbook is the prep, not the substitute.</li>
+<li><strong>Save your prompt as a template.</strong> Once you have a prompt that works on your first project, save it. Future projects only need the context section updated.</li>
+<li><strong>The catch is the value, not the speed.</strong> The time savings are nice. The real ROI is the scope gap caught pre-award that would have shown up as a $300K change order in month four.</li>
+</ul>
+<hr>
+<h2>Keep Reading</h2>
+<ul>
+<li><strong><a href="/playbooks/hvac-estimate-autopilot/">This HVAC Guy Spent Friday Night Setting Up AI. Now His Estimates Write Themselves.</a></strong>: The contractor side of construction AI. Builds outbound estimates instead of leveling received ones.</li>
+<li><strong><a href="/playbooks/five-day-automation-sprint/">The 5-Day Automation Sprint: $22K Found in Tax Deductions</a></strong>: Another &quot;AI finds money you didn't know you were leaving on the table&quot; build, in a different vertical.</li>
+<li><strong><a href="/playbooks/real-estate-deal-hunter/">Build an AI Agent That Finds Real Estate Deals Before Anyone Else</a></strong>: Earlier in the CRE workflow. This one finds the deal; the bid leveler runs the procurement once you've got it.</li>
+</ul>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators</p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

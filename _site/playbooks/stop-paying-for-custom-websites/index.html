@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stop Paying $10,000 for a Custom Website — ClawDrop</title>
+  <meta name="description" content="A six-step workflow that scrapes a target site for brand assets, generates a hero animation, and rebuilds the whole site at modern quality in a single afternoon. The same pipeline that web agencies charge $10K-15K for, broken into one prompt per step.">
+  <meta property="og:title" content="Stop Paying $10,000 for a Custom Website — ClawDrop">
+  <meta property="og:description" content="A six-step workflow that scrapes a target site for brand assets, generates a hero animation, and rebuilds the whole site at modern quality in a single afternoon. The same pipeline that web agencies charge $10K-15K for, broken into one prompt per step.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/stop-paying-for-custom-websites/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Stop Paying $10,000 for a Custom Website — ClawDrop">
+  <meta name="twitter:description" content="A six-step workflow that scrapes a target site for brand assets, generates a hero animation, and rebuilds the whole site at modern quality in a single afternoon. The same pipeline that web agencies charge $10K-15K for, broken into one prompt per step.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/stop-paying-for-custom-websites/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+    .logo:hover { color: var(--ink); }
+    .logo-img { width: 32px; height: 32px; border-radius: 7px; display: block; flex-shrink: 0; }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 380px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo"><img src="/assets/clawdrop-logo.png" alt="ClawDrop" class="logo-img">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">May 19, 2026</div>
+    <h1>Stop Paying $10,000 for a Custom Website</h1>
+    <p class="post-description">A six-step workflow that scrapes a target site for brand assets, generates a hero animation, and rebuilds the whole site at modern quality in a single afternoon. The same pipeline that web agencies charge $10K-15K for, broken into one prompt per step.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Beginner-Intermediate</strong></span>
+      <span class="meta-badge">💰 <strong>$10-30 per site (API + image generation credits)</strong></span>
+      <span class="meta-badge">⏱ <strong>An afternoon for the first one, an hour for every site after</strong></span>
+      <span class="meta-badge">👤 <strong>AI Boost Lab</strong></span>
+      <a href="https://www.youtube.com/watch?v=1prtPthgkXg" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-claude-code"><strong>Claude Code</strong></a>: the brain that reads brand data and writes the new site</li>
+<li><a href="#aff-firecrawl"><strong>Firecrawl</strong></a>: website scraper that pulls logos, colors, fonts, and copy</li>
+<li><a href="#aff-gemini"><strong>Gemini</strong></a>: Nano Banana 2 for hero image and short transition video</li>
+<li><a href="#aff-github"><strong>GitHub</strong></a>: where the new site's code lives</li>
+<li><a href="#aff-vercel"><strong>Vercel</strong></a>: free hosting that publishes the live URL</li>
+<li><a href="#aff-anthropic"><strong>Anthropic</strong></a>: Claude API powering the workflow</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>A six-step pipeline that takes a tired website and gives you a brand-new one. Animated hero, modern layout, mobile-friendly, on a real URL. In about an afternoon.</p>
+<p>This is the same set of steps a web design agency runs internally. They charge $8,000 to $15,000 for the deliverable because they have to do six different jobs end-to-end: research the brand, design the look, generate the assets, code the site, rebuild the content, and deploy. With Claude and a few free tools, each of those jobs becomes a single prompt.</p>
+<p>You can run this on your own business's site. You can run it on a competitor's site (legally, for inspiration). You can run it for a client and bill them less than the old agency did. The pipeline doesn't care.</p>
+<h2>Why This Works</h2>
+<p>The reason a custom website cost $10,000 was not the typing. The typing has always been fast. What you were paying for was the chain of decisions:</p>
+<ul>
+<li>Which colors and fonts represent this business?</li>
+<li>What's the visual style of the industry?</li>
+<li>What should the hero look like? What should the animation feel like?</li>
+<li>How should the layout flow? Where do the calls-to-action go?</li>
+<li>How do we make sure it works on phones?</li>
+<li>Where do we host it?</li>
+</ul>
+<p>Six different people, or one person wearing six different hats, made those decisions over four to six weeks. Each decision required a separate Slack thread, a separate review, a separate revision round.</p>
+<p>Every one of those six decisions is now a single prompt. The brand colors are extracted automatically from any reference site. The hero image is generated in seconds. The layout is written by the AI based on the brand brief. Mobile responsiveness is included by default. Deployment is one click.</p>
+<p>The agency wasn't lying about the work. The work was real. It's just that the work no longer takes weeks.</p>
+<h2>How the Six-Step Pipeline Works</h2>
+<h3>Step 1: Scrape the Brand</h3>
+<p>Firecrawl is a website scraper that pulls structured data out of any URL. Point it at a reference site (yours, a competitor's, or any site whose brand you want to model) and it returns:</p>
+<ul>
+<li>Every logo file on the page.</li>
+<li>Every color used (as hex codes).</li>
+<li>Every font family loaded.</li>
+<li>The HTML structure.</li>
+<li>The copy on every page.</li>
+</ul>
+<p>You now have a complete extraction of the visual identity. No designer required.</p>
+<h3>Step 2: Write the Brand Brief</h3>
+<p>Hand the Firecrawl output to Claude with a simple prompt: &quot;Read this and write a one-page brand brief describing the visual identity, including color palette, typography pairing, and tone of voice.&quot;</p>
+<p>Claude reads the raw extraction and produces a clean document. This is the same brand brief an agency would charge you $1,500 for as the &quot;discovery&quot; phase.</p>
+<h3>Step 3: Generate the Hero</h3>
+<p>Nano Banana 2 is Google's image generator inside Gemini. It accepts a prompt that includes brand colors, style guidance, and product context. You feed it your brand brief and ask for:</p>
+<ol>
+<li>A hero image for the homepage.</li>
+<li>An &quot;exploded&quot; or &quot;deconstructed&quot; version of the same image.</li>
+<li>A short transition video that goes from one to the other.</li>
+</ol>
+<p>Total time: about three minutes. Total cost: a few cents in Gemini credits.</p>
+<h3>Step 4: Build the Site Shell</h3>
+<p>Back to Claude. Give it the brand brief, the hero image, and the transition video, and ask it to write the site code. A modern stack (Next.js or plain HTML/CSS) with:</p>
+<ul>
+<li>The hero with the animation embedded.</li>
+<li>A clean layout with proper sections (about, services, contact).</li>
+<li>Mobile breakpoints that actually work.</li>
+<li>Subtle touches that make the site feel current (smooth scrolling, hover states, type animation if you want it).</li>
+</ul>
+<p>Claude writes the whole shell. You get a working static site.</p>
+<h3>Step 5: Rebuild the Content</h3>
+<p>Now the trick. Paste your existing site's text content into Claude and ask it to rebuild the structure into the new shell. Same words. Same sections. Better presentation. Tighter copy where it makes sense.</p>
+<p>This is the step that turns a generic template into your specific site. Your services, your testimonials, your case studies, your contact info — all reformatted into the new design.</p>
+<p>If the old site was on WordPress, you can export the content as a CSV and Claude can ingest it directly.</p>
+<h3>Step 6: Push It Live</h3>
+<p>The final two clicks:</p>
+<ol>
+<li>Push the code to GitHub. Claude can do this for you.</li>
+<li>Connect the GitHub repo to Vercel. Vercel publishes the site to a live URL within 60 seconds. Free tier covers most small business traffic.</li>
+</ol>
+<p>If you want a custom domain (e.g. <code>yourbusiness.com</code>), point the DNS at Vercel. It's a 10-minute task and the site loads on your domain.</p>
+<p>Done. The old site can stay up at the old URL until you're ready to swap.</p>
+<h2>Step-by-Step Setup</h2>
+<h3>Step 1: Pick a Reference Site</h3>
+<p>Don't start with a blank page. Pick a site whose vibe you like. It can be:</p>
+<ul>
+<li>A competitor whose site looks better than yours.</li>
+<li>A business in a completely different industry whose visual style you want to borrow.</li>
+<li>An old version of your own site that you liked but lost.</li>
+</ul>
+<p>Have the URL ready before you start.</p>
+<h3>Step 2: Run Firecrawl</h3>
+<p>Sign up for Firecrawl (free tier is plenty for a single site). Run the scrape on your reference URL. Save the output to a local file.</p>
+<h3>Step 3: Spin Up Claude Code</h3>
+<p>Open Claude Code in the folder where you'll build the site. Drop the Firecrawl output into the folder. Prompt:</p>
+<blockquote>
+<p>Read the attached Firecrawl output. Write a one-page brand brief describing the visual identity (colors, typography, mood). Then list the four most important UI patterns this site uses.</p>
+</blockquote>
+<p>Save the response as <code>brand-brief.md</code>. This file becomes the input to every subsequent step.</p>
+<h3>Step 4: Generate the Hero in Gemini</h3>
+<p>Open Gemini. Paste this prompt with your own substitutions:</p>
+<blockquote>
+<p>Generate a hero image for a [your industry] business. Brand colors: [hex codes from brand brief]. Style: [tone from brand brief]. The hero should feel [modern / authoritative / approachable / etc.]. Generate three variants.</p>
+</blockquote>
+<p>Pick the one you like. Generate the exploded version. Generate the transition video.</p>
+<h3>Step 5: Write the Site Shell</h3>
+<p>Back in Claude Code:</p>
+<blockquote>
+<p>Using the brand brief and the hero image attached, build a modern single-page website using Next.js. Sections: Hero, Services, About, Testimonials, Contact. Use the brand colors from the brief. Embed the transition video in the hero. Make it mobile-first.</p>
+</blockquote>
+<p>Claude generates the code. You get a working site.</p>
+<h3>Step 6: Bring Over Your Content</h3>
+<p>Paste in your current site's text (or upload a CSV export). Prompt:</p>
+<blockquote>
+<p>Rebuild the existing content into the new site structure. Keep all the testimonials, services, and contact info. Tighten the copy where it's verbose. Don't change the meaning anywhere.</p>
+</blockquote>
+<p>Review the result. Tweak the copy that doesn't land. Ship it.</p>
+<h3>Step 7: Deploy</h3>
+<p>In the terminal:</p>
+<pre><code>git init
+git add .
+git commit -m &quot;new site&quot;
+gh repo create my-business-site --public --push
+</code></pre>
+<p>Open Vercel. Click &quot;New Project.&quot; Pick the repo. Click &quot;Deploy.&quot; Wait 60 seconds. You have a live URL.</p>
+<h2>Adapting This for Other Service Businesses</h2>
+<p>The same pipeline works for any deliverable an agency currently charges you for.</p>
+<p><strong>Logo redesigns.</strong> Firecrawl your old branding. Gemini generates new logo concepts. Claude writes the brand standards doc.</p>
+<p><strong>Sales decks.</strong> Firecrawl a competitor's deck. Claude writes the new one in your voice.</p>
+<p><strong>Marketing emails and landing pages.</strong> Same pipeline. Smaller deliverable, faster turnaround.</p>
+<p><strong>Pitch decks for fundraising.</strong> Brand brief from your existing materials. Slides generated against the brief. Customized per investor.</p>
+<p><strong>One-pagers and case studies for clients.</strong> Template once. Refill per client.</p>
+<p>Every &quot;deliverable an agency charges by the hour for&quot; is now a templated workflow.</p>
+<h2>Gotchas and Tips</h2>
+<ul>
+<li><strong>You still have to read the output.</strong> Claude can write a perfectly competent site. It cannot tell whether the testimonials are actually your best ones, or whether the services list is in the right order. Read everything before shipping.</li>
+<li><strong>Don't copy your competitor's brand outright.</strong> Scraping for inspiration is fine. Generating an exact replica with their logo and colors will get you a cease-and-desist. Pull the structural patterns, not the literal assets.</li>
+<li><strong>Free hosting has limits.</strong> Vercel's free tier is generous (100GB bandwidth/month) but if you have heavy traffic or video content, you'll hit the cap. The paid tier is $20/month.</li>
+<li><strong>SEO is not automatic.</strong> A pretty new site can rank worse than the ugly old one if you break URL structures. Before swapping, redirect every old URL to the new equivalent. Claude can write the redirect rules for you.</li>
+<li><strong>The hero animation is the wow moment.</strong> Spend extra time on Step 3. A good transition video is what makes the site feel premium. A bad one makes the whole site look cheap.</li>
+<li><strong>Save the brand brief.</strong> Once you have it, every future deliverable (emails, decks, social media graphics) can reuse it. The brief is more valuable than the site.</li>
+</ul>
+<h2>When to Still Pay an Agency</h2>
+<p>This pipeline is enough for most small business sites. It is not enough for:</p>
+<ul>
+<li>Highly interactive sites (booking systems, e-commerce with hundreds of products, customer portals).</li>
+<li>Sites with complex backend integrations (live inventory, gated content, custom CRMs).</li>
+<li>Brand identity work for a business with millions in marketing budget where small visual details translate into real ROI.</li>
+</ul>
+<p>For everything else, an afternoon of prompts beats six weeks of Slack threads.</p>
+<hr>
+<h2>Keep Reading</h2>
+<ul>
+<li><strong><a href="/playbooks/meta-ads-pipeline/">Research Your Competitors' Ads and Launch Your Own Campaign on Meta</a></strong>: The advertising sibling to this playbook. Same Firecrawl-plus-image-gen pipeline pointed at competitor ads instead of competitor websites. Stand up a brand new site and a brand new ad campaign in the same afternoon.</li>
+<li><strong><a href="/playbooks/one-person-agency/">The One-Person Agency: Charge Agency Rates as a Solo Operator</a></strong>: If this playbook killed your reason to hire a web agency, this one shows you how to become the agency. Same pipeline, charge clients, keep the spread.</li>
+<li><strong><a href="/playbooks/amazon-merch-automation/">Automate Your Entire Amazon Merch Upload Pipeline</a></strong>: A different &quot;designer-in-a-box&quot; workflow, this one for product graphics instead of websites. Worth reading for the prompt patterns that turn brand briefs into finished visual assets.</li>
+</ul>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators</p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

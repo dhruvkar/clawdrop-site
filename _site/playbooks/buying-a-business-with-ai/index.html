@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How an AI Helps You Buy a Business (Without a $50K Broker) — ClawDrop</title>
+  <meta name="description" content="An acquisition firm rebuilt their entire deal sourcing pipeline with Claude. Buy box to off-market list to enriched leads to a written deal memo, before the first phone call. The same setup works for first-time business buyers.">
+  <meta property="og:title" content="How an AI Helps You Buy a Business (Without a $50K Broker) — ClawDrop">
+  <meta property="og:description" content="An acquisition firm rebuilt their entire deal sourcing pipeline with Claude. Buy box to off-market list to enriched leads to a written deal memo, before the first phone call. The same setup works for first-time business buyers.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/buying-a-business-with-ai/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="How an AI Helps You Buy a Business (Without a $50K Broker) — ClawDrop">
+  <meta name="twitter:description" content="An acquisition firm rebuilt their entire deal sourcing pipeline with Claude. Buy box to off-market list to enriched leads to a written deal memo, before the first phone call. The same setup works for first-time business buyers.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/buying-a-business-with-ai/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+    .logo:hover { color: var(--ink); }
+    .logo-img { width: 32px; height: 32px; border-radius: 7px; display: block; flex-shrink: 0; }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 380px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo"><img src="/assets/clawdrop-logo.png" alt="ClawDrop" class="logo-img">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">May 19, 2026</div>
+    <h1>How an AI Helps You Buy a Business (Without a $50K Broker)</h1>
+    <p class="post-description">An acquisition firm rebuilt their entire deal sourcing pipeline with Claude. Buy box to off-market list to enriched leads to a written deal memo, before the first phone call. The same setup works for first-time business buyers.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Intermediate</strong></span>
+      <span class="meta-badge">💰 <strong>$50-150/month (database access + API costs)</strong></span>
+      <span class="meta-badge">⏱ <strong>A focused week to get the first usable list</strong></span>
+      <span class="meta-badge">👤 <strong>Moran Pober (acquisitions.com)</strong></span>
+      <a href="https://www.youtube.com/watch?v=p8Jr2rVBVXs" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-claude-code"><strong>Claude Code</strong></a>: runs the planning, enrichment, and memo-writing loop</li>
+<li><a href="#aff-anthropic"><strong>Anthropic</strong></a>: Claude API powering the agents</li>
+<li><a href="#aff-apollo"><strong>Apollo</strong></a>: the searchable business database that feeds the pipeline</li>
+<li><a href="#aff-clay"><strong>Clay</strong></a>: enrichment service for owner details and signals</li>
+<li><a href="#aff-linkedin"><strong>LinkedIn</strong></a>: public source for owner ages, tenure, and succession signals</li>
+<li><a href="#aff-google-sheets"><strong>Google Sheets</strong></a>: the deal pipeline where everything lands</li>
+<li><a href="#aff-github"><strong>GitHub</strong></a>: version control for your buy box and screening rules</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>An overnight pipeline that finds businesses for you to buy. Not the ones already listed on BizBuySell that 500 other buyers have seen. The ones whose owners haven't decided to sell yet, but whose age, tenure, or business signals say they might be ready if someone made the right call.</p>
+<p>The pipeline takes a one-page &quot;buy box&quot; you write in plain English (industry, size, geography, asking price range) and gives you, by morning, a ranked list of real companies that fit. For every company on the list, it has already pulled the owner's name, age, time in business, employee count, and a few signals about whether they might be ready to sell. And for each one, it has already drafted a one-page deal memo you can read before you pick up the phone.</p>
+<p>This is the system Moran Pober's acquisition firm uses. It is also the system you can use to buy your first business.</p>
+<h2>Why This Works</h2>
+<p>The hardest part of buying a small business is not the negotiation, the financing, or the closing. It is finding a good one to buy.</p>
+<p>Business brokers exist to solve this. They charge 10-12% of the deal value, often with a minimum of $25,000 to $50,000. In exchange they show you their listings. But broker listings are picked-over. The same five buyers are looking at the same listing the day it gets posted. The good deals are gone in 48 hours. And the listing you're looking at is, by definition, a business someone has already decided to sell. That decision pushes the price up.</p>
+<p>The real opportunity is <strong>off-market</strong>. A business whose owner is 67, has been running it for 30 years, hasn't told anyone they're tired, but would say yes to the right offer. There are tens of thousands of these owners. There is no list of them. Finding them is grinding work.</p>
+<p>Until now grinding work was the only way. You'd build a target list from D&amp;B or ReferenceUSA, pay a research firm to enrich it, hire a college kid to skip-trace owners. One round of 200 targets would take a junior analyst two weeks.</p>
+<p>Claude does the same work overnight. It reads your buy box, queries the database, enriches every target with public-record signals, throws out the ones that don't fit, and writes a one-page brief on every survivor. By morning you have a call list with the homework done.</p>
+<p>This is the entire game. Buyers who build their own off-market lists are not competing with each other on price. They are competing on who calls first.</p>
+<h2>How the Pipeline Works</h2>
+<p>The system runs in five stages. Each one feeds the next.</p>
+<h3>Stage 1: The Buy Box</h3>
+<p>Before any AI touches anything, you write your buy box. This is a plain-English description of the kind of business you want to own:</p>
+<ul>
+<li><strong>Industry.</strong> &quot;Residential HVAC services&quot; or &quot;B2B accounting firms with $1M-3M revenue.&quot;</li>
+<li><strong>Geography.</strong> &quot;Within 90 minutes of Dallas&quot; or &quot;Anywhere in Texas, Oklahoma, or Arkansas.&quot;</li>
+<li><strong>Size.</strong> Revenue range, employee range, profit range.</li>
+<li><strong>Owner profile.</strong> &quot;Owner-operator, age 55+, 10+ years in business.&quot;</li>
+<li><strong>Deal shape.</strong> Asking-price range, seller financing acceptable, real estate included or separate.</li>
+<li><strong>Disqualifiers.</strong> Industries you won't touch (food service, restaurants, vape shops). Owners you won't touch (legal trouble, recent lawsuits).</li>
+</ul>
+<p>Save this as a Claude Code skill. Now every member of your team is screening against the same criteria, and the AI can read it on every run.</p>
+<h3>Stage 2: The List</h3>
+<p>A second agent reads the buy box and queries a business database. The most accessible options for SMBs:</p>
+<ul>
+<li><strong>Apollo</strong> for company search by SIC code, geography, and headcount. Affordable for small teams.</li>
+<li><strong>D&amp;B Hoovers</strong> for deeper firmographic data including revenue estimates.</li>
+<li><strong>ReferenceUSA</strong> (free at most public libraries) for U.S. small businesses.</li>
+<li><strong>State Secretary of State filings</strong> for public registration data including officer names and registered agents.</li>
+</ul>
+<p>The agent pulls every company that matches the buy box, with no filtering yet. For a typical search you'll get 300-2000 raw targets.</p>
+<h3>Stage 3: Enrichment</h3>
+<p>For each company on the raw list, a third agent fills in the details that don't come from the original database:</p>
+<ul>
+<li><strong>Owner's full name</strong> (often in state Secretary of State records).</li>
+<li><strong>Owner's age</strong>, estimated from LinkedIn or public records.</li>
+<li><strong>Owner's tenure</strong> in the business.</li>
+<li><strong>Estimated revenue</strong>, refined from initial database estimates by cross-referencing employee count, location, and industry benchmarks.</li>
+<li><strong>Succession signals.</strong> Has the owner posted on LinkedIn about retirement? Is there a named &quot;successor&quot; or family member in the business? Has the company hired a CEO or COO recently? Has Google reviews trended down? Is the website outdated?</li>
+<li><strong>Owner contact info.</strong> Email, phone, mailing address.</li>
+</ul>
+<p>Clay handles a lot of this in one pass. Whatever Clay can't fill in, Claude attempts via LinkedIn, the company's website, and public records.</p>
+<h3>Stage 4: ICP Qualification</h3>
+<p>Now the agent throws out the ones that don't fit. This is where a sub-agent does the work: read the enriched record, compare against the buy box, kill anything that doesn't match.</p>
+<p>You'll typically lose 60-80% of the list at this stage. Wrong industry, wrong size, wrong geography, owner too young, owner too rich to care, business growing too fast (the owner won't sell).</p>
+<p>What's left is your call list. Maybe 50-150 names from a starting pool of 2000.</p>
+<h3>Stage 5: The Deal Memo</h3>
+<p>Before you pick up the phone, the agent writes a one-page brief on every survivor:</p>
+<ul>
+<li><strong>The business.</strong> What they do, who they serve, what makes them different.</li>
+<li><strong>The owner.</strong> Name, age, tenure, anything notable about their public profile.</li>
+<li><strong>Why they might sell.</strong> The specific succession signals that flagged them.</li>
+<li><strong>What you'd pay.</strong> A first-cut estimate of fair value based on industry multiples and the public data.</li>
+<li><strong>What to ask first.</strong> Three questions to test whether this is a real conversation.</li>
+</ul>
+<p>You read the memo, decide if you want to call, and call.</p>
+<h2>Step-by-Step Setup</h2>
+<h3>Step 1: Write Your Buy Box</h3>
+<p>Spend half a day on this. Be specific. The narrower the buy box, the better the results. &quot;Profitable small businesses&quot; is not a buy box. &quot;Residential HVAC service companies in DFW with $800K-2M revenue, owner age 55+, run by the owner&quot; is a buy box.</p>
+<p>Save it as a Claude Code skill (<code>/skills/buy-box.md</code>) so every agent in your pipeline reads from the same file. When you tune the buy box, every downstream agent uses the new version automatically.</p>
+<h3>Step 2: Pick a Database</h3>
+<p>Start with one. Apollo is the most SMB-friendly. You can run a query, export a CSV of 1000-2000 companies, and have something usable on day one.</p>
+<p>If you can get access to D&amp;B Hoovers through a corporate or library subscription, that's better data, but Apollo is enough to start.</p>
+<h3>Step 3: Build the List Builder Agent</h3>
+<p>A Claude Code agent that:</p>
+<ol>
+<li>Reads your buy box.</li>
+<li>Converts it into Apollo search filters.</li>
+<li>Pulls the result set.</li>
+<li>Drops the raw list into a Google Sheet.</li>
+</ol>
+<p>This is a one-prompt agent. The whole job is &quot;read the buy box, translate to filters, run the query, drop the rows.&quot;</p>
+<h3>Step 4: Build the Enricher</h3>
+<p>A second agent that walks through every row in the raw list and fills in the missing fields. Hook Clay in via its API for the bulk enrichment. For anything Clay misses, the agent does manual LinkedIn and website lookups.</p>
+<p>This one is slower because LinkedIn rate-limits and websites vary. Plan for it to run overnight on a list of 1000+ rows.</p>
+<h3>Step 5: Build the Qualifier</h3>
+<p>A third agent that reads each enriched row against the buy box and writes either <code>PASS</code> or <code>KILL</code> with a one-sentence reason. The killed rows stay in the sheet but get hidden. The passes move to a separate tab labeled &quot;Call List.&quot;</p>
+<p>This is also a one-prompt agent. The buy-box skill does the heavy lifting.</p>
+<h3>Step 6: Build the Memo Writer</h3>
+<p>A fourth agent that takes each <code>PASS</code> row and writes a one-page deal memo into a new Google Doc (or a new row with a long-form text field). Use a template so every memo follows the same structure.</p>
+<p>This is the agent that saves you the most time. Reading 50 memos that all follow the same shape lets you decide who to call in 90 minutes. Doing 50 memos by hand is two weeks of work.</p>
+<h3>Step 7: Wire the Daily Cycle</h3>
+<p>Set the whole pipeline to run weekly. Most business databases don't change fast enough to merit daily refreshes. Once a week is plenty.</p>
+<p>Schedule:</p>
+<ul>
+<li><strong>Sunday 11 PM:</strong> List builder pulls fresh queries from Apollo.</li>
+<li><strong>Sunday midnight – Monday 6 AM:</strong> Enrichment runs.</li>
+<li><strong>Monday 6 AM:</strong> Qualifier passes / kills.</li>
+<li><strong>Monday 7 AM:</strong> Memos generated for the new passes.</li>
+<li><strong>Monday 8 AM:</strong> Your inbox has a summary of the new call list.</li>
+</ul>
+<p>You spend Monday morning making calls instead of researching them.</p>
+<h2>Adapting This for Other Hunting Workflows</h2>
+<p>The &quot;buy box, list, enrichment, qualifier, brief&quot; pattern is not unique to acquisitions. The same shape works for:</p>
+<p><strong>Commercial real estate sourcing.</strong> Buy box becomes a property profile (asset class, geography, vintage, cap rate target). Database becomes CoStar or Reonomy. Memo becomes a property brief.</p>
+<p><strong>B2B sales prospecting for high-ticket services.</strong> Buy box becomes an ICP. The qualifier and memo writer save the BDR team hours of research.</p>
+<p><strong>Hiring for a specific senior role.</strong> Buy box becomes a candidate profile. Database becomes LinkedIn. Memo becomes a candidate brief.</p>
+<p><strong>Investment scouting.</strong> For angel investors and small VCs, buy box becomes a thesis. Database becomes a startup database. Memo becomes a one-page investment brief.</p>
+<p>In every case, the same five stages apply. Start narrow, build the list, enrich, qualify, brief.</p>
+<h2>Gotchas and Tips</h2>
+<ul>
+<li><strong>The buy box is the whole game.</strong> Vague buy boxes produce useless lists. Tighten yours until it makes you uncomfortable. &quot;Too narrow&quot; is the right amount.</li>
+<li><strong>Apollo is not perfect.</strong> Roughly 15-25% of Apollo's revenue and employee estimates are wrong. Treat them as range estimates, not facts.</li>
+<li><strong>The succession signal that matters most is age.</strong> Everything else is noise. Owners over 60 who have been running the business 15+ years are by far the highest-converting calls.</li>
+<li><strong>The memo is your screen, not your pitch.</strong> A good memo helps you decide whether to call. It does not write your script. The actual call is still a human conversation.</li>
+<li><strong>Skip the cold email.</strong> Calling works for acquisitions. Email gets ignored. The whole point of building the off-market list is the call.</li>
+<li><strong>Comply with do-not-call laws.</strong> Federal and state telemarketing rules apply. Talk to a lawyer about whether your outreach is regulated. The shortcut: if you're calling a published business line, you're generally fine. If you're calling a personal cell, you might not be.</li>
+<li><strong>One closed deal pays for the system for life.</strong> Even a tiny SMB acquisition (say, $400K purchase price) leaves enough margin that the $100/month tool stack is a rounding error.</li>
+</ul>
+<h2>What the Pros Are Doing Differently</h2>
+<p>The acquisitions.com walkthrough hints at a more advanced version of this pipeline. They use Claude Code's sub-agents to run multiple buy boxes in parallel from a single buyer, so a holding company can hunt for plumbing companies and accounting firms at the same time without confusion. They also feed completed deals back into the qualifier so the agent learns which signals actually predicted closes.</p>
+<p>You don't need either of those to start. The five-stage pipeline above is enough to find your first business.</p>
+<hr>
+<h2>Keep Reading</h2>
+<ul>
+<li><strong><a href="/playbooks/real-estate-deal-hunter/">Build an AI Agent That Finds Real Estate Deals Before Anyone Else</a></strong>: The same &quot;scan public data, score opportunities, build a pipeline&quot; pattern aimed at real estate instead of business acquisitions. If you like the buy-box approach but want a smaller-deal vertical, start here.</li>
+<li><strong><a href="/playbooks/used-car-lot-sourcing-scout/">The Used Car Lot That Out-Sources a 4-Person Buying Team With One Agent</a></strong>: A live example of the same buy-side scouting workflow running inside a real small business. Different inventory, same nightly cron, same call list waiting for you in the morning.</li>
+<li><strong><a href="/playbooks/cold-email-list-pipeline/">Stop Buying Cold Email Lists. Build One That Actually Books Meetings.</a></strong>: After your first acquisition, sales rigor matters. The qualification and enrichment discipline in this playbook is the same shape as the buy-box pipeline, just pointed at customers instead of targets.</li>
+</ul>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators</p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>
