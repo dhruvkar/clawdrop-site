@@ -37,44 +37,66 @@ A standing watch on every contract your business could bid on, with an instant m
 
 You define what you can deliver: the categories, the keywords, the contract sizes, the regions you serve. The agent checks the tender portals on a tight schedule, compares each new posting against your criteria, and the second something matches, it messages you with the title, the buyer, the value, the deadline, and the link. By the time your competitor does their Friday portal check, you have already started the bid.
 
-## Why This Matters for Your Business
+## Why This Works
 
 Public-sector and large-enterprise work is some of the most stable, highest-value revenue a small business can win. The problem has never been that the contracts are hidden. They are public. The problem is that finding them means remembering to check several clunky portals, every day, across the right categories, and almost nobody does it consistently. So the contracts go to the handful of firms that paid a service or assigned a person to watch.
 
-An agent collapses that whole job to nothing. It never forgets to check, it checks every portal at once, and it never misses the posting that closes in five days. The edge is not that the information was secret. The edge is that you are the only one in your category actually watching it in real time.
+An agent collapses that whole job to nothing. It never forgets to check, it checks every portal at once, and it never misses the posting that closes in five days. The edge is not that the information was secret. The edge is that you are the only one in your category actually watching it in real time. For a small contractor, supplier, or services firm, one won contract can be a quarter of the year's revenue, and being first to see it is the difference between winning it and never knowing it existed.
 
-For a small contractor, supplier, or services firm, one won contract can be a quarter of the year's revenue. Being first to see it, and having days more to prepare the bid, is the difference between winning it and not knowing it existed.
+## Prerequisites
 
-## How It Works
+- An OpenClaw setup you can give a recurring task to.
+- Model access for the agent.
+- Your target categories written down (in the U.S., the relevant NAICS codes), plus keywords, a contract-value range, and the regions you serve.
+- A Telegram, Slack, or email destination for the alerts.
 
-### Step 1: Define what you can win
+## Step-by-Step Setup
 
-Tell the agent your categories (in the U.S., the relevant NAICS codes help), your keywords, your minimum and maximum contract value, and the regions you serve. Specific beats broad. A precise filter means every alert is worth reading.
+### Step 1: Define What You Can Win
 
-### Step 2: Wire up the feeds
+Tell the agent your categories, keywords, minimum and maximum contract value, and the regions you serve. Specific beats broad. A precise filter means every alert is worth reading.
+
+### Step 2: Wire Up the Feeds
 
 Point OpenClaw at the portals that matter for you. SAM.gov, Find a Tender, Contracts Finder, and TED all expose search or API access, so the agent can query them directly rather than scraping a page. Add your local and industry-specific boards.
 
-### Step 3: Poll on a schedule
+### Step 3: Poll on a Schedule
 
 Set the agent to check on a cadence that fits how fast contracts move in your space, often a few times a day. It compares each new posting against your filter and discards the noise.
 
-### Step 4: Get the alert that matters
+### Step 4: Get the Alert That Matters
 
 On a match, the agent sends you the title, the buyer, the estimated value, the submission deadline, and the direct link, through Telegram, Slack, or email. Optionally, it can start a draft folder for the bid with the key dates already pulled out.
 
-## Who This Is For
+### Step 5: Keep a Won and Lost Log
 
-- **Trades and contractors** who could do public works but never see the postings in time.
-- **Suppliers and manufacturers** bidding to government, schools, hospitals, and large institutions.
-- **Service firms**, from IT to consulting to facilities, where a single framework contract changes the year.
+Have the agent record what it surfaced and what you bid on, so over time you learn which categories are actually worth your effort and can tighten the filter accordingly.
+
+## Adapting This for Your Business
+
+The pattern is "watch a high-volume public feed, filter it hard, alert on the matches." Tenders are the obvious target, but the same agent repoints to any feed where being first matters.
+
+- **Trades and contractors.** Public works postings you could do but never see in time.
+- **Suppliers and manufacturers.** Bids to government, schools, hospitals, and large institutions.
+- **Service firms.** From IT to consulting to facilities, where a single framework contract changes the year.
+- **Adjacent feeds.** Grant opportunities, surplus-asset auctions, and large-buyer RFP portals all work the same way.
 
 ## Gotchas and Tips
 
 - **Tight filters or drown.** Government portals post enormous volume. A loose filter means dozens of irrelevant alerts a day and you will start ignoring them. Spend your setup time getting the criteria right.
 - **Prefer the APIs to scraping.** SAM.gov, TED, and the UK services have structured access. Using it is more reliable than scraping a page that changes layout.
 - **Speed is the whole point.** The value is the head start. Check often enough that you are first, not so often that you trip rate limits.
-- **Keep a won and lost log.** Have the agent record what it surfaced and what you bid on, so over time you learn which categories are actually worth your effort.
+- **Read the eligibility rules.** Some contracts require registrations or certifications before you can bid. Have the agent flag those so you are not chasing work you cannot yet win.
+
+## What This Replaces
+
+Before this stack, staying on top of tenders meant one of three things:
+
+- **A paid bid-alert service:** a monthly subscription that does roughly what this agent does, on their schedule and their categories, not yours.
+- **A person on staff:** someone whose job includes checking the portals, which means it happens until the week they are busy and a contract slips by.
+- **Luck:** hearing about a contract from a customer or a competitor, usually too late to bid well.
+
+After this stack, the watching is constant and free, the filter is exactly your business, and the alert reaches you the moment a match posts. You stop paying a service to watch on your behalf, or paying the bigger price of the contracts you never saw.
 
 ---
 

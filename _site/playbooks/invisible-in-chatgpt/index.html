@@ -168,33 +168,53 @@
 <p>A standing Saturday-morning check on whether your business exists in the place customers now look first.</p>
 <p>A developer named arbyther wanted one workflow to run his side-project marketing every week: pull traffic, check whether the product shows up in ChatGPT and Perplexity, crawl competitors for pricing changes, and suggest a few grounded ideas. He built it twice. The first version used Anthropic's Managed Agents API, a persistent Claude session in the cloud with a Saturday cron. It worked, but a single run cost $4.23, and $3.30 of that was the agent polling Slack every 60 seconds waiting for his reply. He rebuilt the same cycle in n8n as a visual workflow. No polling cost because it only runs when triggered, Slack worked cleanly, and duplicating it for a second product is a copy and paste.</p>
 <p>Strip away the engineering and what he built is a weekly answer to four questions: Is my traffic up or down? Do I show up when someone asks an AI about my category? What did my competitors just change? And what should I do about it?</p>
-<h2>Why This Matters for Your Business</h2>
+<h2>Why This Works</h2>
 <p>Your customers have quietly changed how they find you. A growing share of them no longer type a search and scroll ten blue links. They ask ChatGPT &quot;who's the best plumber in Tucson&quot; or ask Perplexity &quot;compare the top three CRMs for a small agency,&quot; and they act on whatever the AI says.</p>
 <p>If the AI does not mention you, you do not exist in that conversation. You will never see it in your analytics, because there was no click to measure. You just quietly stop getting those customers.</p>
 <p>This is the single clearest version of &quot;getting left behind.&quot; Not that you failed to adopt AI, but that AI failed to mention you, and you had no idea. The old version of this worry had a name, SEO, and a whole industry watching it. The new version, showing up inside AI answers, has almost nobody watching it yet. A weekly agent that checks for you is how you find out before your competitor does.</p>
-<h2>How It Works</h2>
-<p>The workflow runs on a schedule, usually a Saturday morning cron, and moves through four steps.</p>
-<h3>Step 1: Ask the AI engines what your customers ask</h3>
-<p>For each question a real buyer would ask in your category, the workflow sends it to the OpenAI and Perplexity APIs and reads the answer back. It checks whether your business is named, how you are described, and who got named instead of you. This is the core signal: present, absent, or misrepresented.</p>
-<h3>Step 2: Pull your traffic</h3>
-<p>An analytics node pulls the week's traffic so you can see the trend next to the AI-visibility check. Up, down, and where it came from.</p>
-<h3>Step 3: Watch your competitors</h3>
-<p>A scraping node (the builder used Supadata) crawls a short list of competitor pages and flags pricing changes, new offers, and new content since last week.</p>
-<h3>Step 4: Turn it into a short report with grounded ideas</h3>
-<p>The workflow uses a web-search node (Tavily) to ground a few marketing suggestions in what is actually happening, then sends the whole thing to Slack or your inbox. Not a dashboard you have to remember to open. A report that lands in front of you every Saturday.</p>
-<h2>Who This Is For</h2>
+<h2>Prerequisites</h2>
 <ul>
-<li><strong>Any local business</strong> whose customers ask AI for a recommendation: trades, clinics, restaurants, shops, service providers.</li>
-<li><strong>Anyone selling a product or software</strong> where buyers ask AI to compare options before they buy.</li>
-<li><strong>Owners who used to care about their Google ranking</strong> and have not yet realized the ranking that now matters is whether an AI names them.</li>
+<li>An n8n instance (cloud or self-hosted).</li>
+<li>API keys for OpenAI and Perplexity.</li>
+<li>A web-search tool (Tavily) and a scraping tool (Supadata or similar) connected as nodes.</li>
+<li>Access to your analytics, and a Slack channel or inbox for the weekly report.</li>
+<li>A short, written list of the questions a real customer would ask in your category, and the two or three competitors you actually lose to.</li>
+</ul>
+<h2>Step-by-Step Setup</h2>
+<h3>Step 1: Write Down the Questions Your Customers Ask</h3>
+<p>The whole report is only as good as these prompts. Use the exact phrasing a buyer would, including your city and your category: &quot;best emergency electrician near downtown Austin,&quot; &quot;cheapest commercial cleaning service in Leeds.&quot; Five to ten questions is plenty to start.</p>
+<h3>Step 2: Ask the AI Engines and Read the Answer Back</h3>
+<p>Add HTTP nodes that send each question to the OpenAI and Perplexity APIs. For each answer, the workflow checks three things: are you named, how are you described, and who got named instead of you. The output is a simple verdict per question: present, absent, or described wrong.</p>
+<h3>Step 3: Pull Your Traffic</h3>
+<p>Add an analytics node that pulls the week's numbers so you can read the AI-visibility check next to the trend. Up, down, and where it came from.</p>
+<h3>Step 4: Watch Your Competitors</h3>
+<p>Point the scraping node at a short list of competitor pages. It flags pricing changes, new offers, and new content since last week. Start with the two or three rivals you actually lose customers to, not twenty.</p>
+<h3>Step 5: Turn It Into a Report With Grounded Ideas</h3>
+<p>Use the Tavily web-search node to ground a few marketing suggestions in what is actually happening this week, then send the whole thing to Slack or your inbox. Not a dashboard you have to remember to open, a report that lands in front of you every Saturday.</p>
+<h3>Step 6: Put It on a Saturday Cron and Walk Away</h3>
+<p>Set the schedule trigger and let it sleep the rest of the week. When you want to cover a second product or location, duplicate the workflow and change the questions.</p>
+<h2>Adapting This for Your Business</h2>
+<p>The pattern is &quot;ask the AI what my customers ask, and see if I exist.&quot; It repoints to almost any business.</p>
+<ul>
+<li><strong>Local trades and services.</strong> Questions are &quot;best [trade] near [town].&quot; The win is being the name the AI gives when a neighbor asks.</li>
+<li><strong>Ecommerce and product brands.</strong> Questions are &quot;best [product] for [use case].&quot; Track whether you make the AI's shortlist and what it says your price is.</li>
+<li><strong>Software and agencies.</strong> Questions are &quot;compare the top tools for [job].&quot; Buyers ask AI to build the shortlist before they ever book a call.</li>
+<li><strong>Multi-location operators.</strong> Duplicate the workflow per location and catch the cities where you are invisible while present in others.</li>
 </ul>
 <h2>Gotchas and Tips</h2>
 <ul>
-<li><strong>Ask the real questions.</strong> The value is only as good as the prompts. Use the exact phrasing your customers would, including your city and your category. Generic questions give generic answers.</li>
-<li><strong>Watch for being described wrong, not just being absent.</strong> Sometimes the AI mentions you but gets your prices, hours, or services wrong. That is worse than silence, and this check catches it.</li>
-<li><strong>Start with one competitor set.</strong> Do not try to monitor twenty rivals on day one. Pick the three you actually lose customers to.</li>
-<li><strong>Trigger it, do not poll it.</strong> The whole reason this moved off the cloud-agent version was a polling loop that ran up the bill. Run it on a schedule and let it sleep the rest of the week.</li>
+<li><strong>Ask the real questions.</strong> Generic prompts give generic answers. The value lives in phrasing them exactly the way your customers would.</li>
+<li><strong>Watch for being described wrong, not just absent.</strong> Sometimes the AI names you but gets your prices, hours, or services wrong. That is worse than silence, and this check catches it.</li>
+<li><strong>Start with one competitor set.</strong> Three rivals you actually lose to beats twenty you do not.</li>
+<li><strong>Trigger it, do not poll it.</strong> The whole reason this moved off the cloud-agent version was a polling loop that ran up the bill. Run it on a schedule and let it sleep.</li>
 </ul>
+<h2>What This Replaces</h2>
+<p>Before this stack, there was no real &quot;before.&quot; Most owners have no idea whether they appear in AI answers, because the tools that would tell them barely exist yet:</p>
+<ul>
+<li><strong>An SEO agency</strong> tells you about Google rankings, which a shrinking share of buyers ever see, and charges a monthly retainer to do it.</li>
+<li><strong>A manual check</strong> means an owner occasionally typing their own name into ChatGPT, noticing nothing systematic, and forgetting to do it again.</li>
+</ul>
+<p>After this stack, you get a weekly, written read on whether you exist in the conversation that now decides who gets the call, plus competitor moves and grounded ideas, for the cost of a few API calls. It is the AEO and GEO version of rank tracking, running on autopilot, while almost none of your competitors are watching at all.</p>
 <hr>
 <h2>Keep Reading</h2>
 <ul>
