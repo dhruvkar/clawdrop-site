@@ -19,7 +19,7 @@ tags:
 permalink: /playbooks/government-tender-monitor/
 ---
 
-> **A note on this one.** The idea came from a use-case roundup that described it in a single line: "Someone's agent monitors government tenders and messages them the second a matching contract drops. They're winning bids others don't even know exist." That is the whole source. We have not reverse-engineered a specific person's build here, so treat this as a how-to for a pattern that clearly works, not a documented case study like the others. The stack below is the straightforward way to build it.
+> **Build this, or buy it.** Tender monitoring is already a paid software category. Tools like CLEATUS, Tenderbolt, Procurement Sciences, and Tendium charge a monthly subscription to watch the portals for you, which is the clearest proof the pattern works. This playbook shows how to build the watching-and-alerting half yourself, with an agent, on the same free public feeds those tools run on. The idea surfaced in a use-case roundup as a one-liner, and we have not reverse-engineered one specific person's build, so treat the stack below as the straightforward way to do it rather than a documented case study like the others.
 
 ## Tools
 
@@ -92,11 +92,11 @@ The pattern is "watch a high-volume public feed, filter it hard, alert on the ma
 
 Before this stack, staying on top of tenders meant one of three things:
 
-- **A paid bid-alert service:** a monthly subscription that does roughly what this agent does, on their schedule and their categories, not yours.
+- **A paid bid-alert service:** a monthly subscription to a tool like CLEATUS, Tenderbolt, Procurement Sciences, or Tendium that does roughly what this agent does, on their schedule and their categories, not yours. Worth it for some teams, but it is a recurring cost for the watching alone.
 - **A person on staff:** someone whose job includes checking the portals, which means it happens until the week they are busy and a contract slips by.
 - **Luck:** hearing about a contract from a customer or a competitor, usually too late to bid well.
 
-After this stack, the watching is constant and free, the filter is exactly your business, and the alert reaches you the moment a match posts. You stop paying a service to watch on your behalf, or paying the bigger price of the contracts you never saw.
+After this stack, the watching is constant and nearly free, the filter is exactly your business, and the alert reaches you the moment a match posts. You either replace a subscription you were paying for the watching, or you pay the bigger price of the contracts you never saw. The paid tools earn their keep on the response side, the proposal writing and compliance checks. The monitoring half, you can run yourself.
 
 ---
 
