@@ -45,7 +45,25 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://clawdrop.org/playbooks/government-tender-monitor/</loc>
+    <lastmod>June 2, 2026</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://clawdrop.org/playbooks/guinndex-voice-agent/</loc>
+    <lastmod>June 2, 2026</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clawdrop.org/playbooks/invisible-in-chatgpt/</loc>
+    <lastmod>June 2, 2026</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clawdrop.org/playbooks/newly-liquid-lead-finder/</loc>
     <lastmod>June 2, 2026</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

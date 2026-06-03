@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Is Your Business Invisible When Customers Ask ChatGPT? This Agent Checks Every Saturday. — ClawDrop</title>
+  <meta name="description" content="Your customers have stopped Googling and started asking ChatGPT and Perplexity. A weekly n8n agent checks whether your business shows up in those answers, watches competitor pricing, and hands you grounded marketing ideas. The builder ran it on Anthropic&#39;s Managed Agents API first, then rebuilt it in n8n to kill the cost.">
+  <meta property="og:title" content="Is Your Business Invisible When Customers Ask ChatGPT? This Agent Checks Every Saturday. — ClawDrop">
+  <meta property="og:description" content="Your customers have stopped Googling and started asking ChatGPT and Perplexity. A weekly n8n agent checks whether your business shows up in those answers, watches competitor pricing, and hands you grounded marketing ideas. The builder ran it on Anthropic&#39;s Managed Agents API first, then rebuilt it in n8n to kill the cost.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/invisible-in-chatgpt/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Is Your Business Invisible When Customers Ask ChatGPT? This Agent Checks Every Saturday. — ClawDrop">
+  <meta name="twitter:description" content="Your customers have stopped Googling and started asking ChatGPT and Perplexity. A weekly n8n agent checks whether your business shows up in those answers, watches competitor pricing, and hands you grounded marketing ideas. The builder ran it on Anthropic&#39;s Managed Agents API first, then rebuilt it in n8n to kill the cost.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/invisible-in-chatgpt/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+    .logo:hover { color: var(--ink); }
+    .logo-img { width: 32px; height: 32px; border-radius: 7px; display: block; flex-shrink: 0; }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 380px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo"><img src="/assets/clawdrop-logo.png" alt="ClawDrop" class="logo-img">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">June 2, 2026</div>
+    <h1>Is Your Business Invisible When Customers Ask ChatGPT? This Agent Checks Every Saturday.</h1>
+    <p class="post-description">Your customers have stopped Googling and started asking ChatGPT and Perplexity. A weekly n8n agent checks whether your business shows up in those answers, watches competitor pricing, and hands you grounded marketing ideas. The builder ran it on Anthropic&#39;s Managed Agents API first, then rebuilt it in n8n to kill the cost.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Intermediate</strong></span>
+      <span class="meta-badge">💰 <strong>Low. Runs only when triggered. Free tiers cover most of it; the original cloud-agent version cost $4.23 a run, which is why it moved to n8n.</strong></span>
+      <span class="meta-badge">⏱ <strong>An afternoon to wire the workflow, then it runs itself</strong></span>
+      <span class="meta-badge">👤 <strong>arbyther (r/n8n)</strong></span>
+      <a href="https://www.reddit.com/r/n8n/comments/1tqvdl6/anthropics_managed_agents_api_vs_n8n_for_a_weekly/" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-n8n"><strong>n8n</strong></a>: the visual workflow that runs the whole thing on a weekly schedule. No polling cost, easy to duplicate per product or location.</li>
+<li><a href="#aff-openai"><strong>OpenAI API</strong></a>: asks ChatGPT the questions your customers ask, and reads back whether you show up.</li>
+<li><a href="#aff-perplexity"><strong>Perplexity API</strong></a>: same check against the other AI engine people now use to decide who to buy from.</li>
+<li><a href="#aff-tavily"><strong>Tavily</strong></a>: web search node for grounding the marketing ideas in what is actually live.</li>
+<li><a href="#aff-supadata"><strong>Supadata</strong></a>: scrapes competitor pages for pricing and content changes.</li>
+<li>An analytics source (the builder used a lightweight analytics MCP) and <strong>Slack</strong> or email to deliver the report.</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>A standing Saturday-morning check on whether your business exists in the place customers now look first.</p>
+<p>A developer named arbyther wanted one workflow to run his side-project marketing every week: pull traffic, check whether the product shows up in ChatGPT and Perplexity, crawl competitors for pricing changes, and suggest a few grounded ideas. He built it twice. The first version used Anthropic's Managed Agents API, a persistent Claude session in the cloud with a Saturday cron. It worked, but a single run cost $4.23, and $3.30 of that was the agent polling Slack every 60 seconds waiting for his reply. He rebuilt the same cycle in n8n as a visual workflow. No polling cost because it only runs when triggered, Slack worked cleanly, and duplicating it for a second product is a copy and paste.</p>
+<p>Strip away the engineering and what he built is a weekly answer to four questions: Is my traffic up or down? Do I show up when someone asks an AI about my category? What did my competitors just change? And what should I do about it?</p>
+<h2>Why This Matters for Your Business</h2>
+<p>Your customers have quietly changed how they find you. A growing share of them no longer type a search and scroll ten blue links. They ask ChatGPT &quot;who's the best plumber in Tucson&quot; or ask Perplexity &quot;compare the top three CRMs for a small agency,&quot; and they act on whatever the AI says.</p>
+<p>If the AI does not mention you, you do not exist in that conversation. You will never see it in your analytics, because there was no click to measure. You just quietly stop getting those customers.</p>
+<p>This is the single clearest version of &quot;getting left behind.&quot; Not that you failed to adopt AI, but that AI failed to mention you, and you had no idea. The old version of this worry had a name, SEO, and a whole industry watching it. The new version, showing up inside AI answers, has almost nobody watching it yet. A weekly agent that checks for you is how you find out before your competitor does.</p>
+<h2>How It Works</h2>
+<p>The workflow runs on a schedule, usually a Saturday morning cron, and moves through four steps.</p>
+<h3>Step 1: Ask the AI engines what your customers ask</h3>
+<p>For each question a real buyer would ask in your category, the workflow sends it to the OpenAI and Perplexity APIs and reads the answer back. It checks whether your business is named, how you are described, and who got named instead of you. This is the core signal: present, absent, or misrepresented.</p>
+<h3>Step 2: Pull your traffic</h3>
+<p>An analytics node pulls the week's traffic so you can see the trend next to the AI-visibility check. Up, down, and where it came from.</p>
+<h3>Step 3: Watch your competitors</h3>
+<p>A scraping node (the builder used Supadata) crawls a short list of competitor pages and flags pricing changes, new offers, and new content since last week.</p>
+<h3>Step 4: Turn it into a short report with grounded ideas</h3>
+<p>The workflow uses a web-search node (Tavily) to ground a few marketing suggestions in what is actually happening, then sends the whole thing to Slack or your inbox. Not a dashboard you have to remember to open. A report that lands in front of you every Saturday.</p>
+<h2>Who This Is For</h2>
+<ul>
+<li><strong>Any local business</strong> whose customers ask AI for a recommendation: trades, clinics, restaurants, shops, service providers.</li>
+<li><strong>Anyone selling a product or software</strong> where buyers ask AI to compare options before they buy.</li>
+<li><strong>Owners who used to care about their Google ranking</strong> and have not yet realized the ranking that now matters is whether an AI names them.</li>
+</ul>
+<h2>Gotchas and Tips</h2>
+<ul>
+<li><strong>Ask the real questions.</strong> The value is only as good as the prompts. Use the exact phrasing your customers would, including your city and your category. Generic questions give generic answers.</li>
+<li><strong>Watch for being described wrong, not just being absent.</strong> Sometimes the AI mentions you but gets your prices, hours, or services wrong. That is worse than silence, and this check catches it.</li>
+<li><strong>Start with one competitor set.</strong> Do not try to monitor twenty rivals on day one. Pick the three you actually lose customers to.</li>
+<li><strong>Trigger it, do not poll it.</strong> The whole reason this moved off the cloud-agent version was a polling loop that ran up the bill. Run it on a schedule and let it sleep the rest of the week.</li>
+</ul>
+<hr>
+<h2>Keep Reading</h2>
+<ul>
+<li><strong><a href="/playbooks/meta-ads-pipeline/">Research Your Competitors' Ads and Launch Your Own Campaign on Meta</a></strong>: once you know where you stand, build the campaign to close the gap.</li>
+<li><strong><a href="/playbooks/guinndex-voice-agent/">The €200 AI Voice Agent That Called 3,000 Businesses in a Weekend</a></strong>: another agent that goes out and collects the market intelligence you are missing.</li>
+</ul>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators</p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>
