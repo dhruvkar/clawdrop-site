@@ -8,7 +8,7 @@ cost: "About $50 for the ESP32 board (double it if you add the fail-safe receive
 timeToSetup: "A few evenings of back-and-forth with Claude, then ongoing tinkering because it's fun."
 originalSource: "https://news.ycombinator.com/item?id=48800997"
 originalAuthor: "pugio (Hacker News)"
-issueNumber: 20
+issueNumber: 21
 tags:
   - parenting
   - hardware

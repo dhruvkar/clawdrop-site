@@ -8,7 +8,7 @@ cost: "$20-100/month in AI usage. Wave Accounting has a free plan."
 timeToSetup: "A couple of hours to load the documents and connect the books."
 originalSource: "https://www.youtube.com/watch?v=u1rhYFVNXJY"
 originalAuthor: "Chris / KaNe (YouTube)"
-issueNumber: 20
+issueNumber: 21
 permalink: /playbooks/rental-property-ai-property-manager/
 tags:
   - real-estate

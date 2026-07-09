@@ -8,7 +8,7 @@ cost: "$20/month for Claude, plus Higgsfield credits per video. Rendering at 720
 timeToSetup: "An afternoon to build the skill, then a couple of minutes per video."
 originalSource: "https://www.youtube.com/watch?v=Y2uCjv4RuDA"
 originalAuthor: "Duncan Rogoff (YouTube)"
-issueNumber: 20
+issueNumber: 21
 permalink: /playbooks/viral-video-recreator/
 tags:
   - video

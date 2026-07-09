@@ -8,7 +8,7 @@ cost: "A few cents in AI usage per lead, plus a $5/month server or a spare PC at
 timeToSetup: "An afternoon. One folder, four files, and a webhook URL."
 originalSource: "https://www.youtube.com/watch?v=2yNE93UAWk4"
 originalAuthor: "BizflowAI (YouTube)"
-issueNumber: 20
+issueNumber: 21
 permalink: /playbooks/client-intake-lead-scoring-agent/
 tags:
   - sales

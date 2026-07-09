@@ -8,7 +8,7 @@ cost: "$0 beyond the Claude subscription you may already have."
 timeToSetup: "None. One screenshot and one prompt."
 originalSource: "https://www.youtube.com/watch?v=EPBX1PRQ_mY"
 originalAuthor: "Sarmatic Explains (YouTube)"
-issueNumber: 20
+issueNumber: 21
 permalink: /playbooks/ai-discount-code-hunter/
 tags:
   - shopping
