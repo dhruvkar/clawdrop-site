@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tell Claude to Cancel Your Subscriptions. It Never Falls for the &#39;Wait, 50% Off&#39; Screen. — ClawDrop</title>
+  <meta name="description" content="An Italian YouTuber hands his browser to Claude and lets it dig through account settings to find and cancel the subscriptions he forgot he was paying for.">
+  <meta property="og:title" content="Tell Claude to Cancel Your Subscriptions. It Never Falls for the &#39;Wait, 50% Off&#39; Screen. — ClawDrop">
+  <meta property="og:description" content="An Italian YouTuber hands his browser to Claude and lets it dig through account settings to find and cancel the subscriptions he forgot he was paying for.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/subscription-cancellation-agent/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Tell Claude to Cancel Your Subscriptions. It Never Falls for the &#39;Wait, 50% Off&#39; Screen. — ClawDrop">
+  <meta name="twitter:description" content="An Italian YouTuber hands his browser to Claude and lets it dig through account settings to find and cancel the subscriptions he forgot he was paying for.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/subscription-cancellation-agent/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+    .logo:hover { color: var(--ink); }
+    .logo-img { width: 32px; height: 32px; border-radius: 7px; display: block; flex-shrink: 0; }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 380px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo"><img src="/assets/clawdrop-logo.png" alt="ClawDrop" class="logo-img">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#about" class="nav-link">About</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">July 13, 2026</div>
+    <h1>Tell Claude to Cancel Your Subscriptions. It Never Falls for the &#39;Wait, 50% Off&#39; Screen.</h1>
+    <p class="post-description">An Italian YouTuber hands his browser to Claude and lets it dig through account settings to find and cancel the subscriptions he forgot he was paying for.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Beginner</strong></span>
+      <span class="meta-badge">💰 <strong>A Claude subscription, around $20 a month, which you may already be paying for. No other tools required.</strong></span>
+      <span class="meta-badge">⏱ <strong>About an hour the first time, most of it spent watching the agent work.</strong></span>
+      <span class="meta-badge">👤 <strong>GabrySolution (YouTube)</strong></span>
+      <a href="https://www.youtube.com/watch?v=AR6NSwHFL4I" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-claude"><strong>Claude</strong></a>: the AI that does the actual work. The video uses the Fable tier, Anthropic's most capable model, which is built to work on a task for a long stretch, check its own work, and keep going until it's done instead of answering once and stopping.</li>
+<li><a href="#aff-claude-for-chrome"><strong>Claude for Chrome</strong></a>: the browser extension that lets Claude see your screen and click around your browser the way you would. This is how it gets into account settings pages that have no official &quot;connection&quot; for software.</li>
+<li><a href="#aff-openclaw"><strong>OpenClaw</strong></a>: the free, always-on assistant that runs on your own computer. Same idea, different wrapper: it can drive a browser too, and it's the route to take if you want this running on a schedule instead of on demand.</li>
+</ul>
+<h2>The Story</h2>
+<p>GabrySolution is an Italian YouTuber who makes near-daily videos on practical AI. In a video from July 2026, he walks through eight real uses for Claude's Fable model, ordered from easiest to hardest: reading dense contracts and medical reports, acting as a bookkeeper, disputing an incorrect utility bill, running his calendar, and so on up the difficulty ladder.</p>
+<p>The last one on the list is the one that should make you check your credit card statement. He hands Claude his browser and delegates the repetitive web work he never wants to do again. Including, as the video's own description puts it, cancelling subscriptions by itself.</p>
+<p>The demo segment is about a minute long. That's the point. This isn't a weekend engineering project with wiring diagrams. It's a capability that already exists in the tools, waiting for you to actually use it: an AI that can open a website, log in with you present, navigate to account settings, hunt down the cancellation flow the company buried three menus deep, and click through it to the end.</p>
+<p>The video is in Italian, but the framing translates perfectly. His whole thesis is to stop treating AI like a search box and start treating it like a person on your team you hand a responsibility to. &quot;Go cancel the subscriptions I don't use&quot; is a responsibility. It has a finish line, it's verifiable, and no human being on earth enjoys doing it.</p>
+<h2>How It Works</h2>
+<p>There's no code here. The setup is a conversation.</p>
+<p><strong>Step 1: Build the hit list.</strong> Export two or three months of credit card and bank statements and give them to Claude. Ask it to pull out every recurring charge and flag anything duplicated, anything unused, and anything you don't recognize. Most people guess their subscription total low. Surveys on this consistently find actual spend running two to three times what people estimate.</p>
+<p><strong>Step 2: You decide what dies.</strong> Go down the list and mark keep or kill. This part stays human. The agent should never decide what you value.</p>
+<p><strong>Step 3: Hand over the browser.</strong> With the browser extension connected, give Claude the kill list and one instruction: for each service, log into the account, find the cancellation flow, complete it, and save a screenshot of the confirmation.</p>
+<p><strong>Step 4: Watch it run the maze.</strong> This is where it gets satisfying. The agent goes to the account page. It finds &quot;Manage subscription&quot; hidden under &quot;Billing&quot; under &quot;Settings.&quot; It hits the retention screen: &quot;Are you sure? Here's 50% off for 3 months.&quot; It declines. It hits the survey: &quot;Why are you leaving?&quot; It picks an answer. It hits the second confirmation, and the third, and clicks through all of them, because it does not get tired, it does not feel guilty, and it is not tempted by the discount. It captures the confirmation and moves to the next one.</p>
+<p><strong>Step 5: Get the report.</strong> At the end you have a list of what was cancelled, screenshots proving it, and a note on anything it couldn't finish.</p>
+<h2>The Maze Is the Business Model</h2>
+<p>Here's the part worth being angry about. Cancellation flows are hard on purpose. Subscription companies A/B test those retention screens the way casinos test carpet patterns. Every extra click, every guilt-trip survey, every &quot;chat with an agent to cancel&quot; wall exists because some percentage of humans give up halfway through, and giving up is revenue.</p>
+<p>US regulators actually tried to outlaw this with a &quot;click to cancel&quot; rule that said cancelling must be as easy as signing up. A federal appeals court threw the rule out in 2025 before it ever took effect. The maze is legal, and it's staying.</p>
+<p>Which is exactly why an agent is the right tool. Dark patterns work on human psychology: fatigue, distraction, loss aversion, the little jolt of &quot;well, 50% off is pretty good.&quot; An agent has none of those buttons to push. It was told to reach the confirmation screen, and it treats the retention funnel as what it actually is: a series of obstacles between it and done.</p>
+<h2>The Replacement Math</h2>
+<p>There's a whole industry built on doing this for you. Rocket Money and similar apps charge a monthly premium fee to track and cancel subscriptions, and when they negotiate a bill down, they take a cut of your first year of savings, in some cases more than half. You are paying a subscription service to escape subscription services. The agent does the same job for the Claude subscription you already have, and keeps 100% of what it finds.</p>
+<p>Now scale that thinking to your business, because this is where the number gets serious. The average small business is carrying SaaS seats for employees who left, two tools that do the same job because two different people signed up, and free trials that quietly converted eight months ago. Industry studies on SaaS waste keep landing in the same neighborhood: something like a third of spend going to licenses nobody meaningfully uses. If your software line is $2,000 a month, that's potentially $600 a month leaking out. This exact playbook, pointed at your business card statement instead of your personal one, is the cheapest audit you will ever run.</p>
+<h2>The Honest Caveats</h2>
+<p>Three rules, non-negotiable.</p>
+<p><strong>Your accounts only.</strong> The agent logs into things as you, cancels things as you, and clicks legally meaningful buttons as you. Never point it at anyone else's accounts, and think twice before pointing it at shared business accounts without telling your partner.</p>
+<p><strong>Watch the first run.</strong> Sit there with your coffee and supervise the first few cancellations end to end. You want to catch the edge cases: the annual contract with an early-exit fee, the &quot;cancelling deletes all your data immediately&quot; warning, the service your kid actually uses. Once you trust it, supervision can loosen. Keep the agent set to ask before final, irreversible confirmations until then.</p>
+<p><strong>Some walls still need a human.</strong> Plenty of gyms, insurers, and telecoms still require a phone call or a certified letter to cancel, precisely because it filters people out. The agent can't make that call for you yet, but it can do the next best thing: draft the cancellation letter, find the right address or number, and hand you a script.</p>
+<h2>Who Should Steal This</h2>
+<p>Anyone with a credit card, honestly. But especially: any household that hasn't audited recurring charges in over a year, any small business owner whose software spend grew by &quot;one more tool&quot; at a time until nobody could name them all, and any office manager or bookkeeper who inherited a pile of vendor logins and dreads the cleanup. The pattern underneath, handing tedious multi-step browser work to an agent that can't be worn down, applies to far more than cancellations. This is just the version that pays for itself on day one.</p>
+<hr>
+<h2>Keep Reading</h2>
+<ul>
+<li><strong><a href="/playbooks/ai-budget-cap/">He Spent $1,263 on AI in One Month. Then He Capped It.</a></strong>: the other half of spend control, putting a hard ceiling on the one subscription this playbook tells you to keep.</li>
+<li><strong><a href="/playbooks/ai-discount-code-hunter/">Screenshot Anything You Want to Buy. Claude Finds a Discount Code That Actually Works.</a></strong>: the same agent, pointed at saving money on the way in instead of the way out.</li>
+<li><strong><a href="/playbooks/ai-grocery-shopping/">AI Grocery Shopping with a Virtual Credit Card</a></strong>: what letting an agent spend for you looks like when you add real guardrails.</li>
+</ul>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators</p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

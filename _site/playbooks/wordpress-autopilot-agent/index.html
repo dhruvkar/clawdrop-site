@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>An Agent That Runs Your Entire Website — ClawDrop</title>
+  <meta name="description" content="Automate WordPress with AI by texting an agent on Telegram. It researches, writes the SEO article, makes the featured image, and builds landing pages on command.">
+  <meta property="og:title" content="An Agent That Runs Your Entire Website — ClawDrop">
+  <meta property="og:description" content="Automate WordPress with AI by texting an agent on Telegram. It researches, writes the SEO article, makes the featured image, and builds landing pages on command.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/wordpress-autopilot-agent/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="An Agent That Runs Your Entire Website — ClawDrop">
+  <meta name="twitter:description" content="Automate WordPress with AI by texting an agent on Telegram. It researches, writes the SEO article, makes the featured image, and builds landing pages on command.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/wordpress-autopilot-agent/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+    .logo:hover { color: var(--ink); }
+    .logo-img { width: 32px; height: 32px; border-radius: 7px; display: block; flex-shrink: 0; }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 380px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo"><img src="/assets/clawdrop-logo.png" alt="ClawDrop" class="logo-img">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#about" class="nav-link">About</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">June 9, 2026</div>
+    <h1>An Agent That Runs Your Entire Website</h1>
+    <p class="post-description">Automate WordPress with AI by texting an agent on Telegram. It researches, writes the SEO article, makes the featured image, and builds landing pages on command.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Intermediate</strong></span>
+      <span class="meta-badge">💰 <strong>The WordPress site you already run, plus Claude/OpenClaw usage. No new subscriptions.</strong></span>
+      <span class="meta-badge">⏱ <strong>A weekend</strong></span>
+      <span class="meta-badge">👤 <strong>Muhamad Ali Ridho (AI &amp; ngoprek)</strong></span>
+      <a href="https://www.youtube.com/watch?v=INbU5ej2GNI" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-openclaw"><strong>OpenClaw</strong></a>: the agent that does the work. It logs into your site through the back door, writes the article, makes the image, installs plugins, and builds pages.</li>
+<li><a href="#aff-wordpress"><strong>WordPress</strong></a>: the site you already have. Nothing changes about it. The agent just becomes another worker with a login.</li>
+<li><a href="#aff-telegram"><strong>Telegram</strong></a>: where you give the orders. You text the agent like an employee and it reports back when the work is done.</li>
+<li>The WordPress REST API application password: a separate, scoped login the agent uses instead of your real one. The &quot;back door&quot; that lets it work without you opening the dashboard.</li>
+<li>An SEO plugin (The SEO Framework): the agent installs and configures it for you so your posts are set up to rank.</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>An agent you text that runs your whole WordPress site for you.</p>
+<p>A builder named Muhamad Ali Ridho connected an AI agent to a plain WordPress site and started giving it orders from his phone. He sent it a news link and said write an article about this, in English, make it SEO friendly, keep it human. A few minutes later there was a finished draft on the site. He told it to publish. It published. He told it to find a featured image. It generated one and set it. He told it to install and configure an SEO plugin. It did. Then he sent it a screenshot and said build a landing page that looks like this, and it built the page.</p>
+<p>He never opened the WordPress dashboard. He never logged in to write a post. He sat in a Telegram thread and acted like a foreman.</p>
+<p>You are not building a blog. You are building the worker that runs the blog. The thing that researches, writes, illustrates, configures, and publishes, all from a text message. The copywriter and the site admin, rolled into one chat thread.</p>
+<h2>Why This Works</h2>
+<p>The production end of content marketing is mechanical, and mechanical work is exactly what an agent does well. Find a source. Rewrite it for your audience. Make it readable. Set a title and a category. Add an image. Hit publish. None of that requires taste on every single step. It requires someone reliable doing the same loop over and over without getting bored. That is the agent.</p>
+<p>It works because it does not need a new system. You already have WordPress. The REST API is already built into it. The agent does not replace your site or ask you to migrate anything. It just gets its own login and becomes another set of hands on the site you already run.</p>
+<p>And it works because the interface is a text message. There is no dashboard to learn, no editor to fight with on your phone. You say what you want in plain language, the agent goes and does it on the site, and it tells you when it is done. You stay the editor. It does the typing.</p>
+<p>This is the production side of what a content agency or a part-time marketer charges you for every month. Not the strategy. The doing.</p>
+<h2>Prerequisites</h2>
+<ul>
+<li>A WordPress site you control, with admin access to the dashboard.</li>
+<li>OpenClaw set up and running, connected to a capable model.</li>
+<li>A Telegram account, with your agent wired to a Telegram bot so you can text it.</li>
+<li>A few minutes in your WordPress user settings to create a login for the agent.</li>
+<li>A clear idea of which work you actually want handed off, so you can tell it apart from the work you still want to do yourself.</li>
+</ul>
+<h2>Step-by-Step Setup</h2>
+<h3>Step 1: Create a User for the Agent</h3>
+<p>Treat the agent like a new hire. In your WordPress dashboard, go to Users and add a new user for it. Give it a name you will recognize, like &quot;agent&quot; or &quot;claude.&quot;</p>
+<p>The important field is the role. WordPress roles decide how much the user can touch. A Contributor or Author can write posts but not much else. An Administrator can do everything: write and publish posts, add and edit pages, install and configure plugins, and add users.</p>
+<p>Ridho chose Administrator because he wanted the agent to do all of it, including installing plugins and building pages. That is the most powerful setup and also the one to be careful with. If you only want the agent writing drafts, give it a smaller role. You can always raise it later. Start with the least access that gets the job done.</p>
+<h3>Step 2: Create a REST API Application Password</h3>
+<p>This is the key step, and the one that keeps your real password safe.</p>
+<p>WordPress has a feature called application passwords. Open the agent's user profile, scroll to the Application Passwords section near the bottom, give it a name, and generate one. WordPress shows you a long password once. Copy it and save it somewhere safe, because it will not show it again.</p>
+<p>Here is what makes this safe. This password does not work for logging in through the normal /wp-admin screen. It only works through the REST API, the back door WordPress exposes for programs to connect. So the agent gets in through its own door, with its own credential, and your actual login stays untouched. If anything ever goes wrong, you revoke this one password and the agent is locked out instantly, without you changing anything else.</p>
+<p>You now have two things: the agent's username and its application password. That is its entire identity on your site.</p>
+<h3>Step 3: Connect the Agent</h3>
+<p>In your Telegram thread with the agent, just ask it. Tell it you want to connect it to your WordPress site and ask what it needs.</p>
+<p>It will ask for your site's address and the credentials you just made: the username and the application password. Hand those over. The agent uses them to reach your site through the REST API and confirm it is connected.</p>
+<p>That is the whole connection. One short exchange in a chat. From here on, you are talking to your website by texting the agent.</p>
+<h3>Step 4: Publish an Article From a URL</h3>
+<p>Now the real work. Find a news article or source you want to write about and copy the link.</p>
+<p>Send the agent something like: write an article based on the latest news at this link, put it in English, make it SEO friendly, and keep the language human and easy to read, not robotic. Paste the URL.</p>
+<p>The agent reads the source, writes an original article in your language, and creates it on your site as a draft. It will report back with the draft and a title. Open it on your site and read it. When you are happy, text the agent to publish it. It flips the draft to live. Reload your blog and the post is there.</p>
+<p>You wrote nothing. You edited and approved. That is the job now.</p>
+<h3>Step 5: Generate a Featured Image</h3>
+<p>A published post with no image looks half finished, and your blog roll shows a blank where the thumbnail should be. Fix it with one more message.</p>
+<p>Tell the agent to find or create a suitable featured image for the post and set it. The agent can generate an image and attach it as the featured image and cover. If you would rather control image rights yourself, tell it to use an image you send instead, and just attach your own. Either way, it sets the image so you do not have to fiddle with the media library on your phone.</p>
+<h3>Step 6: Install and Configure the SEO Plugin</h3>
+<p>Most WordPress owners pay someone to set up SEO, or never do it. The agent handles both the install and the setup.</p>
+<p>Send it something like: install a reputable SEO plugin on the site, configure it with good defaults, and tell me when it is done and what you recommend. The agent installs the plugin, in Ridho's case The SEO Framework, activates it, and configures it. It reports back when the work is finished along with its recommendations.</p>
+<p>This is the kind of task that used to mean a support ticket or a freelancer. Now it is one text.</p>
+<h3>Step 7: Build a Landing Page From a Screenshot</h3>
+<p>This is the step that surprises people. The agent does not only write posts. It builds pages.</p>
+<p>Take a screenshot of a layout you like, your own old page, a competitor's, a design you found, and send it to the agent. Tell it to build a landing page like this for your product. The agent reads the screenshot and builds the page on your site. Ridho used this to turn a plain default theme into a styled product page, all from an image and a sentence.</p>
+<p>Review the page on your site before you link to it anywhere. When it looks right, it is live and ready.</p>
+<h2>Adapting This for Your Business</h2>
+<p>The build is the same. What changes is what you point it at and how much you let it do on its own.</p>
+<ul>
+<li><strong>Local service businesses.</strong> Have it turn each finished job, season, or FAQ into a blog post that helps you show up in local search, with a featured image set every time.</li>
+<li><strong>E-commerce and product sellers.</strong> Send a screenshot and build product landing pages on demand, and let the agent keep a steady drip of posts going around your products.</li>
+<li><strong>Professional services and consultants.</strong> Feed it industry news and let it draft thought-leadership posts in your voice, which you then edit before publishing.</li>
+<li><strong>Anyone paying a content agency.</strong> Keep your strategist if you have a good one. Hand the production, the writing, the images, the publishing, to the agent and stop paying agency rates for typing.</li>
+</ul>
+<h2>Gotchas and Tips</h2>
+<ul>
+<li><strong>Scope the application password tightly.</strong> Give the agent the smallest WordPress role that still lets it do the job, and use a dedicated application password, never your real login. If anything looks wrong, revoke that one password and the agent is out, with nothing else affected.</li>
+<li><strong>Read every AI article before it goes live.</strong> The agent will write confidently even when it is wrong. Check facts, names, and numbers, and make sure it sounds like your brand and not a robot. The source builder explicitly added &quot;keep it human&quot; to his prompts for this reason.</li>
+<li><strong>Google does not reward mass low-quality AI content.</strong> Google's guidance rewards helpful, experience-backed content and demotes thin pages cranked out at scale. Use the agent to draft faster, then add your own expertise, examples, and point of view. Volume alone will hurt you.</li>
+<li><strong>Mind image rights.</strong> A generated image is usually safe, but do not let the agent grab random images off the web for a featured image. Either generate them or send your own licensed ones.</li>
+<li><strong>Test on staging or low-stakes posts first.</strong> Before you let the agent near your main pages or plugins, let it work on a draft, a test post, or a staging copy of the site. Plugin installs and page builds touch real settings.</li>
+<li><strong>Do not auto-publish unattended at first.</strong> The agent can run on a schedule and post without you, but earn that. Keep yourself in the loop as the editor who approves each post until you trust the output. Foreman first, autopilot later.</li>
+</ul>
+<h2>What This Replaces</h2>
+<p>Before this, the production side of your website ran one of two ways:</p>
+<ul>
+<li><strong>A content agency:</strong> a $1,500 to $5,000 a month retainer for someone to research, write, illustrate, and publish your posts, plus the back and forth and the waiting.</li>
+<li><strong>A part-time marketer or VA:</strong> hours every week logging in, writing posts, hunting for images, wrestling with SEO settings, and clicking publish, while the strategy that actually matters waits.</li>
+</ul>
+<p>After this, the writing, the images, the SEO setup, and the publishing happen from a text thread on your phone, on command, on the site you already own. You keep the part that needs you, deciding what to say and approving how it sounds. You stop paying a retainer for the part that was always just doing.</p>
+<hr>
+<h2>Keep Reading</h2>
+<ul>
+<li><strong><a href="/playbooks/ai-content-factory/">This AI Content Factory Writes, Researches, and Designs While You Sleep</a></strong>: take the production engine further into a full hands-off content operation.</li>
+<li><strong><a href="/playbooks/stop-paying-for-custom-websites/">Stop Paying $10,000 for a Custom Website</a></strong>: the same agent-builds-your-site idea, applied to the whole site instead of just the posts.</li>
+<li><strong><a href="/playbooks/invisible-in-chatgpt/">Your Business Invisible When Customers Ask ChatGPT? This Agent Checks Every Saturday.</a></strong>: once your content is flowing, make sure AI search can actually find you.</li>
+</ul>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators</p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

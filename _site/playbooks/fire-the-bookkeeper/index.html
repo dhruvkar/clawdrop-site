@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fire the Bookkeeper, Keep the Books — ClawDrop</title>
+  <meta name="description" content="Automate bookkeeping with an AI agent that categorizes every transaction as it lands all year, then hand a clean year to QuickBooks for one month&#39;s fee at tax time. Save ~$6k a year.">
+  <meta property="og:title" content="Fire the Bookkeeper, Keep the Books — ClawDrop">
+  <meta property="og:description" content="Automate bookkeeping with an AI agent that categorizes every transaction as it lands all year, then hand a clean year to QuickBooks for one month&#39;s fee at tax time. Save ~$6k a year.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/fire-the-bookkeeper/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Fire the Bookkeeper, Keep the Books — ClawDrop">
+  <meta name="twitter:description" content="Automate bookkeeping with an AI agent that categorizes every transaction as it lands all year, then hand a clean year to QuickBooks for one month&#39;s fee at tax time. Save ~$6k a year.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/fire-the-bookkeeper/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+    .logo:hover { color: var(--ink); }
+    .logo-img { width: 32px; height: 32px; border-radius: 7px; display: block; flex-shrink: 0; }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 380px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo"><img src="/assets/clawdrop-logo.png" alt="ClawDrop" class="logo-img">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#about" class="nav-link">About</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">June 9, 2026</div>
+    <h1>Fire the Bookkeeper, Keep the Books</h1>
+    <p class="post-description">Automate bookkeeping with an AI agent that categorizes every transaction as it lands all year, then hand a clean year to QuickBooks for one month&#39;s fee at tax time. Save ~$6k a year.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Intermediate</strong></span>
+      <span class="meta-badge">💰 <strong>QuickBooks subscription you already have, plus Claude usage</strong></span>
+      <span class="meta-badge">⏱ <strong>An afternoon to wire up, a few weeks to trust it</strong></span>
+      <span class="meta-badge">👤 <strong>hawkph (r/openclaw)</strong></span>
+      <a href="https://www.reddit.com/r/openclaw/comments/1u1rv2u/my_asap_guide_to_fire_human_employees_and_replace/" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-quickbooks"><strong>QuickBooks</strong></a>: where the books live and where your taxes get filed. You probably already pay for it. The trick is when you actually use it.</li>
+<li><a href="#aff-claude-code"><strong>Claude Code</strong></a>: the agent that reads each transaction and decides which category it belongs in, all year long.</li>
+<li><a href="#aff-openclaw"><strong>OpenClaw</strong></a>: the connector that lets the agent reach into QuickBooks and your transaction data instead of you copying numbers around by hand.</li>
+<li>Your bank feed or a CSV export from your bank and card accounts, so the agent has transactions to work with.</li>
+<li>A spreadsheet for the running ledger if you would rather hold the year's data outside QuickBooks until tax time.</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>An agent that categorizes every transaction the moment it lands, so your books are never behind, and you only pay your accounting software when you actually need it.</p>
+<p>A guy on Reddit, posting under hawkph, runs his wife's business and went looking for line items he could cut. The bookkeeper was one of them. So he wired up an agent that watches transactions come in and files each one into the right category automatically, using a QuickBooks connection. His words: &quot;Now I got the transaction categorized by a skill automatically.&quot;</p>
+<p>Here is the clever part. He still uses QuickBooks. He just does not pay for it all year. He lets the agent categorize everything as it happens, then at year end he imports the whole clean pile into QuickBooks &quot;for like a month fee so we can file our taxes.&quot; The bookkeeper that used to cost him $500 a month is gone. He reports saving that $500 every month.</p>
+<p>You are not building a tax-filing robot. You are building the thing that sits between your bank and your books: an agent that sorts every transaction into the right bucket the day it shows up, so the year-end scramble never happens and the monthly bookkeeper bill stops.</p>
+<h2>Why This Works</h2>
+<p>Bookkeeping is not hard. It is just relentless. Every charge, every deposit, every transfer has to land in the right category, and it never stops coming. That is exactly the kind of small, repetitive, judgment-light work a person hates and an agent is good at.</p>
+<p>A bookkeeper is expensive mostly because of timing, not difficulty. You pay a monthly retainer so someone keeps up with the flow. But the flow is the same handful of decisions over and over. &quot;This is a software subscription.&quot; &quot;This is a client payment.&quot; &quot;This is fuel.&quot; An agent that has seen your last few hundred transactions makes those calls instantly, and it never falls a month behind because it got busy.</p>
+<p>That last bit is the real prize. Most small business books are a mess not because anyone is incompetent, but because categorizing slips, then slips again, and by tax time it is a panic. An agent working in the background does it continuously. The books stay clean because the work never piles up.</p>
+<p>And it flips the economics of your accounting software. If your transactions are already categorized and waiting in a clean ledger, you do not need to be paying a bookkeeper to maintain them inside QuickBooks all year. You can pull everything in at the end, when you actually need QuickBooks to do the one thing only it does well: file your taxes.</p>
+<h2>Prerequisites</h2>
+<ul>
+<li>A QuickBooks account, or a plan to use one at tax time. You may already have this.</li>
+<li>Claude Code installed, with OpenClaw set up so the agent can connect to QuickBooks and read your transactions.</li>
+<li>Access to your transaction data: a bank feed connection, or the ability to export CSVs from your bank and card accounts.</li>
+<li>Your chart of accounts, meaning the list of categories you actually use. If you do not have one, your accountant does.</li>
+<li>An accountant or CPA you trust to review the year before you file (see Gotchas, this is not optional).</li>
+</ul>
+<h2>Step-by-Step Setup</h2>
+<h3>Step 1: Decide Where the Books Live During the Year</h3>
+<p>You have two clean options. One, keep using QuickBooks all year and let the agent categorize directly inside it through the connection. Two, hold the running ledger in a spreadsheet that the agent maintains, and only import into QuickBooks at year end for filing. The Reddit approach leans on the second to avoid paying for the software year-round. Pick based on whether you want live books in QuickBooks or just clean books ready to import.</p>
+<h3>Step 2: Connect the Agent to Your Transactions</h3>
+<p>Wire Claude Code to your transaction source through OpenClaw. That means either reading the QuickBooks transaction feed directly, or pointing the agent at CSV exports from your bank and cards. Either way, the agent now sees every line item: date, amount, merchant, and whatever description the bank attached.</p>
+<h3>Step 3: Teach It Your Categories</h3>
+<p>Give the agent your chart of accounts and a plain-language rule for each category. &quot;Anything from these vendors is cost of goods.&quot; &quot;Recurring charges under this list are software subscriptions.&quot; &quot;Deposits from clients are revenue.&quot; The first pass is the one that takes thought. After that, the agent applies your rules every time.</p>
+<h3>Step 4: Let It Categorize as Transactions Land</h3>
+<p>Set the agent to run on a schedule, daily or weekly, so it processes new transactions as they come in and files each into the right category. This is the whole point: the work happens continuously, in small batches, instead of in one ugly catch-up session in March.</p>
+<h3>Step 5: Review the Uncertain Ones</h3>
+<p>The agent should not silently guess on transactions it is unsure about. Have it flag anything ambiguous into a short list you eyeball, rather than forcing a category. A two-minute weekly glance at the flagged items keeps the agent honest and your books accurate.</p>
+<h3>Step 6: Import and File at Year End</h3>
+<p>When taxes are due, bring the full categorized year into QuickBooks. If you held the ledger in a spreadsheet, this is the moment you pay for the software, import everything at once, and file. Clean data in, taxes out. Then your accountant reviews before anything is submitted.</p>
+<h2>Adapting This for Your Business</h2>
+<p>The pattern is the same for anyone with a bank account and a tax return. What changes is the categories and how messy the transactions are.</p>
+<ul>
+<li><strong>Service businesses and freelancers.</strong> Mostly client payments in and a short list of expenses out. The agent practically runs itself once it learns your handful of vendors.</li>
+<li><strong>Retail and ecommerce.</strong> More volume and more cost-of-goods nuance. Lean harder on vendor-based rules and review the flagged pile more often.</li>
+<li><strong>Trades and contractors.</strong> Fuel, materials, tools, subcontractors. Give the agent clear rules per supplier and it sorts the receipts you used to shoebox.</li>
+<li><strong>Anyone paying a bookkeeper a monthly retainer.</strong> That retainer is the line item this pattern is aimed at. Run the agent in parallel for a few months first, then make the call.</li>
+</ul>
+<h2>Gotchas and Tips</h2>
+<ul>
+<li><strong>The agent will miscategorize. Plan for it.</strong> It will occasionally file a personal lunch as a business meal or miss that a &quot;transfer&quot; was actually income. Have it flag low-confidence transactions instead of guessing, and review that list. Trust comes from watching it work, not from hoping.</li>
+<li><strong>A real accountant still reviews the year before you file.</strong> This pattern replaces the monthly categorizing grind, not professional judgment on deductions, depreciation, and what the IRS will accept. Have a CPA review the categorized year before it goes in. That review is cheap insurance and far cheaper than a monthly bookkeeper.</li>
+<li><strong>Keep an audit trail.</strong> Every category the agent assigns should be logged with the original transaction, so you can show your work if you ever get questioned. Do not let the agent overwrite history. Append, do not erase.</li>
+<li><strong>Do not let it touch payroll or tax filing unsupervised.</strong> Categorizing transactions is low-risk and reversible. Cutting payroll, moving money, or submitting a return is not. Keep the agent on sorting duty. A human pulls the trigger on anything that leaves the building.</li>
+<li><strong>Run it in parallel before you cut anyone.</strong> The Reddit poster's own hard-won advice from elsewhere in his setup was to &quot;dry run in parallel for months&quot; before making a cut. Do the same. Let the agent categorize alongside your current process until you have a few months of clean, matching books. Then drop the bookkeeper.</li>
+<li><strong>You are now maintaining a system, not paying for a service.</strong> One commenter made this point and it is fair. If the agent breaks, your books stop. Build it simply, keep the audit trail, and know how to do it by hand in a pinch.</li>
+</ul>
+<h2>What This Replaces</h2>
+<p>Before this, keeping your books meant one of two things:</p>
+<ul>
+<li><strong>A bookkeeper on monthly retainer</strong>, often $400 to $600 a month, who keeps up with categorizing and maintains your books inside QuickBooks all year. Roughly $6,000 a year, every year, for work that is mostly the same decisions on repeat.</li>
+<li><strong>Doing it yourself and falling behind</strong>, then losing a weekend to a frantic catch-up before taxes, with books messy enough that you are never quite sure they are right.</li>
+</ul>
+<p>After this, an agent categorizes every transaction the day it lands, the books stay clean because the work never piles up, and you only pay for QuickBooks when you actually need it: at filing time. The Reddit poster reports the bookkeeper line, $500 a month, simply went away. A CPA still reviews the year before you file, which is where your accounting dollars should have been going all along.</p>
+<hr>
+<h2>Keep Reading</h2>
+<ul>
+<li><strong><a href="/playbooks/cpa-quickbooks-monthly-close/">This Accountant Trained Her AI to Close the Books Every Month</a></strong>: the professional's version of this, from a CPA who automated the monthly close inside QuickBooks.</li>
+<li><strong><a href="/playbooks/five-day-automation-sprint/">The 5-Day Automation Sprint: $22K Found in Tax Deductions</a></strong>: what clean, agent-maintained books make possible when you finally point AI at the whole year.</li>
+<li><strong><a href="/playbooks/replace-saas-stack/">Replace Your SaaS Stack With One AI Agent</a></strong>: the same cost-cutting instinct applied to every other monthly subscription you are quietly bleeding on.</li>
+</ul>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators</p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

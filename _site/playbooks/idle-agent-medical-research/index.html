@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Put Your Idle AI Agent to Work Curing a Rare Blindness Disease — ClawDrop</title>
+  <meta name="description" content="Install one skill and the AI agent already sitting on your machine joins a coordinated swarm doing real research toward curing LHON, a genetic disorder that blinds young adults. Free to join, runs on the compute you already pay for.">
+  <meta property="og:title" content="Put Your Idle AI Agent to Work Curing a Rare Blindness Disease — ClawDrop">
+  <meta property="og:description" content="Install one skill and the AI agent already sitting on your machine joins a coordinated swarm doing real research toward curing LHON, a genetic disorder that blinds young adults. Free to join, runs on the compute you already pay for.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/idle-agent-medical-research/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Put Your Idle AI Agent to Work Curing a Rare Blindness Disease — ClawDrop">
+  <meta name="twitter:description" content="Install one skill and the AI agent already sitting on your machine joins a coordinated swarm doing real research toward curing LHON, a genetic disorder that blinds young adults. Free to join, runs on the compute you already pay for.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/idle-agent-medical-research/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+    .logo:hover { color: var(--ink); }
+    .logo-img { width: 32px; height: 32px; border-radius: 7px; display: block; flex-shrink: 0; }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 380px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo"><img src="/assets/clawdrop-logo.png" alt="ClawDrop" class="logo-img">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#about" class="nav-link">About</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">June 30, 2026</div>
+    <h1>Put Your Idle AI Agent to Work Curing a Rare Blindness Disease</h1>
+    <p class="post-description">Install one skill and the AI agent already sitting on your machine joins a coordinated swarm doing real research toward curing LHON, a genetic disorder that blinds young adults. Free to join, runs on the compute you already pay for.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Beginner</strong></span>
+      <span class="meta-badge">💰 <strong>Free to join. It runs on your existing OpenClaw setup and normal AI usage.</strong></span>
+      <span class="meta-badge">⏱ <strong>About 15 minutes.</strong></span>
+      <span class="meta-badge">👤 <strong>organicoder42 (GitHub)</strong></span>
+      <a href="https://github.com/organicoder42/openclawresearch" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-openclaw"><strong>OpenClaw</strong></a>: the AI agent you install once and point at a task. The same one you would use for business work.</li>
+<li><a href="#aff-github"><strong>GitHub</strong></a>: where the project lives, where the shared skill is hosted, and where you can pitch in by hand if you would rather not run an agent.</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>Nothing new, actually. That is the point. You already have an AI agent on your machine. This playbook shows you how to hand it a second job it can do in the background: contributing to real medical research toward curing a disease called LHON.</p>
+<p>You install one small file, tell your agent to work on the project, and it joins a swarm of other people's agents all chipping away at the same goal. Finding funding sources. Mapping which researchers are working on what. Digging up promising ideas from nearby fields of science. Organizing scattered data into something usable.</p>
+<p>No lab coat. No biology degree. No new subscription. It is the closest thing to donating your AI's spare time to a good cause.</p>
+<h2>What LHON Is and Why It Needs This</h2>
+<p>Leber's Hereditary Optic Neuropathy is a genetic disorder that steals the eyesight of young people, usually between 15 and 35. It hits suddenly. Someone healthy starts losing central vision in one eye, then the other follows within weeks. For most people it does not come back.</p>
+<p>It is rare, somewhere around 1 in 15,000 to 50,000 people. And that rarity is exactly the problem. Rare diseases do not attract big research budgets. The work gets done in scattered pockets by underfunded teams who often do not know what the other teams are doing. Progress is slow not because the science is impossible, but because the effort is fragmented and starved of hands.</p>
+<p>That is a coordination problem. And coordination is something a swarm of AI agents is genuinely good at.</p>
+<h2>How the Swarm Works</h2>
+<p>Think of it like a volunteer crew where every volunteer is an AI agent running on a different person's computer.</p>
+<p>Instead of one researcher slowly working through a giant to-do list, hundreds of agents pick up small pieces in parallel. One agent maps out which foundations fund mitochondrial research. Another builds a directory of the scientists publishing on LHON and adjacent conditions. Another scans breakthroughs in gene therapy and optic nerve repair for anything that might transfer. Another takes all the messy notes and turns them into a clean, structured knowledge base that the next agent can build on.</p>
+<p>None of them get tired. None of them charge by the hour. And because the work is shared out in the open on GitHub, the results pile up where everyone can see and use them.</p>
+<p>This is the same pattern that makes AI agents useful in a business. One agent doing everything is slow. Many agents each owning a narrow task, coordinating through a shared workspace, gets a mountain of work done fast. Here that pattern is pointed at a disease instead of a sales pipeline.</p>
+<h2>How to Join</h2>
+<p>The whole thing is one command. You are downloading a skill file, which is just a set of instructions that teaches your agent what the project is and how to help.</p>
+<p><strong>Step 1: Make sure your agent is set up.</strong> You need OpenClaw installed and working. If you have used it for anything else, you are ready.</p>
+<p><strong>Step 2: Install the research skill.</strong> Run this in your terminal:</p>
+<pre><code>curl -o ~/.openclaw/skills/lhon-research/SKILL.md \
+  https://organicoder42.github.io/openclawresearch/skill/SKILL.md
+</code></pre>
+<p>That drops the project's instructions into your agent's skills folder.</p>
+<p><strong>Step 3: Point your agent at it.</strong> Start your agent and tell it to work on the LHON research project. It reads the skill, understands the current tasks, picks one, and gets going. Results get shared back to the project.</p>
+<p><strong>Step 4: Let it run when you are not using it.</strong> This is background work. Kick it off at the end of your day, or whenever your machine is otherwise idle, and let it contribute while you do something else.</p>
+<p>If you would rather not run an agent at all, you can still help by hand through the project's GitHub Issues, or by sponsoring a specific task so someone else's agent tackles it.</p>
+<h2>Why This Belongs in a Business Newsletter</h2>
+<p>Fair question. This one does not save you money or replace a vendor. It is here because it reframes what the thing on your computer actually is.</p>
+<p>Most people think of an AI agent as a tool that does chores. This shows it is closer to a worker you can lend out. The same setup you use to draft estimates or chase invoices can, in its off hours, do real good in the world. That is a story worth telling your customers, your team, and yourself.</p>
+<p>And selfishly, watching a swarm of agents coordinate on a hard, open-ended research problem is the fastest way to understand what these systems can really do. Once you have seen your agent go find funding sources and organize a research corpus on its own, you will start seeing places to point that same capability inside your own business.</p>
+<h2>Gotchas and Tips</h2>
+<ul>
+<li><strong>It is a young, volunteer project.</strong> Treat it as a contribution, not a finished product. The value is in the collective effort building over time.</li>
+<li><strong>Run it in the background, not instead of your paid work.</strong> This is spare-time compute, not your main workload.</li>
+<li><strong>Read what it produces before assuming it is gospel.</strong> Agents doing research can be confidently wrong. The project's review process exists for a reason. If you can sanity-check a piece of output, do.</li>
+<li><strong>Tell people you do this.</strong> The goodwill is real, and it is a rare bit of AI news that makes people feel good instead of nervous.</li>
+</ul>
+<hr>
+<h2>Keep Reading</h2>
+<ul>
+<li><strong><a href="/playbooks/claude-code-command-center/">One Claude Code Subscription. Five Agents. Zero New Frameworks.</a></strong>: the same many-agents-coordinating pattern, pointed at running your business instead of research.</li>
+<li><strong><a href="/playbooks/oracle-free-tier/">Run Your AI Assistant 24/7 for $0/Month</a></strong>: how to keep an agent running around the clock cheaply, which is exactly what background contribution needs.</li>
+<li><strong><a href="/playbooks/puppy-claude-stack/">He Built a 5-Tool Claude Stack to Pick Out a Puppy</a></strong>: proof that once you learn to point agents at a problem, you start pointing them at everything.</li>
+</ul>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators</p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

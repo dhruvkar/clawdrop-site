@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Watch a Website Build Itself From a Google Maps Pin — ClawDrop</title>
+  <meta name="description" content="Generate a website from Google Maps in one pass. Point the agent at a business listing, scrape it with Firecrawl, and Claude Code builds a finished local-business site.">
+  <meta property="og:title" content="Watch a Website Build Itself From a Google Maps Pin — ClawDrop">
+  <meta property="og:description" content="Generate a website from Google Maps in one pass. Point the agent at a business listing, scrape it with Firecrawl, and Claude Code builds a finished local-business site.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/website-from-google-maps/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Watch a Website Build Itself From a Google Maps Pin — ClawDrop">
+  <meta name="twitter:description" content="Generate a website from Google Maps in one pass. Point the agent at a business listing, scrape it with Firecrawl, and Claude Code builds a finished local-business site.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/website-from-google-maps/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+    .logo:hover { color: var(--ink); }
+    .logo-img { width: 32px; height: 32px; border-radius: 7px; display: block; flex-shrink: 0; }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 380px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo"><img src="/assets/clawdrop-logo.png" alt="ClawDrop" class="logo-img">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#about" class="nav-link">About</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">June 9, 2026</div>
+    <h1>Watch a Website Build Itself From a Google Maps Pin</h1>
+    <p class="post-description">Generate a website from Google Maps in one pass. Point the agent at a business listing, scrape it with Firecrawl, and Claude Code builds a finished local-business site.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Beginner-Intermediate</strong></span>
+      <span class="meta-badge">💰 <strong>Low. A few Firecrawl scraping credits per listing plus Claude usage. No designer, no developer.</strong></span>
+      <span class="meta-badge">⏱ <strong>An afternoon</strong></span>
+      <span class="meta-badge">👤 <strong>Tom Crawshaw (The AI Architects)</strong></span>
+      <a href="https://www.youtube.com/watch?v=ACM_l3z05do" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-claude-code"><strong>Claude Code</strong></a>: the agent that reads the scraped listing and writes the whole site in one pass, from layout to copy.</li>
+<li><a href="#aff-firecrawl"><strong>Firecrawl</strong></a>: scrapes the Google Maps listing and hands back clean, structured data the agent can build from.</li>
+<li><a href="#aff-google-maps"><strong>Google Maps</strong></a>: the source. Every detail the site needs is already sitting on the business's listing.</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>A finished local-business website, built from nothing but a Google Maps pin.</p>
+<p>Tom Crawshaw, who teaches this on his channel The AI Architects, walks through it as one of five practical Claude Code uses. The idea is almost insultingly simple. A huge number of local businesses, the plumber, the salon, the taco shop, have a Google Maps listing and no real website. Everything a basic site needs is already on that listing: the name, the address, the hours, the photos, the reviews, the phone number.</p>
+<p>So you scrape the listing with Firecrawl, hand the result to Claude Code, and ask for a website. The agent reads the data and builds the whole thing in a single pass. Layout, sections, copy, the photos in the right places, a click-to-call button, an embedded map, the hours laid out cleanly. You point, it builds.</p>
+<p>You are not building one taco shop's website. You are building the machine that turns any Maps listing into a site in an afternoon, whether that is your own business or a hundred prospects you want to pitch.</p>
+<h2>Why This Works</h2>
+<p>A local-business website is a solved problem that nobody told the local businesses about. They all need the same eight things: who you are, what you do, where you are, when you are open, how to reach you, a few photos, some proof, and a way to take action. The variation between a barber and a bakery is small. That sameness is exactly what makes it automatable.</p>
+<p>The reason it has stayed expensive is that the work was glued to a human. Someone had to interview the owner, collect the photos, copy the hours, write the blurbs, and assemble it. That is a multi-week, multi-thousand-dollar project at an agency, mostly spent gathering information the business already published on Google.</p>
+<p>The Maps listing collapses that. The information gathering is done. Firecrawl turns the public listing into structured data, and Claude Code does the assembly that used to need a designer and a developer. The afternoon you spend is the afternoon, not the first of several weeks.</p>
+<p>And it scales sideways. The same prompt that builds your site builds a prospect's site. That is the part agencies should not miss.</p>
+<h2>Prerequisites</h2>
+<ul>
+<li>A Claude Code subscription or API access.</li>
+<li>A Firecrawl account and API key for the scraping.</li>
+<li>The Google Maps listing URL for the business you want a site for.</li>
+<li>Somewhere to put the finished site: a domain and a host. The build is free, going live is not (see Gotchas).</li>
+<li>A few minutes to review the output before anyone sees it.</li>
+</ul>
+<h2>Step-by-Step Setup</h2>
+<h3>Step 1: Grab the Google Maps Listing</h3>
+<p>Find the business on Google Maps and copy the listing URL. This is your whole input. The richer the listing, the richer the site, so check that the hours, photos, and reviews are actually filled in before you start.</p>
+<h3>Step 2: Scrape It With Firecrawl</h3>
+<p>Point Firecrawl at the listing and let it pull the data: the business name, address, phone, hours, the photo URLs, and the reviews. Firecrawl hands back clean, structured content instead of a messy page of HTML. Connect it to Claude Code directly so the agent can call it, or run the scrape and drop the result into your project folder. Either way, the goal is the same: turn a public listing into data the agent can read.</p>
+<h3>Step 3: Hand the Data to Claude Code and Ask for a Site</h3>
+<p>This is the one-shot. Open Claude Code in the project folder and give it a single, clear prompt: here is the scraped listing, build a complete one-page website for this local business. Tell it what you want on the page so it does not guess. A hero with the business name and a tagline, an about section, the services, the hours, a photo gallery from the listing images, a few of the best reviews as testimonials, a click-to-call button, and an embedded map of the address.</p>
+<p>The agent reads the data and writes the whole site. You watch it build.</p>
+<h3>Step 4: Review and Refine in Plain English</h3>
+<p>The first pass gets you most of the way. Now you adjust it the way you would talk to a designer, except the turnaround is seconds. &quot;Make the header darker.&quot; &quot;Move the reviews above the gallery.&quot; &quot;Write a warmer about section.&quot; &quot;Add a contact form.&quot; Claude Code edits the live files and you refresh. This is where a generic build becomes the business's build.</p>
+<h3>Step 5: Put It Online</h3>
+<p>A site on your laptop helps no one. Buy or point a domain, push the files to a host, and you are live. For a static one-page site the hosting is cheap or free. This is the only step the agent does not do for you, and it is the one that turns the demo into a real asset.</p>
+<h2>Adapting This for Your Business</h2>
+<p>The build is the same every time. Change the listing, get a different site. That makes it useful in two very different ways.</p>
+<ul>
+<li><strong>Agencies and freelancers selling websites.</strong> This is the real play. Find local businesses with no site or an ugly one, scrape their Maps listing, and build a site in an afternoon. Pitch it as a finished thing they can see, not a proposal they have to imagine. Even for businesses that have a site, a one-afternoon redesign built from their own listing is a brutally effective way to win the redesign job. You go from quoting weeks to delivering before the call ends.</li>
+<li><strong>Solo owners with no website.</strong> If you run the shop and have a Maps listing but never got around to a site, this is your afternoon. You do not need to hire anyone or learn to code. Scrape your own listing and build the thing you have been putting off for two years.</li>
+<li><strong>SEO and local-marketing shops.</strong> A fast, clean site per client becomes a service line, not a project. Spin up sites at volume and spend your real time on the marketing that follows.</li>
+<li><strong>Multi-location operators.</strong> Franchisees and chains can generate a consistent location page per listing, each one accurate to that store's hours, photos, and reviews, without rebuilding from scratch each time.</li>
+</ul>
+<h2>Gotchas and Tips</h2>
+<ul>
+<li><strong>Scraped data is only as good as the listing.</strong> If the hours are wrong on Google, they are wrong on your site. Read the scraped data before you build, and fix anything stale at the source or in the prompt.</li>
+<li><strong>Maps listings vary wildly in completeness.</strong> Some have ten photos and forty reviews, some have a name and a phone number. A thin listing builds a thin site. Set expectations accordingly, and be ready to ask the owner for a few photos and a paragraph.</li>
+<li><strong>Photos have owners.</strong> Images on a Maps listing may have been uploaded by customers or third parties, and you do not automatically have the right to republish them on a commercial site. For your own business, use your own photos. For a client, confirm rights or swap in licensed or owner-supplied images before going live.</li>
+<li><strong>Reviews belong to the platform and the reviewer.</strong> Pulling a few testimonials onto a site is common, but lifting Google review content wholesale can run into Google's terms and the reviewer's words. Keep it light, attribute carefully, and when in doubt ask the owner.</li>
+<li><strong>You still need a domain and a host.</strong> The agent builds the site for free. It does not buy the domain, set up the DNS, or keep the server running. Budget for that small recurring cost.</li>
+<li><strong>Always review before publishing.</strong> One-shot does not mean unchecked. The agent can invent a tagline, misread an address, or place a section oddly. Read the whole page, click the call button, check the map pin, and fix anything off before it represents a real business.</li>
+</ul>
+<h2>What This Replaces</h2>
+<p>Before this, getting a local business online looked like one of these:</p>
+<ul>
+<li><strong>An agency project:</strong> a discovery call, an information-gathering phase, a designer, a developer, revisions, and a bill that ran from a few thousand into five figures, spread across weeks.</li>
+<li><strong>A DIY website builder:</strong> cheaper, but it traded the money for your nights, dragging boxes around a template and writing your own copy until you gave up halfway.</li>
+</ul>
+<p>After this, the same finished site comes out of an afternoon. The information gathering is replaced by a scrape. The designer and developer line items are replaced by one Claude Code pass. The weeks are replaced by an afternoon. For an agency, that is the difference between selling a project and selling a result. For an owner, it is the difference between a site and another year of meaning to get one.</p>
+<hr>
+<h2>Keep Reading</h2>
+<ul>
+<li><strong><a href="/playbooks/stop-paying-for-custom-websites/">Stop Paying $10,000 for a Custom Website</a></strong>: the same &quot;you do not need an agency to get a site&quot; argument, taken further into custom builds.</li>
+<li><strong><a href="/playbooks/ai-lead-gen-pipeline/">AI Finds Leads, Builds Demo Sites, and Cold Calls Them For You</a></strong>: turn this site-builder into outreach by generating demo sites for prospects and pitching them automatically.</li>
+<li><strong><a href="/playbooks/one-person-agency/">The One-Person Agency: Charge Agency Rates as a Solo Operator</a></strong>: the business model that makes a one-afternoon website worth real money.</li>
+</ul>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators</p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

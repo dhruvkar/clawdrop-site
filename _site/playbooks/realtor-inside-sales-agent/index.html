@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Inside Sales Agent That Never Sleeps (For Real Estate) — ClawDrop</title>
+  <meta name="description" content="Real estate lead follow-up automation: an AI ISA that replies to every Zillow and website lead in under 60 seconds, in your voice, then follows up until they book a showing.">
+  <meta property="og:title" content="The Inside Sales Agent That Never Sleeps (For Real Estate) — ClawDrop">
+  <meta property="og:description" content="Real estate lead follow-up automation: an AI ISA that replies to every Zillow and website lead in under 60 seconds, in your voice, then follows up until they book a showing.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/realtor-inside-sales-agent/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="The Inside Sales Agent That Never Sleeps (For Real Estate) — ClawDrop">
+  <meta name="twitter:description" content="Real estate lead follow-up automation: an AI ISA that replies to every Zillow and website lead in under 60 seconds, in your voice, then follows up until they book a showing.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/realtor-inside-sales-agent/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+    .logo:hover { color: var(--ink); }
+    .logo-img { width: 32px; height: 32px; border-radius: 7px; display: block; flex-shrink: 0; }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 380px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo"><img src="/assets/clawdrop-logo.png" alt="ClawDrop" class="logo-img">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#about" class="nav-link">About</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">June 9, 2026</div>
+    <h1>The Inside Sales Agent That Never Sleeps (For Real Estate)</h1>
+    <p class="post-description">Real estate lead follow-up automation: an AI ISA that replies to every Zillow and website lead in under 60 seconds, in your voice, then follows up until they book a showing.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Intermediate</strong></span>
+      <span class="meta-badge">💰 <strong>A Claude subscription plus the Gmail and iMessage accounts you already pay nothing extra for.</strong></span>
+      <span class="meta-badge">⏱ <strong>A weekend</strong></span>
+      <span class="meta-badge">👤 <strong>GwinnettShawty (r/automation)</strong></span>
+      <a href="https://www.reddit.com/r/automation/comments/1tx4704/i_built_an_agent_that_manages_my_email_from/" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-claude-code"><strong>Claude Code</strong></a>: the brain. It reads each incoming lead, decides if it matters, drafts a reply in your voice, and keeps the follow-up going. You can also run this on <a href="#aff-openclaw"><strong>OpenClaw</strong></a>.</li>
+<li><a href="#aff-gmail"><strong>Gmail</strong></a>: where your portal leads already land. Zillow, Realtor.com, and your website all email you. The agent watches that inbox.</li>
+<li><a href="#aff-imessage"><strong>iMessage</strong></a>: how the agent reaches you. It texts you a short summary of each real lead and the draft it wrote, so you can approve from your phone between showings.</li>
+<li>Your CRM and your portal lead emails, used as-is. You do not have to move off Follow Up Boss, kvCORE, or whatever you run today.</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>An inside sales agent that answers every lead the second it comes in, sounds exactly like you, and chases the lead until they book a showing.</p>
+<p>The original build is not a real estate tool. A developer who goes by GwinnettShawty built an agent named Sifta that manages his email from iMessage. It watches his Gmail, filters out the noise, and texts him only what matters as a short summary. The part that surprised him: after a couple of weeks it learned how he actually uses email. Who he replies to fast, who he ignores, how his tone shifts between a client and a vendor. When he asks it to draft a reply, it does not sound like generic AI. It sounds like him, because it read weeks of how he writes.</p>
+<p>That is the whole pattern. And it maps perfectly onto the one job that decides who wins a real estate deal: speed-to-lead.</p>
+<p>You are going to take that same email-watching, voice-learning agent and point it at your lead pipeline. A Zillow inquiry hits your inbox at 9:14pm while you are at a closing dinner. Within a minute, the lead gets a real, personal reply that sounds like you wrote it. You get a text with the draft and a one-line summary. If you do nothing, the agent follows up tomorrow, and the day after, until the lead books a showing or tells you to stop. This is the roughly $40,000-a-year ISA hire, running on your phone for the price of a subscription.</p>
+<h2>Why This Works</h2>
+<p>Speed-to-lead is not a nice-to-have. It is the single biggest predictor of who closes the deal, and the numbers are brutal.</p>
+<p>The often-cited Lead Response Management study found that contacting a web lead within 5 minutes makes you far more likely to reach and qualify them than waiting even 30 minutes. After the first 5 minutes, the odds of a meaningful connection fall off a cliff, and by an hour later you are mostly talking to people who have already filled out three other agents' forms. The lead who fills out a Zillow form is not browsing. They are shopping right now, and they are messaging more than one agent. Whoever replies first and sounds most like a real person gets the conversation.</p>
+<p>Here is the problem every agent already knows. You cannot reply in 5 minutes when you are standing in someone's kitchen showing a house. You are at a closing, in the car, at your kid's game, asleep. The lead comes in, sits for two hours, and by the time you see it the buyer is already touring a listing with the agent who texted back at minute three. You did not lose that lead on price or service. You lost it on a notification you could not get to.</p>
+<p>That is exactly the gap this fills. The agent never shows a house, never sleeps, never gets to a lead late. It replies in under a minute, every time, with a message that reads like you typed it. And because it learned your voice, the buyer is not talking to an obvious bot. They are talking to &quot;you,&quot; fast, while they are still warm. You step in when it counts: the showing, the price talk, the offer.</p>
+<h2>Prerequisites</h2>
+<ul>
+<li>A Claude subscription, or Claude Code / OpenClaw set up to run the agent.</li>
+<li>The Gmail account where your portal and website leads arrive. If Zillow and Realtor.com currently email a different address, forward them into one inbox.</li>
+<li>iMessage on your phone, set up so the agent can text you summaries and drafts.</li>
+<li>A few weeks of your own sent emails and texts to leads, so the agent can learn how you actually write. The more real examples, the better the voice.</li>
+<li>Your CRM, however you use it today. The agent can log to it later, but you do not need that to start.</li>
+<li>Ten minutes to read your portals' and MLS's terms of service on automated messaging (see Gotchas).</li>
+</ul>
+<h2>Step-by-Step Setup</h2>
+<h3>Step 1: Point All Your Leads at One Inbox</h3>
+<p>Get every lead source landing in a single Gmail. Zillow, Realtor.com, Homes.com, your IDX website form, and your Facebook lead ads all send email notifications. Set up forwarding so they all hit one inbox the agent watches. This is the same move the original builder made: the inbox is the trigger.</p>
+<h3>Step 2: Teach the Agent Your Voice</h3>
+<p>Give Claude a stack of your real replies to past leads. Old &quot;thanks for reaching out&quot; emails, your follow-up texts, the way you open and sign off. The original agent learned its user's style by reading weeks of his email until the drafts sounded like him. Do the same on purpose. Tell it your name, your brokerage, your service area, and the three or four things you always say to a new buyer. This is what keeps the replies from sounding like a robot.</p>
+<h3>Step 3: Tell It Which Emails Are Leads</h3>
+<p>Not everything in that inbox is a lead. There are newsletters, e-sign notifications, and vendor spam. Give the agent a simple rule for what counts: a real buyer or seller inquiry from a portal, a website form, or a referral. Everything else it leaves alone or summarizes quietly. The original build's whole point was filtering noise and texting only what matters. Here, &quot;what matters&quot; is a new lead.</p>
+<h3>Step 4: Have It Reply in Under 60 Seconds</h3>
+<p>When a real lead lands, the agent drafts a reply in your voice that does three things: answers their actual question, sounds like a person, and asks for the showing. &quot;Hey Maria, yes, 412 Oak is still available and it's a great one. I've got a couple of slots tomorrow afternoon, want me to grab one for you?&quot; Start with draft-then-approve: it writes the reply, texts it to you, you tap to send. Once you trust it, you can let it auto-send the simple first replies and only flag the tricky ones.</p>
+<h3>Step 5: Set Up the Text-Back to You</h3>
+<p>This is the iMessage piece. For every real lead, the agent texts your phone a one-line summary and the draft it wrote: &quot;New Zillow lead, Maria, asking about 412 Oak. Drafted a reply offering a showing tomorrow. Send it?&quot; You approve from wherever you are, between showings, in the car at a red light. Your inbox comes to you, instead of you having to go dig through it.</p>
+<h3>Step 6: Turn On Follow-Up Until They Book</h3>
+<p>A single reply is not follow-up. Most leads do not answer the first message. Tell the agent to keep going on a schedule: a nudge the next day, another a few days later, then weekly, until the lead books a showing or asks to stop. This is the part a human ISA does badly because they get busy or quit. The agent does not forget and does not get discouraged on lead number forty.</p>
+<h3>Step 7: Run It on Real Leads for a Week Before You Trust It</h3>
+<p>The first week is calibration, not launch. Watch every draft before it sends. Fix the voice where it sounds off, correct it when it misreads a lead, tighten the follow-up cadence. The original builder's whole story is that the agent got dramatically better after a couple of weeks of real use. Yours will too. Do not point it at your most expensive lead source on day one.</p>
+<h2>Adapting This for Your Business</h2>
+<p>The build is the same. You change who it is, the lead sources, and how aggressive the follow-up is.</p>
+<ul>
+<li><strong>Solo agent.</strong> This is your highest-leverage hire and you cannot afford the human version. Run it on every lead source you have. Keep draft-then-approve until you trust it, then let it auto-send first replies so you stop losing leads while you are showing.</li>
+<li><strong>Small team or brokerage.</strong> Run an agent per agent, each trained on that agent's voice, or a single team agent that routes leads to whoever is up in the rotation and replies in the brand's voice. Now your speed-to-lead does not depend on which agent happened to be near their phone.</li>
+<li><strong>Mortgage brokers.</strong> You live on the same speed-to-lead curve. A rate inquiry or pre-approval request that sits for an hour is gone. Same build, pointed at your application and rate-quote leads, replying fast and chasing the doc list.</li>
+<li><strong>Insurance agents.</strong> A quote request is a now-or-never moment. The agent replies in under a minute, in your voice, and follows up until they bind. Swap &quot;book a showing&quot; for &quot;finish the quote.&quot;</li>
+</ul>
+<h2>Gotchas and Tips</h2>
+<ul>
+<li><strong>Draft-then-approve before you ever auto-send.</strong> Do not let the agent send unsupervised on day one. The original builder's hard rule is that it never sends a draft without approval. Earn the trust first. Auto-send the boring first replies only after a week of clean drafts, and keep the rest gated.</li>
+<li><strong>Never let it touch price or negotiation alone.</strong> Replying &quot;yes it's available, want to see it&quot; is safe. Quoting a counteroffer, advising on price, or committing you to terms is not. Keep a human in the loop on anything financial or contractual. Always.</li>
+<li><strong>Fair-housing language is a real risk in AI-drafted copy.</strong> An agent that &quot;sounds friendly&quot; can wander into steering, familial-status, or other protected-class language without meaning to. Tell it to never describe neighborhoods by who lives there, never reference schools as a selling point, and never comment on whether an area is &quot;good for families.&quot; Review the drafts with this specifically in mind during your calibration week.</li>
+<li><strong>Read your portals' and MLS terms on automated messaging.</strong> Zillow, Realtor.com, and your MLS have rules about automated and bulk contact, and some have opinions about bots messaging leads. Know them before you scale. The point is fast, personal replies, not blasting.</li>
+<li><strong>Honor opt-outs and do-not-contact instantly.</strong> If a lead says stop, the follow-up stops, that second. Bake it in.</li>
+<li><strong>Watch for the buried-lead failure.</strong> The agent builds a mental model of &quot;important,&quot; and a one-line, oddly-worded inquiry can slip past it. Check the raw inbox for the first couple of weeks so a real lead never gets filed as noise.</li>
+</ul>
+<h2>What This Replaces</h2>
+<p>Before this, the agent who answered fastest won, and answering fastest meant one of two things.</p>
+<ul>
+<li><strong>A real inside sales agent.</strong> A good ISA runs roughly $40,000 a year plus commission, needs managing, takes vacations, and still goes home at night. Most solo agents and small teams cannot justify the hire, so the job does not get done.</li>
+<li><strong>You, trying to be the ISA between showings.</strong> Which means the lead that came in while you were in someone's kitchen sat for two hours, and the buyer booked with whoever texted back at minute three. That is the lost lead. You never see the deal you didn't get.</li>
+</ul>
+<p>After this, every lead gets a real, personal, in-your-voice reply in under a minute, day or night, followed up until they book or bow out. The job that justified a $40k hire, or quietly cost you deals you never knew you lost, now runs on your phone for the price of a subscription. You stop competing on who happened to be near their phone, and start competing on the part you are actually good at: the showing and the close.</p>
+<hr>
+<h2>Keep Reading</h2>
+<ul>
+<li><strong><a href="/playbooks/life-insurance-2-minute-follow-up/">His Life Insurance Agency Texts and Calls New Leads in 2 Minutes. Automatically.</a></strong>: the same speed-to-lead play in another industry that lives or dies on response time, with the texting and calling piece built out.</li>
+<li><strong><a href="/playbooks/freelancer-invoice-chaser/">He Lost a Client to a Missed Follow-Up Email. Then He Stopped Doing Follow-Ups.</a></strong>: the follow-up-until-they-respond engine, applied to chasing what slips through the cracks.</li>
+<li><strong><a href="/playbooks/ai-front-desk/">The Four-Piece AI Front Desk Every SMB Should Have Running by Friday</a></strong>: pair this lead-reply agent with the inbound phone and chat pieces so nothing reaches you unanswered.</li>
+</ul>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators</p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

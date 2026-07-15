@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customers Ask AI Where to Buy Insurance Now. This Agency Owner Built the Pipe So Their AI Can Order From Him. — ClawDrop</title>
+  <meta name="description" content="A non-developer insurance agency owner vibe-coded a server that lets any AI assistant answer coverage questions with his verified facts and submit a real quote request straight into his CRM.">
+  <meta property="og:title" content="Customers Ask AI Where to Buy Insurance Now. This Agency Owner Built the Pipe So Their AI Can Order From Him. — ClawDrop">
+  <meta property="og:description" content="A non-developer insurance agency owner vibe-coded a server that lets any AI assistant answer coverage questions with his verified facts and submit a real quote request straight into his CRM.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/agent-callable-insurance-quotes/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Customers Ask AI Where to Buy Insurance Now. This Agency Owner Built the Pipe So Their AI Can Order From Him. — ClawDrop">
+  <meta name="twitter:description" content="A non-developer insurance agency owner vibe-coded a server that lets any AI assistant answer coverage questions with his verified facts and submit a real quote request straight into his CRM.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/agent-callable-insurance-quotes/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+    .logo:hover { color: var(--ink); }
+    .logo-img { width: 32px; height: 32px; border-radius: 7px; display: block; flex-shrink: 0; }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 380px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo"><img src="/assets/clawdrop-logo.png" alt="ClawDrop" class="logo-img">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#about" class="nav-link">About</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">July 13, 2026</div>
+    <h1>Customers Ask AI Where to Buy Insurance Now. This Agency Owner Built the Pipe So Their AI Can Order From Him.</h1>
+    <p class="post-description">A non-developer insurance agency owner vibe-coded a server that lets any AI assistant answer coverage questions with his verified facts and submit a real quote request straight into his CRM.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Intermediate</strong></span>
+      <span class="meta-badge">💰 <strong>A Claude subscription you probably already have, plus hosting that fits in Cloudflare&#39;s free tier. Call it $20 a month, total.</strong></span>
+      <span class="meta-badge">⏱ <strong>A few evenings of vibe-coding, plus honest review and testing before anything ships.</strong></span>
+      <span class="meta-badge">👤 <strong>tobylason (Hacker News)</strong></span>
+      <a href="https://news.ycombinator.com/item?id=48865825" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-claude-code"><strong>Claude Code</strong></a>: the coding agent that wrote the whole thing. The owner says flat out he is not a developer. He described what he wanted, reviewed what came back, and tested it before shipping.</li>
+<li><a href="#aff-mcp"><strong>MCP</strong></a>: short for Model Context Protocol. Think of it as a standard plug that lets AI assistants use your business like an app instead of just reading your website. Claude, ChatGPT, and most serious assistants can connect to one.</li>
+<li><a href="#aff-cloudflare-workers"><strong>Cloudflare Workers</strong></a>: dirt-cheap hosting that runs small pieces of code without you managing a server. The whole build lives in one Worker, and the free tier covers a lot of traffic.</li>
+<li><a href="#aff-salesforce"><strong>Salesforce web-to-lead</strong></a>: the same path your website contact form already uses to drop a new lead into the CRM. Nothing new was built on the CRM side. That's the trick.</li>
+</ul>
+<h2>The Story</h2>
+<p>You've heard the warning by now. Customers don't Google &quot;disability insurance broker&quot; anymore. They ask ChatGPT or Claude what coverage to buy and who to buy it from, and whatever the assistant says is the whole shortlist.</p>
+<p>Most business owners respond to that by playing defense. Publish more content, hope the AI reads your site, hope you get mentioned.</p>
+<p>A Hacker News user named tobylason, who owns Seaworthy, an online agency selling disability insurance to high-income professionals like physicians and attorneys, decided to play offense instead. His reasoning: today people ask agents where to get quotes. Soon they'll just ask the agent to go get the quotes. And eventually to set up the coverage entirely. He wants to be the first one in his niche who can take that call.</p>
+<p>So he built a small server that AI assistants can plug into directly. It exposes seven tools. Six of them are read-only: a verified-facts knowledge base, a comparison of five major disability carriers, guides for specific professions, education articles, benefit-cap math that shows a high earner how much of their income a policy actually replaces, and plain-English definitions of policy riders. When a prospect's assistant answers an insurance question, it can pull from his checked facts instead of guessing.</p>
+<p>The seventh tool is the one that matters: a quote request. When the prospect says &quot;get me a quote,&quot; the assistant collects the normal lead fields, name, email, profession, state, income, and submits them through the exact same Salesforce web-to-lead path his website form already uses. The lead lands in his CRM tagged as agent-originated, and a licensed human broker follows up the traditional way. No robot sells anyone insurance. The robot just fills out the form.</p>
+<p>Here's the part that makes it a real story and not a press release: he is not a developer. He vibe-coded the entire thing in Claude Code, reviewed it, tested it, and shipped it. His own words: a small firm with curious, reasonably capable people can now operate infrastructure that would have required a contractor two years ago.</p>
+<h2>How It Works</h2>
+<pre><code>PROSPECT asks their AI assistant:
+&quot;What disability coverage should a
+surgeon making $400K actually buy?&quot;
+      |
+      v
+Assistant is connected to his server
+      |
+      +-- answers from his verified fact
+      |   library: carrier comparison,
+      |   benefit-cap math, rider definitions
+      |
+      +-- prospect: &quot;OK, get me a quote&quot;
+      |
+      v
+Quote request tool fires
+(name, email, profession, state, income;
+never SSN, medical, or banking info)
+      |
+      v
+Lead lands in Salesforce, tagged
+&quot;came from an AI agent&quot;
+      |
+      v
+Licensed human broker calls back,
+same as any website lead
+</code></pre>
+<p>Two design choices are worth stealing on their own.</p>
+<p>First, the knowledge base isn't a second copy of his website that will drift out of date. It compiles at deploy time from the same source file that feeds his site's chatbot. Update the facts once, and the website, the chatbot, and the AI-assistant tools all update together.</p>
+<p>Second, the action tool changes nothing downstream. Because it rides the same web-to-lead path as the site form, his brokers, his CRM reports, and his follow-up process all work exactly as before. The new channel just feeds the old machine.</p>
+<h2>The Security Call That Will Make Developers Wince</h2>
+<p>He originally built it with a proper login flow. Then he watched auth friction kill test interaction after test interaction, so he ripped it out. The server is open. No credentials. Anyone's assistant can call it.</p>
+<p>Before you gasp, walk through his worst case the way he did. The read tools only serve information he already publishes. The quote tool only collects the same fields as his public website form. So the worst realistic outcome is junk leads, not a data leak. Against the junk he stacked layers: strict input validation, a check that the email domain can actually receive mail, per-IP rate limiting, and short-window duplicate suppression. And since every agent-originated lead carries a tag in the CRM, garbage is one filter away from gone.</p>
+<p>That's a genuinely useful way to think about giving AI any door into your business. Don't ask &quot;is this secure&quot; in the abstract. Ask &quot;what is the worst thing a stranger can do through this door,&quot; and if the answer is &quot;submit a fake contact form,&quot; you already live with that risk today.</p>
+<p>Full disclosure, which he offers himself: this is an experiment. He hasn't received a single lead through it yet and doesn't expect to for a while. He published the code openly and invited people to poke holes in it. The bet isn't this month's pipeline. The bet is being the only firm in his corner of insurance that's ready when the wave arrives, at a cost of a few evenings and pocket change.</p>
+<h2>The Bigger Play: Offense, Not Defense</h2>
+<p>Every AI-visibility conversation you've heard is about getting read. Write content the assistants cite, check whether ChatGPT mentions you, tune your site for AI crawlers. All defense. All hoping.</p>
+<p>This flips it. Instead of hoping an assistant paraphrases your website correctly, you hand it verified answers. Instead of hoping the prospect clicks through to your form, you let their assistant submit the form. You stop being a page the AI might read and become a service the AI can use.</p>
+<p>And the moat right now is embarrassingly wide. He believes he's the first agent-callable quote action in his corner of insurance. Not the best one. The first one. In your niche, that seat is probably still empty, and the price of taking it has collapsed from &quot;hire a contractor&quot; to &quot;spend a few evenings with Claude Code and describe your intake form.&quot;</p>
+<h2>Who Should Steal This</h2>
+<p>Any business where the sale starts with a research phase and ends with a human conversation: insurance agencies, mortgage brokers, law firms, accountants, financial advisors, contractors, med spas, anyone with a quote form. If your customers are already asking AI assistants who to hire, and they are, you can either hope the assistant mentions you or give it a button that requests the appointment. Start with your FAQ as the read-only tools and your existing contact form as the one action. That's the whole recipe.</p>
+<hr>
+<h2>Keep Reading</h2>
+<ul>
+<li><strong><a href="/playbooks/invisible-in-chatgpt/">Is Your Business Invisible When Customers Ask ChatGPT? This Agent Checks Every Saturday.</a></strong>: the defense half of this exact problem. Find out whether the assistants mention you at all, then come back here and build the pipe.</li>
+<li><strong><a href="/playbooks/life-insurance-2-minute-follow-up/">His Life Insurance Agency Texts and Calls New Leads in 2 Minutes. Automatically.</a></strong>: what to bolt onto the other end of the CRM, so the leads this playbook generates get worked before they go cold.</li>
+<li><strong><a href="/playbooks/aios-wrap-your-business/">6 Non-Technical Founders Wrapped Their Businesses in Claude Code in 8 Hours. Here's What They Built.</a></strong>: more proof that &quot;I'm not a developer&quot; stopped being a blocker.</li>
+</ul>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators</p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Turn Any Viral Video Into an Ad for Your Product, in Minutes — ClawDrop</title>
+  <meta name="description" content="A Claude Code skill watches any viral video, breaks it into shot-by-shot beats, and recreates the format with your own product using Higgsfield&#39;s Seedance 2.0.">
+  <meta property="og:title" content="Turn Any Viral Video Into an Ad for Your Product, in Minutes — ClawDrop">
+  <meta property="og:description" content="A Claude Code skill watches any viral video, breaks it into shot-by-shot beats, and recreates the format with your own product using Higgsfield&#39;s Seedance 2.0.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/viral-video-recreator/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Turn Any Viral Video Into an Ad for Your Product, in Minutes — ClawDrop">
+  <meta name="twitter:description" content="A Claude Code skill watches any viral video, breaks it into shot-by-shot beats, and recreates the format with your own product using Higgsfield&#39;s Seedance 2.0.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/viral-video-recreator/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+    .logo:hover { color: var(--ink); }
+    .logo-img { width: 32px; height: 32px; border-radius: 7px; display: block; flex-shrink: 0; }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 380px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo"><img src="/assets/clawdrop-logo.png" alt="ClawDrop" class="logo-img">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#about" class="nav-link">About</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">July 7, 2026</div>
+    <h1>Turn Any Viral Video Into an Ad for Your Product, in Minutes</h1>
+    <p class="post-description">A Claude Code skill watches any viral video, breaks it into shot-by-shot beats, and recreates the format with your own product using Higgsfield&#39;s Seedance 2.0.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Beginner</strong></span>
+      <span class="meta-badge">💰 <strong>$20/month for Claude, plus Higgsfield credits per video. Rendering at 720p costs about half of what 1080p does.</strong></span>
+      <span class="meta-badge">⏱ <strong>An afternoon to build the skill, then a couple of minutes per video.</strong></span>
+      <span class="meta-badge">👤 <strong>Duncan Rogoff (YouTube)</strong></span>
+      <a href="https://www.youtube.com/watch?v=Y2uCjv4RuDA" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-claude-code"><strong>Claude Code</strong></a>: the AI assistant that lives in a terminal window. It watches the reference video, writes the shot breakdown, and drives the whole pipeline.</li>
+<li><a href="#aff-anthropic"><strong>Anthropic</strong></a>: the company behind Claude. One subscription covers the brains of this build.</li>
+<li><a href="#aff-higgsfield"><strong>Higgsfield</strong></a>: the platform that hosts the latest AI video models, including Seedance 2.0, the one that actually renders your footage.</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>A repeatable system that takes the link to any viral video and hands you back the same video format, rebuilt around your product.</p>
+<p>You paste in a URL. The AI watches the video, breaks it down into precise beats with timestamps, camera moves, and on-screen text, then rewrites those beats for your brand and generates brand-new footage with an AI video model. What comes out is a short vertical video that follows the exact structure that already proved it can pull millions of views, except now it's selling your thing.</p>
+<p>This comes from Duncan Rogoff, who runs a Claude Code learning community of over 6,700 members. He asked them what one thing he should build, and they nearly all said the same thing: a viral AI video generator. His answer was a custom skill, which is just a saved recipe the AI can run the same way every time. Build it once, reuse it forever.</p>
+<p>The reference video in his demo had 1.8 million views. The recreation took a couple of minutes of his attention.</p>
+<h2>The Problem: You Already Know What Works. You Just Can't Afford to Make It.</h2>
+<p>Ad creative is one of the most expensive line items in small-business marketing. Creative agencies typically charge $1,500 to $5,000 a month on retainer to produce short-form video ads. UGC creators, the people who film casual product videos for brands, typically charge per video, and a batch of ten test creatives adds up fast.</p>
+<p>Here's the part that stings. Most of what you're paying those people for is not originality. It's pattern-matching. Good creative teams study what's already going viral in your niche, break down why it works, and produce a version for you. The hook in the first two seconds. The cut rhythm. Where the text lands on screen. That analysis is the actual product, and the footage is just execution.</p>
+<p>But you can do that analysis yourself now. You already see the viral videos. Your feed shows you exactly which formats are working this month. What you've been missing is a way to go from &quot;I know this format would work for us&quot; to a finished video, without a camera crew, an editor, or a per-video invoice.</p>
+<p>That gap is what this skill closes.</p>
+<h2>How It Works</h2>
+<p>The system chains four steps that a creative team normally does by hand.</p>
+<pre><code>VIRAL VIDEO URL (the format that already works)
+        |
+        v
+CLAUDE WATCHES IT
+  pulls the frames, transcribes the audio
+        |
+        v
+BEAT SHEET, second by second
+  &quot;0-3s: hook, hard push-in on subject
+   3-7s: reveal, camera orbits left
+   7-11s: on-screen text appears
+   11-15s: payoff shot, cut to black&quot;
+        |
+        v
+CLAUDE REWRITES EACH BEAT
+  same timing, same camera moves,
+  YOUR product, YOUR script
+        |
+        v
+SEEDANCE 2.0 (via Higgsfield) RENDERS
+  15-second clips, vertical, 720p
+        |
+        v
+FINISHED VIDEO, ready for your review
+</code></pre>
+<p><strong>Watching the video.</strong> Out of the box, Claude can't really watch video. A free add-on skill fixes that: it extracts the frames, transcribes the audio, and hands all of it to the AI. From then on you have a watch command that works on any video URL.</p>
+<p><strong>The beat sheet.</strong> This is the heart of the build. The AI doesn't summarize the video, it scores it like a director's shot list: what happens at each timestamp, what the character or subject does, how the camera moves, what the style is, what text appears on screen. In Duncan's demo the breakdown read like &quot;the two subjects grapple hand to hand, then one crouches to attack between seconds 1 and 4, then grits his teeth,&quot; with every beat time-coded.</p>
+<p><strong>The rewrite.</strong> The skill takes that beat sheet and generates a new video prompt with the same structure, but recast for your subject. The timing, pacing, and camera language stay. The content becomes yours.</p>
+<p><strong>The render.</strong> The prompt goes to Seedance 2.0 through Higgsfield's connection, which lets Claude call the video model directly without you ever opening a browser. Seedance handles clips up to 15 seconds. If the source video is longer, the skill breaks it into 15-second chunks, renders each one, and stitches them together into one longer video.</p>
+<h2>Setting It Up</h2>
+<p><strong>Step 1: Get Claude Code running.</strong> Claude Code is Anthropic's AI assistant that runs in a terminal, the plain text window on your computer. That sounds scarier than it is. You install it, sign in with a Claude subscription, and type to it in plain English. You can also do most of this in the Claude desktop app if you prefer buttons to text.</p>
+<p><strong>Step 2: Install the free video-watching skill.</strong> There's a free skill on GitHub (the &quot;Claude video skill&quot; by a builder called Brad Automates) that teaches Claude to watch videos. Installing it is absurdly simple: copy the link to the skill, paste it into Claude, and say &quot;install this for me.&quot; A few seconds later you have a watch command. Test it by pasting in any video URL and reading the breakdown it produces.</p>
+<p><strong>Step 3: Connect Higgsfield.</strong> Higgsfield gives you access to the latest video models in one place. On their site, go to the MCP and CLI section. If you're in the desktop app, copy the connector link, then in the app go to connectors, add a custom connector, name it Higgsfield, paste the link, and sign in. If you're in the terminal, copy their one install command instead, paste it in, and sign in. Either way, Claude can now generate video directly.</p>
+<p><strong>Step 4: Tell Claude to build the skill, as a goal.</strong> This is the trick that makes modern AI models sing: give them the success state, not the instructions. Duncan's request, lightly trimmed: &quot;I want to build a new skill designed to create viral AI videos. First, it uses the watch skill on the URL I give it. It breaks the video down into really specific beats, noting the character action, the camera movements, and the style. Then it generates a video prompt for Higgsfield using Seedance 2.0, as 15-second clips broken into sections with timestamps, so by the end we are remixing the viral video I gave you.&quot;</p>
+<p><strong>Step 5: Review the plan before it builds.</strong> Turn on plan mode (in the terminal you tap shift-tab a couple of times) so the AI writes out its full game plan and waits for your sign-off. This is where you catch settings before they cost you money. Duncan spotted that the plan defaulted to 1080p resolution and widescreen. He told it to use 720p, which cuts render costs by about half, and a 9 by 16 vertical aspect ratio for Shorts, Reels, and TikTok. The plan updated, he approved it, and the AI built the whole skill on its own.</p>
+<p><strong>Step 6: Test it cold and ask dumb questions.</strong> Open a fresh session, type the skill name, paste a viral video URL, and see what comes out. If any step in the finished skill confuses you, just ask. Duncan didn't understand two steps in his, asked about them in plain English, got a clear answer, and then told the AI to tighten the skill's wording. You cannot break anything by asking.</p>
+<p>One cost tip from the source video: Claude Code lets you run an expensive, smarter model as the &quot;advisor&quot; that plans everything, while a cheaper model executes the actual work. Duncan estimates that setup saves about 80 percent on AI costs. Worth switching on if you'll run this a lot.</p>
+<h2>The Brand-Safety Framing: You're Stealing the Format, Not the Video</h2>
+<p>This matters, so let's be precise about what this system does and doesn't do.</p>
+<p>It does not download someone's video and re-upload it. It does not clone their footage. Nothing from the original video ends up in yours. What carries over is the format: the pacing, the shot structure, the camera language, the hook mechanics. Formats and hooks are not protectable, and every ad agency on earth already builds swipe files of top-performing creative and reverse-engineers them for clients. That's not a loophole. That's how the creative industry has always worked. This skill just does the reverse-engineering in seconds instead of a strategy meeting.</p>
+<p>Duncan's skill actually asks you to choose: recast the video with a different subject or brand, or do a direct visual recreation. For learning and testing, direct recreation is fine. For anything you publish as your business, recast it. Your product, your script, your generated footage, wearing the skeleton of a video that already proved itself.</p>
+<p>One plain-language rule to keep yourself clean: nothing in your finished video should belong to someone else. No competitor logos or footage. No real people's faces or voices who haven't said yes. No celebrities, and no copyrighted characters. Duncan's demo recreated a Goku versus Thanos fight, which is a fun way to test the pipeline, but you don't run recognizable characters in an ad for your business. Steal the beat sheet. Leave everything identifiable behind.</p>
+<h2>The Business Angle</h2>
+<p>Run the replacement math.</p>
+<p>A creative agency retainer for short-form ad creative typically runs $1,500 to $5,000 a month. UGC creators typically charge per video, and serious ad accounts burn through ten or twenty test creatives a month, because the whole game in paid social is testing volume: most creatives flop, a few win big, and you only find the winners by shipping lots of attempts.</p>
+<p>This system flips the cost structure. Your fixed costs are a Claude subscription at $20 a month and Higgsfield credits that run a few dollars per rendered video at 720p. Every additional test creative costs you minutes and pocket change instead of another invoice. The businesses that win at paid social are the ones that test the most formats, and you just removed the per-test price tag.</p>
+<p>Even if you keep an agency for your hero campaigns, this becomes your testing layer. Recreate five trending formats with your product, throw small budgets at them, and only hand the winners to humans for polish. You're paying agency rates for winners instead of paying agency rates to find them.</p>
+<h2>Gotchas</h2>
+<ul>
+<li><strong>Video models go down. The AI routes around it.</strong> In the source video, Seedance failed on every attempt during the demo, which happens with image and video models from time to time. Claude noticed and automatically switched to Kling 3.0, a different model on Higgsfield, and still delivered. Kling caps clips at 10 seconds instead of 15, but the results were solid. Usually the primary model is back within a day.</li>
+<li><strong>15 seconds is the ceiling per clip.</strong> Seedance renders up to 15 seconds at a time. Longer source videos get chopped into 15-second chunks and stitched back together. It works, but review the seams.</li>
+<li><strong>Resolution is your biggest cost lever.</strong> Dropping from 1080p to 720p saves about 50 percent on render credits, and for phone-screen vertical video the difference is barely visible. Bake 720p into the skill so you never pay for pixels nobody sees.</li>
+<li><strong>Always review the plan before the build, and the video before it posts.</strong> Plan mode exists so you catch wrong settings before they cost money. And AI footage still produces the occasional weird hand or garbled on-screen text, so keep a human eyeball between render and publish.</li>
+<li><strong>Watch your AI spend.</strong> Video work chews through tokens. The advisor-plus-cheaper-executor setup mentioned above is the difference between this costing lunch money and costing real money.</li>
+</ul>
+<h2>Who Should Steal This</h2>
+<p>E-commerce owners who need a steady stream of Reels and TikTok ad creative, local businesses tired of paying per-video rates for social content, marketers who want to test ten formats a month instead of two, and solo operators and small agencies who want to offer &quot;trend-responsive video creative&quot; without hiring an editor.</p>
+<p>If you've ever watched a viral video and thought &quot;this exact format would crush it for my product,&quot; this is the machine that acts on that thought.</p>
+<hr>
+<h2>Keep Reading</h2>
+<ul>
+<li><strong><a href="/playbooks/property-listing-video-autopilot/">Turn a Property Listing Into a Finished Walkthrough Video, No Crew, No Camera</a></strong>: the same generate-footage-from-a-plan pipeline, pointed at real estate listings.</li>
+<li><strong><a href="/playbooks/meta-ads-pipeline/">Research Your Competitors' Ads and Launch Your Own Campaign on Meta</a></strong>: the paid-social side of the same play, studying what already works and shipping your version.</li>
+<li><strong><a href="/playbooks/vidpipe-content-pipeline/">Record Your Screen Once. Your AI Cuts the Shorts, Writes the Captions, and Posts Everywhere.</a></strong>: a content pipeline for footage you already have, instead of footage you generate.</li>
+</ul>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators</p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

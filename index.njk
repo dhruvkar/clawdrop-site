@@ -54,6 +54,15 @@ permalink: /
   .post-card h3 { font-family: 'Fraunces', serif; font-size: 1.15rem; font-weight: 600; line-height: 1.3; margin-bottom: 6px; color: var(--ink); }
   .post-card p { font-size: 0.88rem; color: var(--ink-soft); line-height: 1.5; }
 
+  .about { padding: 70px 0 30px; }
+  .about-grid { display: grid; grid-template-columns: 300px 1fr; gap: 48px; align-items: center; max-width: 880px; margin: 0 auto; }
+  .about-photo { width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--rule-strong); box-shadow: 0 12px 36px rgba(21, 36, 61, 0.08); display: block; }
+  .about .label { font-size: 0.78rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 10px; }
+  .about h2 { font-family: 'Fraunces', serif; font-size: 2.2rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 16px; }
+  .about p { color: var(--ink-soft); line-height: 1.65; margin-bottom: 14px; max-width: 520px; }
+  .about p:last-child { margin-bottom: 0; }
+  .about .about-tiny { font-size: 0.88rem; color: var(--ink-mute); }
+
   .cta-final { padding: 80px 0; text-align: center; }
   .cta-final h2 { font-family: 'Fraunces', serif; font-size: 2.4rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 14px; max-width: 560px; margin-left: auto; margin-right: auto; line-height: 1.15; color: var(--ink); }
   .cta-final p { color: var(--ink-soft); max-width: 480px; margin: 0 auto 28px; }
@@ -62,6 +71,8 @@ permalink: /
 
   @media (max-width: 760px) {
     .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+    .about-grid { grid-template-columns: 1fr; gap: 28px; }
+    .about-photo { max-width: 300px; }
     .post-card { flex-direction: column; gap: 14px; }
     .post-thumb { width: 56px; height: 56px; }
   }
@@ -177,6 +188,21 @@ permalink: /
             <p>The setup, the tone doc, the rules, and the A/B numbers from switching models. Stop losing your morning to email.</p>
           </div>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="container-wide">
+      <div class="about-grid">
+        <img src="/assets/couple.jpg" alt="Dhruv Kar and his wife" class="about-photo" width="469" height="469" loading="lazy">
+        <div>
+          <div class="label">About</div>
+          <h2>Hey, I'm Dhruv.</h2>
+          <p>I spent 8 years helping scale my family's business to 8 figures. Old-school industry. Thin margins. No venture money. You learn what actually works when payroll is your problem.</p>
+          <p>Now I run my businesses on AI agents. Email, bookkeeping, lead gen, content. Not demos, real work. ClawDrop is where I write down the plays that hold up so you don't burn your weekends figuring it out.</p>
+          <p class="about-tiny">Based in St. Louis. Every play gets tested before it goes in the newsletter.</p>
+        </div>
       </div>
     </div>
   </section>

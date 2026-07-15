@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Analyst Who Reads a Company Before Your Call, in 30 Minutes — ClawDrop</title>
+  <meta name="description" content="Point an open-source agent at any company&#39;s website and get back a 23-section strategic brief: their real tech stack, what they are hiring for right now, and their likely economics. About 79 cents a run, instead of a $1,500-a-month research VA.">
+  <meta property="og:title" content="The Analyst Who Reads a Company Before Your Call, in 30 Minutes — ClawDrop">
+  <meta property="og:description" content="Point an open-source agent at any company&#39;s website and get back a 23-section strategic brief: their real tech stack, what they are hiring for right now, and their likely economics. About 79 cents a run, instead of a $1,500-a-month research VA.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/company-research-brief-agent/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="The Analyst Who Reads a Company Before Your Call, in 30 Minutes — ClawDrop">
+  <meta name="twitter:description" content="Point an open-source agent at any company&#39;s website and get back a 23-section strategic brief: their real tech stack, what they are hiring for right now, and their likely economics. About 79 cents a run, instead of a $1,500-a-month research VA.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/company-research-brief-agent/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+    .logo:hover { color: var(--ink); }
+    .logo-img { width: 32px; height: 32px; border-radius: 7px; display: block; flex-shrink: 0; }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 380px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo"><img src="/assets/clawdrop-logo.png" alt="ClawDrop" class="logo-img">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#about" class="nav-link">About</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">June 15, 2026</div>
+    <h1>The Analyst Who Reads a Company Before Your Call, in 30 Minutes</h1>
+    <p class="post-description">Point an open-source agent at any company&#39;s website and get back a 23-section strategic brief: their real tech stack, what they are hiring for right now, and their likely economics. About 79 cents a run, instead of a $1,500-a-month research VA.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Intermediate</strong></span>
+      <span class="meta-badge">💰 <strong>About 79 cents per company in AI usage, plus a Gemini and an xAI key. The DNS recon mode is free.</strong></span>
+      <span class="meta-badge">⏱ <strong>Ten minutes to install, then one command per company.</strong></span>
+      <span class="meta-badge">👤 <strong>blisspixel (GitHub)</strong></span>
+      <a href="https://github.com/blisspixel/primr" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-github"><strong>Primr</strong></a>: the open-source tool that does the whole job. You give it a company name and a website, and it comes back with a deep research brief. It is free, MIT-licensed, and you run it from your computer's command line.</li>
+<li><a href="#aff-gemini"><strong>Gemini</strong></a>: Google's AI. Primr uses the cheap, fast version of it to do the bulk writing of the brief. This is most of why a run costs cents instead of dollars.</li>
+<li><a href="#aff-xai"><strong>xAI (Grok)</strong></a>: Elon Musk's AI. Primr uses Grok for the actual thinking part, the reasoning that turns raw scraped facts into a real strategic read.</li>
+<li>Python, the free programming language Primr is built on. You install it once. You do not need to know how to code.</li>
+<li>A company's public website. That is the only input. No logins, no databases, no list to buy.</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>A command you run before any sales call, partnership talk, or competitive check that hands you back a 23-section strategic brief on a company in about half an hour, built entirely from public signals, for under a dollar.</p>
+<p>A developer who goes by blisspixel built an open-source tool called Primr that does exactly what a sharp research analyst does, except it never sleeps and it charges you 79 cents instead of a salary. You point it at a company's website. It quietly reads three kinds of evidence that a good analyst would dig for, then writes the whole thing up.</p>
+<p>First, it reads the company's DNS records. Those are the boring plumbing settings behind every website, and they quietly give away the company's real tech stack, which cloud platform they run on, and who handles their email and logins. Second, it goes and finds the company's open job postings, checking eight different hiring systems plus a web search across LinkedIn, Indeed, and Glassdoor. Job posts are the most honest thing a company publishes, because they tell you what it is actually building and staffing for right now, today. Third, it reads about 50 pages of the company's own website, using nine different methods so it can still get in when a site tries to block scrapers.</p>
+<p>Then it triangulates all of that into one long-form brief: competitive positioning, likely economics, operating constraints, and working hypotheses about where the company is headed. The clever part is that every single claim is labeled confirmed, reported, or inference, so you always know what is a hard fact versus an educated guess.</p>
+<h2>Why This Works</h2>
+<p>Good company research is not magic. It is a few hours of disciplined digging through public sources that most people are too busy to do. The information is sitting right there in the open. The bottleneck has always been a human with the patience to go find it and the judgment to connect the dots.</p>
+<p>That is the exact shape of work an agent eats for breakfast. Reading 50 pages, cross-checking eight job boards, parsing DNS records, none of it is hard. It is just tedious and time-consuming, which is precisely why you pay someone to do it or, more likely, why you never do it at all and walk into the call cold.</p>
+<p>The three-source approach is what makes the output trustworthy instead of generic. Anyone can ask a chatbot &quot;tell me about Acme Corp&quot; and get a confident-sounding paragraph that is half hallucination. Primr does not do that. It reads primary sources, the company's own infrastructure, its own job posts, its own pages, and it refuses to launder a guess as a fact. The confirmed-versus-inference labeling is the difference between a brief you can act on and a wall of plausible nonsense.</p>
+<p>And the economics are absurd in your favor. A research VA or junior analyst running this kind of profile costs you $1,000 to $2,000 a month and gives you maybe a handful of companies a week. Primr gives you the same depth for about 79 cents and 30 minutes per company, on demand, the moment you need it.</p>
+<h2>Prerequisites</h2>
+<ul>
+<li>A computer where you can install Python and run a command. Mac, Windows, or Linux all work.</li>
+<li>A Gemini API key and an xAI (Grok) API key. Both are quick to sign up for, and the run cost is so low that a small prepaid balance lasts a long time. (You can skip both and use the free DNS-only mode, more on that below.)</li>
+<li>A few dollars of prepaid credit on each AI account. A full run is about 79 cents, so even $20 covers a couple dozen companies.</li>
+<li>A target company's website. That is genuinely the only research input.</li>
+<li>Ten minutes for the one-time setup, which the tool walks you through.</li>
+</ul>
+<h2>Step-by-Step Setup</h2>
+<h3>Step 1: Install Primr</h3>
+<p>Open your computer's command line and run <code>pip install primr</code>. That is the whole install. Pip is Python's package installer, the standard way software like this gets onto your machine, and this one command pulls Primr down and sets it up.</p>
+<h3>Step 2: Run the Setup Wizard</h3>
+<p>Run <code>primr init</code>. This is a guided setup that walks you through plugging in your Gemini and xAI keys, step by step, so you are not hunting through config files. Paste each key when it asks. If you only want the free DNS mode for now, you can skip the keys here and add them later.</p>
+<h3>Step 3: Check That Everything Works</h3>
+<p>Run <code>primr doctor</code>. This is a health check that confirms your keys are valid and everything is wired up correctly before you spend any money. If something is off, it tells you what. Get a clean bill of health here and your real runs will just work.</p>
+<h3>Step 4: Try the Free DNS Recon Mode First</h3>
+<p>Before you spend a cent, try the free mode. It reads only the company's DNS records, needs no API keys at all, and finishes in two or three seconds. You get a quick read on their tech stack, cloud platform, and email provider. It is a great way to see the tool work and to do a fast tech-stack peek when a full brief is overkill.</p>
+<h3>Step 5: Run a Full Brief on a Real Company</h3>
+<p>Now the main event. Run <code>primr &quot;ExampleCo&quot; https://example.co</code>, swapping in the company name and website you actually care about. It takes about 23 to 35 minutes while it scrapes, cross-checks the job boards, and writes. When it finishes you get the full 23-section brief as both a Markdown file and a Word DOCX, so you can read it, edit it, or drop it straight into a deck.</p>
+<h3>Step 6: Control Your Spend</h3>
+<p>Two built-in guardrails keep costs predictable. Run with <code>--dry-run</code> first to get a cost estimate before you commit, and use <code>--budget</code> to set a hard ceiling so a run can never spend more than you allow. With both a Gemini and an xAI key set, a normal run lands around 79 cents. If you only set the xAI key, expect closer to $4.27, so the Gemini key is worth getting just to slash the bill.</p>
+<h2>Adapting This for Your Business</h2>
+<p>The job changes, but the pattern is the same: any time you need to actually understand a company before you engage, this is your pre-read.</p>
+<ul>
+<li><strong>Salespeople and founders doing outbound.</strong> Run it the night before a discovery call. You walk in knowing their stack, their hiring priorities, and your best angle, instead of burning the first ten minutes asking questions Google could have answered.</li>
+<li><strong>Agencies and consultants pitching new clients.</strong> Build the brief before the proposal. Reference their actual job openings and tech choices in your pitch and you sound like you already work there.</li>
+<li><strong>Anyone watching competitors.</strong> Run it on rivals quarterly. The job postings alone tell you what they are building before they announce it. The economics section gives you a read on their pressure points.</li>
+<li><strong>People scoping a partnership or an acquisition.</strong> Get an unbiased, source-labeled read on the other side before the first real conversation, without tipping anyone off, since it only touches public pages.</li>
+<li><strong>Builders who want this inside their own AI.</strong> Primr also runs as an MCP server and a Claude Skill, which means other AI agents can trigger it on their own. Wire it into a bigger workflow and your research step runs itself.</li>
+</ul>
+<h2>Gotchas and Tips</h2>
+<ul>
+<li><strong>Read the confidence labels, do not skip them.</strong> The whole point of Primr is that it tags every claim confirmed, reported, or inference. A brief is only as good as your willingness to treat the inferences as hypotheses, not gospel. The labels are there so you do not get burned acting on a guess.</li>
+<li><strong>Get the Gemini key, not just xAI.</strong> This is the single biggest cost lever. xAI-only runs cost about $4.27. With Gemini doing the bulk writing, you drop to about 79 cents. That is a five-fold difference for the sake of one extra signup.</li>
+<li><strong>Use --dry-run before a batch.</strong> If you are about to research ten companies, run the estimate first. It costs nothing and saves you from a surprise bill. Pair it with --budget and you have a hard ceiling no run can cross.</li>
+<li><strong>Job postings are the gold, so trust them most.</strong> Of the three sources, the open roles are the most honest. A company can polish its website all it wants, but it cannot fake the fact that it is hiring six backend engineers and a compliance lead. Read that section closely.</li>
+<li><strong>A protected site may yield a thinner brief.</strong> Primr has nine scraping methods that fall back when a site blocks it, but a heavily locked-down site will still give up fewer pages. The DNS and job-post signals usually carry the brief even then, but expect some variation company to company.</li>
+<li><strong>This is a research tool, not a contact scraper.</strong> It builds you an understanding of a company. It does not hand you a list of people to email. Keep it on its job: knowing the company cold before you reach out.</li>
+</ul>
+<h2>What This Replaces</h2>
+<p>Before this, getting a real read on a company meant one of three things:</p>
+<ul>
+<li><strong>A market-research VA or junior analyst</strong>, $1,000 to $2,000 a month, who profiles a handful of companies a week and still misses the DNS and hiring signals an automated tool catches every time. Roughly $12,000 to $24,000 a year for work that now costs cents.</li>
+<li><strong>Paying for pricey research-report services</strong>, the kind that charge real money per report and hand you a generic profile that is months out of date the day it lands.</li>
+<li><strong>Doing it yourself</strong>, which means the one to two hours you quietly burn Googling every prospect before a call, if you bother at all, which most people do not.</li>
+</ul>
+<p>After this, you run one command, wait half an hour, and get a 23-section brief built from primary sources, with every claim labeled by how much you should trust it, for about 79 cents. The VA bill goes away. The pre-call scramble goes away. And you stop walking into conversations knowing less about the other side than they know about you.</p>
+<hr>
+<h2>Keep Reading</h2>
+<ul>
+<li><strong><a href="/playbooks/youtube-competitor-intel-agents/">Replace Your Content Strategist's Monday Morning</a></strong>: the same intel-gathering instinct pointed at your competitors' YouTube channels instead of their websites.</li>
+<li><strong><a href="/playbooks/affiliate-commerce-operator/">The Affiliate Marketing Intern That Never Sleeps</a></strong>: another open-source agent that does a whole job role for pennies on the dollar.</li>
+<li><strong><a href="/playbooks/farm-automation-no-engineer/">He Automated a 250-Acre Farm Without Hiring an Engineer</a></strong>: proof that a single non-coder with the right tool replaces work you assumed needed a payroll.</li>
+</ul>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators</p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

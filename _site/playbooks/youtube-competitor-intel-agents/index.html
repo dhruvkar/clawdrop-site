@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fire the Research Analyst: Three Agents That Spy on Your Competitors Every Sunday — ClawDrop</title>
+  <meta name="description" content="A creator who grew a channel to 400k subscribers built three AI agents that scan 50 competitor YouTube channels every week, grade videos against each channel&#39;s own average, and deliver a report plus a Slack digest. Replaces the agency analyst doing manual weekly teardowns.">
+  <meta property="og:title" content="Fire the Research Analyst: Three Agents That Spy on Your Competitors Every Sunday — ClawDrop">
+  <meta property="og:description" content="A creator who grew a channel to 400k subscribers built three AI agents that scan 50 competitor YouTube channels every week, grade videos against each channel&#39;s own average, and deliver a report plus a Slack digest. Replaces the agency analyst doing manual weekly teardowns.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/youtube-competitor-intel-agents/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Fire the Research Analyst: Three Agents That Spy on Your Competitors Every Sunday — ClawDrop">
+  <meta name="twitter:description" content="A creator who grew a channel to 400k subscribers built three AI agents that scan 50 competitor YouTube channels every week, grade videos against each channel&#39;s own average, and deliver a report plus a Slack digest. Replaces the agency analyst doing manual weekly teardowns.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/youtube-competitor-intel-agents/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+    .logo:hover { color: var(--ink); }
+    .logo-img { width: 32px; height: 32px; border-radius: 7px; display: block; flex-shrink: 0; }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 380px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo"><img src="/assets/clawdrop-logo.png" alt="ClawDrop" class="logo-img">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#about" class="nav-link">About</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">June 15, 2026</div>
+    <h1>Fire the Research Analyst: Three Agents That Spy on Your Competitors Every Sunday</h1>
+    <p class="post-description">A creator who grew a channel to 400k subscribers built three AI agents that scan 50 competitor YouTube channels every week, grade videos against each channel&#39;s own average, and deliver a report plus a Slack digest. Replaces the agency analyst doing manual weekly teardowns.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Intermediate</strong></span>
+      <span class="meta-badge">💰 <strong>Free. It runs on YouTube&#39;s own data feed, plus a little model usage.</strong></span>
+      <span class="meta-badge">⏱ <strong>A weekend, most of it spent defining exactly what you want to track.</strong></span>
+      <span class="meta-badge">👤 <strong>r/AgentsOfAI builder</strong></span>
+      <a href="https://www.reddit.com/r/AgentsOfAI/comments/1u5kfaj/" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-youtube"><strong>YouTube Data API</strong></a>: YouTube's own free data feed. It hands you any public channel's latest videos and their view counts, which is the raw material every one of these agents runs on. No scraping, no shady tools, just the numbers YouTube already publishes.</li>
+<li><a href="#aff-claude-code"><strong>Claude Code</strong></a>: the brain that runs the three agents in turn. It reads the numbers, does the math, spots which videos are actually winning, and writes the report in plain English.</li>
+<li><a href="#aff-openclaw"><strong>OpenClaw</strong></a>: the connector that lets the agents reach the YouTube feed and post into Slack without you wiring up plumbing by hand.</li>
+<li><a href="#aff-slack"><strong>Slack</strong></a>: where the weekly digest lands so your team reads it without opening anything. If you do not use Slack, swap in email or a shared doc.</li>
+<li>A scheduler (a cron job or the like) to kick the whole thing off every Sunday morning while you sleep.</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>A team of three small AI agents that wakes up every Sunday, scans roughly 50 of your competitors' YouTube channels, figures out what is actually working, and drops a written report plus a short Slack digest in front of your team before they have had coffee.</p>
+<p>A creator on Reddit, posting in r/AgentsOfAI, grew a channel from zero to over 400,000 organic subscribers. This was their first real agent system, taught to themselves through trial and error. The problem they were drowning in is the same one every content team knows. Every single week, someone had to manually check YouTube. Which competitor channels are growing? What did they just publish? Which keywords are moving? Which videos are quietly starting to take off? It is repetitive, it eats hours, and it is easy to miss the one video that matters.</p>
+<p>So they built three agents that run in sequence every Sunday morning and produce a weekly HTML report plus a Slack digest. There is also a tiny daily job running in the background that just saves a snapshot of view counts each day. The builder does not even count it as an agent, because it does not analyze anything. It exists so the Sunday report has better day-over-day data to compare against.</p>
+<p>You are not building a dashboard you have to go look at. You are building the analyst who looks for you, does the math you would skip, and tells you the answer.</p>
+<h2>Why This Works</h2>
+<p>Competitor research is not hard. It is just relentless and easy to fake. Anyone can open YouTube, glance at a few channels, see a video with a big number, and feel like they did research. They did not. They did a vibe check.</p>
+<p>The real insight in this build is one the agent does and a human almost never bothers to. Raw view count is misleading. A video with 30,000 views might be a flop for a giant channel and a genuine breakout for a small one. The only number that tells you anything is how a video performed against its own channel's average. Agent 1 calculates that average for every channel it scans, then grades each new video against it. That single step is the difference between &quot;this got a lot of views&quot; and &quot;this is a video that is outperforming everything its creator normally does, so go figure out why.&quot;</p>
+<p>A research analyst is expensive mostly because of the grind, not the skill. You pay someone to keep up with 50 channels week after week, and the work is the same handful of moves on repeat. Pull the latest videos. Check the counts. Compare to last week. Note what is rising. An agent that already has last week's snapshot makes those calls in seconds, across all 50 channels, and never gets bored and skims.</p>
+<p>And it never misses the boring weeks. Most competitive blind spots do not come from missing the obvious viral hit. They come from the slow build you stopped watching for because nothing happened the last three Sundays. The agent watches every Sunday whether or not anything happened, so the week something does happen, you are the first to know instead of the last.</p>
+<h2>Prerequisites</h2>
+<ul>
+<li>A YouTube Data API key. It is free to get from Google's developer console and gives you the public channel data you need.</li>
+<li>Claude Code installed, with OpenClaw set up so the agents can reach the YouTube feed and post to Slack.</li>
+<li>A list of the channels you want to watch. The builder tracks about 50. Start with the 10 or 20 you actually care about.</li>
+<li>A Slack workspace, or somewhere else you want the digest delivered. Email or a shared doc works fine.</li>
+<li>A way to run things on a schedule, so the Sunday run and the daily snapshot fire on their own.</li>
+<li>A crisp answer to one question before you write a line: what exactly are you trying to learn each week? This is the part that makes or breaks it.</li>
+</ul>
+<h2>Step-by-Step Setup</h2>
+<h3>Step 1: Get Painfully Clear on What You Want to Track</h3>
+<p>The builder's hardest-won lesson, in their own framing, is that this only worked because the problem was very clear before they started building. So start here, not at the keyboard. Write down the exact questions you want answered every Sunday. &quot;Which of my competitors published a video that beat their own average this week?&quot; &quot;Which topics are gaining?&quot; &quot;Who is growing fastest?&quot; If you cannot name the questions, no agent can answer them. Most of your weekend goes here, and that is correct.</p>
+<h3>Step 2: Build the Daily Snapshot Job First</h3>
+<p>Before the smart stuff, set up the dumb stuff. Write a small job that runs once a day, hits the YouTube Data API for your tracked channels, and saves the current view counts somewhere simple, a spreadsheet or a small file. It does not analyze anything. It just remembers. Without daily snapshots, your Sunday report can only compare week to week and misses the videos that spiked midweek. Start this early so you have a few days of history before the first real run.</p>
+<h3>Step 3: Build Agent 1, the Channel Scanner</h3>
+<p>This is the workhorse. Point it at your roughly 50 channels through the YouTube Data API. For each one it pulls the latest videos, tracks their view counts, and calculates that channel's average views. Then comes the move that matters: it grades each new video against that channel's own average, so a breakout on a small channel does not get buried under a flop on a big one. The output is a ranked list of videos that are actually overperforming, not just videos with big raw numbers.</p>
+<h3>Step 4: Build Agent 2, the Keyword and Trend Scout</h3>
+<p>Agent 2 looks across what your competitors are publishing and surfaces which keywords and topics are moving. This is how you catch a wave forming instead of reading about it after it crested. It runs after the scanner, so it can lean on the fresh list of what is overperforming when it decides which topics are heating up.</p>
+<h3>Step 5: Build Agent 3, the Reporter</h3>
+<p>The third agent takes everything the first two found and turns it into two things people will actually read. One, a weekly HTML report with the full picture: the overperformers, the rising keywords, the channels gaining ground. Two, a short Slack digest, the three-line version that lands in the channel and gets read on a phone. The report is for the deep dive. The digest is so nobody has an excuse to skip it.</p>
+<h3>Step 6: Schedule It and Walk Away</h3>
+<p>Set the daily snapshot to run every day and the three agents to run in sequence every Sunday morning. Scanner first, scout second, reporter last, because each one feeds the next. Then leave it alone. By the time your team logs on Monday, the research that used to eat someone's Friday is already sitting in Slack, done.</p>
+<h2>Adapting This for Your Business</h2>
+<p>The pattern is not really about YouTube. It is &quot;watch a fixed list of competitors on a public data feed, grade their output against their own baseline, and report the outliers.&quot; That works almost anywhere.</p>
+<ul>
+<li><strong>Podcasters and creators on any platform.</strong> Same three agents, different feed. Track chart positions, episode counts, or follower growth and grade each against the show's own normal.</li>
+<li><strong>Ecommerce and DTC brands.</strong> Watch competitor product launches, price changes, and review velocity. The &quot;grade against their own average&quot; trick flags the product that is suddenly moving, not just the one that always sells.</li>
+<li><strong>Local service businesses.</strong> Track competitors' new reviews, Google posts, and ad activity. You will know who just got aggressive before they take your customers.</li>
+<li><strong>Anyone paying a content or social agency for &quot;competitive research.&quot;</strong> That weekly slide deck of competitor screenshots is exactly what these three agents produce, except yours runs every week without an invoice and does the math the deck usually skips.</li>
+</ul>
+<h2>Gotchas and Tips</h2>
+<ul>
+<li><strong>Get the problem clear before you build anything.</strong> This is the builder's own headline lesson and it is the one most people ignore. They jump to tools and prompts. The reason this system worked is that the questions came first. Spend the weekend on the questions, not the code.</li>
+<li><strong>Raw view count will lie to you. Grade against the average.</strong> If you skip the per-channel average and just sort by total views, you have rebuilt the exact lazy research this was meant to replace. The averaging is not a nice-to-have. It is the whole point.</li>
+<li><strong>Mind the YouTube API quota.</strong> The free YouTube Data API has a daily limit on how much you can pull. Scanning 50 channels daily plus a weekly deep run can bump it. Batch your requests and only pull what your questions actually need.</li>
+<li><strong>Keep the daily snapshots forever.</strong> Your history is your edge. The longer you have been recording daily view counts, the better your trend detection gets. Do not let the snapshots get overwritten. Append, never erase.</li>
+<li><strong>Start small, then scale to 50.</strong> The builder taught themselves this through trial and error, not in one clean shot. Begin with 10 channels and one clear question. Get a report you trust, then add channels.</li>
+<li><strong>You are maintaining a system now, not buying a service.</strong> If the API key expires or a job breaks, your Sunday report goes silent and you might not notice for a week. Build it simply, log what it does, and check that the digest actually showed up.</li>
+</ul>
+<h2>What This Replaces</h2>
+<p>Before this, keeping an eye on the competition meant one of two things:</p>
+<ul>
+<li><strong>A research analyst at your content or social agency</strong>, doing a manual weekly teardown across competitor channels and handing you a deck. Expensive, slow, and only as sharp as whoever clicked through YouTube that Friday. The &quot;grade against the channel's own average&quot; insight almost never makes it into that deck, because doing it by hand for 50 channels is miserable.</li>
+<li><strong>Your own team losing hours to it</strong>, where someone is supposed to check the competition every week, does it well for a month, then quietly lets it slide until a competitor's breakout video is old news by the time anyone notices.</li>
+</ul>
+<p>After this, three agents run themselves every Sunday on YouTube's free data feed, grade every video against its own channel's baseline, catch the rising keywords, and drop the whole thing in Slack before Monday. A creator built it from scratch as their very first agent system while growing a channel past 400,000 subscribers. The research stopped being a chore anyone could skip, because nobody has to do it anymore.</p>
+<hr>
+<h2>Keep Reading</h2>
+<ul>
+<li><strong><a href="/playbooks/company-research-brief-agent/">Skip the Research VA: Turn Any Company URL Into a Battle Plan</a></strong>: the same research-analyst-in-a-box idea, pointed at a single company instead of 50 channels.</li>
+<li><strong><a href="/playbooks/affiliate-commerce-operator/">The Affiliate Marketing Intern That Never Sleeps</a></strong>: another always-on agent doing the repetitive marketing grind you would otherwise pay a person for.</li>
+<li><strong><a href="/playbooks/photo-to-shopify-listing/">Turn a Phone Photo Into a Live Shopify Product in Minutes</a></strong>: a creator-friendly automation that collapses a tedious manual workflow into a single agent run.</li>
+</ul>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators</p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

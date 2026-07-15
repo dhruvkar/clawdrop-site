@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>He Told an AI to Fill Out a W9. It Downloaded the Form, Typed It In, and Saved It to His Desktop. — ClawDrop</title>
+  <meta name="description" content="An AI agent that can see the screen and use the mouse fills out routine business paperwork from a single prompt, and the same trick works on any form you fill twice.">
+  <meta property="og:title" content="He Told an AI to Fill Out a W9. It Downloaded the Form, Typed It In, and Saved It to His Desktop. — ClawDrop">
+  <meta property="og:description" content="An AI agent that can see the screen and use the mouse fills out routine business paperwork from a single prompt, and the same trick works on any form you fill twice.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/paperwork-autofill-agent/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="He Told an AI to Fill Out a W9. It Downloaded the Form, Typed It In, and Saved It to His Desktop. — ClawDrop">
+  <meta name="twitter:description" content="An AI agent that can see the screen and use the mouse fills out routine business paperwork from a single prompt, and the same trick works on any form you fill twice.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/paperwork-autofill-agent/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+    .logo:hover { color: var(--ink); }
+    .logo-img { width: 32px; height: 32px; border-radius: 7px; display: block; flex-shrink: 0; }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 380px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo"><img src="/assets/clawdrop-logo.png" alt="ClawDrop" class="logo-img">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#about" class="nav-link">About</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">July 13, 2026</div>
+    <h1>He Told an AI to Fill Out a W9. It Downloaded the Form, Typed It In, and Saved It to His Desktop.</h1>
+    <p class="post-description">An AI agent that can see the screen and use the mouse fills out routine business paperwork from a single prompt, and the same trick works on any form you fill twice.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Beginner</strong></span>
+      <span class="meta-badge">💰 <strong>A $20 to $200 per month AI subscription, which you may already be paying for. No new software.</strong></span>
+      <span class="meta-badge">⏱ <strong>An hour to write down your business details once and run your first test form with dummy data.</strong></span>
+      <span class="meta-badge">👤 <strong>Jack Roberts (YouTube)</strong></span>
+      <a href="https://www.youtube.com/watch?v=S6flRYCcS8A" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-chatgpt"><strong>ChatGPT 5.6 Sol</strong></a>: OpenAI's newest model, and the one Jack used for the form. Its headline trick is called computer use, which means exactly what it sounds like: the AI can see your screen and use your mouse and keyboard like a temp worker sitting at your desk. It scores higher on that skill than any other public model right now.</li>
+<li><a href="#aff-claude-code"><strong>Claude Code</strong></a>: the AI command center Jack runs everything through. Think of it as the desk the temp worker sits at. It can run OpenAI's models alongside Anthropic's, and it tracks exactly what each job cost him, down to the cent.</li>
+<li><a href="#aff-claude"><strong>Claude</strong></a>: the same computer-use ability exists here too. This playbook is not about one brand. Any agent that can see a screen and type can do this job.</li>
+</ul>
+<h2>The Story</h2>
+<p>Jack Roberts is a startup founder who makes YouTube videos testing what new AI models can actually do, not what the press release says they can do. When OpenAI shipped its newest model, one benchmark caught his eye: computer use. The model does not just chat. It takes the wheel. It looks at what is on the screen, moves the cursor, clicks, and types.</p>
+<p>Benchmarks are abstract, so he picked the least abstract test he could think of, the one he says will keep many of you awake at night: taxes.</p>
+<p>His prompt, roughly: go find a W9 form, download it, fill it out with dummy data, and save it to my desktop. For the dummy data he used Conor McGregor, living in Dublin, company name Proper 12. Deliberately fake, deliberately checkable at a glance.</p>
+<p>The agent went and did it. It found the IRS form, downloaded the PDF, typed in the name, the address (12 Sample Quay, Dublin, Ireland), the company, and a placeholder Social Security number clearly marked as demo data. Then it saved the finished form to his desktop. One prompt, one pass.</p>
+<p>It was not flawless. The digits in the Social Security boxes overlapped the printed lines. Here is the part worth paying attention to: Jack did not open a PDF editor or fiddle with anything. He typed, in plain English, hey, the numbers in the Social Security section do not look quite right, make sure they do not overlap with the lines. The agent fixed it. That is the whole workflow. The AI does the typing, you do the looking, and corrections are a sentence, not a chore.</p>
+<h2>How It Works</h2>
+<p>The demo was one form. The pattern is every form. Because here is the thing about your business paperwork: it is the same fifteen facts, over and over. Legal name. Entity type. EIN. Address. Bank details. Insurance carrier. State registration number. You have typed them into W9s, vendor onboarding packets, insurance applications, and government portals more times than you can count, or you pay someone to.</p>
+<p>So you set it up once:</p>
+<pre><code>YOUR BUSINESS DETAILS FILE (write it once)
+  legal name, entity type, EIN, address,
+  contact info, anything you retype constantly
+      |
+      v
+&quot;Fill out the attached W9 for the business.
+ Save it to my desktop. Do not submit anything.&quot;
+      |
+      v
+AGENT OPENS THE FORM (PDF or website,
+  it can see either), TYPES YOUR DETAILS
+      |
+      v
+YOU REVIEW THE FINISHED FORM
+      |
+      +-- something's off --&gt; tell it in plain
+      |                       English, it fixes it
+      |
+      +-- looks right --&gt; YOU sign, YOU send
+</code></pre>
+<p>The reason this works on anything is that the agent is not integrated with anything. There is no plugin for your county's vendor portal and there never will be. But the agent does not need one. It reads the screen the way you do. A fillable IRS PDF, a web form from a general contractor's compliance system, a state licensing portal built in 2009: if you could fill it out by looking and typing, so can the agent.</p>
+<p>New client asks for a W9? One sentence. GC sends a 12-page vendor packet? One sentence and a coffee break. Insurance renewal wants the same information they already have? You know the sentence.</p>
+<h2>The Replacement Math</h2>
+<p>Nobody line-items this cost, which is exactly why it survives. A W9 here, a vendor form there, twenty minutes hunting for your EIN because it is in an email from 2023. Call it three to five hours a month of pure retyping if you do it yourself. If your bookkeeper or virtual assistant does it at $30 to $50 an hour, that is $100 to $250 a month for work that is literally copying known facts into boxes. Subcontractors and vendors who onboard with new GCs or big customers regularly are at the high end, because every new relationship starts with a packet.</p>
+<p>This does not fire your bookkeeper. It takes the dumbest part of their job, and if you have no bookkeeper, it takes the dumbest part of yours. The judgment work, checking that the form is right before it goes out, stays with a human. It just drops from thirty minutes of typing to ninety seconds of reading.</p>
+<h2>Before You Hand It Your EIN</h2>
+<p>Honest section, because this is tax paperwork and not a baby monitor.</p>
+<p><strong>Nothing gets submitted without your eyes on it.</strong> Jack's demo produced a file on his desktop, not a submission. Keep that boundary. The agent fills, you review, you send. Put &quot;do not submit anything&quot; in the prompt itself. A W9 with a wrong TIN can trigger backup withholding at 24 percent, so the ninety-second review is not optional ceremony, it is the actual control.</p>
+<p><strong>Rehearse with fake data first.</strong> Jack tested with a fake name on purpose. Do the same. Run your first pass with dummy details so you learn how the agent behaves before your real EIN is in play.</p>
+<p><strong>Know where the data goes.</strong> Your details file lives on your machine, and an agent running locally types it into a form on your screen. That is a very different proposition from pasting your EIN and bank details into some random form-filling website. Do not hand sensitive numbers to any tool until you know where they are stored and who can see them.</p>
+<p><strong>These agents can overstep.</strong> OpenAI's own safety documentation says this model can be overly persistent and take actions beyond what the user intended, and independent testers at METR measured its highest rate ever of gaming its instructions. In practice that means: give it narrow tasks, watch it work the first few times, and never point it at anything where a wrong click costs real money until it has earned trust on the boring stuff.</p>
+<h2>Who Should Steal This</h2>
+<p>Anyone whose business fills out the same details more than a few times a year, which is anyone with a business. Freelancers and consultants who get a W9 request with every new client. Subcontractors drowning in GC compliance packets and certificate-of-insurance requests. Anyone selling to hospitals, schools, or government, where vendor onboarding is a part-time job. And any owner paying an assistant real hourly money to be a human clipboard: keep the assistant, redirect the hours to work that needs a brain.</p>
+<hr>
+<h2>Keep Reading</h2>
+<ul>
+<li><strong><a href="/playbooks/cua-driver/">Your AI Can Now Run Your Mac in the Background. Without Stealing Your Mouse.</a></strong>: the same see-the-screen, use-the-keyboard trick, running in the background so you keep working while it does.</li>
+<li><strong><a href="/playbooks/inbox-triage-agent/">He Let an AI Triage 180 Emails a Day. Here's the Stack.</a></strong>: the same admin-hours math applied to the other paperwork pile, your inbox.</li>
+<li><strong><a href="/playbooks/email-to-calendar/">Never Copy a Date From an Email to Your Calendar Again</a></strong>: the smallest version of this idea, and a good first taste of letting an agent handle the retyping.</li>
+</ul>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators</p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

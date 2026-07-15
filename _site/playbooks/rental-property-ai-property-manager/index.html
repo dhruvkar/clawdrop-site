@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>He Gave His Rental Property an AI Manager. It Reconciled the Books in Two Hours. — ClawDrop</title>
+  <meta name="description" content="A single-property landlord gave an AI agent his lease docs and Wave books. It reconciled the accounts, caught up the ledger, and ran a P&amp;L within hours.">
+  <meta property="og:title" content="He Gave His Rental Property an AI Manager. It Reconciled the Books in Two Hours. — ClawDrop">
+  <meta property="og:description" content="A single-property landlord gave an AI agent his lease docs and Wave books. It reconciled the accounts, caught up the ledger, and ran a P&amp;L within hours.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/rental-property-ai-property-manager/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="He Gave His Rental Property an AI Manager. It Reconciled the Books in Two Hours. — ClawDrop">
+  <meta name="twitter:description" content="A single-property landlord gave an AI agent his lease docs and Wave books. It reconciled the accounts, caught up the ledger, and ran a P&amp;L within hours.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/rental-property-ai-property-manager/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+    .logo:hover { color: var(--ink); }
+    .logo-img { width: 32px; height: 32px; border-radius: 7px; display: block; flex-shrink: 0; }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 380px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo"><img src="/assets/clawdrop-logo.png" alt="ClawDrop" class="logo-img">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#about" class="nav-link">About</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">July 7, 2026</div>
+    <h1>He Gave His Rental Property an AI Manager. It Reconciled the Books in Two Hours.</h1>
+    <p class="post-description">A single-property landlord gave an AI agent his lease docs and Wave books. It reconciled the accounts, caught up the ledger, and ran a P&amp;L within hours.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Beginner</strong></span>
+      <span class="meta-badge">💰 <strong>$20-100/month in AI usage. Wave Accounting has a free plan.</strong></span>
+      <span class="meta-badge">⏱ <strong>A couple of hours to load the documents and connect the books.</strong></span>
+      <span class="meta-badge">👤 <strong>Chris / KaNe (YouTube)</strong></span>
+      <a href="https://www.youtube.com/watch?v=u1rhYFVNXJY" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-openclaw"><strong>OpenClaw</strong></a>: the AI agent that acts as the property's manager. It holds the knowledge base and does the actual work.</li>
+<li><a href="#aff-anthropic"><strong>Claude</strong></a>: the AI brain behind the agent. This is what reads your lease and reasons about your ledger.</li>
+<li><a href="#aff-wave"><strong>Wave Accounting</strong></a>: free accounting software popular with landlords and tiny LLCs. The agent connects to it to reconcile and report.</li>
+<li><a href="#aff-telegram"><strong>Telegram</strong></a>: the chat app where you talk to your agent. Ask it a question about the property from your phone, get an answer.</li>
+<li><a href="#aff-mac-mini"><strong>Mac Mini</strong></a>: or any always-on computer. The agent needs somewhere to live. A cloud server works too.</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>An AI agent that knows everything about your rental property and keeps its books.</p>
+<p>You feed it the paperwork: the lease, the listing, the property details, the history of every upgrade you've made. Then you connect it to your accounting software. From that point on, you have something that behaves like a property manager and a bookkeeper rolled into one, minus the fees.</p>
+<p>This comes from Chris, an AI builder who goes by KaNe on YouTube (brand75.com). He set this up for an LLC that owns exactly one property in Seattle. He gave an OpenClaw agent a knowledge base with all the leasing documents, the listing, the property information, and the upgrade history, then connected it to Wave for accounting.</p>
+<p>Within about three minutes of getting the knowledge base, the agent came back with what Chris called robust research. Within a couple of hours, it had reconciled the Wave accounting, caught the ledger up, and run a P&amp;L. It even worked through rent scenarios, telling him what the property would make at different per-square-foot rates.</p>
+<p>His other observation is worth repeating: when he first started with OpenClaw, a build like this took days. This one went from nothing to a working agent in about an hour of setup. The tools have gotten that much faster to stand up.</p>
+<p>The specific build is one Seattle rental. The pattern is any landlord with one to ten doors.</p>
+<h2>The Problem: One Property Is Too Small for Help and Too Big to Ignore</h2>
+<p>If you own a single rental, you live in an awkward middle zone.</p>
+<p>A property management company will happily take the property off your hands, for 8 to 12 percent of the monthly rent. On a $2,500/month rental, that is $200 to $300 every month, $2,400 to $3,600 a year, mostly for answering emails and keeping records you could keep yourself.</p>
+<p>A bookkeeper will keep your books clean for a monthly retainer, commonly a few hundred dollars a month for a small operation. For an LLC whose entire activity is one rent check and a handful of expenses, that math never feels right either.</p>
+<p>So most single-property landlords do what you probably do: everything themselves, badly, at 10pm. The Wave or QuickBooks account that was pristine in January is three months behind by June. The lease PDF is in one folder, the water heater invoice is in an email, the insurance renewal is somewhere. Come tax time, you spend a miserable weekend reconstructing the year.</p>
+<p>The information is all there. It is just scattered, and nobody is paid to hold it together. That is exactly the kind of job an agent is good at: not the physical property, the paperwork around it.</p>
+<h2>How It Works</h2>
+<p>The build has two halves: what the agent knows, and what the agent can touch.</p>
+<pre><code>KNOWLEDGE BASE                    ACCOUNTING
+  lease documents                   Wave account
+  the listing                       (transactions,
+  property info                      ledger, reports)
+  upgrade history                        |
+        |                               |
+        +---------------+---------------+
+                        |
+                        v
+                  OPENCLAW AGENT
+              &quot;the property manager&quot;
+                        |
+                        v
+              reconciled books
+              caught-up ledger
+              P&amp;L on demand
+              rent scenarios (per sq ft)
+</code></pre>
+<p><strong>The knowledge base</strong> is just documents. The signed lease. The original listing. The property's specs and square footage. Every upgrade with dates and costs. You are not programming anything. You are handing a new property manager the file folder on day one.</p>
+<p><strong>The accounting connection</strong> gives the agent eyes on the money. Connected to Wave, it can see the transactions, match them against what it knows about the property, flag what does not line up, and produce the reports.</p>
+<p>Put the two together and the agent can do things neither half allows alone. It knows the rent amount from the lease and can check that the deposits in Wave match. It knows the upgrade history and can make sense of the big expenses in the ledger. It knows the square footage and can run rent-per-square-foot scenarios against real numbers, which is exactly what Chris's agent did.</p>
+<h2>Setting It Up</h2>
+<p><strong>Step 1: Gather the paperwork.</strong> Before touching any software, collect the documents in one folder: the lease, the listing, a property information sheet (address, square footage, beds and baths, year built), and a list of upgrades with dates and roughly what they cost. This takes an evening and it is the highest-value hour of the whole project. The agent is only as good as its file folder.</p>
+<p><strong>Step 2: Stand up OpenClaw.</strong> OpenClaw is free, open-source software that runs an AI agent on a computer you control: an old laptop, a Mac Mini, or a small cloud server. Install it, connect it to an AI model like Claude, and point it at your document folder as its knowledge base. Chris's build went from zero to a researching agent in about an hour.</p>
+<p><strong>Step 3: Connect Wave.</strong> Wave has an API, which is a fancy way of saying other software is allowed to talk to it. Give your agent access so it can read your transactions and reports. If you use QuickBooks or Xero instead, the same pattern applies; connect whichever set of books you actually keep.</p>
+<p><strong>Step 4: Run the first reconciliation.</strong> Ask the agent to go through the books and catch them up. This first pass is where the backlog dies: unmatched transactions get sorted, the ledger gets current, and you get a P&amp;L for the property. In the original build this took a couple of hours, not a weekend.</p>
+<p><strong>Step 5: Make it a monthly close.</strong> Once the books are caught up, put the agent on a schedule. Each month: reconcile the new transactions, flag anything odd, confirm the rent landed, produce the P&amp;L. You review the output over coffee instead of producing it at midnight. When something new happens to the property, a repair, a new appliance, a rent change, add the document to the knowledge base so the manager's file folder stays current.</p>
+<h2>The Business Angle</h2>
+<p>Run the replacement math on a typical $2,500/month rental.</p>
+<p>A property management company at 8 to 12 percent costs $2,400 to $3,600 a year. Some of that fee buys things this agent cannot do (more on that below), but a real chunk of it buys record-keeping, rent tracking, and answering questions about the property. That chunk is now automated.</p>
+<p>A bookkeeper at a few hundred dollars a month costs $2,400 to $6,000 a year, and for a one-property LLC you are paying professional rates for maybe two hours of actual work.</p>
+<p>Doing it yourself is free and costs you the most. Call it three to five hours a month of ledger cleanup, document hunting, and tax-season archaeology. That is 40 to 60 hours a year of your least favorite work, done at your least favorite time.</p>
+<p>The agent runs on $20 to 100 a month in AI usage, with Wave itself on a free plan. Against any of the three alternatives, it pays for itself in the first month, and the gap widens with every additional door. At two or three properties the same agent handles all of them from the same knowledge base, which is the point where property management fees start becoming real money.</p>
+<p>There is a second angle here, and it is the one Chris is actually playing: he built this for a client. If you are technical enough to set this up once, every small landlord you know is a potential customer for the same two-hour build.</p>
+<h2>What It Doesn't Do</h2>
+<p>Honesty section. This agent is a paperwork brain, not a property manager's body.</p>
+<p><strong>It does not fix toilets.</strong> Anything physical, repairs, inspections, turnovers, still needs humans you call. What the agent can do is keep the perfect record of what was fixed, when, and for how much.</p>
+<p><strong>It does not show units or screen tenants.</strong> Leasing a vacancy is still your job or your agent's job. A property management company's fee partly buys legwork, and legwork is not what you are replacing here.</p>
+<p><strong>It is not a lawyer or a CPA.</strong> It can read your lease and keep clean books, but landlord-tenant law is genuinely tricky and varies by city. Seattle's rules are not Boise's rules. Use the agent's clean records to make your professional's time cheaper, not to skip the professional.</p>
+<p><strong>Keep a human on the money.</strong> Let the agent read the books, reconcile, and report. Do not let it move money or send anything to a tenant without you approving it. Read-only access to the accounts, plus your sign-off on anything outbound, is the right setup for a system that touches your finances.</p>
+<h2>Who Should Steal This</h2>
+<p>Any landlord with one to ten doors who is currently the property's accountant, filing clerk, and analyst. Especially the single-property LLC owner whose books are three months behind right now, and anyone paying a full property management fee mostly for record-keeping. If you already keep your rental's books in Wave, you are one document folder and one connection away from never doing a manual reconciliation again.</p>
+<p><a href="https://www.youtube.com/watch?v=u1rhYFVNXJY">Watch the original build →</a></p>
+<hr>
+<h2>Keep Reading</h2>
+<ul>
+<li><strong><a href="/playbooks/fire-the-bookkeeper/">Fire the Bookkeeper, Keep the Books</a></strong>: the same replace-the-bookkeeper math, applied to any small business's accounts.</li>
+<li><strong><a href="/playbooks/cpa-quickbooks-monthly-close/">This Accountant Trained Her AI to Close the Books Every Month</a></strong>: the recurring monthly close pattern, from the professional's side of the table.</li>
+<li><strong><a href="/playbooks/real-estate-deal-hunter/">Build an AI Agent That Finds Real Estate Deals Before Anyone Else</a></strong>: an agent for the buying side of the rental game.</li>
+</ul>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators</p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

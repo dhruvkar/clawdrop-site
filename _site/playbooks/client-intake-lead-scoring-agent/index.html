@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Score Every Lead 0-100 and Reply in 90 Seconds, Even at 2 AM — ClawDrop</title>
+  <meta name="description" content="A Claude Code agent reads every inbound lead, scores it 0-100, and sends a personalized reply in 90 seconds. You only ever see the top 15%. Four files.">
+  <meta property="og:title" content="Score Every Lead 0-100 and Reply in 90 Seconds, Even at 2 AM — ClawDrop">
+  <meta property="og:description" content="A Claude Code agent reads every inbound lead, scores it 0-100, and sends a personalized reply in 90 seconds. You only ever see the top 15%. Four files.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/client-intake-lead-scoring-agent/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Score Every Lead 0-100 and Reply in 90 Seconds, Even at 2 AM — ClawDrop">
+  <meta name="twitter:description" content="A Claude Code agent reads every inbound lead, scores it 0-100, and sends a personalized reply in 90 seconds. You only ever see the top 15%. Four files.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/client-intake-lead-scoring-agent/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+    .logo:hover { color: var(--ink); }
+    .logo-img { width: 32px; height: 32px; border-radius: 7px; display: block; flex-shrink: 0; }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 380px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo"><img src="/assets/clawdrop-logo.png" alt="ClawDrop" class="logo-img">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#about" class="nav-link">About</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">July 7, 2026</div>
+    <h1>Score Every Lead 0-100 and Reply in 90 Seconds, Even at 2 AM</h1>
+    <p class="post-description">A Claude Code agent reads every inbound lead, scores it 0-100, and sends a personalized reply in 90 seconds. You only ever see the top 15%. Four files.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Beginner</strong></span>
+      <span class="meta-badge">💰 <strong>A few cents in AI usage per lead, plus a $5/month server or a spare PC at home.</strong></span>
+      <span class="meta-badge">⏱ <strong>An afternoon. One folder, four files, and a webhook URL.</strong></span>
+      <span class="meta-badge">👤 <strong>BizflowAI (YouTube)</strong></span>
+      <a href="https://www.youtube.com/watch?v=2yNE93UAWk4" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-claude-code"><strong>Claude Code</strong></a>: the AI agent that reads each lead, scores it, and writes the reply. The whole system is one folder it runs from.</li>
+<li><a href="#aff-anthropic"><strong>Anthropic</strong></a>: the company behind Claude. You pay a few cents per lead in usage.</li>
+<li><a href="#aff-gmail"><strong>Gmail</strong></a>: where the drafted replies go out from (any email provider with sending access works).</li>
+<li><a href="#aff-google-sheets"><strong>Google Sheets</strong></a>: the running log. Every lead, score, and reply gets appended as a row you can scan later.</li>
+<li><a href="#aff-telegram"><strong>Telegram</strong></a>: the free messaging app that pings your phone when a hot lead comes in, and sends a red alert if the system ever goes down.</li>
+<li><a href="#aff-calendly"><strong>Calendly</strong></a>: the booking link that only the best leads ever see.</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>A client-intake agent that sits behind your contact form 24 hours a day. Every time someone fills out the form, the agent reads what they wrote, scores them 0 to 100 based on rules you set once, and sends one of three kinds of replies, personalized to what they actually said, in under 90 seconds.</p>
+<p>Low scorers get a polite no. Middle scorers get a warm reply with two qualifying questions. The top 15 percent, the real buyers, get a personalized response that references their exact situation and includes your booking link. Those are also the only ones that ping your phone.</p>
+<p>This comes from an automation builder named Lazar who runs the exact system daily on his own inbound leads. Before it, he was triaging up to 40 form submissions a day, spending about two hours on sorting and replies. Now he reviews four to six. The agent handles the rest while he sleeps.</p>
+<p>The whole thing is one folder with four files inside. No CRM, no Zapier, no automation platform subscription.</p>
+<h2>The Problem: The Good Lead Is Buried Under 39 Bad Ones</h2>
+<p>If you run a service business with a contact form, you already know the shape of this. Leads trickle in, some days five, some days forty. Most are junk. Wrong budget. Students asking for free work. Someone who wants a $200 version of a $20,000 project.</p>
+<p>But once or twice a week, a real buyer lands in that pile. A director of operations at a mid-sized company. A founder with actual budget. A referral from a past client.</p>
+<p>And here is what kills you: by the time you open the inbox that evening, sift through the noise, and write a thoughtful reply, that buyer has already emailed three of your competitors.</p>
+<p>The speed-to-lead research keeps repeating the same finding. Reply within five minutes and your odds of converting are roughly nine times higher than replying an hour later. Most solo operators reply in six to twelve hours. You are not losing deals because you are bad at sales. You are losing them because you were asleep, or on a call, or you skipped the inbox because the last twenty leads were garbage.</p>
+<h2>How It Works</h2>
+<p>The system is one folder, called something like <code>intake_agent/</code>, running on any cheap always-on machine. A $5-a-month server works. So does an old PC in your closet.</p>
+<pre><code>CONTACT FORM (Typeform, Tally, your website)
+        |
+        v  webhook fires on every submission
+SMALL SCRIPT hands the lead to Claude Code
+        |
+        v
+CLAUDE reads the lead, applies your rubric
+  budget signals ...... up to 30 pts
+  role signals ........ up to 25 pts
+  timeline signals .... up to 25 pts
+  red flags ........... up to -20 pts
+        |
+        v
+SCORE decides the tier
+  0-40 ....... polite decline + resource link
+  50-75 ...... warm reply, 2 qualifying questions
+  76-100 ..... personalized reply + booking link
+        |
+        v
+EMAIL goes out (under 90 seconds)
+ROW appended to Google Sheet
+SCORE above 75? -&gt; Telegram ping to your phone
+</code></pre>
+<p>Inside the folder there are exactly four things:</p>
+<p><strong>1. A CLAUDE.md file.</strong> This is the persona and the rules. It tells Claude who it is writing as: your name, your company, your tone. It lists what it must never do: never quote a price, never promise a timeline, never book anything directly. And it states the goal: qualify the lead, respond warmly, hand the best ones to you. Two paragraphs of plain writing. That is the whole &quot;programming.&quot;</p>
+<p><strong>2. A scoring rubric file.</strong> The brain of the system. You break 100 points into four buckets. Budget signals, up to 30 points: did they mention a budget range, team size, revenue? Role signals, up to 25: are they a founder or head of ops, or a student? Timeline signals, up to 25: words like &quot;this quarter,&quot; &quot;ASAP,&quot; &quot;we're launching.&quot; And red flags, up to 20 points subtracted: &quot;can you do it for free,&quot; &quot;I have an idea,&quot; a personal Gmail with no company attached. You write this once, in plain English. Claude reads it fresh for every lead.</p>
+<p><strong>3. A reply templates folder.</strong> Three templates, one per tier. Here is the part that makes this an agent instead of an autoresponder: Claude does not copy the templates verbatim. It uses them as a voice guide and rewrites each reply in the context of what the person actually wrote.</p>
+<p><strong>4. A small webhook script.</strong> About 20 lines of Python. It listens for your form provider to send over a new submission, hands it to Claude with one instruction (read the lead, apply the rubric, return the score, tier, and drafted reply), then sends the email, logs the row to a Google Sheet, and fires the Telegram ping if the score clears 75.</p>
+<p>Here is a real lead moving through it. A form submission lands at 2 AM. Three paragraphs from someone running a logistics company: 40 employees, 20 hours a week lost to manual dispatch coordination, wants to know if AI can help. Claude scores it. Budget signals, 22 points (real company, real pain with a real cost). Role, 20 (operations lead). Timeline, 20 (they said &quot;before Q1&quot;). Red flags, none. Total: 78. Tier 3.</p>
+<p>Claude drafts a reply that opens with a specific line about dispatch coordination, asks one clarifying question about their current systems, and drops the booking link. Sent by 2:03 AM. Telegram pings the owner's phone. By the time he wakes up, the lead has answered the question and booked a slot.</p>
+<h2>Setting It Up</h2>
+<p><strong>Step 1: Write the CLAUDE.md persona file.</strong> Open a folder called <code>intake_agent/</code> and write two paragraphs: who the agent writes as, what it must never do (prices, timelines, direct bookings), and what the goal is. Plain English. This file is the difference between replies that sound like you and replies that sound like a robot.</p>
+<p><strong>Step 2: Write your scoring rubric.</strong> Think about your last ten good clients and your last ten time-wasters. What did the good ones say in their first message? Turn that into the four buckets: budget signals (up to 30), role signals (up to 25), timeline signals (up to 25), red flags (minus up to 20). Save it as its own file.</p>
+<p><strong>Step 3: Draft the three reply tiers.</strong> A polite decline with a helpful resource link for low scorers. A warm reply asking two qualifying questions, no calendar link, for the middle. A personalized reply with your booking link for the top tier. Remember, these are voice guides, not form letters. Claude rewrites them per lead.</p>
+<p><strong>Step 4: Wire up the webhook.</strong> A short script (Claude Code can write it for you if you describe the flow) listens for form submissions, passes each one to Claude with the rubric, then sends the reply through your email, logs to a Sheet, and pings Telegram on high scores. Point your form provider's webhook setting at it.</p>
+<p><strong>Step 5: Test with fake leads, then add a heartbeat.</strong> Feed it a dream client, an obvious time-waster, and a maybe. Check the scores and read every draft. Once it behaves, add the reliability piece from the original build: a check every 15 minutes that sends a test payload to the webhook and expects a healthy response. If it fails twice in a row, you get a different, red Telegram alert. In eight months of running this, the builder's alert has fired twice, both times because his internet went out.</p>
+<h2>The Business Angle</h2>
+<p>Run the math on what slow, manual intake actually costs you.</p>
+<p>First, the time. Two hours a day of reading and replying to leads, most of them junk, is ten hours a week. At any reasonable billable rate for a service business owner, that is real money spent doing a task that requires judgment for about 15 percent of the pile and pure pattern-matching for the rest.</p>
+<p>Second, the leak. The nine-times conversion gap between a five-minute reply and an hour-later reply means the most expensive thing in your business might be the hours between a good lead arriving and you seeing it. One lost retainer client a quarter, at typical service-business deal sizes, dwarfs everything this system costs to run.</p>
+<p>Now compare the alternatives. A virtual assistant who monitors your inbox during business hours typically runs several hundred to over a thousand dollars a month, industry-typical rates, and still sleeps at night. An answering service takes messages but cannot score a lead or write a reply that references dispatch coordination. Real estate teams solve this with inside sales agents whose salaries run well into five figures a year.</p>
+<p>This system costs a few cents per lead in AI usage plus a $5-a-month server, answers in 90 seconds at 2 AM, applies your exact judgment on every message, and never gets bored of the junk. In the original build, roughly 60 percent of leads get filtered out with a polite tier-1 reply, another 25 percent get the tier-2 qualifier and either self-select out or come back with real information, and the top 15 percent get the fast, warm, personalized response that wins deals.</p>
+<p>You still close the deals. The agent just makes sure you only spend your attention on the ones worth closing.</p>
+<h2>Gotchas</h2>
+<ul>
+<li><strong>The rubric is the product.</strong> A generic rubric produces generic scores. Spend your effort on step 2, using your real client history. Everything else is plumbing.</li>
+<li><strong>Never let it quote prices or promise timelines.</strong> That rule lives in CLAUDE.md for a reason. The agent qualifies and warms up leads. Committing your business to anything is your job.</li>
+<li><strong>Read every draft for the first week.</strong> Log everything to the Sheet and review daily until you trust the scoring. Adjust the rubric in plain English when a score feels wrong. That is the whole tuning process.</li>
+<li><strong>A silently dead agent is worse than no agent.</strong> If the webhook dies and leads go unanswered while you assume they are handled, you are worse off than before. Do not skip the health-check heartbeat.</li>
+<li><strong>Mind the scoring edges.</strong> The tiers in the original build run 0-40, 50-75, and 76 and up. Decide explicitly what happens to a lead that lands between bands so nothing falls through.</li>
+<li><strong>A fast reply is a promise.</strong> If the agent responds in 90 seconds and then you take four days to show up on the booked call, the speed backfires. The system buys you the buyer's attention; you still have to use it.</li>
+</ul>
+<h2>Who Should Steal This</h2>
+<p>Any service business owner who gets inbound form leads and cannot answer them instantly: consultants, agencies, freelancers, law firms, contractors, financial advisors, anyone whose good leads arrive mixed into a pile of bad ones. If you have ever found a great lead in your inbox two days late, this is the first agent worth building.</p>
+<hr>
+<h2>Keep Reading</h2>
+<ul>
+<li><strong><a href="/playbooks/life-insurance-2-minute-follow-up/">His Life Insurance Agency Texts and Calls New Leads in 2 Minutes. Automatically.</a></strong>: the same speed-to-lead obsession, applied to an insurance agency's phone and SMS follow-up.</li>
+<li><strong><a href="/playbooks/realtor-inside-sales-agent/">The Inside Sales Agent That Never Sleeps (For Real Estate)</a></strong>: what this pattern looks like when it replaces a full-time ISA on a real estate team.</li>
+<li><strong><a href="/playbooks/inbox-triage-agent/">He Let an AI Triage 180 Emails a Day. Here's the Stack.</a></strong>: the same score-and-route idea, pointed at your whole inbox instead of just the contact form.</li>
+</ul>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators</p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

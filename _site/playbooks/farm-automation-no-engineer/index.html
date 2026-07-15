@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Be Your Own Farm Engineer: A 250-Acre Operation Run on AI Instead of Specialists — ClawDrop</title>
+  <meta name="description" content="A self-taught broccoli farmer in Hokkaido uses an AI coding partner as an on-demand engineer to diagnose crops, control his greenhouse from his phone, read satellite data, and build his own GPS steering. Replace the specialist you could never afford to hire.">
+  <meta property="og:title" content="Be Your Own Farm Engineer: A 250-Acre Operation Run on AI Instead of Specialists — ClawDrop">
+  <meta property="og:description" content="A self-taught broccoli farmer in Hokkaido uses an AI coding partner as an on-demand engineer to diagnose crops, control his greenhouse from his phone, read satellite data, and build his own GPS steering. Replace the specialist you could never afford to hire.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/farm-automation-no-engineer/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Be Your Own Farm Engineer: A 250-Acre Operation Run on AI Instead of Specialists — ClawDrop">
+  <meta name="twitter:description" content="A self-taught broccoli farmer in Hokkaido uses an AI coding partner as an on-demand engineer to diagnose crops, control his greenhouse from his phone, read satellite data, and build his own GPS steering. Replace the specialist you could never afford to hire.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/farm-automation-no-engineer/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+    .logo:hover { color: var(--ink); }
+    .logo-img { width: 32px; height: 32px; border-radius: 7px; display: block; flex-shrink: 0; }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 380px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo"><img src="/assets/clawdrop-logo.png" alt="ClawDrop" class="logo-img">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#about" class="nav-link">About</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">June 15, 2026</div>
+    <h1>Be Your Own Farm Engineer: A 250-Acre Operation Run on AI Instead of Specialists</h1>
+    <p class="post-description">A self-taught broccoli farmer in Hokkaido uses an AI coding partner as an on-demand engineer to diagnose crops, control his greenhouse from his phone, read satellite data, and build his own GPS steering. Replace the specialist you could never afford to hire.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Advanced</strong></span>
+      <span class="meta-badge">💰 <strong>$20 to $200 a month for AI tools, plus whatever sensors and controllers your setup needs.</strong></span>
+      <span class="meta-badge">⏱ <strong>A weekend to prototype, longer to deploy safely in the field.</strong></span>
+      <span class="meta-badge">👤 <strong>Rowan Cheung (YouTube)</strong></span>
+      <a href="https://www.youtube.com/watch?v=TrcNWYcwu1I" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-chatgpt"><strong>ChatGPT</strong></a>: the thinking partner you talk to in plain language. Describe a problem in your field and it explains the engineering, the wiring, the math, whatever you need, like an expert standing next to you.</li>
+<li><a href="#aff-codex"><strong>Codex</strong></a>: the AI coding tool that actually writes the software. ChatGPT figures out the plan, Codex builds the bot, the script, the database. This is the pair the farmer in this story used.</li>
+<li><a href="#aff-openclaw"><strong>OpenClaw</strong></a> or <a href="#aff-claude-code"><strong>Claude Code</strong></a>: if your stack is on the Claude side, these fill the exact same on-demand-engineer role. Same pattern, different brand. Pick what you already pay for and move on.</li>
+<li><a href="#aff-telegram"><strong>Telegram</strong></a>: a free messaging app that doubles as a remote control. The farmer built a bot here to open and close his greenhouse vents from his phone. Any chat app with a bot interface works.</li>
+<li>Sensors and controllers for whatever you want to watch or move: temperature and humidity probes, relays that switch a motor or a vent, a small computer like a Raspberry Pi to run it all. These are plain hardware, bought to fit your setup.</li>
+<li>A GPS receiver if you want auto-steering, the way he did. Off-the-shelf modules cost a fraction of a proprietary farm system.</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>An on-demand engineer that lives in your phone and your laptop, so a one-person physical operation can do the kind of automation that used to require a payroll engineer and six-figure machinery.</p>
+<p>Hiroki Tamiyasu farms broccoli in Hokkaido, the cold northern tip of Japan. He was a public servant before this. No farming background, no engineering background, none. He taught himself to farm, and he now oversees almost 250 acres of broccoli, pumpkins, green onions, and soybeans. At that scale the work is brutally physical, the operations are complicated, and good help is nearly impossible to hire out in the countryside.</p>
+<p>The normal answer to that problem is to buy expensive proprietary equipment and pay specialized engineers to run it. He could not do that. So instead he treats an AI coding partner like an elite engineer who is always at his side. Concretely, he does four things with it. He photographs a sick broccoli plant in the field and gets a diagnosis in seconds. He built a bot that opens and closes his greenhouse vents remotely through a messaging app. He pulls satellite vegetation data and lays it over maps of his own plots to judge how each field is doing. And he used AI to understand GPS auto-steering well enough to realize he could build his own for a fraction of what a commercial rig costs. He also designs custom databases to run the farm.</p>
+<p>You are not building a self-driving tractor this weekend. You are building the habit and the toolchain that let you, the owner of a physical operation, solve engineering problems yourself instead of waiting on a specialist you cannot find or afford.</p>
+<h2>Why This Works</h2>
+<p>For most of history, automation in a physical trade had a hard gatekeeper: you needed someone who could engineer it. That person was rare, expensive, and usually not interested in driving two hours to a farm or a job site. So the work stayed manual, or you bought a sealed proprietary box and paid whatever the vendor asked.</p>
+<p>What changed is that the engineering knowledge is now on tap. You describe your problem in your own words, in your own language, and the AI translates it into a plan, the wiring, the code, the parts list. The farmer in this story does not know electronics. He does not need to. He knows broccoli, and he can describe what he wants. The AI fills the gap that used to require a salaried specialist.</p>
+<p>It works especially well in hands-on operations because the hard part was never the physical world, it was the bridge to it. Sensors, relays, GPS modules, and small computers have been cheap and available for years. The missing piece was the person who could tie them together into something useful. That person now answers instantly, never quits, and costs a flat monthly fee instead of a salary.</p>
+<p>And it flips the economics of every &quot;you have to buy ours&quot; pitch you have ever heard. A commercial GPS auto-steer system runs many thousands of dollars. Once you understand how it actually works, and the AI will teach you, you find out the underlying parts cost a small fraction of the sticker price. The markup was never the hardware. It was the engineering you could not do yourself. Now you can.</p>
+<h2>Prerequisites</h2>
+<ul>
+<li>An account on an AI coding partner: ChatGPT plus Codex, or OpenClaw, or Claude Code. Any of them plays the engineer role.</li>
+<li>A messaging app that supports bots if you want remote control, Telegram being the easy default.</li>
+<li>Deep knowledge of your own operation. You are the domain expert. The AI supplies engineering, you supply judgment about your crop, your machines, and your land.</li>
+<li>Basic willingness to wire up cheap hardware: a small computer, a few sensors, a relay or two. The AI will walk you through it, but your hands do the connecting.</li>
+<li>A safe place to test that is not your live crop or your moving equipment (see Gotchas, this is not optional).</li>
+</ul>
+<h2>Step-by-Step Setup</h2>
+<h3>Step 1: Start With a Diagnosis, Not a Machine</h3>
+<p>Begin with the lowest-risk win, the one the farmer started with: photograph a problem and ask. Snap a picture of a diseased plant, a failing part, a strange reading, and feed it to the AI with a plain description. You get an answer in seconds and you learn how the tool thinks before you ever let it touch anything physical. This builds your trust and your skill at zero risk.</p>
+<h3>Step 2: Pick One Annoying, Reversible Job to Automate</h3>
+<p>Choose a single repetitive task where a mistake is cheap and fixable. Opening greenhouse vents is the farmer's example: if the bot gets it wrong, you walk over and fix it by hand. Avoid anything that moves heavy machinery or steers equipment for now. The goal of this first build is a working loop you control, not the most impressive thing possible.</p>
+<h3>Step 3: Have the AI Design the Wiring and the Code</h3>
+<p>Describe the job to your AI partner in full: what you want to control, what hardware you have or can buy, where it lives, how you want to trigger it. Let ChatGPT or your Claude-side tool lay out the parts list and the wiring, then let Codex or Claude Code write the actual software. Buy the cheap parts, wire them per the instructions, and load the code onto your small computer.</p>
+<h3>Step 4: Put the Controls in Your Pocket</h3>
+<p>Wire the trigger to a messaging-app bot so you can run it from your phone, the way the farmer controls his vents through a chat app. This is the part that makes it feel like magic and, more importantly, keeps you in the loop. You send a command, the thing happens, you can see it happened. No web of dashboards, just a chat you already check.</p>
+<h3>Step 5: Add Eyes Before You Add Hands</h3>
+<p>Bring in data that helps you decide before you build anything that acts on its own. The farmer pulls satellite vegetation data and overlays it on maps of his own fields to see which plots are struggling. Have the AI fetch a public data source, line it up with your operation, and present it plainly. Now you are making better calls with the same hands, which is most of the value with almost none of the risk.</p>
+<h3>Step 6: Only Then Tackle the Big, Risky Builds</h3>
+<p>The GPS auto-steering is the advanced tier, and you earn your way up to it. By now you understand your toolchain, you have shipped a few safe builds, and you trust your own judgment about what the AI gets right and wrong. Use it to understand the expensive proprietary system, then build your cheaper version, and prove it out slowly in a controlled space with a human ready to grab the wheel. Never go straight here from a standing start.</p>
+<h2>Adapting This for Your Business</h2>
+<p>The pattern is not about farming. It is about being the owner of a physical operation who never had an engineer and assumed they had to keep paying the specialist tax.</p>
+<ul>
+<li><strong>Field service and trades.</strong> Build a bot that diagnoses a unit from a photo on site, or a small controller that automates a repetitive rig. The AI teaches you the electronics you never learned.</li>
+<li><strong>Warehouses and fulfillment.</strong> Sensors and simple controllers can track, count, and trigger. You describe the floor, the AI designs the watcher, you stop paying for a sealed proprietary system that does one thing.</li>
+<li><strong>Workshops and small manufacturing.</strong> Custom jigs, monitoring, and the same custom databases the farmer builds to run his operation. Your shop knowledge plus AI engineering beats a consultant's invoice.</li>
+<li><strong>Anyone quoted a five-figure price for &quot;our system.&quot;</strong> That quote is mostly the engineering you were told you could not do. Have the AI teach you how it works first. Often you can build it for a fraction, the way he did with GPS steering.</li>
+</ul>
+<h2>Gotchas and Tips</h2>
+<ul>
+<li><strong>Anything that moves machinery, controls climate, or steers equipment can hurt people or destroy a crop. Treat it that way.</strong> This is the whole reason this playbook is rated Advanced. A bug in a bookkeeping agent miscategorizes a lunch. A bug in a vent controller cooks a greenhouse, and a bug in auto-steering puts a tractor where a person is standing. The risk is physical and it is real.</li>
+<li><strong>Prototype in a sandbox, never on the live thing.</strong> Test on a bench, a single spare unit, a fenced-off patch, anything that is not your full crop or a machine near people. Prove the logic before it touches the real world.</li>
+<li><strong>Keep a human in the loop and add hard manual overrides.</strong> Every physical build needs a real switch, a kill button, a way to stop it with your hand that does not depend on the software being awake. The chat-bot control is good partly because you are pressing the button.</li>
+<li><strong>Never let the agent control physical equipment unsupervised.</strong> On-demand engineering is the win. Autonomous control of moving hardware is a different, far more dangerous thing. Keep a person watching anything that moves until you have months of proof, and even then, override always wins.</li>
+<li><strong>The AI will be confidently wrong about hardware.</strong> It will give you a wiring diagram that is subtly off or a part that does not exist in your region. You are the check. Verify against the actual datasheet and your own eyes before you power anything on.</li>
+<li><strong>You are now maintaining a system, not buying a service.</strong> When you build it yourself, you own it when it breaks at the worst possible moment. Build simply, label everything, keep notes the AI can read back later, and know how to run that part of the operation by hand.</li>
+</ul>
+<h2>What This Replaces</h2>
+<p>Before this, automating a physical operation meant one of two things, and both were closed to a rural one-person outfit:</p>
+<ul>
+<li><strong>Expensive proprietary machinery</strong>, the sealed vendor box priced for the engineering you could not do, often many thousands of dollars per system, with you locked into their support and their markup forever.</li>
+<li><strong>A specialized engineer on staff</strong>, the scarce, costly hire that a farm in the countryside or a small shop on the edge of town has no realistic way to attract or pay.</li>
+</ul>
+<p>After this, an AI coding partner plays that engineer's role on demand for a flat monthly fee, and the cheap hardware that was always available finally becomes useful in your hands. A self-taught broccoli farmer with no engineering background now diagnoses crops from a photo, runs his greenhouse from his phone, reads satellite data over his own fields, and built his own GPS steering for a fraction of the commercial price. The larger point is the one worth sitting with: as AI spreads, even farmers in the most rural corners are gaining engineering skills that used to be completely out of reach. If he can, so can you.</p>
+<hr>
+<h2>Keep Reading</h2>
+<ul>
+<li><strong><a href="/playbooks/company-research-brief-agent/">Skip the Research VA: Turn Any Company URL Into a Battle Plan</a></strong>: the same be-your-own-specialist instinct, pointed at research work instead of field work.</li>
+<li><strong><a href="/playbooks/photo-to-shopify-listing/">Turn a Phone Photo Into a Live Shopify Product in Minutes</a></strong>: another snap-a-photo-and-let-AI-do-the-rest build, for owners who would rather work than fiddle with software.</li>
+<li><strong><a href="/playbooks/affiliate-commerce-operator/">The Affiliate Marketing Intern That Never Sleeps</a></strong>: replace another specialist you were told you had to hire, this time on the marketing side.</li>
+</ul>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators</p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

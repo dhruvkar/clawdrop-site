@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Manufacturing AI Company Plugged Claude Into Fusion 360. Repetitive CAD Work Just Became a Prompt. — ClawDrop</title>
+  <meta name="description" content="A San Diego manufacturing software company wired Claude Code into Autodesk Fusion 360, and the hours of repetitive solid modeling that shops pay drafters for started happening by typed request.">
+  <meta property="og:title" content="A Manufacturing AI Company Plugged Claude Into Fusion 360. Repetitive CAD Work Just Became a Prompt. — ClawDrop">
+  <meta property="og:description" content="A San Diego manufacturing software company wired Claude Code into Autodesk Fusion 360, and the hours of repetitive solid modeling that shops pay drafters for started happening by typed request.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/claude-fusion-cad-automation/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="A Manufacturing AI Company Plugged Claude Into Fusion 360. Repetitive CAD Work Just Became a Prompt. — ClawDrop">
+  <meta name="twitter:description" content="A San Diego manufacturing software company wired Claude Code into Autodesk Fusion 360, and the hours of repetitive solid modeling that shops pay drafters for started happening by typed request.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/claude-fusion-cad-automation/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+    .logo:hover { color: var(--ink); }
+    .logo-img { width: 32px; height: 32px; border-radius: 7px; display: block; flex-shrink: 0; }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 380px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo"><img src="/assets/clawdrop-logo.png" alt="ClawDrop" class="logo-img">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#about" class="nav-link">About</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">July 13, 2026</div>
+    <h1>A Manufacturing AI Company Plugged Claude Into Fusion 360. Repetitive CAD Work Just Became a Prompt.</h1>
+    <p class="post-description">A San Diego manufacturing software company wired Claude Code into Autodesk Fusion 360, and the hours of repetitive solid modeling that shops pay drafters for started happening by typed request.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Intermediate</strong></span>
+      <span class="meta-badge">💰 <strong>The Fusion 360 license your shop already pays for (there&#39;s a free hobbyist tier), a Claude subscription at $20 to $100 a month, and a free open-source connector.</strong></span>
+      <span class="meta-badge">⏱ <strong>An afternoon to wire up, a week or two of supervised use before you trust it.</strong></span>
+      <span class="meta-badge">👤 <strong>WeCr8 Solutions (YouTube)</strong></span>
+      <a href="https://www.youtube.com/watch?v=h44_8k16Bp0" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-claude-code"><strong>Claude Code</strong></a>: an AI agent that normally writes software. Here it's been handed the controls to a CAD program instead. You describe the part or the change in plain English, it does the clicking.</li>
+<li><a href="#aff-fusion-360"><strong>Autodesk Fusion 360</strong></a>: the CAD software half the small shops and product design firms in America already run. It's where parts get sketched, modeled, and prepped for the machine. If your shop designs anything, there's a decent chance this is already on a computer in the front office.</li>
+<li><a href="#aff-fusion-mcp-bridge"><strong>Fusion 360 MCP connector</strong></a>: a free, open-source bridge that lets Claude operate Fusion. Think of it as a universal adapter: one end plugs into the AI, the other into your CAD program. There are at least half a dozen of these on GitHub right now, all free.</li>
+</ul>
+<h2>The Story</h2>
+<p>WeCr8 Solutions is not a YouTube tech-hype channel. It's a San Diego company that builds AI products for manufacturing: shop-floor software that replaces paper travelers in CNC shops, tool crib tracking, free G-code training for machinists. These are people who spend their days around job shops, not startup demo days.</p>
+<p>In July 2026 they posted a demo with a title that doesn't hedge: &quot;Claude Code + Autodesk Fusion MCP Changes CAD Forever.&quot; In it, they connect Claude Code directly to Autodesk Fusion through something called MCP, and show AI automating CAD workflows, accelerating solid modeling, and knocking out the repetitive engineering tasks that eat a designer's week. Their own framing: &quot;This is just the beginning of how AI is changing manufacturing, product development, and mechanical engineering.&quot;</p>
+<p>Here's the plain-English version of what MCP is, because you'll see the acronym everywhere soon. It's a standard plug that lets an AI agent operate other software. The same trick that lets Claude read your email or update your CRM also lets it drive a CAD program. Someone writes a small connector once, and suddenly the AI can push the buttons.</p>
+<p>For Fusion 360, those connectors already exist, they're open source, and they're free. Different builders have published bridges that let Claude create sketches, extrude them into solids, cut holes, add fillets and chamfers, change parameters, assemble multi-part designs, take a screenshot of the viewport to check its own work, and export finished files. One project's README says it best: &quot;We taught Claude how to drive Fusion 360. Sketches, extrusions, assemblies, exports, all through natural language.&quot;</p>
+<p>So this isn't one company's party trick. It's a demo of a capability anyone with Fusion and a Claude subscription can set up this week.</p>
+<h2>How It Works</h2>
+<p>Three pieces, all on one computer:</p>
+<pre><code>YOU (plain English request)
+      |
+      v
+Claude Code (&quot;the agent&quot;)
+      |
+      v
+Free connector (the adapter)
+      |
+      v
+A small add-in running inside Fusion 360
+      |
+      v
+Your actual CAD model, updating on screen
+</code></pre>
+<p>You keep Fusion open with a design loaded. The add-in sits inside Fusion and listens for instructions. Claude sends them, one modeling operation at a time, and the model updates in front of you like a ghost is driving the mouse. Some connectors also let Claude grab a screenshot of the 3D view, so it can look at what it just built and fix its own mistakes.</p>
+<p>Then the request itself is just a sentence. &quot;Make a mounting plate, 100 by 60 millimeters, 5 thick, four clearance holes for M6 bolts on an 80 millimeter pattern, round the corners.&quot; Sketch, extrude, holes, fillets. Work that's fifteen minutes of clicking becomes a sentence and a review.</p>
+<p>But the single part is the demo, not the payoff. The payoff is the repetitive stuff:</p>
+<ul>
+<li><strong>Variants.</strong> The customer wants the same bracket in 12 sizes. That's an afternoon of parametric grunt work, or it's one instruction and a coffee.</li>
+<li><strong>Revisions.</strong> &quot;Change the bore to 10 millimeters across all the configurations and re-export everything.&quot;</li>
+<li><strong>Exports.</strong> Generating STEP or STL files for every part in a project, named correctly, every time, without anyone sighing.</li>
+<li><strong>Cleanup.</strong> Renaming components, organizing timelines, standardizing parameters across a messy folder of inherited files.</li>
+</ul>
+<p>Nobody became an engineer to do any of that. It's exactly the work shops hire junior drafters for.</p>
+<h2>The Replacement Math</h2>
+<p>A junior CAD drafter costs $45,000 to $60,000 a year plus benefits. Outsourced drafting services bill $30 to $75 an hour. And an honest look at where that money goes shows most of it isn't design. It's variants, revisions, exports, and file housekeeping. Click-labor.</p>
+<p>If an agent absorbs the repetitive parametric slab, the math changes in two directions. A one-person product design shop stops farming out drafting at $50 an hour. A five-person engineering firm stops burning its senior engineer's $100-plus-an-hour attention on work a sentence can trigger. Even reclaiming five hours a week of drafting time is real money: at outsourced rates, that's roughly $12,000 a year, for a setup that costs a Claude subscription and an afternoon.</p>
+<p>This is also the first time this newsletter has covered manufacturing and CAD, and that's the bigger signal. For two years, AI automation has eaten paperwork businesses: bookkeeping, email, marketing, CRMs. This is it reaching the software that makes physical parts. The shops that learn to supervise an agent in their CAD seat first will quote faster and iterate cheaper than the ones that wait.</p>
+<h2>What It Won't Do</h2>
+<p>It will not replace your engineer, and anyone who tells you otherwise is selling something.</p>
+<p>Language models are genuinely mediocre at spatial reasoning. The builder of one Fusion connector admits the hard part &quot;wasn't the code, it was getting Claude to understand where things go in 3D space.&quot; Expect the agent to occasionally put a hole on the wrong face or extrude in the wrong direction, which is why the good connectors let it screenshot the model and check itself.</p>
+<p>So treat it like a fast, tireless junior drafter with no shame about being corrected. Everything it produces gets reviewed by a human before it goes anywhere near a machine or a customer. Tolerances, fits, material choices, and &quot;will this actually survive in the field&quot; remain your engineer's job. The agent's job is to make sure your engineer spends time on that, instead of on export dialogs.</p>
+<p>One more honest note: the demo video itself is a teaser, not a tutorial. The setup path runs through the open-source connectors, which involve installing an add-in and pointing Claude at it. It's documented and free, but it's a &quot;comfortable following a README&quot; afternoon, not a one-click install. If nobody in your shop is that person, this is a few hundred dollars of one-time help from any local techie, not a development project.</p>
+<h2>Who Should Steal This</h2>
+<p>Machine shops and fabricators that already run Fusion 360 and quote custom work, because faster modeling means faster quotes. Product design firms and solo industrial designers drowning in client revision cycles. Engineering firms paying drafting services by the hour for variant and export work. And any owner whose senior engineer keeps saying &quot;I spent all day doing CAD monkey work,&quot; because that sentence is now a line item you can delete.</p>
+<hr>
+<h2>Keep Reading</h2>
+<ul>
+<li><strong><a href="/playbooks/greenhouse-ai-with-safety-rails/">Let an AI Run Your Equipment Without Letting It Break Anything</a></strong>: the same &quot;agent drives real equipment, humans set the guardrails&quot; pattern, applied to physical hardware.</li>
+<li><strong><a href="/playbooks/hvac-estimate-autopilot/">This HVAC Guy Spent Friday Night Setting Up AI. Now His Estimates Write Themselves.</a></strong>: another trades business turning its most repetitive technical chore into a prompt.</li>
+<li><strong><a href="/playbooks/contractor-bid-leveler/">He Gave Claude 3 Contractor Bids. It Found $1.4M Worth of Scope Gaps.</a></strong>: AI reading dense technical documents so a builder's senior people don't have to.</li>
+</ul>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators</p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

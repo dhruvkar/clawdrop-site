@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Customer Service Rep That Lives in Your Messenger — ClawDrop</title>
+  <meta name="description" content="Build a Facebook Messenger order bot with n8n that auto-replies to your Page, answers with prices and product photos right in the chat, and takes orders 24/7.">
+  <meta property="og:title" content="A Customer Service Rep That Lives in Your Messenger — ClawDrop">
+  <meta property="og:description" content="Build a Facebook Messenger order bot with n8n that auto-replies to your Page, answers with prices and product photos right in the chat, and takes orders 24/7.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/messenger-order-bot/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="A Customer Service Rep That Lives in Your Messenger — ClawDrop">
+  <meta name="twitter:description" content="Build a Facebook Messenger order bot with n8n that auto-replies to your Page, answers with prices and product photos right in the chat, and takes orders 24/7.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/messenger-order-bot/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+    .logo:hover { color: var(--ink); }
+    .logo-img { width: 32px; height: 32px; border-radius: 7px; display: block; flex-shrink: 0; }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 14px; font-size: 0.82rem; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 380px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo"><img src="/assets/clawdrop-logo.png" alt="ClawDrop" class="logo-img">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/#about" class="nav-link">About</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">June 9, 2026</div>
+    <h1>A Customer Service Rep That Lives in Your Messenger</h1>
+    <p class="post-description">Build a Facebook Messenger order bot with n8n that auto-replies to your Page, answers with prices and product photos right in the chat, and takes orders 24/7.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Intermediate</strong></span>
+      <span class="meta-badge">💰 <strong>n8n (self-host free, or low monthly on n8n Cloud) plus Claude usage for the replies. Facebook Page and Meta developer access are free.</strong></span>
+      <span class="meta-badge">⏱ <strong>A weekend</strong></span>
+      <span class="meta-badge">👤 <strong>Minimum-Acadia-2542 (r/n8n)</strong></span>
+      <a href="https://www.reddit.com/r/n8n/comments/1tw3vmn/n8n_how_to_send_image_not_link_in_facebook/" target="_blank" class="meta-badge">🔗 <strong>Original Post ↗</strong></a>
+    </div>
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-n8n"><strong>n8n</strong></a>: the engine that connects your Facebook Page to everything else. It reads each incoming message, decides what to do, and sends the reply.</li>
+<li><a href="#aff-facebook"><strong>Facebook</strong></a>: your Page is where customers already message you. This bot lives inside that same inbox.</li>
+<li><a href="#aff-claude"><strong>Claude</strong></a>: reads what the customer typed, figures out what they want, and writes a reply that sounds like a person, not a phone tree.</li>
+<li>A Facebook Page you own, and a free Meta developer account so n8n is allowed to send messages on the Page's behalf.</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>A bot that answers your Page's messages the second they arrive, day or night, and shows customers what they asked for right in the chat.</p>
+<p>Here is the part most people get wrong. When someone messages your Page asking for your price list, the lazy version of a bot sends back a link. The customer has to tap it, wait for a browser to load, and squint at a PDF. Half of them give up. The version you are building sends the actual photo of your price list straight into the conversation. It appears in the chat like a friend texted it to them. No link, no tab, no friction.</p>
+<p>The same bot answers the common questions, &quot;are you open today,&quot; &quot;do you deliver,&quot; &quot;how much is the large one,&quot; and starts taking the order. It does this all night while you sleep. When a real human question comes in, a complaint, a refund, something weird, it steps aside and hands the conversation to you cleanly.</p>
+<p>This started as a question on the n8n forum from a builder trying to send a real image instead of a link inside Messenger. It is an achievable weekend build, not a product you buy. You are wiring up free and cheap tools yourself. The payoff is a front-desk person who works 24 hours a day inside the inbox you already check.</p>
+<h2>Why This Works</h2>
+<p>Most of the messages your Page gets are the same five questions. Prices, hours, &quot;is this in stock,&quot; &quot;do you deliver,&quot; and &quot;can I order.&quot; A person answering those is doing work a machine does better, because the machine never sleeps and never gets to message number forty and answers slower.</p>
+<p>Speed is the whole game on Messenger. A customer who asks &quot;how much&quot; at 9pm and hears nothing back has already messaged your competitor by 9:05. Answering in two seconds, with the price and the photo right there, is the difference between a sale and a missed one. You cannot staff that. A bot can.</p>
+<p>The image detail matters more than it sounds. Sending a link asks the customer to do work. Sending the actual photo means they see your menu, your products, your prices without lifting a finger. That small thing is the difference between a bot that feels helpful and one that feels like being put on hold.</p>
+<h2>Prerequisites</h2>
+<ul>
+<li>A Facebook Page for your business, with you as an admin.</li>
+<li>A free Meta developer account and a basic app set up to get a Page access token (this is what lets n8n send messages as your Page).</li>
+<li>An n8n account. Self-hosting is free; n8n Cloud is a low monthly fee if you do not want to run a server.</li>
+<li>A Claude API key for writing the replies. Any capable model works, but Claude is good at sounding human and following your rules.</li>
+<li>Your product or price images saved as normal photos (JPG or PNG), hosted somewhere public over HTTPS, or ready to upload to Facebook directly. More on that in Step 4.</li>
+</ul>
+<h2>Step-by-Step Setup</h2>
+<h3>Step 1: Connect Your Page to n8n</h3>
+<p>In your Meta developer account, create an app and connect it to your Facebook Page. Subscribe the app to messaging events so that every time someone messages your Page, Facebook pings n8n. Grab the Page access token. This token is what proves to Facebook that n8n is allowed to read and reply on your Page. Keep it somewhere safe and never paste it in public.</p>
+<p>In n8n, set up a webhook node that catches those incoming messages. When this works, every message a customer sends your Page lands in n8n within a second.</p>
+<h3>Step 2: Let Claude Read the Message and Decide What to Do</h3>
+<p>Add a Claude node. Its job is to read what the customer typed and sort it into a bucket: are they asking for the price list, asking a simple question, placing an order, or saying something that needs a human.</p>
+<p>Give Claude a short, plain set of instructions. Tell it your business, your hours, your common answers, and the rule that anything about a complaint, a refund, or a problem gets handed to a person. Have it output a clear decision, like &quot;send price list&quot; or &quot;answer question&quot; or &quot;hand to human,&quot; plus the reply text when there is one.</p>
+<p>This is the brain. Keep it focused. The more you ask it to handle, the more ways it wanders off. Start with the handful of things that cover most of your messages.</p>
+<h3>Step 3: Send Text Replies Back</h3>
+<p>For a normal question, this is easy. Take the reply Claude wrote and send it back through Facebook's Send API using an HTTP Request node in n8n. You POST the customer's ID and your message text to the Graph API messages endpoint, with your Page token. The reply shows up in their chat. Done.</p>
+<h3>Step 4: Send the Actual Image, Not a Link</h3>
+<p>This is the part the original builder got stuck on, and it is the reason this playbook exists. When Claude decides to send the price list, do not send a URL in the text. Facebook will not turn that into a picture. It will sit there as a sad blue link.</p>
+<p>Messenger sends real images through an &quot;attachment&quot; payload, not as text. You have two ways to do it.</p>
+<p>The simple way: send the attachment with a public image URL. Your message payload uses <code>attachment</code> with <code>type: image</code> and a <code>payload.url</code> pointing at your image. The catch is that Facebook's servers have to be able to reach that URL publicly over HTTPS. If your price list lives behind a login or on your private drive, this will not work.</p>
+<p>The better way, and the one to use for images you send over and over: upload the image to Facebook once and reuse it. You make a first HTTP Request to Facebook's attachment upload endpoint, passing your image and marking it reusable. Facebook hands you back an <code>attachment_id</code>. From then on, you send the image by referencing that ID instead of a URL. It is faster, it does not depend on your image staying publicly reachable, and you only re-upload when the price list itself changes.</p>
+<p>Store that <code>attachment_id</code> somewhere n8n can grab it, a static data node or a small database, so the bot reaches for it instantly every time someone asks for prices. Upload once, send forever.</p>
+<h3>Step 5: Take the Order and Log It</h3>
+<p>When Claude decides the customer is ordering, have it pull out the details, what they want, how many, any notes, and write them into a Google Sheet or your order system through another n8n node. Send the customer a confirmation message back in the chat. Now the order is captured and you have a record, even if it came in at 2am.</p>
+<h3>Step 6: Hand Off to a Human Cleanly</h3>
+<p>When Claude flags a message as one for a person, the bot should stop replying and tell the customer a human will follow up, then notify you (a quick message to your phone or email through n8n). Do not let the bot keep talking over a real problem. The handoff is what keeps the whole thing from feeling robotic. Test this path hard. It is the one that protects your reputation.</p>
+<h3>Step 7: Test on Yourself First</h3>
+<p>Message your own Page from another account. Ask for the price list and confirm the actual image lands, not a link. Ask a normal question. Place a fake order. Then say something the bot should not handle and confirm it backs off. Fix the script, repeat. Only flip it live for real customers once all four paths work cleanly.</p>
+<h2>Adapting This for Your Business</h2>
+<p>The build is the same. You change what the bot knows and which image it sends.</p>
+<ul>
+<li><strong>Restaurant or takeaway.</strong> The image is your menu. The bot answers &quot;are you open,&quot; &quot;do you deliver,&quot; and &quot;what's the special,&quot; then takes the order and drops it in a sheet your kitchen watches.</li>
+<li><strong>Retail shop.</strong> The image is your price list or a product photo. The bot answers stock and price questions and starts the order or reservation.</li>
+<li><strong>Salon or barber.</strong> The image is your services-and-prices card. The bot answers &quot;how much for a cut and color&quot; and points serious bookings to your calendar.</li>
+<li><strong>Bakery or home-kitchen seller.</strong> The image is your weekly offerings. The bot sends the photo, takes custom-order details, and confirms pickup.</li>
+<li><strong>Anyone with a catalog.</strong> Whatever you would normally screenshot and send by hand a dozen times a day, the bot sends instantly, every time.</li>
+</ul>
+<h2>Gotchas and Tips</h2>
+<ul>
+<li><strong>Mind Meta's 24-hour window.</strong> Facebook lets you reply freely only within 24 hours of a customer's last message. After that, you cannot just message them whenever you want. To send certain follow-ups outside the window you need an approved message tag, and the rules are strict. Build for replying inside the conversation, not for blasting people later.</li>
+<li><strong>The Page access token is the keystone.</strong> If sends fail, it is almost always the token or the app's permissions. The app needs permission to send Messenger messages on the Page, and the token has to be the Page token, not your personal one. Get this right before blaming anything else.</li>
+<li><strong>Public images must really be public.</strong> If you go the URL route in Step 4, Facebook's servers must reach that image over HTTPS with no login. If in doubt, use the upload-and-reuse method instead.</li>
+<li><strong>Do not over-automate the hard stuff.</strong> Complaints, refunds, and angry customers should go straight to a human. A bot that argues with an upset customer at midnight does more damage than no bot at all. When in doubt, hand off.</li>
+<li><strong>Make the handoff feel human.</strong> Tell the customer plainly that a person will follow up, and make sure you actually get the alert. A silent dead end is worse than the bot saying &quot;let me get someone.&quot;</li>
+<li><strong>Keep the images current.</strong> When prices change, re-upload the image and update the stored <code>attachment_id</code>. A bot confidently sending last month's prices is a problem you created.</li>
+<li><strong>Start small.</strong> Teach it the five questions you answer most. Add more only once those are solid.</li>
+</ul>
+<h2>What This Replaces</h2>
+<p>Before this, your Page inbox was a job. Someone, often you, after the shop closed, typing the same answers, screenshotting the same price list, and re-sending it for the hundredth time. The messages that came in at 11pm sat unanswered until morning, and some of those customers were gone by then. The only way to cover it was to pay a part-time person to sit on the inbox, and even they could not be there at 2am.</p>
+<p>After this, the inbox answers itself. The common questions get handled in two seconds with the photo right there in the chat. Orders get captured around the clock and logged where you can see them. The late-night message that used to be a missed sale is now a confirmed order waiting for you in the morning. You only get pulled in for the things that actually need you, the real questions and the real problems.</p>
+<p>The part-time customer-service hire was answering questions a machine answers better. Now you point the machine at your inbox and spend your time on the parts of the business only you can do.</p>
+<hr>
+<h2>Keep Reading</h2>
+<ul>
+<li><strong><a href="/playbooks/whatsapp-appointment-faq-agent/">Put an Agent on Your WhatsApp to Book Appointments and Answer the Same 20 Questions</a></strong>: the same idea on WhatsApp, with a clean human handoff after hours.</li>
+<li><strong><a href="/playbooks/ai-front-desk/">The Four-Piece AI Front Desk Every SMB Should Have Running by Friday</a></strong>: where the Messenger bot fits in a full front desk that also answers your phone.</li>
+<li><strong><a href="/playbooks/life-insurance-2-minute-follow-up/">His Life Insurance Agency Texts and Calls New Leads in 2 Minutes. Automatically.</a></strong>: proof that the business that replies first usually wins the customer.</li>
+</ul>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Tuesday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators</p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>
