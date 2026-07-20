@@ -3,6 +3,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("admin");
   eleventyConfig.addPassthroughCopy("submit");
   eleventyConfig.addPassthroughCopy("thank-you");
+  eleventyConfig.addPassthroughCopy("privacy");
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy("robots.txt");
   eleventyConfig.addPassthroughCopy("llms.txt");

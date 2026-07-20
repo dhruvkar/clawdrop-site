@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — ClawDrop</title>
+    <meta name="description" content="Privacy Policy for ClawDrop and the applications operated by Wints LLC, including apps built on the LinkedIn, Google, and Meta APIs.">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fdfaf3;
+            --paper: #ffffff;
+            --ink: #15243d;
+            --ink-soft: #4a5773;
+            --ink-mute: #8b95a8;
+            --rule: #ece5d4;
+            --accent: #d8552c;
+            --accent-hover: #c04a24;
+            --warm: #f5ecd7;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--ink);
+            min-height: 100vh;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+        a { color: var(--accent); }
+        a:hover { color: var(--accent-hover); }
+
+        .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+        .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+        nav { padding: 22px 0; border-bottom: 1px solid var(--rule); }
+        nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+        .logo-img { width: 32px; height: 32px; border-radius: 7px; display: block; flex-shrink: 0; }
+        .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; }
+        .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; }
+        .nav-link:hover { color: var(--accent); }
+        .nav-cta { padding: 10px 20px; background: var(--ink); color: white; border-radius: 100px; font-weight: 600; font-size: 0.85rem; text-decoration: none; }
+        .nav-cta:hover { background: var(--accent); color: white; }
+
+        .doc { padding: 56px 0 20px; }
+        .doc h1 { font-family: 'Fraunces', serif; font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 700; letter-spacing: -0.025em; line-height: 1.08; margin-bottom: 12px; color: var(--ink); }
+        .doc .meta { font-size: 0.9rem; color: var(--ink-mute); margin-bottom: 36px; }
+        .doc .meta strong { color: var(--ink-soft); font-weight: 600; }
+        .doc .lead { font-family: 'Fraunces', serif; font-size: 1.12rem; color: var(--ink-soft); line-height: 1.6; margin-bottom: 40px; }
+
+        .doc h2 { font-family: 'Fraunces', serif; font-size: 1.4rem; font-weight: 600; letter-spacing: -0.015em; color: var(--ink); margin: 40px 0 14px; padding-top: 8px; }
+        .doc h3 { font-size: 1.02rem; font-weight: 700; color: var(--ink); margin: 24px 0 8px; }
+        .doc p { color: var(--ink-soft); margin-bottom: 14px; }
+        .doc ul { margin: 0 0 16px 0; padding-left: 22px; color: var(--ink-soft); }
+        .doc li { margin-bottom: 8px; }
+        .doc strong { color: var(--ink); font-weight: 600; }
+
+        .callout { background: var(--warm); border: 1px solid var(--rule); border-radius: 12px; padding: 20px 22px; margin: 24px 0; }
+        .callout p { margin-bottom: 0; color: var(--ink-soft); font-size: 0.95rem; }
+        .callout p + p { margin-top: 12px; }
+
+        .toc { background: var(--paper); border: 1px solid var(--rule); border-radius: 12px; padding: 22px 26px; margin-bottom: 44px; }
+        .toc p { font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; color: var(--ink-mute); margin-bottom: 12px; }
+        .toc ol { margin: 0; padding-left: 20px; columns: 2; column-gap: 28px; font-size: 0.92rem; }
+        .toc li { margin-bottom: 6px; }
+        .toc a { color: var(--ink-soft); text-decoration: none; }
+        .toc a:hover { color: var(--accent); }
+
+        footer { text-align: center; padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 56px; font-size: 0.85rem; color: var(--ink-mute); }
+        footer a { color: var(--ink-soft); text-decoration: none; }
+        footer a:hover { color: var(--accent); }
+
+        @media (max-width: 600px) {
+            .doc { padding: 40px 0 16px; }
+            .toc ol { columns: 1; }
+            .nav-links { gap: 14px; font-size: 0.82rem; }
+            .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+            .logo { font-size: 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container-wide">
+            <a href="/" class="logo"><img src="/assets/clawdrop-logo.png" alt="ClawDrop" class="logo-img">ClawDrop</a>
+            <div class="nav-links">
+                <a href="/playbooks/" class="nav-link">Playbooks</a>
+                <a href="/learn/" class="nav-link">Learn</a>
+                <a href="/#subscribe" class="nav-cta">Subscribe</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <article class="doc">
+            <h1>Privacy Policy</h1>
+            <p class="meta"><strong>Last updated:</strong> July 20, 2026 &nbsp;·&nbsp; <strong>Effective:</strong> July 20, 2026</p>
+
+            <p class="lead">
+                This Privacy Policy explains how Wints LLC collects, uses, shares, and protects your
+                information when you use the ClawDrop website and any applications, integrations, or
+                services we operate — including apps built on third-party platform APIs such as LinkedIn,
+                Google, and Meta (Facebook and Instagram).
+            </p>
+
+            <div class="toc">
+                <p>Contents</p>
+                <ol>
+                    <li><a href="#who-we-are">Who we are</a></li>
+                    <li><a href="#scope">Scope of this policy</a></li>
+                    <li><a href="#information-we-collect">Information we collect</a></li>
+                    <li><a href="#platform-data">Data from connected platforms</a></li>
+                    <li><a href="#how-we-use">How we use information</a></li>
+                    <li><a href="#google-limited-use">Google user data &amp; Limited Use</a></li>
+                    <li><a href="#how-we-share">How we share information</a></li>
+                    <li><a href="#retention">Data retention</a></li>
+                    <li><a href="#security">How we protect data</a></li>
+                    <li><a href="#your-rights">Your rights &amp; choices</a></li>
+                    <li><a href="#revoke">Revoking access &amp; deleting data</a></li>
+                    <li><a href="#cookies">Cookies &amp; analytics</a></li>
+                    <li><a href="#children">Children's privacy</a></li>
+                    <li><a href="#international">International users</a></li>
+                    <li><a href="#changes">Changes to this policy</a></li>
+                    <li><a href="#contact">Contact us</a></li>
+                </ol>
+            </div>
+
+            <h2 id="who-we-are">1. Who we are</h2>
+            <p>
+                ClawDrop is operated by <strong>Wints LLC</strong> ("we," "us," or "our"), a company based in
+                the United States. For the purposes of applicable data protection laws, Wints LLC is the
+                data controller responsible for the personal information described in this policy.
+            </p>
+            <p>
+                If you have any questions about this policy or how your data is handled, you can reach us at
+                <a href="mailto:dhruv@clawdrop.org">dhruv@clawdrop.org</a>.
+            </p>
+
+            <h2 id="scope">2. Scope of this policy</h2>
+            <p>This policy applies to:</p>
+            <ul>
+                <li>The <strong>clawdrop.org</strong> website and its subpages;</li>
+                <li>The ClawDrop newsletter and any email communications you subscribe to;</li>
+                <li>Any <strong>applications, tools, or integrations</strong> we develop and operate that connect
+                    to third-party platform APIs — including, but not limited to, apps built on the
+                    <strong>LinkedIn</strong>, <strong>Google</strong>, and <strong>Meta</strong> (Facebook and
+                    Instagram) platforms — as well as any other third-party service you choose to connect.</li>
+            </ul>
+            <p>
+                When you authorize one of our applications to connect to a third-party platform, that platform's
+                own privacy policy and terms also apply to the data it holds. This policy governs what
+                <em>we</em> do with information once it reaches us.
+            </p>
+
+            <h2 id="information-we-collect">3. Information we collect</h2>
+            <h3>Information you provide directly</h3>
+            <ul>
+                <li><strong>Contact details</strong> — such as your name and email address when you subscribe to
+                    the newsletter, submit a build, or contact us.</li>
+                <li><strong>Content you send us</strong> — messages, submissions, and any information you include
+                    when you communicate with us.</li>
+            </ul>
+            <h3>Information collected automatically</h3>
+            <ul>
+                <li><strong>Usage and device data</strong> — such as IP address, browser type, pages viewed,
+                    referring pages, and timestamps, collected through standard web logs and privacy-respecting
+                    analytics.</li>
+                <li><strong>Cookies and similar technologies</strong> — see <a href="#cookies">Cookies &amp; analytics</a>.</li>
+            </ul>
+            <h3>Information from connected platforms</h3>
+            <p>
+                When you authorize one of our applications through a third-party platform's login or OAuth flow,
+                we receive information from that platform as described in the next section.
+            </p>
+
+            <h2 id="platform-data">4. Data from connected platforms (LinkedIn, Google, Meta &amp; others)</h2>
+            <p>
+                Our applications may request access to specific data from platforms you connect. We only request
+                the <strong>minimum scopes necessary</strong> to provide the feature you asked for, and only after
+                you grant explicit consent through the platform's own authorization screen. Depending on the app
+                and the permissions you approve, this may include:
+            </p>
+            <ul>
+                <li><strong>LinkedIn</strong> — basic profile information (such as name, headline, and profile
+                    picture), your email address, and, where you authorize it, the ability to read or publish
+                    content on your behalf. We use LinkedIn data solely to provide the requested functionality and
+                    in compliance with the
+                    <a href="https://legal.linkedin.com/api-terms-of-use" target="_blank" rel="noopener">LinkedIn API Terms of Use</a>.</li>
+                <li><strong>Google</strong> — profile and email information, and, where you authorize it, access to
+                    specific Google services (such as Gmail, Drive, Calendar, or YouTube) limited to the scopes you
+                    approve. See <a href="#google-limited-use">Google user data &amp; Limited Use</a> below.</li>
+                <li><strong>Meta (Facebook and Instagram)</strong> — basic profile information and, where you
+                    authorize it, permissions to read or publish content, in compliance with the
+                    <a href="https://developers.facebook.com/terms/" target="_blank" rel="noopener">Meta Platform Terms</a>.</li>
+                <li><strong>Other third-party services</strong> — any additional platform you choose to connect,
+                    limited to the scopes you approve.</li>
+            </ul>
+            <div class="callout">
+                <p>
+                    We <strong>do not</strong> sell your platform data, use it for advertising, or share it with
+                    third parties for their own purposes. We use it only to operate the features you requested,
+                    and we honor each platform's developer policies and API terms.
+                </p>
+            </div>
+
+            <h2 id="how-we-use">5. How we use information</h2>
+            <p>We use the information we collect to:</p>
+            <ul>
+                <li>Provide, operate, and maintain our website and applications;</li>
+                <li>Deliver the specific features you authorize (for example, reading or publishing content on a
+                    connected platform at your request);</li>
+                <li>Send the newsletter and respond to your messages;</li>
+                <li>Monitor, secure, debug, and improve our services;</li>
+                <li>Comply with legal obligations and enforce our terms.</li>
+            </ul>
+            <p>
+                We do <strong>not</strong> sell your personal information, and we do not use data obtained from
+                connected platform APIs to train generalized machine-learning or AI models.
+            </p>
+
+            <h2 id="google-limited-use">6. Google user data &amp; Limited Use</h2>
+            <p>
+                Where our applications access data from Google APIs, our use and transfer of information received
+                from Google APIs adheres to the
+                <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a>,
+                including its <strong>Limited Use</strong> requirements. Specifically:
+            </p>
+            <ul>
+                <li>We only use Google user data to provide or improve features that are visible and requested by you;</li>
+                <li>We do not transfer or sell Google user data for advertising, marketing, or other unrelated purposes;</li>
+                <li>We do not use Google user data to train generalized AI/ML models;</li>
+                <li>We do not allow humans to read Google user data unless we have your consent for specific
+                    messages, it is necessary for security or to comply with the law, or the data has been aggregated
+                    and anonymized.</li>
+            </ul>
+
+            <h2 id="how-we-share">7. How we share information</h2>
+            <p>We share personal information only in these limited circumstances:</p>
+            <ul>
+                <li><strong>Service providers</strong> — trusted vendors that host our infrastructure, deliver email,
+                    or provide analytics, acting on our instructions and bound by confidentiality obligations
+                    (for example, our website host and email delivery provider).</li>
+                <li><strong>Legal and safety</strong> — when required by law, legal process, or to protect the rights,
+                    property, or safety of our users, the public, or us.</li>
+                <li><strong>Business transfers</strong> — in connection with a merger, acquisition, or sale of assets,
+                    subject to this policy.</li>
+                <li><strong>With your direction</strong> — when you explicitly ask us to share information, such as
+                    publishing content to a platform you connected.</li>
+            </ul>
+            <p>We do not sell your personal information or platform data to third parties.</p>
+
+            <h2 id="retention">8. Data retention</h2>
+            <p>
+                We retain personal information only for as long as necessary to provide our services, fulfill the
+                purposes described in this policy, comply with our legal obligations, resolve disputes, and enforce
+                our agreements. When you disconnect an application or request deletion, we delete or de-identify the
+                associated platform data within a reasonable period, except where retention is required by law.
+            </p>
+
+            <h2 id="security">9. How we protect data</h2>
+            <p>
+                We use industry-standard technical and organizational measures to protect your information,
+                including encryption in transit (HTTPS/TLS), access controls, and secure handling of authorization
+                tokens. No method of transmission or storage is completely secure, so we cannot guarantee absolute
+                security, but we work to protect your information and to promptly address any issues.
+            </p>
+
+            <h2 id="your-rights">10. Your rights &amp; choices</h2>
+            <p>Depending on where you live, you may have the right to:</p>
+            <ul>
+                <li>Access the personal information we hold about you;</li>
+                <li>Request correction or deletion of your information;</li>
+                <li>Object to or restrict certain processing;</li>
+                <li>Withdraw consent at any time (for example, by disconnecting a connected platform);</li>
+                <li>Unsubscribe from our emails using the link in any message.</li>
+            </ul>
+            <p>
+                <strong>California residents:</strong> Under the California Consumer Privacy Act (CCPA/CPRA), you have
+                the right to know what personal information we collect, to request its deletion, and to not be
+                discriminated against for exercising these rights. We do not sell or share personal information as
+                those terms are defined under the CCPA.
+            </p>
+            <p>
+                To exercise any of these rights, email us at
+                <a href="mailto:dhruv@clawdrop.org">dhruv@clawdrop.org</a>. We will respond within the time required
+                by applicable law.
+            </p>
+
+            <h2 id="revoke">11. Revoking access &amp; deleting data</h2>
+            <p>
+                You can revoke an application's access to a connected platform at any time directly from that
+                platform's settings:
+            </p>
+            <ul>
+                <li><strong>LinkedIn</strong> — Settings &amp; Privacy → Data Privacy → Permitted Services.</li>
+                <li><strong>Google</strong> — <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">myaccount.google.com/permissions</a>.</li>
+                <li><strong>Meta (Facebook)</strong> — Settings &amp; Privacy → Settings → Apps and Websites.</li>
+            </ul>
+            <p>
+                Revoking access stops future data access. To also have us delete data we already hold, email
+                <a href="mailto:dhruv@clawdrop.org">dhruv@clawdrop.org</a> and we will delete it as described in
+                <a href="#retention">Data retention</a>.
+            </p>
+
+            <h2 id="cookies">12. Cookies &amp; analytics</h2>
+            <p>
+                We use a small number of cookies and similar technologies to keep the site working, remember
+                preferences, and understand aggregate usage. We use privacy-respecting analytics and do not use
+                cookies to build advertising profiles. You can control cookies through your browser settings;
+                disabling them may affect some features.
+            </p>
+
+            <h2 id="children">13. Children's privacy</h2>
+            <p>
+                Our services are intended for adults and are not directed to children under 13 (or the equivalent
+                minimum age in your jurisdiction). We do not knowingly collect personal information from children.
+                If you believe a child has provided us information, contact us and we will delete it.
+            </p>
+
+            <h2 id="international">14. International users</h2>
+            <p>
+                We are based in the United States, and your information may be processed and stored there. If you
+                access our services from outside the United States, you understand your information may be
+                transferred to and processed in a country with different data protection laws than your own. Where
+                required, we rely on appropriate safeguards for such transfers.
+            </p>
+
+            <h2 id="changes">15. Changes to this policy</h2>
+            <p>
+                We may update this policy from time to time. When we make material changes, we will update the
+                "Last updated" date above and, where appropriate, provide additional notice. Your continued use of
+                our services after an update means you accept the revised policy.
+            </p>
+
+            <h2 id="contact">16. Contact us</h2>
+            <p>
+                For questions, requests, or concerns about this Privacy Policy or your personal information,
+                contact:
+            </p>
+            <p>
+                <strong>Wints LLC</strong><br>
+                Email: <a href="mailto:dhruv@clawdrop.org">dhruv@clawdrop.org</a><br>
+                Website: <a href="https://clawdrop.org">clawdrop.org</a>
+            </p>
+            <p>
+                This policy is governed by the laws of the United States and the state in which Wints LLC is
+                established, without regard to conflict-of-law principles.
+            </p>
+        </article>
+    </div>
+
+    <footer>
+        <div class="container-wide">
+            <p>
+                © 2026 ClawDrop · A <a href="https://fundedlist.com" target="_blank" rel="noopener">FundedList</a> project ·
+                <a href="/privacy/">Privacy</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
