@@ -1,0 +1,212 @@
+---
+title: "What the Fixes Cost"
+description: "The price of every fix the AI SEO Audit can find — one-time setup work, monthly programs, and three bundles. Your $750 inspection comes off any of it."
+permalink: /ai-seo-audit/fixes/
+---
+{% extends "base.njk" %}
+
+{% block styles %}
+  .offer { max-width: 760px; margin: 0 auto; padding: 56px 28px 80px; }
+
+  .offer-flag { font-size: 0.78rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 18px; }
+  .offer h1 { font-family: 'Fraunces', serif; font-size: clamp(2.1rem, 5vw, 3.1rem); font-weight: 700; letter-spacing: -0.025em; line-height: 1.06; color: var(--ink); margin-bottom: 20px; }
+  .offer-lede { font-size: 1.12rem; color: var(--ink-soft); line-height: 1.65; max-width: 54ch; }
+
+  .offer h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; letter-spacing: -0.015em; color: var(--ink); margin: 52px 0 8px; padding-bottom: 12px; border-bottom: 1px solid var(--rule); }
+  .offer p { font-size: 1rem; line-height: 1.75; margin-bottom: 16px; max-width: 62ch; }
+  .section-note { color: var(--ink-mute); font-size: 0.95rem; margin-bottom: 20px; }
+
+  .diy { background: var(--warm); border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0; padding: 18px 22px; margin: 28px 0 0; font-size: 1rem; line-height: 1.7; max-width: none; }
+  .diy b { color: var(--ink); font-weight: 600; }
+
+  .credit { background: var(--accent-soft); border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0; padding: 18px 22px; margin: 14px 0 0; font-size: 1rem; line-height: 1.7; max-width: none; }
+  .credit b { color: var(--ink); font-weight: 600; }
+
+  .menu { display: grid; }
+  .mrow { display: grid; grid-template-columns: 1fr auto; column-gap: 12px; align-items: baseline; padding: 16px 0 15px; border-bottom: 1px solid var(--rule); }
+  .mrow .item { font-weight: 600; color: var(--ink); font-size: 1rem; }
+  .mrow .price { font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; font-weight: 500; color: var(--ink); white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .mrow .price small { color: var(--ink-mute); font-weight: 400; font-size: 0.78rem; }
+  .mrow .desc { grid-column: 1 / 2; color: var(--ink-soft); font-size: 0.93rem; line-height: 1.65; margin-top: 4px; max-width: 56ch; }
+  .mrow.free .price { color: var(--accent); }
+
+  .bundles { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 20px; }
+  .bundle { background: var(--paper); border: 1px solid var(--rule-strong); border-radius: 16px; padding: 26px 24px; box-shadow: 0 12px 36px rgba(21, 36, 61, 0.06); display: flex; flex-direction: column; }
+  .bundle.pick { border-color: var(--accent); box-shadow: 0 12px 36px rgba(216, 85, 44, 0.12); }
+  .bundle .nm { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; color: var(--ink); }
+  .bundle .pr { font-family: 'Fraunces', serif; font-size: 2.2rem; font-weight: 700; letter-spacing: -0.03em; color: var(--accent); line-height: 1; margin: 12px 0 2px; font-variant-numeric: tabular-nums; }
+  .bundle .per { color: var(--ink-mute); font-size: 0.85rem; margin-bottom: 16px; }
+  .bundle ul { list-style: none; margin: 0; padding: 0; font-size: 0.9rem; display: flex; flex-direction: column; gap: 8px; }
+  .bundle li { padding-left: 18px; position: relative; color: var(--ink-soft); line-height: 1.5; }
+  .bundle li::before { content: ""; position: absolute; left: 0; top: 0.5em; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  .bundle li.hd { padding-left: 0; color: var(--ink); font-weight: 600; margin-top: 4px; }
+  .bundle li.hd::before { display: none; }
+
+  .cta-card { background: var(--paper); border: 1px solid var(--rule-strong); border-radius: 16px; padding: 28px 30px; margin-top: 48px; box-shadow: 0 12px 36px rgba(21, 36, 61, 0.06); }
+  .cta-card h3 { font-family: 'Fraunces', serif; font-size: 1.4rem; font-weight: 600; color: var(--ink); margin-bottom: 10px; }
+  .cta-card p { margin-bottom: 14px; }
+  .cta-btn { display: inline-flex; align-items: center; gap: 6px; padding: 13px 26px; border-radius: 100px; font-size: 0.95rem; font-weight: 600; text-decoration: none; background: var(--ink); color: #fff; transition: background 0.2s; }
+  .cta-btn:hover { background: var(--accent); color: #fff; }
+
+  .fineprint { font-size: 0.85rem; color: var(--ink-mute); line-height: 1.65; border-top: 1px solid var(--rule); margin-top: 48px; padding-top: 18px; max-width: none; }
+
+  @media (max-width: 600px) {
+    .offer { padding: 36px 20px 60px; }
+    .bundle .pr { font-size: 1.9rem; }
+  }
+{% endblock %}
+
+{% block body %}
+<div class="offer">
+
+  <div class="offer-flag">For home service contractors</div>
+  <h1>What the fixes cost</h1>
+  <p class="offer-lede">Everything the <a href="/ai-seo-audit/">inspection</a> can find, priced. Take one piece or the whole program — the prices below are per piece, and the bundles at the bottom cost less than adding the pieces up.</p>
+
+  <p class="diy"><b>Most of this you can do yourself.</b> The <a href="/">playbooks</a> tell you how, free. This page is what it costs if you'd rather not.</p>
+
+  <p class="credit"><b>Had the $750 inspection?</b> Hire us for any of this within 30 days and the whole $750 comes off your first bill. This page is that bill.</p>
+
+  <h2>Set up once</h2>
+  <p class="section-note">One-time work. Yours to keep either way.</p>
+  <div class="menu">
+    <div class="mrow">
+      <span class="item">Google Business Profile, built and verified</span>
+      <span class="price">$750</span>
+      <div class="desc">Name, address and phone set up so it survives. Categories, services, hours, photos. Coaching through the video verification, and the document pack you need if it's ever challenged. This is where most new businesses lose a year.</div>
+    </div>
+    <div class="mrow">
+      <span class="item">The other six surfaces</span>
+      <span class="price">$600</span>
+      <div class="desc">Yelp, Apple Business Connect, Bing Places, Nextdoor, Thumbtack, and your own site, all saying the same thing. The AI assistants cross-check these against each other.</div>
+    </div>
+    <div class="mrow">
+      <span class="item">Name, address and phone cleanup</span>
+      <span class="price">$850</span>
+      <div class="desc">For a business that's been around. Old listings, dead numbers, three spellings of the same address. A number that differs in three places reads as a business nobody can verify.</div>
+    </div>
+    <div class="mrow free">
+      <span class="item">Website, built</span>
+      <span class="price">$3,500 <small>&middot; free on any plan</small></span>
+      <div class="desc">Home, about, services, gallery, contact. Written so an AI assistant can lift a paragraph and still name you. Included at no charge with any six-month plan below.</div>
+    </div>
+    <div class="mrow">
+      <span class="item">Published price guide</span>
+      <span class="price">$650</span>
+      <div class="desc">Built from your real invoices. Cost questions trigger an AI answer more than anything else, and almost nobody in the trades will publish a number.</div>
+    </div>
+    <div class="mrow">
+      <span class="item">CRM setup</span>
+      <span class="price">$1,200</span>
+      <div class="desc">Every lead tracked from first call to paid invoice. Pipelines, forms, follow-up sequences.</div>
+    </div>
+  </div>
+
+  <h2>Every month</h2>
+  <p class="section-note">Pick any of these on their own. Month to month unless noted.</p>
+  <div class="menu">
+    <div class="mrow">
+      <span class="item">Local SEO management</span>
+      <span class="price">$800<small>/mo</small></span>
+      <div class="desc">Profile posts, photos, services and Q&amp;A kept current. Rank tracking run city by city, because a rank check from anywhere else tells you nothing. Monthly report.</div>
+    </div>
+    <div class="mrow">
+      <span class="item">Content engine, two pieces</span>
+      <span class="price">$700<small>/mo</small></span>
+      <div class="desc">Starts with 45 minutes on the phone with you, recorded. What people get wrong, the job that went sideways, when you'd tell someone not to hire you. That conversation is why none of it reads like a machine wrote it.</div>
+    </div>
+    <div class="mrow">
+      <span class="item">Content engine, four pieces</span>
+      <span class="price">$1,200<small>/mo</small></span>
+    </div>
+    <div class="mrow">
+      <span class="item">Suburb pages, two a month</span>
+      <span class="price">$600<small>/mo</small></span>
+      <div class="desc">One page per town, each with a real job in it. Photos, what it cost, something true about the houses there. Thin copies with the town name swapped get a whole site held down.</div>
+    </div>
+    <div class="mrow">
+      <span class="item">Website care and technical SEO</span>
+      <span class="price">$450<small>/mo</small></span>
+      <div class="desc">Hosting, updates, speed, schema, indexing. New pages submitted the day they go live.</div>
+    </div>
+    <div class="mrow">
+      <span class="item">Review engine</span>
+      <span class="price">$400<small>/mo</small></span>
+      <div class="desc">One plain ask on every closed invoice with a direct link. Replies drafted for every review, including the bad ones.</div>
+    </div>
+    <div class="mrow">
+      <span class="item">Missed call text back</span>
+      <span class="price">$250<small>/mo</small></span>
+      <div class="desc">Missed call goes out as a text inside sixty seconds. Usually the fastest money on this page, and it has nothing to do with search.</div>
+    </div>
+    <div class="mrow">
+      <span class="item">AI receptionist</span>
+      <span class="price">$700<small>/mo + usage</small></span>
+      <div class="desc">Answers overflow and after hours, qualifies, books, and texts you the transcript. Start it on overflow only and listen to the recordings before you trust it with everything.</div>
+    </div>
+    <div class="mrow">
+      <span class="item">CRM management</span>
+      <span class="price">$550<small>/mo</small></span>
+      <div class="desc">Every quote followed up until it closes or dies.</div>
+    </div>
+    <div class="mrow">
+      <span class="item">Past customer reactivation</span>
+      <span class="price">$450<small>/quarter</small></span>
+      <div class="desc">Most of what you sell is due again in one to two years. Everyone you invoiced back then is due, and you already paid to get them once.</div>
+    </div>
+  </div>
+
+  <h2>Or take it together</h2>
+  <p class="section-note">Each bundle costs less than the pieces inside it, and the website is built at no charge. Six month minimum, then month to month with thirty days notice. Move up or down a tier any month.</p>
+  <div class="bundles">
+    <div class="bundle">
+      <div class="nm">Get Found</div>
+      <div class="pr">$1,900</div>
+      <div class="per">per month</div>
+      <ul>
+        <li>Website built, hosted, maintained</li>
+        <li>Google, Yelp and Apple claimed</li>
+        <li>Local SEO management</li>
+        <li>One content piece a month</li>
+        <li>Monthly report</li>
+      </ul>
+    </div>
+    <div class="bundle pick">
+      <div class="nm">Found and Chosen</div>
+      <div class="pr">$3,000</div>
+      <div class="per">per month</div>
+      <ul>
+        <li class="hd">Everything in Get Found, plus</li>
+        <li>All seven surfaces</li>
+        <li>Published price guide</li>
+        <li>Review engine</li>
+        <li>Missed call text back</li>
+        <li>Two content pieces and two suburb pages a month</li>
+        <li>Monthly scorecard across five AI assistants</li>
+      </ul>
+    </div>
+    <div class="bundle">
+      <div class="nm">Front Office</div>
+      <div class="pr">$4,500</div>
+      <div class="per">per month</div>
+      <ul>
+        <li class="hd">Everything in Found and Chosen, plus</li>
+        <li>AI receptionist on overflow and after hours</li>
+        <li>CRM built and run</li>
+        <li>Four content pieces a month</li>
+        <li>Quarterly reactivation</li>
+        <li>Commercial track: property managers, restaurant groups, facilities</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="cta-card">
+    <h3>Not sure which piece?</h3>
+    <p>Start with the <a href="/ai-seo-audit/">$750 inspection</a>. It tells you which of these you actually need, in order, and the $750 comes off whatever you pick. If you've already had it, reply to the report email and name the line items — twenty minutes on the phone and I'll tell you what this is worth to you before you spend anything.</p>
+    <a class="cta-btn" href="/ai-seo-audit/">Start with the inspection &rarr;</a>
+  </div>
+
+  <p class="fineprint">Prices hold for 90 days from the date on your report. Bank transfer, first of the month. You own your domain, your profiles, your accounts and your customer list from day one, and the website transfers to you at the end of month six. AI receptionist usage billed at cost.</p>
+
+</div>
+{% endblock %}
