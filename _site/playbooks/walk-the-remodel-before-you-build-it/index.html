@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>He Scanned His House With an iPhone in 30 Minutes. Now His GC Sees the Same Kitchen He Does. — ClawDrop</title>
+  <meta name="description" content="A LiDAR phone scan and a free export give the homeowner, the spouse, the contractor and the engineer one walkable model to argue over. The scan is the cheap part. Everyone looking at the same house is the point.">
+  <meta property="og:title" content="He Scanned His House With an iPhone in 30 Minutes. Now His GC Sees the Same Kitchen He Does. — ClawDrop">
+  <meta property="og:description" content="A LiDAR phone scan and a free export give the homeowner, the spouse, the contractor and the engineer one walkable model to argue over. The scan is the cheap part. Everyone looking at the same house is the point.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clawdrop.org/playbooks/walk-the-remodel-before-you-build-it/">
+  <meta property="og:site_name" content="ClawDrop">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="He Scanned His House With an iPhone in 30 Minutes. Now His GC Sees the Same Kitchen He Does. — ClawDrop">
+  <meta name="twitter:description" content="A LiDAR phone scan and a free export give the homeowner, the spouse, the contractor and the engineer one walkable model to argue over. The scan is the cheap part. Everyone looking at the same house is the point.">
+  <link rel="canonical" href="https://clawdrop.org/playbooks/walk-the-remodel-before-you-build-it/">
+  <link rel="alternate" type="application/rss+xml" title="ClawDrop" href="https://clawdrop.org/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪝</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKRMLFFMRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKRMLFFMRB');
+  </script>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --paper: #ffffff;
+      --ink: #15243d;
+      --ink-soft: #4a5773;
+      --ink-mute: #8b95a8;
+      --rule: #ece5d4;
+      --rule-strong: #d8d1bc;
+      --accent: #d8552c;
+      --accent-hover: #c04a24;
+      --accent-soft: #fdebe2;
+      --warm: #f5ecd7;
+      --code-bg: #15243d;
+      --code-text: #e8eef7;
+      --code-accent: #ffb38a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 22px 0; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    nav .container-wide { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+    .logo:hover { color: var(--ink); }
+    .logo-img { width: 32px; height: 32px; border-radius: 7px; display: block; flex-shrink: 0; }
+    .nav-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 12px 20px; align-items: center; font-size: 0.9rem; }
+    .nav-link { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; background: var(--ink); color: white; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent); color: white; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 0; }
+      .nav-links { gap: 10px 14px; font-size: 0.8rem; }
+      nav .container-wide { gap: 12px; }
+      .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
+      .logo { font-size: 1.25rem; }
+    }
+
+    
+  .post { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+  .post-back { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .post-back:hover { color: var(--accent-hover); }
+  .post-date { color: var(--ink-mute); font-size: 0.82rem; margin-top: 16px; }
+  .post h1 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 12px 0 16px; color: var(--ink); }
+  .post-description { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 28px; font-weight: 400; }
+  .post-meta-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+  .meta-badge { font-size: 0.78rem; padding: 7px 14px; border-radius: 100px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; }
+  .meta-badge strong { color: var(--ink); font-weight: 600; }
+  a.meta-badge { text-decoration: none; transition: all 0.2s; }
+  a.meta-badge:hover { border-color: var(--accent); color: var(--accent); }
+  a.meta-badge:hover strong { color: var(--accent); }
+
+  .source-card { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;
+    background: var(--accent-soft); border: 1px solid var(--accent); border-left: 4px solid var(--accent);
+    border-radius: 12px; padding: 16px 20px; margin: -14px 0 34px; }
+  .source-card .source-copy { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+  .source-card .source-label { font-size: 0.7rem; letter-spacing: 0.09em; text-transform: uppercase;
+    font-weight: 700; color: var(--accent); }
+  .source-card .source-who { font-size: 0.95rem; color: var(--ink); font-weight: 600; overflow-wrap: anywhere; }
+  .source-card .source-who span { font-weight: 400; color: var(--ink-soft); }
+  .btn-source { display: inline-flex; align-items: center; gap: 7px; background: var(--accent); color: #fff;
+    padding: 10px 20px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.88rem;
+    white-space: nowrap; transition: all 0.2s; }
+  .btn-source:hover { background: var(--accent-hover); color: #fff; transform: translateY(-1px); }
+  @media (max-width: 540px) { .source-card { flex-direction: column; align-items: flex-start; } .btn-source { width: 100%; justify-content: center; } }
+
+  .source-footer { margin-top: 44px; padding: 18px 20px; border: 1px solid var(--rule); border-radius: 12px;
+    background: var(--warm); font-size: 0.9rem; color: var(--ink-soft); }
+  .source-footer a { color: var(--accent); font-weight: 600; text-decoration: none; overflow-wrap: anywhere; }
+  .source-footer a:hover { text-decoration: underline; }
+
+  .post-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.015em; color: var(--ink); }
+  .post-content h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--ink); }
+  .post-content p { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
+  .post-content a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .post-content a:hover { color: var(--accent-hover); }
+  .post-content ul, .post-content ol { color: var(--ink); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; padding-left: 24px; }
+  .post-content li { margin-bottom: 6px; }
+  .post-content blockquote { border-left: 3px solid var(--accent); padding: 14px 22px; margin: 22px 0; background: var(--warm); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; font-family: 'Fraunces', serif; font-style: italic; }
+  .post-content img { max-width: 100%; border-radius: 8px; margin: 22px 0; border: 1px solid var(--rule); }
+
+  /* Stripe-style dark code blocks on cream background */
+  .post-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', monospace; color: var(--code-accent); }
+  .post-content pre { background: var(--code-bg); border-radius: 10px; padding: 20px 22px; overflow-x: auto; margin: 22px 0; box-shadow: 0 4px 14px rgba(21, 36, 61, 0.08); }
+  .post-content pre code { background: none; padding: 0; font-size: 0.86rem; color: var(--code-text); line-height: 1.7; }
+  .post-content strong { color: var(--ink); font-weight: 700; }
+
+  .post-content table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.92rem; }
+  .post-content th { text-align: left; padding: 11px 14px; background: var(--warm); border-bottom: 2px solid var(--rule-strong); color: var(--ink); font-weight: 600; font-size: 0.82rem; }
+  .post-content td { padding: 11px 14px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+
+  .playbook-cta { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 30px 28px; margin: 44px 0; text-align: center; box-shadow: 0 4px 16px rgba(21, 36, 61, 0.04); }
+  .playbook-cta h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+  .playbook-cta p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 18px; }
+  .playbook-cta .form-iframe-wrap { height: 380px; overflow: hidden; border-radius: 10px; }
+  .playbook-cta .form-iframe-wrap iframe { height: 500px !important; width: 100% !important; border: none; }
+
+  .post-footer { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--rule); text-align: center; }
+  .post-footer p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 13px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); color: white; }
+
+  </style>
+  
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="/" class="logo"><img src="/assets/clawdrop-logo.png" alt="ClawDrop" class="logo-img">ClawDrop</a>
+      <div class="nav-links">
+        <a href="/playbooks/" class="nav-link">Playbooks</a>
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/ai-seo-audit/" class="nav-link">AI SEO Audit</a>
+        <a href="/#about" class="nav-link">About</a>
+        <a href="/#subscribe" class="nav-cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <article class="post">
+    <a href="/playbooks/" class="post-back">← All Playbooks</a>
+    <div class="post-date">September 10, 2026</div>
+    <h1>He Scanned His House With an iPhone in 30 Minutes. Now His GC Sees the Same Kitchen He Does.</h1>
+    <p class="post-description">A LiDAR phone scan and a free export give the homeowner, the spouse, the contractor and the engineer one walkable model to argue over. The scan is the cheap part. Everyone looking at the same house is the point.</p>
+    <div class="post-meta-grid">
+      <span class="meta-badge">⚡ <strong>Beginner</strong></span>
+      <span class="meta-badge">💰 <strong>Free to scan. Your existing AI subscription for the rest. Needs an iPhone 12 Pro or newer.</strong></span>
+      <span class="meta-badge">⏱ <strong>30 minutes to scan. A weekend to wire up the sandbox.</strong></span>
+      
+    </div>
+    
+    <aside class="source-card">
+      <div class="source-copy">
+        <span class="source-label">🔗 Original post</span>
+        <span class="source-who">Matt Ferrante (LinkedIn)<span></span></span>
+      </div>
+      <a href="https://www.linkedin.com/feed/update/urn:li:activity:7503895591438172160/" target="_blank" rel="noopener" class="btn-source">Read the original ↗</a>
+    </aside>
+    
+    <div class="post-content" id="post-content">
+      <h2>Tools</h2>
+<ul>
+<li><a href="#aff-polycam"><strong>Polycam</strong></a>: the iOS app that does the scan and exports it. Free tier covers this</li>
+<li><a href="#aff-codex"><strong>Codex</strong></a>: what he used to build the sandbox around the file</li>
+<li><a href="#aff-claude"><strong>Claude</strong></a>: works the same way if that is what you already pay for</li>
+</ul>
+<h2>What You'll Build</h2>
+<p>A model of a real room that anyone can walk through at eye level, on a phone or a laptop.</p>
+<p>You scan the space once. You load the file into an AI. Then you ask it to move an island, relocate a pantry, open up a wall, and you walk around inside the answer.</p>
+<p>Three steps, and the first two are free.</p>
+<h2>The Story</h2>
+<p>Matt Ferrante builds agents and tools for a living. He kept seeing people post AI-generated home designs and wanted to work out how it was done.</p>
+<blockquote>
+<p>I scanned my entire house with an iPhone, and now I can walk through AI-generated redesigns of it. The whole thing took about 30 minutes and most of that was me walking around with my phone.</p>
+</blockquote>
+<p>His process, in his words:</p>
+<ol>
+<li>Use a phone with LiDAR. The iPhone 12 Pro and beyond has it.</li>
+<li>Scan the space with Polycam for iOS, then use their free export to glTF format.</li>
+<li>Load that file into AI. He used Codex with Astra.</li>
+</ol>
+<p>That is the whole build. He called it super easy and he was not being modest about a weekend project. Most of the 30 minutes was walking.</p>
+<p>What he ended up with runs in a browser as a remodel sandbox. An existing-house starting point, then lettered scenarios off it. Kitchen changes. Dining room to reclaimed entry. Ceiling and upper door.</p>
+<h2>The Part That Actually Matters</h2>
+<p>He is blunt about the AI design quality.</p>
+<blockquote>
+<p>The design AI does is just okay, but the real win is that it gives me a harness to view and make changes and I can show a specific scenario to my wife and we know we're talking about the exact same house. Same when it goes to the GC or the engineers. Everyone is looking at the same house.</p>
+</blockquote>
+<p>Read that again if you run a remodeling business.</p>
+<p>The expensive failure in a remodel is not a bad design. It is four people who each agreed to a different kitchen. The homeowner pictured one thing, their spouse pictured another, you priced a third, and the engineer drew a fourth. Nobody finds out until the wall is open.</p>
+<p>A scan costs nothing and takes half an hour. It puts all four of them in the same room before demo day.</p>
+<p>He finishes with the bit that should interest anyone selling remodels:</p>
+<blockquote>
+<p>Pair this with an actual designer and I think you'd get results ridiculously fast. I'd be shocked if designers aren't already doing something like this.</p>
+</blockquote>
+<h2>The Business Angle</h2>
+<p>Change orders are where remodel margin goes to die.</p>
+<p>Not the priced ones. The ones that start with &quot;this isn't what I pictured,&quot; land after the material is ordered, and end with you eating the difference to keep the relationship and the review.</p>
+<p>The scan does not eliminate changes. It moves them to the week before you start, when a change is a conversation instead of a demolition.</p>
+<p>It also sells. You are the contractor who walked them through their own house before quoting. The other three bidders emailed a PDF.</p>
+<h2>Who Should Steal This Idea</h2>
+<p>Kitchen and bath remodelers. General contractors. Design-build firms. Interior designers.</p>
+<p>Also anyone quoting work where the client cannot read a plan, which is most homeowners.</p>
+<p>Real estate agents scanning a listing get the same file for a different reason.</p>
+<h2>How Hard Is It</h2>
+<p>The scan is beginner. Download the app, walk the room, export.</p>
+<p>The sandbox around it is a weekend if you want scenarios and a browser view. You can skip that entirely and still get most of the value by walking the raw scan on a phone with the client sitting next to you.</p>
+<p>Cost: free to scan, then whatever you already pay for AI.</p>
+<p>Hard requirement: an iPhone 12 Pro or newer. The LiDAR sensor is the whole thing and the base models do not have it.</p>
+<h2>Gotchas and Tips</h2>
+<p><strong>Scan before you quote, not after you win.</strong> The alignment is worth more during the bid than during the build, and it is the part your competition is not doing.</p>
+<p><strong>Walk slowly and cover the corners.</strong> Most of his 30 minutes was walking. Rushing the capture is the one way to get a bad file.</p>
+<p><strong>The design output is just okay. Plan around that.</strong> Treat the AI renders as a way to agree on the shape of a change, not as drawings anybody builds from. His words, not ours.</p>
+<p><strong>Get the client on the model in the room with you.</strong> The value is the shared reference. Emailing them a link and hoping they look at it gets you back to four different kitchens.</p>
+<p><strong>Keep the original scan.</strong> It is your dated record of what the space looked like before you touched it. That has a second use the first time somebody blames you for damage that was already there.</p>
+<p><strong>Free export, so check the tier before you commit a client to it.</strong> He used Polycam's free glTF export. Confirm that still covers what you need before you build a process on it.</p>
+<h2>Keep Reading</h2>
+<ul>
+<li><a href="/playbooks/contractor-bid-leveler/">He Gave Claude 3 Contractor Bids. It Found $1.4M Worth of Scope Gaps.</a></li>
+<li><a href="/playbooks/visual-quote-agent/">Let Customers Design Their Own Order and Get a Price</a></li>
+<li><a href="/playbooks/hvac-estimate-autopilot/">This HVAC Guy Spent Friday Night Setting Up AI. Now His Estimates Write Themselves.</a></li>
+</ul>
+
+    </div>
+    <script>
+    (function() {
+      var cta = document.createElement('div');
+      cta.className = 'playbook-cta';
+      cta.innerHTML = '<h3>Get playbooks like this in your inbox every Friday.</h3>' +
+        '<p>Real automations from real owners. No hype, no fluff.</p>' +
+        '<div class="form-iframe-wrap">' +
+        '<iframe src="https://api.leadconnectorhq.com/widget/form/OsR6NKbHoc4IUYG5phIa" ' +
+        'style="width:100%;border:none;" scrolling="no" ' +
+        'data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" ' +
+        'data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" ' +
+        'data-form-name="Newsletter Signup" data-height="340" ' +
+        'data-layout-iframe-id="inline-pb-OsR6NKbHoc4IUYG5phIa" ' +
+        'data-form-id="OsR6NKbHoc4IUYG5phIa" title="Newsletter Signup"></iframe></div>';
+      var headings = document.querySelectorAll('#post-content h2');
+      var target = headings.length >= 4 ? headings[3] : (headings.length >= 2 ? headings[Math.floor(headings.length / 2)] : null);
+      if (target) { target.parentNode.insertBefore(cta, target); }
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    })();
+    </script>
+    
+    <div class="source-footer">
+      🔗 This playbook is our write-up of a build shared by Matt Ferrante (LinkedIn). Credit where it is due — <a href="https://www.linkedin.com/feed/update/urn:li:activity:7503895591438172160/" target="_blank" rel="noopener">read the original ↗</a>
+    </div>
+    
+    <div class="post-footer">
+      <p>Have a build to share? We'd love to feature it.</p>
+      <a href="/submit/" class="btn-cta">Submit your build →</a>
+    </div>
+  </article>
+
+
+  <footer>
+    <div class="container-wide">
+      <p>© 2026 ClawDrop · Practical AI for operators · <a href="/privacy/">Privacy</a></p>
+      <p>A Wints LLC company</p>
+    </div>
+  </footer>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>
