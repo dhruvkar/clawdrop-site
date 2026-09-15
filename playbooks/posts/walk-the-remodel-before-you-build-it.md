@@ -1,6 +1,6 @@
 ---
 layout: playbook.njk
-title: "He Scanned His House With an iPhone in 30 Minutes. Now His GC Sees the Same Kitchen He Does."
+title: "One iPhone, 30 Minutes, and the Whole House Scanned. Now the GC Sees the Same Kitchen the Homeowner Does."
 description: "A LiDAR phone scan and a free export give the homeowner, the spouse, the contractor and the engineer one walkable model to argue over. The scan is the cheap part. Everyone looking at the same house is the point."
 date: 2026-09-11
 difficulty: Beginner
@@ -24,7 +24,7 @@ tags:
 ## Tools
 
 - [**Polycam**](#aff-polycam): the iOS app that does the scan and exports it. Free tier covers this
-- [**Codex**](#aff-codex): what he used to build the sandbox around the file
+- [**Codex**](#aff-codex): what Ferrante used to build the sandbox around the file
 - [**Claude**](#aff-claude): works the same way if that is what you already pay for
 
 ## What You'll Build
@@ -37,23 +37,23 @@ Three steps, and the first two are free.
 
 ## The Story
 
-Matt Ferrante builds agents and tools for a living. He kept seeing people post AI-generated home designs and wanted to work out how it was done.
+Matt Ferrante builds agents and tools for a living, and kept seeing people post AI-generated home designs. The goal was to work out how it was done.
 
 > I scanned my entire house with an iPhone, and now I can walk through AI-generated redesigns of it. The whole thing took about 30 minutes and most of that was me walking around with my phone.
 
-His process, in his words:
+The process, in Ferrante's own words:
 
 1. Use a phone with LiDAR. The iPhone 12 Pro and beyond has it.
 2. Scan the space with Polycam for iOS, then use their free export to glTF format.
-3. Load that file into AI. He used Codex with Astra.
+3. Load that file into AI. Ferrante used Codex with Astra.
 
-That is the whole build. He called it super easy and he was not being modest about a weekend project. Most of the 30 minutes was walking.
+That is the whole build. Ferrante called it super easy, and that was not modesty about a weekend project. Most of the 30 minutes was walking.
 
-What he ended up with runs in a browser as a remodel sandbox. An existing-house starting point, then lettered scenarios off it. Kitchen changes. Dining room to reclaimed entry. Ceiling and upper door.
+What came out of it runs in a browser as a remodel sandbox. An existing-house starting point, then lettered scenarios off it. Kitchen changes. Dining room to reclaimed entry. Ceiling and upper door.
 
 ## The Part That Actually Matters
 
-He is blunt about the AI design quality.
+Ferrante is blunt about the AI design quality.
 
 > The design AI does is just okay, but the real win is that it gives me a harness to view and make changes and I can show a specific scenario to my wife and we know we're talking about the exact same house. Same when it goes to the GC or the engineers. Everyone is looking at the same house.
 
@@ -63,7 +63,7 @@ The expensive failure in a remodel is not a bad design. It is four people who ea
 
 A scan costs nothing and takes half an hour. It puts all four of them in the same room before demo day.
 
-He finishes with the bit that should interest anyone selling remodels:
+And the closing line, which should interest anyone selling remodels:
 
 > Pair this with an actual designer and I think you'd get results ridiculously fast. I'd be shocked if designers aren't already doing something like this.
 
@@ -99,15 +99,15 @@ Hard requirement: an iPhone 12 Pro or newer. The LiDAR sensor is the whole thing
 
 **Scan before you quote, not after you win.** The alignment is worth more during the bid than during the build, and it is the part your competition is not doing.
 
-**Walk slowly and cover the corners.** Most of his 30 minutes was walking. Rushing the capture is the one way to get a bad file.
+**Walk slowly and cover the corners.** Most of those 30 minutes was walking. Rushing the capture is the one way to get a bad file.
 
-**The design output is just okay. Plan around that.** Treat the AI renders as a way to agree on the shape of a change, not as drawings anybody builds from. His words, not ours.
+**The design output is just okay. Plan around that.** Treat the AI renders as a way to agree on the shape of a change, not as drawings anybody builds from. That is the builder's own assessment, not ours.
 
 **Get the client on the model in the room with you.** The value is the shared reference. Emailing them a link and hoping they look at it gets you back to four different kitchens.
 
 **Keep the original scan.** It is your dated record of what the space looked like before you touched it. That has a second use the first time somebody blames you for damage that was already there.
 
-**Free export, so check the tier before you commit a client to it.** He used Polycam's free glTF export. Confirm that still covers what you need before you build a process on it.
+**Free export, so check the tier before you commit a client to it.** Ferrante used Polycam's free glTF export. Confirm that still covers what you need before you build a process on it.
 
 ## Keep Reading
 
