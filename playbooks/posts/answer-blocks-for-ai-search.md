@@ -25,7 +25,7 @@ tags:
 - [**Claude**](#aff-claude): reads a page, finds the questions it half-answers, and rewrites it into blocks that answer them fully
 - [**OpenClaw**](#aff-openclaw): runs the rewrite on a schedule and holds every change for your approval
 - [**Google Search Console**](#aff-google-search-console): free, and the only place Google tells you which questions already bring people to you
-- [**DataForSEO**](#aff-dataforseo): the raw search numbers, pay per lookup, no subscription. It's how you find out a page is worth writing before you write it
+- [**DataForSEO**](https://app.dataforseo.com/?aff=56e4b89f-a710-4a77-b8a0-346ef560d1f3): the raw search numbers, pay per lookup, no subscription. It's how you find out a page is worth writing before you write it
 - [**Google Sheets**](#aff-google-sheets): the list of questions, which page answers each one, and whether you showed up this month
 
 ## What You'll Build

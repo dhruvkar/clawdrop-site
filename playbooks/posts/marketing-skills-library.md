@@ -23,7 +23,7 @@ tags:
 
 - [**Claude Code**](#aff-claude-code): the agent that runs the skills. Codex and Cursor work too
 - [**marketingskills**](https://github.com/coreyhaines31/marketingskills): the library itself. Free, MIT, about 50,000 GitHub stars
-- [**DataForSEO**](#aff-dataforseo): the raw search numbers, pay per lookup, no subscription. Several of the SEO skills want real volume data and this is where it comes from
+- [**DataForSEO**](https://app.dataforseo.com/?aff=56e4b89f-a710-4a77-b8a0-346ef560d1f3): the raw search numbers, pay per lookup, no subscription. Several of the SEO skills want real volume data and this is where it comes from
 
 ## What You'll Build
 

@@ -24,7 +24,7 @@ tags:
 - [**Claude Code**](#aff-claude-code): runs the audit and, once you say so, makes the edits
 - [**claude-seo**](https://github.com/AgriciDaniel/claude-seo): the free open-source plugin that tells you exactly why the models can't quote you
 - [**WordPress**](#aff-wordpress): or Webflow, Ghost, whatever your site runs on. The agent edits it through the site's own API
-- [**DataForSEO**](#aff-dataforseo): the raw search numbers, pay per lookup, no subscription. It's how you find out a page is worth writing before you write it
+- [**DataForSEO**](https://app.dataforseo.com/?aff=56e4b89f-a710-4a77-b8a0-346ef560d1f3): the raw search numbers, pay per lookup, no subscription. It's how you find out a page is worth writing before you write it
 
 ## What You'll Build
 
