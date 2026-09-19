@@ -1,7 +1,7 @@
 ---
 layout: playbook.njk
 title: "The $5,000-a-Month Agency's Checklist, as 50 Commands You Can Run Yourself"
-description: "A marketer published a free library of 50 ready-made marketing skills for AI agents: SEO audit, schema, conversion review, pricing pages, cold email. Drop the folder into your agent and type the command. Fifty thousand people have starred it."
+description: "Corey Haines gave away 50 marketing skills for AI agents: SEO audit, schema, pricing, cold email. Copy the folder in, type the command. 50,000 stars on GitHub."
 date: 2026-09-19
 difficulty: Beginner
 cost: "$20/mo. Claude. The library is free and MIT-licensed."
@@ -29,9 +29,15 @@ tags:
 
 Nothing. That's the point of this one.
 
-A marketer named Corey Haines published a folder of 50 skills. A skill is a plain text file that teaches your agent how to do one marketing job the way a practitioner does it: what to look at, in what order, what good looks like, what to hand back.
+Corey Haines published a folder of 50 skills.
 
-You copy the folder into your project. Then you type `/seo-audit` or `/pricing` or `/cold-email` and the agent does that job, on your site, with your numbers.
+A skill is a text file. It teaches your agent one marketing job the way a practitioner does it. What to look at. In what order. What good looks like. What to hand back.
+
+You copy the folder into your project.
+
+You type `/seo-audit` or `/pricing` or `/cold-email`.
+
+The agent does that job on your site, with your numbers.
 
 ## What's in the Box
 
@@ -48,19 +54,23 @@ The ones a small business owner will actually use, from the current list of 50:
 - `directory-submissions`: the boring local-SEO listings work
 - `marketing-plan`, `marketing-council`: the strategy sessions
 
-The rest cover ads, attribution, referrals, launches, onboarding, PR, events and video. The full list is in the repo.
+The rest cover ads, attribution, referrals, launches, onboarding, PR, events and video. Full list is in the repo.
 
-## Why This Is Worth an Issue Slot
+## Why Bother
 
-An agency's real product is a checklist they've run a hundred times. You pay the retainer for the checklist and the hands.
+An agency's real product is a checklist they've run a hundred times.
 
-This is the checklist, written down by someone who ran an agency, given away. The hands are the $20 agent.
+You pay the retainer for the checklist and the hands.
 
-It is also the fastest way to get value out of the previous four playbooks. The `ai-seo` and `schema` skills do the audit from the Astra piece. `seo-audit` and `site-architecture` tell you which pages to turn into answer blocks. `content-strategy` tells you what to write from the YouTube transcripts.
+This is the checklist. Written by someone who ran an agency. Given away.
+
+The hands are the $20 agent.
+
+It also ties the other four playbooks together. `ai-seo` and `schema` run the audit from the Astra piece. `seo-audit` and `site-architecture` tell you which pages to turn into answer blocks. `content-strategy` tells you what to write from the YouTube transcripts.
 
 ## How to Run It
 
-**Step 1.** Install Claude Code if you haven't. Open it in the folder where your website lives, or an empty folder if your site is on WordPress and you just want the reports.
+**Step 1.** Install Claude Code if you haven't. Open it in the folder where your website lives. If your site is on WordPress and you just want the reports, an empty folder works.
 
 **Step 2.** One command, from the repo README:
 
@@ -70,13 +80,15 @@ npx skills add coreyhaines31/marketingskills -a claude-code
 
 **Step 3.** Type `/seo-audit https://yoursite.com` and read what comes back.
 
-**Step 4.** Pick the three findings that matter and ignore the other thirty. Same rule as the Astra playbook: the library supplies knowledge, you supply judgment.
+**Step 4.** Pick the three findings that matter. Ignore the other thirty.
+
+Same rule as the Astra playbook. The library supplies knowledge. You supply judgment.
 
 ## Who Should Steal This Idea
 
 Every owner paying a retainer who wants to know what the retainer is for.
 
-Solo marketers and one-person agencies. This is a second brain that already knows the checklists.
+Solo marketers and one-person agencies. A second brain that already knows the checklists.
 
 Anyone about to hire their first marketing person. Run the audit first so you know what you're hiring for.
 
@@ -90,13 +102,15 @@ Cost: $20 a month for Claude. The library is free.
 
 **Fifty skills is too many.** Use four. `seo-audit`, `ai-seo`, `cro`, and whichever one matches the thing you're stuck on this month.
 
-**It's a checklist.** The output is only as good as what you feed it. Give it your real site, real numbers, real customers' words.
+**It's a checklist.** The output is only as good as what you feed it. Real site, real numbers, real customers' words.
 
 **The repo has sponsors.** Some tool integrations are labeled as paid partners. The core skills are neutral and the partner rules are public in the repo. Read the label.
 
 **Check the date.** The library updates often. Pull the latest before a big audit.
 
-**Judgment step, always.** The `seo-audit` will hand you forty items. Doing all forty on a live site in one afternoon is how you break something. Three a week.
+**Judgment, every time.** `seo-audit` will hand you forty items. Doing all forty on a live site in one afternoon is how you break something. Three a week.
+
+Which one are you stuck on this month? Start there.
 
 ## Keep Reading
 

@@ -1,7 +1,7 @@
 ---
 layout: playbook.njk
 title: "The Pages ChatGPT Quotes Have a Question for a Heading and a Table Under It"
-description: "A marketer studying how Perplexity and ChatGPT pick sources found they reward plain tables, direct FAQs and honest comparisons over backlinks. An agent rewrites each service page into that shape and reports the numbers that matter now."
+description: "ChatGPT and Perplexity quote plain tables, direct FAQs and honest comparisons. An agent rewrites one service page a week that way and reports if you got named."
 date: 2026-09-19
 difficulty: Intermediate
 cost: "$20-40/mo. Claude plus your existing site."
@@ -30,59 +30,67 @@ tags:
 
 ## What You'll Build
 
-An agent that takes one page of your site a week and rebuilds it into the shape the AI engines quote from.
+An agent that rebuilds one page of your site a week into the shape the AI engines quote from.
 
-Each service gets a heading written as the question a customer asks. Under it, a plain answer of about 150 words. Where you compare anything, a table. At the bottom, an FAQ with the schema markup that tells the model what it's reading.
+Each service gets a heading written as the question a customer asks. Under it, about 150 words that answer it. A table wherever you compare anything. An FAQ at the bottom with schema markup.
 
-Then a short monthly report: which questions you asked the engines, and whether they named you.
+Then a short monthly report. Did the engines name you?
 
 ## The Story
 
-A marketer spent time looking at how the AI engines actually pick what to cite, and posted what he found:
+A marketer looked at how the AI engines pick what to cite. He posted what he found:
 
 > Traditional SEO tricks like backlink farming don't really move the needle here. Instead, these models reward dead-simple markdown tables, direct FAQ, and honest feature comparisons.
 
 > Basically, if you give the LLM a clean, objective answer to a long-tail question, it pulls you into the citation layer.
 
-His problem was doing it by hand across a whole site, so he was wiring up a five-agent pipeline to track queries, structure the data and check readability before publishing. He found the pipeline itself was the headache.
+Doing it by hand across a whole site was his problem. He was wiring up a five-agent pipeline and the pipeline became the headache.
 
-The best reply in the thread came from someone who builds these systems for businesses, and it moves the problem off the content team entirely:
+The best reply came from someone who builds these systems for businesses:
 
 > The businesses that get cited consistently tend to have: clear definitions, consistent terminology, publicly available process documentation, evidence-backed comparisons, structured FAQs tied to real customer questions.
 
 > If the source business itself doesn't have clean, reliable information, all the agents in the world just produce more content entropy.
 
-In a second thread, a marketer asked what to put in the monthly report now that rankings and traffic tell less of the story. His list, which is the report this agent writes: branded search growth, AI Overview visibility, mentions in ChatGPT, Perplexity or Gemini, local pack visibility, Google Business Profile actions, leads by landing page, and content that earns citations.
+In a second thread, a marketer asked what belongs in the monthly report now that rankings and traffic tell less of the story. His list: AI Overview visibility, mentions in ChatGPT, Perplexity or Gemini, local pack, Google Business Profile actions, leads by landing page.
 
-The top reply cut it down further: signed customers, cost per acquisition, and which channel each one came from. "Highly ranked pages or LLM citations that don't result in paying customers don't pay the bills."
+The top reply cut it to three. Signed customers, cost per acquisition, which channel.
+
+> Highly ranked pages or LLM citations that don't result in paying customers don't pay the bills.
 
 ## Why Tables and Questions
 
-The models do not rank pages. They pull a passage that answers the question in front of them and attribute it.
+The models pull a passage that answers the question in front of them and attribute it.
 
-A passage gets pulled when it is self-contained, when the heading above it matches the question, and when it is in a format the model can lift without rewriting. HTML tables come out nearly verbatim. A number ("cut callbacks 30%") gets quoted where "reduces callbacks" does not. A named source gets quoted where an unattributed claim does not.
+A passage gets pulled when it stands on its own, when the heading matches the question, and when the model can lift it without rewriting.
 
-This lines up with the larger studies. Ahrefs looked at roughly 75,000 brands and found brand mentions across the web correlate with AI visibility about three times as strongly as backlinks do. Whitespark's local ranking survey puts links at about 15% of what decides the local pack. Links still count for Google. The AI answer comes from the passage on the page.
+HTML tables come out nearly verbatim. "Cut callbacks 30%" gets quoted. A named source gets quoted.
 
-So the work is on your own pages, and it is unglamorous: write down the questions, answer each one plainly, mark it up so the machine knows what it is.
+The bigger studies agree. Ahrefs looked at roughly 75,000 brands and found brand mentions correlate with AI visibility about three times as strongly as backlinks. Whitespark puts links at about 15% of what decides the local pack.
+
+Links still count for Google. The AI answer comes from the passage on the page.
+
+So the work is on your own pages, and it's unglamorous. Write down the questions. Answer each one plainly. Mark it up.
 
 ## How to Run It
 
-**Step 1. Build the question list.** Open Search Console and export every query that already sends you impressions. Add the five to ten questions a customer asks you on the phone. Check the ones you're unsure about in DataForSEO before you spend a page on them. One sheet, one question per row, the page that should answer it.
+**Step 1. Build the question list.** Export every query in Search Console that already sends you impressions. Add the five to ten questions customers ask you on the phone. Check the doubtful ones in DataForSEO before you spend a page on them. One sheet, one question per row, the page that answers it.
 
-**Step 2. One page a week.** The agent picks the next page, reads it, and rewrites it as answer blocks: the question as an H2, about 150 words that fully answer it, a table if there is any comparison, the FAQ at the bottom with FAQPage schema.
+**Step 2. One page a week.** The agent reads the next page and rewrites it as answer blocks. Question as an H2. About 150 words under it. A table for any comparison. FAQ at the bottom with FAQPage schema.
 
-**Step 3. Keep your facts straight.** The agent does not invent numbers. If the page says "most jobs take two days," it asks you for the real range before it publishes. This is where the "information quality" comment earns its keep. If your own team can't agree on what a service costs, the page can't say it.
+**Step 3. Keep your facts straight.** The agent does not invent numbers. If the page says "most jobs take two days," it asks you for the real range first. If your own team can't agree on what a service costs, the page can't say it.
 
 **Step 4. You approve, it publishes.** Diff in Telegram or Slack, one page at a time.
 
-**Step 5. The monthly check.** The agent asks ChatGPT and Perplexity your question list and logs who got named. Present, absent, or described wrong. That, plus leads by landing page from your CRM, is the report.
+**Step 5. The monthly check.** The agent asks ChatGPT and Perplexity your question list and logs who got named. Present, absent, or described wrong. Add leads by landing page from your CRM. That's the report.
 
 ## The Business Angle
 
-A content agency at $1,500 to $5,000 a month produces blog posts. This produces the pages your existing customers already ask about, in the shape that gets quoted, and it does one a week without you writing anything except corrections.
+A content agency at $1,500 to $5,000 a month produces blog posts.
 
-The report it hands you is the one the second thread was asking for: whether the AI named you, and whether that turned into a lead.
+This produces the pages your customers already ask about, in the shape that gets quoted. One a week. You write nothing except corrections.
+
+The report is the one the second thread wanted. Did the AI name you, and did that turn into a lead?
 
 ## Who Should Steal This Idea
 
@@ -100,19 +108,21 @@ Cost: $20 to $40 a month depending on how many pages you feed it. Search Console
 
 ## Gotchas and Tips
 
-**Start with the pages that already get impressions.** Search Console tells you which questions Google already half-associates with you. Fix those first.
+**Start with the pages that already get impressions.** Google already half-associates those questions with you. Fix those first.
 
-**One question, one block, 150 words.** The temptation is to answer six things under one heading. That block does not get quoted.
+**One question, one block, 150 words.** Six things under one heading does not get quoted.
 
-**Tables for anything comparative.** Pricing tiers, service options, before and after. The model extracts the table whole.
+**Tables for anything comparative.** Pricing tiers, service options, before and after. The model lifts the table whole.
 
 **Numbers and names.** "Cut callbacks 30%" beats "reduces callbacks." "According to the county permit office" beats "experts say."
 
-**Don't fake the FAQ.** Real questions customers asked. The schema tells the model it's an FAQ; the content has to earn it.
+**Don't fake the FAQ.** Real questions customers asked. The schema says it's an FAQ. The content has to earn it.
 
-**Fix the business before the page.** If three people at your company give three answers to "how long does it take," the agent cannot write the page. Settle it in the sheet first.
+**Fix the business before the page.** Three people, three answers to "how long does it take," and the agent cannot write the page. Settle it in the sheet first.
 
-**Judge it on leads.** The top reply in the metrics thread is right. Log which landing page each signed customer came from, and you'll know whether the rewrites are working within a quarter.
+**Judge it on leads.** Log which landing page each signed customer came from. Within a quarter you'll know.
+
+Which page do you start with? Pull up Search Console, sort by impressions, and take the top one.
 
 ## Keep Reading
 
