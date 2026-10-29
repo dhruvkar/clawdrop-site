@@ -1,6 +1,6 @@
 ---
 layout: playbook.njk
-title: "The guest messaged at 11pm. By morning they'd booked somewhere else."
+title: "Answer rental inquiries at 11pm with AI"
 description: "A builder shared a free workflow that answers rental inquiries from WhatsApp, Instagram and Meta ads, checks dates, and sends a payment link. It's a starting kit, and you have to plug in your own booking software."
 date: 2026-10-28
 difficulty: Advanced

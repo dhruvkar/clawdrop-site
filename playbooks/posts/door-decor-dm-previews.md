@@ -1,6 +1,6 @@
 ---
 layout: playbook.njk
-title: "Every order is a family name on a door. The AI makes the preview."
+title: "AI answers the DMs for a custom door decor shop"
 description: "A one-person door-decor shop spends most of the day in Instagram DMs. The owner already has a preview trick that works by hand. Here's how builders said to automate the rest."
 date: 2026-10-28
 difficulty: Intermediate

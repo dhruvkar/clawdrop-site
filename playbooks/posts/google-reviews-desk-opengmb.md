@@ -1,6 +1,6 @@
 ---
 layout: playbook.njk
-title: "An SEO agency got tired of paying per location. So it built its own Google review desk."
+title: "Free AI replies to your Google reviews"
 description: "OpenGMB drafts replies to your Google reviews, schedules posts and edits your Maps listing, and nothing goes live until a person approves it. It's free to run yourself or $10 a month hosted. It's also brand new."
 date: 2026-10-28
 difficulty: Beginner (hosted) / Advanced (self-hosted)

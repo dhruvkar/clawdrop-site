@@ -1,6 +1,6 @@
 ---
 layout: playbook.njk
-title: "A drainlayer hated admin. Now an AI drafts the invoice and he approves it on WhatsApp."
+title: "A drainlayer's AI does his quotes and invoices"
 description: "After a redundancy, someone in New Zealand set up Hermes to run the paperwork for their dad's drainlaying business. The hard part was getting Dad to trust it."
 date: 2026-10-28
 difficulty: Intermediate

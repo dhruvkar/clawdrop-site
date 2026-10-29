@@ -1,6 +1,6 @@
 ---
 layout: playbook.njk
-title: "He couldn't justify learning Revit for a few houses. So he built his own CAD for under $500."
+title: "He built his own CAD software for under $500"
 description: "A designer who can't code built a tool that turns a 3D house model into factory panels, cutting plans, a parts list, a cost estimate and an assembly guide. It took about a month."
 date: 2026-10-28
 difficulty: Advanced
