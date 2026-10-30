@@ -1,0 +1,182 @@
+---
+title: "SEO & AI Search for Home Service Businesses"
+description: "Get found on Google and named by ChatGPT. Listings on all seven surfaces, a website AI can read, content from real jobs, reviews, and follow-up, for home service contractors."
+permalink: /seo/
+---
+{% extends "base.njk" %}
+
+{% block styles %}
+  .offer { max-width: 760px; margin: 0 auto; padding: 56px 28px 80px; }
+
+  .offer-flag { font-size: 0.78rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 18px; }
+  .offer h1 { font-family: 'Fraunces', serif; font-size: clamp(2.1rem, 5vw, 3.1rem); font-weight: 700; letter-spacing: -0.025em; line-height: 1.06; color: var(--ink); margin-bottom: 20px; }
+  .offer-lede { font-size: 1.12rem; color: var(--ink-soft); line-height: 1.65; max-width: 54ch; }
+
+  .offer h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; letter-spacing: -0.015em; color: var(--ink); margin: 52px 0 8px; padding-bottom: 12px; border-bottom: 1px solid var(--rule); }
+  .offer p { font-size: 1rem; line-height: 1.75; margin-bottom: 16px; max-width: 62ch; }
+  .section-note { color: var(--ink-mute); font-size: 0.95rem; margin-bottom: 20px; }
+
+  .diy { background: var(--warm); border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0; padding: 18px 22px; margin: 28px 0 0; font-size: 1rem; line-height: 1.7; max-width: none; }
+  .diy b { color: var(--ink); font-weight: 600; }
+
+  .menu { display: grid; }
+  .mrow { display: grid; grid-template-columns: 1fr; column-gap: 12px; align-items: baseline; padding: 16px 0 15px; border-bottom: 1px solid var(--rule); }
+  .mrow .item { font-weight: 600; color: var(--ink); font-size: 1rem; }
+  .mrow .price { font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; font-weight: 500; color: var(--ink); white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .mrow .price small { color: var(--ink-mute); font-weight: 400; font-size: 0.78rem; }
+  .mrow .desc { grid-column: 1 / 2; color: var(--ink-soft); font-size: 0.93rem; line-height: 1.65; margin-top: 4px; max-width: 56ch; }
+  .mrow.free .price { color: var(--accent); }
+
+  .bundles { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 20px; }
+  .bundle { background: var(--paper); border: 1px solid var(--rule-strong); border-radius: 16px; padding: 26px 24px; box-shadow: 0 12px 36px rgba(21, 36, 61, 0.06); display: flex; flex-direction: column; }
+  .bundle.pick { border-color: var(--accent); box-shadow: 0 12px 36px rgba(216, 85, 44, 0.12); }
+  .bundle .nm { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; color: var(--ink); }
+  .bundle .pr { font-family: 'Fraunces', serif; font-size: 2.2rem; font-weight: 700; letter-spacing: -0.03em; color: var(--accent); line-height: 1; margin: 12px 0 2px; font-variant-numeric: tabular-nums; }
+  .bundle .per { color: var(--ink-mute); font-size: 0.85rem; margin-bottom: 16px; }
+  .bundle ul { list-style: none; margin: 0; padding: 0; font-size: 0.9rem; display: flex; flex-direction: column; gap: 8px; }
+  .bundle li { padding-left: 18px; position: relative; color: var(--ink-soft); line-height: 1.5; }
+  .bundle li::before { content: ""; position: absolute; left: 0; top: 0.5em; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  .bundle li.hd { padding-left: 0; color: var(--ink); font-weight: 600; margin-top: 4px; }
+  .bundle li.hd::before { display: none; }
+
+  .cta-card { background: var(--paper); border: 1px solid var(--rule-strong); border-radius: 16px; padding: 28px 30px; margin-top: 48px; box-shadow: 0 12px 36px rgba(21, 36, 61, 0.06); }
+  .cta-card h3 { font-family: 'Fraunces', serif; font-size: 1.4rem; font-weight: 600; color: var(--ink); margin-bottom: 10px; }
+  .cta-card p { margin-bottom: 14px; }
+  .cta-btn { display: inline-flex; align-items: center; gap: 6px; padding: 13px 26px; border-radius: 100px; font-size: 0.95rem; font-weight: 600; text-decoration: none; background: var(--ink); color: #fff; transition: background 0.2s; }
+  .cta-btn:hover { background: var(--accent); color: #fff; }
+
+  .fineprint { font-size: 0.85rem; color: var(--ink-mute); line-height: 1.65; border-top: 1px solid var(--rule); margin-top: 48px; padding-top: 18px; max-width: none; }
+
+  @media (max-width: 600px) {
+    .offer { padding: 36px 20px 60px; }
+    .bundle .pr { font-size: 1.9rem; }
+  }
+{% endblock %}
+
+{% block body %}
+<div class="offer">
+
+  <div class="offer-flag">SEO &amp; AI search for home service businesses</div>
+  <h1>Seven surfaces</h1>
+  <p class="offer-lede">A homeowner with a stained floor asks her phone, and something answers with three names. There are seven places that answer gets assembled from: Google, Yelp, Apple, Bing, Nextdoor, Thumbtack and your own website. Most home service businesses are on one of them.</p>
+  <p class="offer-lede" style="margin-top:14px">We get you on all seven, saying the same thing, so both Google and the AI assistants (ChatGPT, Gemini, Perplexity, Claude, Copilot) can find you, trust you and name you. Take the whole program, or take one piece.</p>
+
+  <p class="diy"><b>Most of this you can do yourself.</b> The <a href="/">playbooks</a> tell you how, free. This page is what we do if you'd rather not.</p>
+
+  <h2>Start here</h2>
+  <p class="section-note">The inspection tells you which of the pieces below you actually need, in order.</p>
+  <div class="menu">
+    <div class="mrow">
+      <span class="item">Website &amp; listings inspection</span>
+      <div class="desc">Every page on your site, every listing with your name on it, and whether ChatGPT hands out your number when a homeowner near you asks. A report you can actually read, the to-do list in order, and a 30-minute call. The cost comes off any work you hire us for within 30 days. <a href="/ai-seo-audit/">Full details and the request form</a>.</div>
+    </div>
+  </div>
+
+  <h2>Set up once</h2>
+  <p class="section-note">One-time work. Yours to keep either way.</p>
+  <div class="menu">
+    <div class="mrow">
+      <span class="item">Google Business Profile, built and verified</span>
+      <div class="desc">Entity, address and phone set up so it survives. Categories, services, hours, photos. Coaching through the video verification, and the document pack you need if it's ever challenged. This is where most new businesses lose a year.</div>
+    </div>
+    <div class="mrow">
+      <span class="item">The other six surfaces</span>
+      <div class="desc">Yelp, Apple Business Connect, Bing Places, Nextdoor, Thumbtack, and your own site, all saying the same name, number and address. The AI assistants cross-check these against each other.</div>
+    </div>
+    <div class="mrow">
+      <span class="item">Name, address and phone cleanup</span>
+      <div class="desc">For a business that's been around. Old listings, dead numbers, three spellings of the same address. A number that differs in three places reads as a business nobody can verify.</div>
+    </div>
+    <div class="mrow">
+      <span class="item">Website, built</span>
+      <div class="desc">Home, about, services, gallery, contact. Written so an AI assistant can lift a paragraph and still name you. Included with any six-month plan.</div>
+    </div>
+    <div class="mrow">
+      <span class="item">Published price guide</span>
+      <div class="desc">Built from your real invoices. Cost questions trigger an AI answer more than anything else, and almost nobody in the trades will publish a number.</div>
+    </div>
+  </div>
+
+  <h2>Every month</h2>
+  <p class="section-note">Pick any of these on their own.</p>
+  <div class="menu">
+    <div class="mrow">
+      <span class="item">Local search management</span>
+      <div class="desc">Profile posts, photos, services and Q&amp;A kept current. Rank tracking run city by city, because a rank check from anywhere else tells you nothing. Monthly report.</div>
+    </div>
+    <div class="mrow">
+      <span class="item">AI visibility scorecard</span>
+      <div class="desc">There's no rank in ChatGPT. Ask it the same question twice and you can get different companies in a different order. So we ask the questions your customers ask, across five assistants, every month, and track how often you get named, as a rate, and whether it's climbing.</div>
+    </div>
+    <div class="mrow">
+      <span class="item">Content engine</span>
+      <div class="desc">Starts with 45 minutes on the phone with you, recorded. What people get wrong, the job that went sideways, when you'd tell someone not to hire you. That conversation is why none of it reads like a machine wrote it. Each piece answers a real customer question, the narrow, specific kind people ask right before they buy.</div>
+    </div>
+    <div class="mrow">
+      <span class="item">Suburb pages</span>
+      <div class="desc">One page per town, each with a real job in it. Photos, what it cost, something true about the houses there. Thin copies with the town name swapped get a whole site held down.</div>
+    </div>
+    <div class="mrow">
+      <span class="item">Review engine</span>
+      <div class="desc">One plain ask on every closed invoice with a direct link. Replies drafted for every review, including the bad ones. No bought reviews, no scripts, no sorting customers by mood first; that's what Google's April 2026 sweep punished.</div>
+    </div>
+    <div class="mrow">
+      <span class="item">Website care and technical SEO</span>
+      <div class="desc">Hosting, updates, speed, schema, indexing, and making sure AI crawlers can actually read the site. New pages submitted the day they go live.</div>
+    </div>
+    <div class="mrow">
+      <span class="item">Follow-up, handled</span>
+      <div class="desc">A missed call goes out as a text inside sixty seconds. Every quote followed up until it closes or dies. And every customer you invoiced a year or two ago gets a reason to call you again, each quarter; you already paid to get them once. Runs on a CRM we build for you, every lead tracked from first call to paid invoice.</div>
+    </div>
+  </div>
+
+  <h2>Or take it together</h2>
+  <p class="section-note">Each bundle costs less than the pieces inside it, and the website is built at no charge. Move up or down a tier any month.</p>
+  <div class="bundles">
+    <div class="bundle">
+      <div class="nm">Get Found</div>
+      <div class="per">The basics, done right</div>
+      <ul>
+        <li>Website built, hosted, maintained</li>
+        <li>Google, Yelp and Apple claimed</li>
+        <li>Local search managed, rank tracking city by city</li>
+        <li>One content piece a month</li>
+        <li>Monthly report</li>
+      </ul>
+    </div>
+    <div class="bundle pick">
+      <div class="nm">Found and Chosen</div>
+      <div class="per">Search plus AI assistants</div>
+      <ul>
+        <li class="hd">Everything in Get Found, plus</li>
+        <li>All seven surfaces, claimed and matching</li>
+        <li>Published price guide</li>
+        <li>Review ask on every closed invoice</li>
+        <li>Missed call text back</li>
+        <li>Four content pieces a month, posts or suburb pages</li>
+        <li>Monthly scorecard across five AI assistants</li>
+      </ul>
+    </div>
+    <div class="bundle">
+      <div class="nm">Front Office</div>
+      <div class="per">Found, chosen, and followed up</div>
+      <ul>
+        <li class="hd">Everything in Found and Chosen, plus</li>
+        <li>CRM built and run</li>
+        <li>Every quote chased until it closes or dies</li>
+        <li>Past customers reactivated quarterly</li>
+        <li>Commercial track: property managers, restaurant groups, facilities</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="cta-card">
+    <h3>Which piece do you want to start with?</h3>
+    <p>Start with the <a href="/ai-seo-audit/">inspection</a>. It tells you which of these you actually need, in order, and it comes off whatever you pick. Or bring three numbers to a twenty-minute call: your average invoice, roughly how many jobs you closed last month, and what you use to send invoices. With those I can tell you what this is worth to you before you spend anything.</p>
+    <a class="cta-btn" href="/ai-seo-audit/">Start with the inspection &rarr;</a>
+  </div>
+
+  <p class="fineprint">You own your domain, your profiles, your accounts and your customer list from day one. Nothing goes live in your name that you haven't read.</p>
+
+</div>
+{% endblock %}
