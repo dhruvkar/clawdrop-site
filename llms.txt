@@ -15,7 +15,7 @@ Step-by-step guides showing real OpenClaw builds you can replicate: https://claw
 ## Services
 
 - [AI SEO Audit](https://clawdrop.org/ai-seo-audit/): A $750 one-time website and listings inspection for home service contractors. Checks every page, whether AI crawlers can read the site, and whether Google, Yelp, BBB, Apple Maps, Bing and Nextdoor listings agree with each other. Credited back against fix work.
-- [SEO & AI Search](https://clawdrop.org/seo/): Done-for-you local SEO and AI search visibility (GEO) for home service contractors: Google Business Profile and six other listing surfaces kept consistent, a website AI assistants can read and quote, content and suburb pages built from real jobs, review engine, monthly AI visibility scorecard across five assistants, and missed-call/quote follow-up.
+- [SEO & AI Search](https://clawdrop.org/seo/): Local SEO and AI search visibility (GEO) for small businesses with a physical location: free website with per-suburb pages, Google Business Profile plus Yelp, Apple Maps, Nextdoor and Bing kept consistent, AI search optimization, a monthly owner call and 2-3 new pages a month. $2,900/mo standard, $2,600/mo for partner-community members, six month minimum.
 
 ## Newsletter
 
