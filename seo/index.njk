@@ -107,7 +107,7 @@ permalink: /seo/
   </div>
 
   <h2>Add-on: a CRM</h2>
-  <p class="section-note">Not included in the plan pricing below. Priced separately, as a monthly add-on.</p>
+  <p class="section-note">Not included in the plan pricing below. $500 a month on top of Standard, $400 a month on top of Members.</p>
   <div class="menu">
     <div class="mrow">
       <span class="item">Every lead tracked, setup included</span>
@@ -133,19 +133,29 @@ permalink: /seo/
     <div class="bundle pick">
       <div class="nm">Members</div>
       <div class="pr">$2,600<small>/mo</small></div>
-      <div class="per">Exclusive to partner communities &middot; six month minimum</div>
+      <div class="per">Exclusive to partner communities &middot; six month minimum &middot; mention your community's code when you book</div>
       <ul>
         <li class="hd">Everything in Standard</li>
         <li>$300 a month less, $1,800 over the six months</li>
+        <li>CRM add-on $400/mo instead of $500</li>
       </ul>
     </div>
   </div>
 
   <div class="cta-card">
-    <h3>Book a 20-minute call</h3>
+    <h3>Book a 30-minute call</h3>
     <p>Bring three numbers: your average job, roughly how many jobs you closed last month, and the towns you want to win. I'll pull the search data for your area and tell you straight whether this is worth it for you before you spend anything.</p>
-    <a class="cta-btn" href="https://cal.com/dhruvkar">Book a call &rarr;</a>
+    <a class="cta-btn" id="book" href="https://cal.com/dhruvkar/30min">Book a call &rarr;</a>
   </div>
+
+  <script>
+    // Partner links look like /seo/?via=fablab; the tag rides into the booking as metadata + utm_source.
+    (function () {
+      var via = new URLSearchParams(location.search).get('via');
+      if (!via || !/^[\w-]{1,40}$/.test(via)) return;
+      document.getElementById('book').href += '?metadata[via]=' + via + '&utm_source=' + via;
+    })();
+  </script>
 
   <p class="fineprint">You own your domain, your profiles, your accounts and your customer list from day one. Nothing goes live in your name that you haven't read.</p>
 
