@@ -61,15 +61,15 @@ It lets Duet read your ad accounts the way it would read a document.
 > It reports what it finds in relation to the STATE.md and the priority items I'm working on
 
 STATE.md is a one-page running note of what matters right now.
-So the morning report isn't "here are all your numbers."
-It's "here's what changed, measured against what you said you care about."
+So the morning report reads like this:
+"Here's what changed, measured against what you said you care about."
 
 ## What Claude Duet is
 
 Anthropic's new app.
 
 Claude works on its own computer in the cloud.
-It messages you first, instead of waiting for you.
+It messages you first.
 It asks before it acts.
 
 It's a research preview, for US users on the Pro and Max plans.
@@ -106,7 +106,7 @@ Tonight's update is what tomorrow's report reads.
 
 > I am capable of performing the work of several marketing people by myself from home with great accuracy, and my days are about 2-3 hours of work at the most, largely just because I'm very careful and thorough.
 
-That's their claim, not a measured one.
+That's their own estimate. Nobody measured it.
 But the shape of it makes sense.
 The slow part of paid ads is reading four dashboards and remembering what you were doing.
 Duet does the reading.

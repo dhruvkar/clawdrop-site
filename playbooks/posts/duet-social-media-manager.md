@@ -121,7 +121,7 @@ He hasn't posted a video himself in a long time:
 
 > Claude does it for me
 
-His claim for the whole short-video setup, not Duet alone:
+His claim covers the whole short-video setup, with Duet as one piece of it:
 
 > It probably takes me 30 minutes a week to do all my short-form content, which equates to about 90 posts a month
 

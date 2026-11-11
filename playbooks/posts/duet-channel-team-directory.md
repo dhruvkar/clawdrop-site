@@ -93,7 +93,7 @@ It picked 6:21am on its own, so the report lands before the 7am CEO brief.
 
 ## What the researcher found
 
-The researcher was hooked up to DataForSEO, so it pulled real search data instead of guessing.
+The researcher was hooked up to DataForSEO, so it pulled real search numbers.
 
 The ask: 20 long-tail search phrases, low difficulty, real volume.
 

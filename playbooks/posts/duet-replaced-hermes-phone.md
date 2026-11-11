@@ -181,7 +181,7 @@ Hermes could send from a separate assistant account. Duet can't, even when you g
 
 So every email goes out as you.
 
-### It checks on a schedule, it doesn't react instantly
+### It checks on a schedule
 
 Duet can't react the moment something happens. It checks on a schedule.
 
