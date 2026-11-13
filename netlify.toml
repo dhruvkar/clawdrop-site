@@ -61,6 +61,17 @@
   to = "/playbooks/signal-based-daily-leads/"
   status = 301
 
+# Removed 2026-11-12: AI SEO Audit page + form (spam magnet)
+[[redirects]]
+  from = "/ai-seo-audit/*"
+  to = "/seo/"
+  status = 301
+
+[[redirects]]
+  from = "/audit-requested/*"
+  to = "/seo/"
+  status = 301
+
 # Affiliate redirects
 [[redirects]]
   from = "/go/inboxkit"
